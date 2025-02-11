@@ -7,6 +7,11 @@ const geistSans = localFont({
     variable: '--font-geist-sans',
     weight: '100 900',
 })
+const kaushanScript = localFont({
+    src: './fonts/KaushanScript-Regular.ttf',
+    variable: '--font-kaushan-script',
+    weight: '100 900',
+})
 const geistMono = localFont({
     src: './fonts/GeistMonoVF.woff',
     variable: '--font-geist-mono',
@@ -26,7 +31,7 @@ export default function RootLayout({
     return (
         <html
             lang="en"
-            className="bg-white lg:bg-zinc-100  dark:bg-hvorange dark:lg:bg-hvorange"
+            className="bg-white lg:bg-zinc-100 dark:bg-white dark:lg:bg-white"
         >
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
