@@ -25,6 +25,8 @@ function MobileSidebar({
     close,
     children,
 }: React.PropsWithChildren<{ open: boolean; close: () => void }>) {
+    console.log("🚀 ~ close:", close)
+    console.log("🚀 ~ close:", close)
     return (
         <Headless.Dialog open={open} onClose={close} className="lg:hidden">
             <Headless.DialogBackdrop
@@ -59,7 +61,7 @@ export function StackedLayout({
     navbar: React.ReactNode
     sidebar: React.ReactNode
 }>) {
-    let [showSidebar, setShowSidebar] = useState(false)
+    const [showSidebar, setShowSidebar] = useState(false)
 
     return (
         <div className="relative isolate flex min-h-svh w-full flex-col bg-white lg:bg-zinc-100 dark:bg-hvblue dark:lg:bg-hvblue">

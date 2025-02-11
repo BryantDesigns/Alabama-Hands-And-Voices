@@ -2,6 +2,7 @@
 
 import clsx from 'clsx'
 import type { ReactNode } from 'react'
+import Image from 'next/image'
 
 type BannerProps = {
     backgroundImage?: string
@@ -40,9 +41,12 @@ export function Banner({
 
 function BannerBackgroundImage({ src }: { src: string }) {
     return (
-        <img
+        <Image
             alt=""
             src={src}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority
             className="absolute inset-0 -z-10 h-full w-full object-cover"
         />
     )
@@ -114,7 +118,7 @@ export function BannerTitle({
     return (
         <h2
             className={clsx(
-                'mt-2 text-5xl font-semibold tracking-tight text-white sm:text-7xl',
+                'mt-2 font-semibold tracking-tight',
                 className
             )}
         >

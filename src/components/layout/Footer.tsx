@@ -1,138 +1,106 @@
-import Link from "next/link";
-import Image from "next/image";
-
-const navigation = {
-  pages: [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/who-we-are" },
-    { name: "Resources", href: "/resources" },
-    { name: "Contact", href: "/contact" },
-    {
-      name: "Parent Road Map",
-      href: "assets/02_Parent%20Road%20Map.pdf",
-      external: true,
-    },
-  ],
-  contact: [
-    { type: "Address", text: "P.O. Box 130627 Birmingham, AL 35213" },
-    { type: "Email", text: "alabamahinfo@gmail.com" },
-    { type: "Phone", text: "+1 205 677-3136" },
-  ],
-  social: [
-    { name: "Facebook", href: "#" },
-    { name: "Instagram", href: "#" },
-    { name: "YouTube", href: "#" },
-    { name: "GitHub", href: "#" },
-  ],
-};
+import PayPalDonation from '@/components/common/PayPalDonation'
+import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Footer() {
-  return (
-    <footer className="bg-hvblue-500 text-white mt-16">
-      {/* Donation Section */}
-      <div className="bg-hvorange-500 py-4 border-t-4 border-hvorange-700">
-        <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between px-6">
-          <h5 className="text-lg mb-4 sm:mb-0">
-            Want to donate to our mission?
-          </h5>
-          <form
-            action="https://www.paypal.com/cgi-bin/webscr"
-            method="post"
-            target="_top"
-            className="flex items-center"
-          >
-            <input type="hidden" name="cmd" value="_s-xclick" />
-            <input
-              type="hidden"
-              name="hosted_button_id"
-              value="R99Y9497TS2SW"
-            />
-            <button
-              type="submit"
-              className="bg-secondary text-white font-bold py-2 px-4 rounded hover:bg-hvorange-600"
-            >
-              Donate Here!
-            </button>
-          </form>
-        </div>
-      </div>
+    return (
+        <footer className="bg-white text-black">
+            {/* Donation Section */}
+            <div className="border-t-4 border-hvorange bg-hvblue py-6 text-white">
+                <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-12">
+                    <h5 className="text-lg font-semibold">
+                        Want to donate to our mission?
+                    </h5>
+                    <PayPalDonation />
+                </div>
+            </div>
 
-      {/* Footer Links and Information */}
-      <div className="container mx-auto px-6 py-12 text-center text-md-left">
-        <div className="flex flex-col lg:flex-row justify-between gap-8 text-gray-300">
-          {/* Logo Section */}
-          <div className="lg:w-1/3 mb-8 lg:mb-0">
-            <Image
-              src="https://via.placeholder.com/200"
-              alt="HV Logo"
-              width={200}
-              height={200}
-              className="mx-auto lg:mx-0"
-            />
-          </div>
+            {/* Main Footer Content */}
+            <div className="container mx-auto px-6 py-16 lg:px-8">
+                <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+                    {/* Logo Section */}
+                    <div className="flex justify-center lg:justify-start">
+                        <Image
+                            src="/images/hvlogo.svg"
+                            width={160}
+                            height={150}
+                            alt="Hands & Voices Logo"
+                        />
+                    </div>
 
-          {/* Pages Links */}
-          <div className="lg:w-1/3 mb-8 lg:mb-0">
-            <h6 className="text-lg font-bold mb-4">Pages</h6>
-            <ul className="space-y-3">
-              {navigation.pages.map((page) => (
-                <li key={page.name}>
-                  <Link
-                    href={page.href}
-                    target={page.external ? "_blank" : undefined}
-                    rel={page.external ? "noopener noreferrer" : undefined}
-                    className="hover:text-white"
-                  >
-                    {page.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+                    {/* Navigation Links */}
+                    <div className="text-center lg:text-left">
+                        <h6 className="text-lg font-semibold uppercase">
+                            Pages
+                        </h6>
+                        <hr className="mx-auto my-4 w-12 border-2 border-hvorange lg:mx-0" />
+                        <ul className="space-y-2">
+                            {[
+                                { name: 'Home', href: '/' },
+                                { name: 'About', href: '/who-we-are' },
+                                { name: 'Resources', href: '/resources' },
+                                { name: 'Contact', href: '/contact' },
+                            ].map((link) => (
+                                <li key={link.name}>
+                                    <Link
+                                        href={link.href}
+                                        className="text-gray-700 transition-colors hover:text-hvorange"
+                                    >
+                                        {link.name}
+                                    </Link>
+                                </li>
+                            ))}
+                            {/* External Link */}
+                            <li>
+                                <a
+                                    href="assets/02_Parent%20Road%20Map.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-gray-700 transition-colors hover:text-hvorange"
+                                >
+                                    Parent Road Map
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
 
-          {/* Contact Information */}
-          <div className="lg:w-1/3">
-            <h6 className="text-lg font-bold mb-4">Contact</h6>
-            <ul className="space-y-3">
-              {navigation.contact.map((info) => (
-                <li key={info.type} className="flex items-start">
-                  <span className="font-bold">{info.type}:&nbsp;</span>
-                  <span>{info.text}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
+                    {/* Contact Information */}
+                    <div className="text-center lg:text-left">
+                        <h6 className="text-lg font-semibold uppercase">
+                            Contact
+                        </h6>
+                        <hr className="mx-auto my-4 w-12 border-2 border-hvorange lg:mx-0" />
+                        <p>
+                            <i className="fas fa-home mr-2"></i> P.O. Box 130627
+                            Birmingham, AL 35213
+                        </p>
+                        <p>
+                            <i className="fas fa-envelope mr-2"></i>{' '}
+                            <a
+                                href="mailto:alabamahinfo@gmail.com"
+                                className="transition-colors hover:text-hvorange"
+                            >
+                                alabamahinfo@gmail.com
+                            </a>
+                        </p>
+                        <p>
+                            <i className="fas fa-phone mr-2"></i> +1 205
+                            677-3136
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-      {/* Social Media and Copyright */}
-      <div className="bg-hvblue-600 text-gray-200 text-center py-6 border-t border-gray-700">
-        <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between px-6">
-          {/* Social Media Links */}
-          <div className="flex gap-x-6 mb-4 sm:mb-0">
-            {navigation.social.map((social) => (
-              <Link
-                key={social.name}
-                href={social.href}
-                className="text-gray-200 hover:text-white"
-              >
-                {social.name}
-              </Link>
-            ))}
-          </div>
-
-          {/* Copyright Information */}
-          <p className="text-sm">
-            &copy; 2024 Bryant Designs. All rights reserved.{" "}
-            <Link
-              href="http://tylerlbryant.com/"
-              className="text-hvorange-400 hover:text-white"
-            >
-              Bryant Designs
-            </Link>
-          </p>
-        </div>
-      </div>
-    </footer>
-  );
+            {/* Copyright Section */}
+            <div className="bg-secondary py-4 text-center text-sm text-gray-800">
+                &copy; 2024 Hands & Voices | Designed by{' '}
+                <a
+                    href="#"
+                    className="transition-colors hover:text-hvorange"
+                >
+                    Bryant Designs
+                </a>
+            </div>
+        </footer>
+    )
 }

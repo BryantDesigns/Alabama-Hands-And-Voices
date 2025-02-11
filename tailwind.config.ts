@@ -36,6 +36,9 @@ const config: Config = {
                     900: '#511E00',
                 },
             },
+            fontFamily: {
+                kaushan: ['Kaushan Script', 'cursive'],
+            },
         },
     },
     plugins: [require('@tailwindcss/forms')],
