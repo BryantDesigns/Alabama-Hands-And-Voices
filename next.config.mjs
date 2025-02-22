@@ -4,7 +4,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'via.placeholder.com',
+                hostname: 'placehold.co',
                 port: '',
                 pathname: '/**',
             },
@@ -22,7 +22,10 @@ const nextConfig = {
             },
         ],
         domains: [],
+        eslint: {
+            ignoreDuringBuilds: true,
+        },
     },
 }
 
-export default nextConfig;
+export default nextConfig

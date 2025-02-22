@@ -229,14 +229,6 @@ export default function Header() {
                         Membership
                     </Link>
                 </PopoverGroup>
-                <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a
-                        href="#"
-                        className="text-sm/6 font-semibold text-gray-900"
-                    >
-                        Log in <span aria-hidden="true">&rarr;</span>
-                    </a>
-                </div>
             </nav>
             <Dialog
                 open={mobileMenuOpen}
@@ -266,7 +258,7 @@ export default function Header() {
                                 <Disclosure as="div" className="-mx-3">
                                     {({ open }) => (
                                         <>
-                                            <Disclosure.Button className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
+                                            <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
                                                 About Us
                                                 <ChevronDownIcon
                                                     aria-hidden="true"
@@ -274,19 +266,19 @@ export default function Header() {
                                                         open ? 'rotate-180' : ''
                                                     }`}
                                                 />
-                                            </Disclosure.Button>
-                                            <Disclosure.Panel className="mt-2 space-y-2">
+                                            </DisclosureButton>
+                                            <DisclosurePanel className="mt-2 space-y-2">
                                                 {about.map((item) => (
-                                                    <Disclosure.Button
+                                                    <DisclosureButton
                                                         key={item.name}
                                                         as="a"
                                                         href={item.href}
                                                         className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
                                                     >
                                                         {item.name}
-                                                    </Disclosure.Button>
+                                                    </DisclosureButton>
                                                 ))}
-                                            </Disclosure.Panel>
+                                            </DisclosurePanel>
                                         </>
                                     )}
                                 </Disclosure>
@@ -295,7 +287,7 @@ export default function Header() {
                                 <Disclosure as="div" className="-mx-3">
                                     {({ open }) => (
                                         <>
-                                            <Disclosure.Button className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
+                                            <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
                                                 Programs
                                                 <ChevronDownIcon
                                                     aria-hidden="true"
@@ -303,19 +295,19 @@ export default function Header() {
                                                         open ? 'rotate-180' : ''
                                                     }`}
                                                 />
-                                            </Disclosure.Button>
-                                            <Disclosure.Panel className="mt-2 space-y-2">
+                                            </DisclosureButton>
+                                            <DisclosurePanel className="mt-2 space-y-2">
                                                 {programs.map((item) => (
-                                                    <Disclosure.Button
+                                                    <DisclosureButton
                                                         key={item.name}
                                                         as="a"
                                                         href={item.href}
                                                         className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
                                                     >
                                                         {item.name}
-                                                    </Disclosure.Button>
+                                                    </DisclosureButton>
                                                 ))}
-                                            </Disclosure.Panel>
+                                            </DisclosurePanel>
                                         </>
                                     )}
                                 </Disclosure>
@@ -331,14 +323,6 @@ export default function Header() {
                                 >
                                     Membership
                                 </Link>
-                            </div>
-                            <div className="py-6">
-                                <a
-                                    href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                                >
-                                    Log in
-                                </a>
                             </div>
                         </div>
                     </div>
