@@ -22,9 +22,9 @@ const nextConfig = {
             },
         ],
         domains: [],
-        eslint: {
-            ignoreDuringBuilds: true,
-        },
+    },
+    eslint: {
+        ignoreDuringBuilds: true,
     },
 }
 
