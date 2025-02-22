@@ -40,7 +40,7 @@ const GBYSForm = () => {
 
             <div className="mt-8">
                 {activeTab === 'personal' ? (
-                    <form className="grid grid-cols-1 gap-6 md:grid-cols-2 netlify">
+                    <form className="netlify grid grid-cols-1 gap-6 md:grid-cols-2">
                         <div>
                             <label className="block font-medium">
                                 Parent/Guardian Name
@@ -71,7 +71,7 @@ const GBYSForm = () => {
                         </div>
                         <div>
                             <label className="block font-medium">
-                                Child's Name
+                                Child&apos;s Name
                             </label>
                             <input
                                 type="text"

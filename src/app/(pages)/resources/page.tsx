@@ -160,7 +160,12 @@ export default function ResourcesPage() {
                                                     </tr>
                                                 ) : (
                                                     category.resources
-                                                        .reduce(
+                                                        .reduce<
+                                                            {
+                                                                name: string
+                                                                url: string
+                                                            }[][]
+                                                        >(
                                                             (
                                                                 rows,
                                                                 resource,
@@ -184,7 +189,7 @@ export default function ResourcesPage() {
                                                                 }
                                                                 return rows
                                                             },
-                                                            []
+                                                            [] // This ensures TypeScript knows the accumulator is an array of arrays of resources
                                                         )
                                                         .map(
                                                             (row, rowIndex) => (
