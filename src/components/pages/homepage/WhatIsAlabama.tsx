@@ -6,13 +6,6 @@ interface WhatIsAlabamaProps {
 }
 
 export default function WhatIsAlabama({ data }: WhatIsAlabamaProps) {
-    // data might look like:
-    // {
-    //   type: "whatIsAlabamaHandsAndVoices",
-    //   heading: "What Is Alabama Hands & Voices?",
-    //   htmlContent: "<p>Alabama Hands &amp; Voices is a parent-led ...</p>",
-    //   image: "/images/retreat1.jpg"
-    // }
 
     return (
         <section className="overflow-hidden bg-gray-100 py-12 sm:py-24">
