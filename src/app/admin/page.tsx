@@ -8,23 +8,46 @@ import { useRouter } from 'next/navigation'
 import RichTextEditor from '@/components/common/RichTextEditor'
 import { updateCacheAfterSave } from '@/services/firebase/database'
 
+interface Section {
+    heading?: string
+    htmlContent?: string
+    introHtml?: string
+    content?: string[]
+    image?: string
+    events?: Event[]
+    stats?: Stat[]
+}
+
+interface Event {
+    title: string
+    descriptionHtml?: string
+}
+
+interface Stat {
+    label: string
+    value: string
+}
+
 const AdminPage = () => {
     const router = useRouter()
-    const [user, setUser] = useState<any>(null)
+    // Removed the unused user state. If you need it later, you can add it back with a proper type:
+    // const [user, setUser] = useState<User | null>(null)
 
-    const [pages, setPages] = useState([
+    // Since pages are static, define them as a constant instead of state.
+    const pages = [
         { id: 'home', title: 'Home Page' },
         { id: 'about', title: 'About Page' },
         { id: 'contact', title: 'Contact Page' },
-    ])
-    const [selectedPageId, setSelectedPageId] = useState('home')
+    ]
 
-    // Sections array is the core state we edit
-    const [sections, setSections] = useState<any[]>([])
-    const [selectedSectionIndex, setSelectedSectionIndex] = useState(0)
+    const [selectedPageId, setSelectedPageId] = useState<string>('home')
 
-    const [isLoading, setIsLoading] = useState(true)
-    const [isSaving, setIsSaving] = useState(false)
+    // Sections are strongly typed as Section[]
+    const [sections, setSections] = useState<Section[]>([])
+    const [selectedSectionIndex, setSelectedSectionIndex] = useState<number>(0)
+
+    const [isLoading, setIsLoading] = useState<boolean>(true)
+    const [isSaving, setIsSaving] = useState<boolean>(false)
 
     // --------------------------------------------------------------------------
     // Auth check
@@ -33,9 +56,11 @@ const AdminPage = () => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (!currentUser) {
                 router.push('/auth')
-            } else {
-                setUser(currentUser)
             }
+            // Optionally set user if needed
+            // else {
+            //   setUser(currentUser)
+            // }
         })
         return () => unsubscribe()
     }, [router])
@@ -52,9 +77,9 @@ const AdminPage = () => {
 
                 if (docSnap.exists()) {
                     const fetchedData = docSnap.data()
-                    // If there is no sections array, default to empty
-                    const fetchedSections = fetchedData.sections || []
-
+                    // If there is no sections array, default to empty array
+                    const fetchedSections: Section[] =
+                        (fetchedData.sections as Section[]) || []
                     setSections(fetchedSections)
                     setSelectedSectionIndex(0)
                 } else {
@@ -73,17 +98,18 @@ const AdminPage = () => {
     // --------------------------------------------------------------------------
     // Handle Save
     // --------------------------------------------------------------------------
-    async function handleSave(pageId: string, sections: any[]) {
+    async function handleSave(pageId: string, sections: Section[]) {
+        setIsSaving(true)
         try {
             const pageRef = doc(db, 'pages', pageId)
 
-            // 1. Update the doc
+            // 1. Update the document
             await updateDoc(pageRef, {
                 sections,
                 lastUpdated: serverTimestamp(),
             })
 
-            // 2. Re-fetch the updated doc
+            // 2. Re-fetch the updated document
             const updatedSnap = await getDoc(pageRef)
             if (!updatedSnap.exists()) {
                 console.error(`No document found for '${pageId}' after save.`)
@@ -97,6 +123,8 @@ const AdminPage = () => {
             alert('✅ Content saved! Using updated data now.')
         } catch (error) {
             console.error('Error saving sections:', error)
+        } finally {
+            setIsSaving(false)
         }
     }
 
@@ -206,20 +234,23 @@ const AdminPage = () => {
 
 /**
  * Component that renders form fields based on the section's structure.
- * We detect known fields like 'htmlContent', 'content', etc.
  */
 function SectionEditor({
-    section,
-    onChange,
+  section,
+  onChange,
 }: {
-    section: any
-    onChange: (updatedSection: any) => void
+  section: Section | undefined
+  onChange: (updatedSection: Section) => void
 }) {
     if (!section) {
         return <p>No section selected.</p>
     }
 
-    const handleFieldChange = (field: string, value: any) => {
+    // Use generics so the field name is one of the Section keys
+    const handleFieldChange = <K extends keyof Section>(
+        field: K,
+        value: Section[K]
+    ) => {
         onChange({ ...section, [field]: value })
     }
 
@@ -240,6 +271,7 @@ function SectionEditor({
                 />
             </div>
 
+            {/* HTML Content Editor */}
             {/* If we have 'htmlContent', show a single ReactQuill editor */}
             {typeof section.htmlContent === 'string' && (
                 <div className="mb-4">
@@ -255,6 +287,7 @@ function SectionEditor({
                 </div>
             )}
 
+            {/* Intro HTML Editor */}
             {/* If we have 'introHtml', show another editor */}
             {typeof section.introHtml === 'string' && (
                 <div className="mb-4">
@@ -268,30 +301,35 @@ function SectionEditor({
                 </div>
             )}
 
-            {/* If 'content' is an array of paragraphs */}
-            {Array.isArray(section.content) && (
+            {/* Paragraphs Editor */}
+            {Array.isArray(section.content ?? []) && (
                 <div>
                     <h3 className="mb-2 text-lg font-semibold text-white">
                         Paragraphs
                     </h3>
-                    {section.content.map((paragraph: string, idx: number) => (
-                        <div key={idx} className="mb-4">
-                            <label className="block text-sm font-medium text-gray-300">
-                                Paragraph {idx + 1}
-                            </label>
-                            <RichTextEditor
-                                value={paragraph}
-                                onChange={(val) => {
-                                    const newContent = [...section.content]
-                                    newContent[idx] = val
-                                    handleFieldChange('content', newContent)
-                                }}
-                            />
-                        </div>
-                    ))}
+                    {(section.content ?? []).map(
+                        (paragraph: string, idx: number) => (
+                            <div key={idx} className="mb-4">
+                                <label className="block text-sm font-medium text-gray-300">
+                                    Paragraph {idx + 1}
+                                </label>
+                                <RichTextEditor
+                                    value={paragraph}
+                                    onChange={(val: string) => {
+                                        const newContent = [
+                                            ...(section.content ?? []),
+                                        ]
+                                        newContent[idx] = val
+                                        handleFieldChange('content', newContent)
+                                    }}
+                                />
+                            </div>
+                        )
+                    )}
                 </div>
             )}
 
+            {/* Image URL Editor */}
             {/* If you want to show an image field editor */}
             {typeof section.image === 'string' && (
                 <div className="mb-4">
@@ -309,12 +347,11 @@ function SectionEditor({
                 </div>
             )}
 
-            {/* And so on for events, stats, quote, etc. */}
-            {/* You can create custom editors or repeat a pattern like above. */}
-            {Array.isArray(section.events) && (
+            {/* Events Editor */}
+            {Array.isArray(section.events ?? []) && (
                 <div>
                     <h3 className="text-lg font-semibold text-white">Events</h3>
-                    {section.events.map((evt, idx) => (
+                    {(section.events ?? []).map((evt: Event, idx: number) => (
                         <div key={idx} className="mt-2 bg-gray-700 p-2">
                             <label className="block text-sm text-gray-300">
                                 Event Title
@@ -324,8 +361,13 @@ function SectionEditor({
                                 className="mb-2 w-full rounded border-gray-600 bg-gray-600 text-white"
                                 value={evt.title}
                                 onChange={(e) => {
-                                    const newEvents = [...section.events]
-                                    newEvents[idx].title = e.target.value
+                                    const newEvents = [
+                                        ...(section.events ?? []),
+                                    ]
+                                    newEvents[idx] = {
+                                        ...evt,
+                                        title: e.target.value,
+                                    }
                                     handleFieldChange('events', newEvents)
                                 }}
                             />
@@ -334,9 +376,14 @@ function SectionEditor({
                             </label>
                             <RichTextEditor
                                 value={evt.descriptionHtml || ''}
-                                onChange={(val) => {
-                                    const newEvents = [...section.events]
-                                    newEvents[idx].descriptionHtml = val
+                                onChange={(val: string) => {
+                                    const newEvents = [
+                                        ...(section.events ?? []),
+                                    ]
+                                    newEvents[idx] = {
+                                        ...evt,
+                                        descriptionHtml: val,
+                                    }
                                     handleFieldChange('events', newEvents)
                                 }}
                             />
@@ -345,10 +392,11 @@ function SectionEditor({
                 </div>
             )}
 
-            {Array.isArray(section.stats) && (
+            {/* Stats Editor */}
+            {Array.isArray(section.stats ?? []) && (
                 <div>
                     <h3 className="text-lg font-semibold text-white">Stats</h3>
-                    {section.stats.map((stat, idx) => (
+                    {(section.stats ?? []).map((stat: Stat, idx: number) => (
                         <div key={idx} className="mb-2">
                             <label className="block text-sm text-gray-300">
                                 Label
@@ -358,8 +406,11 @@ function SectionEditor({
                                 className="mb-1 w-full rounded border-gray-600 bg-gray-600 p-1 text-white"
                                 value={stat.label}
                                 onChange={(e) => {
-                                    const newStats = [...section.stats]
-                                    newStats[idx].label = e.target.value
+                                    const newStats = [...(section.stats ?? [])]
+                                    newStats[idx] = {
+                                        ...stat,
+                                        label: e.target.value,
+                                    }
                                     handleFieldChange('stats', newStats)
                                 }}
                             />
@@ -371,8 +422,11 @@ function SectionEditor({
                                 className="mb-2 w-full rounded border-gray-600 bg-gray-600 p-1 text-white"
                                 value={stat.value}
                                 onChange={(e) => {
-                                    const newStats = [...section.stats]
-                                    newStats[idx].value = e.target.value
+                                    const newStats = [...(section.stats ?? [])]
+                                    newStats[idx] = {
+                                        ...stat,
+                                        value: e.target.value,
+                                    }
                                     handleFieldChange('stats', newStats)
                                 }}
                             />
