@@ -26,13 +26,14 @@ const AdminPageContent: React.FC = () => {
             {sections.map((section: Section, index: number) => (
                 <div key={index} className="mb-6">
                     <h2 className="text-xl font-semibold">{section.heading}</h2>
-                    {section.content.map((p: string, i: number) => (
+
+                    {(section.content ?? []).map((p: string, i: number) => (
                         <textarea
                             key={i}
                             className="w-full rounded bg-gray-800 p-2 text-white"
                             value={p}
                             onChange={(e) => {
-                                const newContent = [...section.content]
+                                const newContent = [...(section.content ?? [])]
                                 newContent[i] = e.target.value
                                 handleSave(index, {
                                     ...section,
