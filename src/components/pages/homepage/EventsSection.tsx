@@ -1,6 +1,8 @@
+'use client'
 import Image from 'next/image'
+import { Section } from '@/types/pageTypes'
 
-export default function EventsSection({ data }: { data: any }) {
+export default function EventsSection({ data }: { data: Section }) {
     /*
     Data example:
     {
@@ -58,7 +60,7 @@ export default function EventsSection({ data }: { data: any }) {
                     {/* Events list */}
                     {Array.isArray(data.events) && data.events.length > 0 && (
                         <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:max-w-none lg:grid-cols-3 lg:gap-x-8">
-                            {data.events.map((evt: any, idx: number) => (
+                            {data.events.map((evt, idx) => (
                                 <div
                                     key={idx}
                                     className="border-t border-gray-200 pt-4"

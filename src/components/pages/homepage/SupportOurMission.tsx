@@ -1,11 +1,19 @@
-import PayPalDonation from "@/components/common/PayPalDonation"
-export default function SupportOurMission({ data }: { data: any }) {
+'use client'
+import { Section } from '@/types/pageTypes' // <-- import your Section interface
+import PayPalDonation from '@/components/common/PayPalDonation'
+
+interface SupportOurMissionProps {
+    data: Section
+}
+
+export default function SupportOurMission({ data }: SupportOurMissionProps) {
     /*
     Data might look like:
     {
       heading: "Support Our Mission",
-      htmlContent: "<p>If you would like to donate...</p>"
-      // optionally a CTA or a PayPal link
+      htmlContent: "<p>If you would like to donate...</p>",
+      cta?: "Donate now", // or other optional fields
+      ...
     }
   */
 

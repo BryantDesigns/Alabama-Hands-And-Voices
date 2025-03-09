@@ -34,7 +34,7 @@ export default function RootLayout({
             className="bg-white lg:bg-zinc-100 dark:bg-white dark:lg:bg-white"
         >
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+                className={`${geistSans.variable} ${geistMono.variable} ${kaushanScript.variable} antialiased`}
             >
                 {children}
             </body>

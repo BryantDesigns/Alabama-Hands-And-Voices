@@ -1,6 +1,11 @@
 import Image from 'next/image'
+import { Section } from '@/types/pageTypes' // <-- import your Section interface
 
-export default function WhatIsAlabama({ data }: { data: any }) {
+interface WhatIsAlabamaProps {
+    data: Section
+}
+
+export default function WhatIsAlabama({ data }: WhatIsAlabamaProps) {
     // data might look like:
     // {
     //   type: "whatIsAlabamaHandsAndVoices",

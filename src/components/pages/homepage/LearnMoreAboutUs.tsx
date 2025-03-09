@@ -1,32 +1,13 @@
+'use client'
 import Image from 'next/image'
+import { Section } from '@/types/pageTypes'
 
-export default function LearnMoreAboutUs({ data }: { data: any }) {
-    /*
-    Data might look like:
-    {
-      heading: "Learn More About Us",
-      description: "Our mission is to support families...",
-      contentBlocks: [
-        {
-          blockType: "mission",
-          heading: "Our Mission",
-          image: {
-            src: "/images/homePagePersonPic.jpg",
-            alt: "A child participating...",
-            width: 700,
-            height: 400
-          },
-          htmlContent: "<p>Hands & Voices is dedicated...</p>"
-        },
-        {
-          blockType: "membership",
-          heading: "Membership",
-          image: { ... },
-          htmlContent: "<p>Thank you for your interest...</p>"
-        }
-      ]
-    }
-  */
+interface LearnMoreAboutUsProps {
+    data: Section
+}
+
+export default function LearnMoreAboutUs({ data }: LearnMoreAboutUsProps) {
+   
 
     return (
         <section>
@@ -46,10 +27,10 @@ export default function LearnMoreAboutUs({ data }: { data: any }) {
 
                     {/* Render each contentBlock */}
                     {Array.isArray(data.contentBlocks) &&
-                        data.contentBlocks.map((block: any, index: number) => {
-                            // We can alternate layout based on index or blockType
+                        data.contentBlocks.map((block, index) => {
+                            // You can alternate layout based on index or blockType
                             const isFlipped = block.blockType === 'membership'
-                            // or use index % 2 === 1 to flip every other block
+                            // or: const isFlipped = index % 2 === 1 to flip every other block
 
                             return (
                                 <div
