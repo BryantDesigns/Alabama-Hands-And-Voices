@@ -1,12 +1,18 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { doc, getDoc, updateDoc, serverTimestamp } from 'firebase/firestore'
+import {
+    doc,
+    getDoc,
+    updateDoc,
+    serverTimestamp,
+    Timestamp,
+} from 'firebase/firestore'
 import { auth } from '@/services/firebase/auth'
-import { db } from '@/services/firebase/database'
+import { db, updateCacheAfterSave } from '@/services/firebase/database'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { useRouter } from 'next/navigation'
 import RichTextEditor from '@/components/common/RichTextEditor'
-import { updateCacheAfterSave } from '@/services/firebase/database'
+import ChangeHistory from '@/app/admin/components/content/ChangeHistory'
 
 interface Section {
     heading?: string
@@ -28,12 +34,17 @@ interface Stat {
     value: string
 }
 
+// Define a type for a history entry
+interface HistoryEntry {
+    id: string
+    content: string
+    timestamp: Timestamp
+}
+
 const AdminPage = () => {
     const router = useRouter()
-    // Removed the unused user state. If you need it later, you can add it back with a proper type:
-    // const [user, setUser] = useState<User | null>(null)
 
-    // Since pages are static, define them as a constant instead of state.
+    // Pages are static so we define them as a constant.
     const pages = [
         { id: 'home', title: 'Home Page' },
         { id: 'about', title: 'About Page' },
@@ -41,13 +52,14 @@ const AdminPage = () => {
     ]
 
     const [selectedPageId, setSelectedPageId] = useState<string>('home')
-
-    // Sections are strongly typed as Section[]
     const [sections, setSections] = useState<Section[]>([])
     const [selectedSectionIndex, setSelectedSectionIndex] = useState<number>(0)
-
     const [isLoading, setIsLoading] = useState<boolean>(true)
     const [isSaving, setIsSaving] = useState<boolean>(false)
+
+    // Change history state
+    const [changeHistory, setChangeHistory] = useState<HistoryEntry[]>([])
+    const [historyLoading, setHistoryLoading] = useState<boolean>(false)
 
     // --------------------------------------------------------------------------
     // Auth check
@@ -57,10 +69,6 @@ const AdminPage = () => {
             if (!currentUser) {
                 router.push('/auth')
             }
-            // Optionally set user if needed
-            // else {
-            //   setUser(currentUser)
-            // }
         })
         return () => unsubscribe()
     }, [router])
@@ -77,7 +85,6 @@ const AdminPage = () => {
 
                 if (docSnap.exists()) {
                     const fetchedData = docSnap.data()
-                    // If there is no sections array, default to empty array
                     const fetchedSections: Section[] =
                         (fetchedData.sections as Section[]) || []
                     setSections(fetchedSections)
@@ -94,6 +101,39 @@ const AdminPage = () => {
 
         fetchPageContent()
     }, [selectedPageId])
+
+    // --------------------------------------------------------------------------
+    // Fetch Change History for the Page (Example)
+    // --------------------------------------------------------------------------
+    useEffect(() => {
+        const fetchHistory = async () => {
+            setHistoryLoading(true)
+            try {
+                // Replace this pseudocode with your actual Firestore query logic.
+                // For example, assume each page document has a subcollection 'history':
+                //
+                // const historyRef = collection(doc(db, 'pages', selectedPageId), 'history')
+                // const historySnapshot = await getDocs(query(historyRef, orderBy('timestamp', 'desc')))
+                // const historyData = historySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as HistoryEntry[]
+                // setChangeHistory(historyData)
+
+                // For demonstration, we’ll simulate a history entry:
+                setChangeHistory([
+                    {
+                        id: '1',
+                        content: 'Initial content created.',
+                        timestamp: Timestamp.now(),
+                    },
+                ])
+            } catch (error) {
+                console.error('Error fetching change history:', error)
+            } finally {
+                setHistoryLoading(false)
+            }
+        }
+
+        fetchHistory()
+    }, [selectedPageId, isSaving])
 
     // --------------------------------------------------------------------------
     // Handle Save
@@ -228,6 +268,9 @@ const AdminPage = () => {
             >
                 {isSaving ? 'Saving...' : 'Save Changes'}
             </button>
+
+            {/* Change History */}
+            <ChangeHistory history={changeHistory} loading={historyLoading} />
         </div>
     )
 }
@@ -236,17 +279,16 @@ const AdminPage = () => {
  * Component that renders form fields based on the section's structure.
  */
 function SectionEditor({
-  section,
-  onChange,
+    section,
+    onChange,
 }: {
-  section: Section | undefined
-  onChange: (updatedSection: Section) => void
+    section: Section | undefined
+    onChange: (updatedSection: Section) => void
 }) {
     if (!section) {
         return <p>No section selected.</p>
     }
 
-    // Use generics so the field name is one of the Section keys
     const handleFieldChange = <K extends keyof Section>(
         field: K,
         value: Section[K]
@@ -272,7 +314,6 @@ function SectionEditor({
             </div>
 
             {/* HTML Content Editor */}
-            {/* If we have 'htmlContent', show a single ReactQuill editor */}
             {typeof section.htmlContent === 'string' && (
                 <div className="mb-4">
                     <label className="block text-sm font-medium text-gray-300">
@@ -288,18 +329,20 @@ function SectionEditor({
             )}
 
             {/* Intro HTML Editor */}
-            {/* If we have 'introHtml', show another editor */}
-            {typeof section.introHtml === 'string' && (
-                <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-300">
-                        Intro HTML
-                    </label>
-                    <RichTextEditor
-                        value={section.introHtml}
-                        onChange={(val) => handleFieldChange('introHtml', val)}
-                    />
-                </div>
-            )}
+            {typeof section.introHtml === 'string' &&
+                section.introHtml.length > 0 && (
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-300">
+                            Intro HTML
+                        </label>
+                        <RichTextEditor
+                            value={section.introHtml}
+                            onChange={(val) =>
+                                handleFieldChange('introHtml', val)
+                            }
+                        />
+                    </div>
+                )}
 
             {/* Paragraphs Editor */}
             {Array.isArray(section.content ?? []) && (
@@ -330,7 +373,6 @@ function SectionEditor({
             )}
 
             {/* Image URL Editor */}
-            {/* If you want to show an image field editor */}
             {typeof section.image === 'string' && (
                 <div className="mb-4">
                     <label className="block text-sm font-medium text-gray-300">
@@ -348,11 +390,14 @@ function SectionEditor({
             )}
 
             {/* Events Editor */}
-            {Array.isArray(section.events ?? []) && (
+            {Array.isArray(section.events) && section.events.length > 0 && (
                 <div>
                     <h3 className="text-lg font-semibold text-white">Events</h3>
                     {(section.events ?? []).map((evt: Event, idx: number) => (
-                        <div key={idx} className="mt-2 bg-gray-700 p-2">
+                        <div
+                            key={idx}
+                            className="mt-2 rounded-lg bg-gray-700 p-2"
+                        >
                             <label className="block text-sm text-gray-300">
                                 Event Title
                             </label>
@@ -377,14 +422,17 @@ function SectionEditor({
                             <RichTextEditor
                                 value={evt.descriptionHtml || ''}
                                 onChange={(val: string) => {
-                                    const newEvents = [
-                                        ...(section.events ?? []),
-                                    ]
-                                    newEvents[idx] = {
-                                        ...evt,
-                                        descriptionHtml: val,
+                                    // Only update if there's a real change
+                                    if (val !== evt.descriptionHtml) {
+                                        const newEvents = [
+                                            ...(section.events ?? []),
+                                        ]
+                                        newEvents[idx] = {
+                                            ...evt,
+                                            descriptionHtml: val,
+                                        }
+                                        handleFieldChange('events', newEvents)
                                     }
-                                    handleFieldChange('events', newEvents)
                                 }}
                             />
                         </div>
@@ -393,7 +441,7 @@ function SectionEditor({
             )}
 
             {/* Stats Editor */}
-            {Array.isArray(section.stats ?? []) && (
+            {Array.isArray(section.stats) && section.stats.length > 0 && (
                 <div>
                     <h3 className="text-lg font-semibold text-white">Stats</h3>
                     {(section.stats ?? []).map((stat: Stat, idx: number) => (

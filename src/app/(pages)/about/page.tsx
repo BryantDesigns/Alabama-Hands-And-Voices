@@ -90,15 +90,15 @@ const AboutPage = async () => {
                                 an organization like Hands & Voices, and in
                                 fact, I think parents, and many professionals,
                                 have been crying out for a group like this” says
-                                Leeanne Seaver, of Hands & Voices. "Somehow
+                                Leeanne Seaver, of Hands & Voices. &quot;Somehow
                                 parents connecting to other parents provides an
-                                element of credibility; there's a level of
-                                'knowing & feeling' that only a parent
+                                element of credibility; there&rsquo;s a level of
+                                &quot;knowing & feeling&quot; that only a parent
                                 experiences. And parents, especially parents of
                                 babies newly identified with deafness or hearing
                                 loss, need a way to connect like this without
                                 being wary of a sponsoring agenda from a service
-                                provider."
+                                provider.&quot;
                             </p>
 
                             <p className="mt-4 text-pretty text-lg/8 font-medium sm:text-xl/8">
@@ -214,7 +214,6 @@ const AboutPage = async () => {
                     </div>
                 </section>
 
-                
                 {/* Call to Action */}
                 <section className="bg-gray-200 py-16 text-black">
                     <div className="mx-auto max-w-4xl text-center">
@@ -222,7 +221,7 @@ const AboutPage = async () => {
                             Join Hands & Voices
                         </h2>
                         <p className="mt-4 text-lg">
-                            Whether you're signing up for the first time or
+                            Whether you&apos;re signing up for the first time or
                             renewing your membership to Alabama Hands & Voices,
                             please take time now to download the membership form
                             or visit our online membership page. Your

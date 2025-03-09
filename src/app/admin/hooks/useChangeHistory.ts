@@ -1,18 +1,19 @@
 import { useState, useEffect } from "react";
 import {
-  collection,
-  getDocs,
-  addDoc,
-  serverTimestamp,
-  query,
-  orderBy,
-} from "firebase/firestore";
+    collection,
+    getDocs,
+    addDoc,
+    serverTimestamp,
+    query,
+    orderBy,
+    Timestamp
+} from 'firebase/firestore'
 import { db } from "@/services/firebase/database";
 
 interface HistoryEntry {
-  id: string;
-  content: string;
-  timestamp: any; 
+    id: string
+    content: string
+    timestamp: Timestamp
 }
 
 export const useChangeHistory = (pageId: string) => {
