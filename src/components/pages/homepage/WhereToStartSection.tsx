@@ -92,7 +92,7 @@ const WhereToStartSection: React.FC<WhereToStartProps> = ({
 
                         {/* Closing Remarks */}
                         <p className="mt-6 italic text-gray-700">
-                            You can do this, and there's a whole community here
+                            You can do this, and there&apos;s a whole community here
                             to help!
                         </p>
                         <p className="mt-6 font-bold text-gray-700">

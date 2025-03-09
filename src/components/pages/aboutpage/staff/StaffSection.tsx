@@ -1,5 +1,6 @@
 import StaffCard from './StaffCard'
 import { staff } from '@/data/aboutPages/staff'
+import { Staff } from '@/types/Staff'
 
 export default function StaffSection() {
     // Group staff by category

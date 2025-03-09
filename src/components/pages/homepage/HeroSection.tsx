@@ -13,8 +13,8 @@ const HeroSection: React.FC = () => (
                 <div className="flex flex-col items-center md:flex-row">
                     <div className="flex items-center justify-center text-center md:w-3/4 md:justify-start md:text-left">
                         <h1 className="font-kaushan text-2xl text-black md:text-4xl">
-                            "What works for your child is what makes the choice
-                            right." ™
+                            &quot;What works for your child is what makes the choice
+                            right.&quot; ™
                         </h1>
                     </div>
                     {/* Logo Image */}
