@@ -3,7 +3,7 @@ import { HeartIcon } from "@heroicons/react/16/solid";
 interface Action {
   title: string;
   href: string;
-  icon: HeartIcon;
+  icon: typeof HeartIcon;
   iconForeground: string;
   iconBackground: string;
   description?: string;

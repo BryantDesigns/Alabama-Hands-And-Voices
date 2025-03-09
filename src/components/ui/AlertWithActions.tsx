@@ -1,7 +1,7 @@
-import { HeroIcon } from '@heroicons/react/20/solid';
+import { HeartIcon as HeroIcon } from '@heroicons/react/20/solid';
 
 interface AlertWithActionsProps {
-  icon: HeroIcon;
+  icon: typeof HeroIcon;
   title: string;
   message: string;
   actions: Array<{
