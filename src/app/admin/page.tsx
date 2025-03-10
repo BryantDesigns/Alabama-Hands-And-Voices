@@ -143,7 +143,7 @@ const AdminPage = () => {
         try {
             const pageRef = doc(db, 'pages', pageId)
 
-            // 1. Update the document
+            // 1. Update the document in Firestore
             await updateDoc(pageRef, {
                 sections,
                 lastUpdated: serverTimestamp(),
@@ -160,7 +160,20 @@ const AdminPage = () => {
             const freshData = updatedSnap.data()
             await updateCacheAfterSave(pageId, freshData)
 
-            alert('✅ Content saved! Using updated data now.')
+            // 4. (Optional) Trigger a Netlify rebuild using your build hook
+            try {
+                await fetch(
+                    'https://api.netlify.com/build_hooks/67ce33a88250482a8c8c85d3',
+                    {
+                        method: 'POST',
+                    }
+                )
+                console.log('Triggered Netlify build hook.')
+            } catch (hookError) {
+                console.error('Error triggering Netlify build:', hookError)
+            }
+
+            alert('✅ Content saved! The site is now rebuilding.')
         } catch (error) {
             console.error('Error saving sections:', error)
         } finally {
