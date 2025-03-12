@@ -40,45 +40,65 @@ const GBYSForm = () => {
 
             <div className="mt-8">
                 {activeTab === 'personal' ? (
-                    <form className="netlify grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <form
+                        name="gbys-form"
+                        method="POST"
+                        data-netlify="true"
+                        className="grid grid-cols-1 gap-6 md:grid-cols-2"
+                    >
+                        {/* Hidden input is required by Netlify */}
+                        <input
+                            type="hidden"
+                            name="form-name"
+                            value="gbys-form"
+                        />
+
                         <div>
                             <label className="block font-medium">
                                 Parent/Guardian Name
                             </label>
                             <input
                                 type="text"
+                                name="parentGuardianName"
                                 className="w-full rounded-md border-gray-300 p-2"
                             />
                         </div>
+
                         <div>
                             <label className="block font-medium">
                                 Secondary Parent/Guardian
                             </label>
                             <input
                                 type="text"
+                                name="secondaryParentGuardian"
                                 className="w-full rounded-md border-gray-300 p-2"
                             />
                         </div>
+
                         <div>
                             <label className="block font-medium">
                                 Phone Number
                             </label>
                             <input
                                 type="tel"
+                                name="phoneNumber"
                                 className="w-full rounded-md border-gray-300 p-2"
                                 required
                             />
                         </div>
+
                         <div>
                             <label className="block font-medium">
-                                Child&apos;s Name
+                                Child's Name
                             </label>
                             <input
                                 type="text"
+                                name="childName"
                                 className="w-full rounded-md border-gray-300 p-2"
                                 required
                             />
                         </div>
+
                         <button
                             type="submit"
                             className="col-span-2 rounded-md bg-blue-600 py-2 text-white"
