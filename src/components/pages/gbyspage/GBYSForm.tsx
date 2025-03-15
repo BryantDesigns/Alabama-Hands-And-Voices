@@ -1,8 +1,11 @@
 'use client'
 import { useState } from 'react'
+import { submitNetlifyForm } from '@/utils/submitNetlifyForm'
 
 const GBYSForm = () => {
     const [activeTab, setActiveTab] = useState('personal')
+    const [status, setStatus] = useState<string | null>(null)
+    const [error, setError] = useState<string | null>(null)
 
     return (
         <section className="container mx-auto px-6 py-12">
@@ -44,9 +47,11 @@ const GBYSForm = () => {
                         name="gbys-form"
                         method="POST"
                         data-netlify="true"
+                        onSubmit={(e) =>
+                            submitNetlifyForm(e, setStatus, setError)
+                        }
                         className="grid grid-cols-1 gap-6 md:grid-cols-2"
                     >
-                        {/* Hidden input is required by Netlify */}
                         <input
                             type="hidden"
                             name="form-name"
@@ -54,12 +59,16 @@ const GBYSForm = () => {
                         />
 
                         <div>
-                            <label className="block font-medium">
+                            <label
+                                htmlFor="parentGuardianName"
+                                className="block font-medium"
+                            >
                                 Parent/Guardian Name
                             </label>
                             <input
                                 type="text"
                                 name="parentGuardianName"
+                                required
                                 className="w-full rounded-md border-gray-300 p-2"
                             />
                         </div>
@@ -82,29 +91,38 @@ const GBYSForm = () => {
                             <input
                                 type="tel"
                                 name="phoneNumber"
-                                className="w-full rounded-md border-gray-300 p-2"
                                 required
+                                className="w-full rounded-md border-gray-300 p-2"
                             />
                         </div>
 
                         <div>
                             <label className="block font-medium">
-                                Child's Name
+                                Child&apos;s Name
                             </label>
                             <input
                                 type="text"
                                 name="childName"
-                                className="w-full rounded-md border-gray-300 p-2"
                                 required
+                                className="w-full rounded-md border-gray-300 p-2"
                             />
                         </div>
 
                         <button
                             type="submit"
                             className="col-span-2 rounded-md bg-blue-600 py-2 text-white"
+                            disabled={status === 'pending'}
                         >
-                            Submit
+                            {status === 'ok'
+                                ? 'Submitted'
+                                : status === 'pending'
+                                  ? 'Submitting...'
+                                  : 'Submit'}
                         </button>
+
+                        {status === 'error' && (
+                            <div className="text-red-500">Error: {error}</div>
+                        )}
                     </form>
                 ) : (
                     <p className="text-center text-gray-700">
