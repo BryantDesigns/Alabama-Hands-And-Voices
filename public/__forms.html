@@ -62,6 +62,128 @@
         </div>
         <button type="submit">Send message</button>
     </form>
+
+    <form name="gbysref" method="POST" data-netlify="true" hidden>
+        <input type="hidden" name="form-name" value="gbysref" />
+    
+        <!-- Professionals Full Name -->
+        <label>Professionals Full Name:</label>
+        <input name="pr-ref-name" type="text" required />
+    
+        <!-- Referral Role -->
+        <label>Referral Role:</label>
+        <input name="pr-ref-role" type="text" required />
+    
+        <!-- Name -->
+        <label>Name:</label>
+        <input name="pr-name" type="text" required />
+    
+        <!-- Phone Number -->
+        <label>Phone Number:</label>
+        <input name="pr-phone" type="tel" required />
+    
+        <!-- Child's Name -->
+        <label>Child's Name:</label>
+        <input name="pr-childs-name" type="text" required />
+    
+        <!-- Email -->
+        <label>Email:</label>
+        <input name="pr-email" type="email" required />
+    
+        <!-- Home Address -->
+        <label>Home Address:</label>
+        <input name="pr-address" type="text" />
+    
+        <!-- City -->
+        <label>City:</label>
+        <input name="pr-city" type="text" />
+    
+        <!-- Zip -->
+        <label>Zip:</label>
+        <input name="pr-zip" type="text" />
+    
+        <!-- County -->
+        <label>County:</label>
+        <input name="pr-county" type="text" />
+    
+        <!-- Language Spoken in the Home -->
+        <label>Language Spoken in the Home:</label>
+        <input name="pr-language" type="text" required />
+    
+        <!-- Hearing Loss Type -->
+        <label>Type of Hearing Loss:</label>
+        <select name="pr-hearing-loss">
+            <option value="not-sure">Not Sure</option>
+            <option value="conductive">Conductive (middle ear)</option>
+            <option value="sensorineural">Sensorineural (inner ear)</option>
+            <option value="mixed">Mixed (Conductive & Sensorineural)</option>
+        </select>
+    
+        <!-- Degree of Hearing Loss (Left) -->
+        <label>Degree of Hearing Loss (left ear):</label>
+        <select name="pr-degree-left">
+            <option value="unsure">Unsure</option>
+            <option value="normal">Normal</option>
+            <option value="mild">Mild</option>
+            <option value="moderate">Moderate</option>
+            <option value="severe">Severe</option>
+            <option value="profound">Profound</option>
+        </select>
+    
+        <!-- Degree of Hearing Loss (Right) -->
+        <label>Degree of Hearing Loss (right ear):</label>
+        <select name="pr-degree-right">
+            <option value="unsure">Unsure</option>
+            <option value="normal">Normal</option>
+            <option value="mild">Mild</option>
+            <option value="moderate">Moderate</option>
+            <option value="severe">Severe</option>
+            <option value="profound">Profound</option>
+        </select>
+    
+        <!-- Hearing Device -->
+        <label>Hearing device if used:</label>
+        <select name="pr-hearing-device">
+            <option value="none">None</option>
+            <option value="unsure">Unsure</option>
+            <option value="hearing-aid">Hearing aid(s)</option>
+            <option value="cochlear-implant">Cochlear Implant(s)</option>
+            <option value="baha">Bone-anchored Hearing Aid(s) (BAHA)</option>
+        </select>
+    
+        <!-- Communication modes -->
+        <label>Communication mode(s):</label>
+        <div>
+            <input name="pr-communication-mode-asl" type="checkbox" />
+            <span>American Sign Language</span>
+        </div>
+        <div>
+            <input name="pr-communication-mode-listening" type="checkbox" />
+            <span>Listening and Spoken Language</span>
+        </div>
+        <div>
+            <input name="pr-communication-mode-fingerspelling" type="checkbox" />
+            <span>Fingerspelling</span>
+        </div>
+        <div>
+            <input name="pr-communication-mode-cuedSpeech" type="checkbox" />
+            <span>Cued Speech</span>
+        </div>
+        <div>
+            <input name="pr-communication-mode-combination" type="checkbox" />
+            <span>Combination of two or more</span>
+        </div>
+        <div>
+            <input name="pr-communication-mode-other" type="checkbox" />
+            <span>Other</span>
+        </div>
+    
+        <!-- Parent Questions -->
+        <label>Please provide initial parent questions/support requested...</label>
+        <textarea name="pr-parent-questions" rows="3"></textarea>
+    
+        <button type="submit">Submit</button>
+    </form>
 </body>
 
 </html>
