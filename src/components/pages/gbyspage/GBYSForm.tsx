@@ -4,16 +4,18 @@ import { submitNetlifyForm } from '@/utils/submitNetlifyForm'
 
 // Catalyst fieldset components
 import {
-  Fieldset,
-  Legend,
-  FieldGroup,
-  Field,
-  Label,
+
+    Field,
+    Label,
 } from '@/components/ui/default/fieldset'
 // Catalyst input components
 import { Input } from '@/components/ui/default/input'
 import { Select } from '@/components/ui/default/select'
-import { Checkbox, CheckboxField, CheckboxGroup } from '@/components/ui/default/checkbox'
+import {
+    Checkbox,
+    CheckboxField,
+    CheckboxGroup,
+} from '@/components/ui/default/checkbox'
 import { Textarea } from '@/components/ui/default/textarea'
 
 // If you want to create a field wrapper or label component, you can do so too.
@@ -57,88 +59,514 @@ const GBYSForm = () => {
                 </button>
             </div>
 
-            <div className="mt-8 bg-gray-500">
+            <div className="">
                 {activeTab === 'personal' ? (
                     <form
-                        name="gbys-form"
-                        method="POST"
-                        data-netlify="true"
-                        onSubmit={(e) =>
-                            submitNetlifyForm(e, setStatus, setError)
-                        }
-                        className="grid grid-cols-1 gap-6 md:grid-cols-2"
+                        method="post"
+                        name="gbys"
+                        className="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2"
                     >
-                        <input
-                            type="hidden"
-                            name="form-name"
-                            value="gbys-form"
-                        />
+                        {/* Let Netlify know this is the gbys form */}
+                        <input type="hidden" name="form-name" value="gbys" />
 
-                        <div>
-                            <label
-                                htmlFor="parentGuardianName"
-                                className="block font-medium"
+                        {/* Form Content */}
+                        <div className="px-4 py-6 sm:p-8">
+                            <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                                {/* Parent/Guardian Name */}
+                                <div className="sm:col-span-3">
+                                    <label
+                                        htmlFor="inputName"
+                                        className="block text-sm/6 font-medium text-gray-900"
+                                    >
+                                        Parent/Guardian Name:
+                                    </label>
+                                    <div className="mt-2">
+                                        <input
+                                            id="inputName"
+                                            name="name"
+                                            type="text"
+                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Secondary Parent/Guardian Name */}
+                                <div className="sm:col-span-3">
+                                    <label
+                                        htmlFor="inputSecondary"
+                                        className="block text-sm/6 font-medium text-gray-900"
+                                    >
+                                        Secondary Parent/Guardian Name:
+                                    </label>
+                                    <div className="mt-2">
+                                        <input
+                                            id="inputSecondary"
+                                            name="secondary-parent"
+                                            type="text"
+                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Child's Name */}
+                                <div className="sm:col-span-3">
+                                    <label
+                                        htmlFor="childs-name"
+                                        className="block text-sm/6 font-medium text-gray-900"
+                                    >
+                                        Child&apos;s Name:
+                                    </label>
+                                    <div className="mt-2">
+                                        <input
+                                            id="childs-name"
+                                            name="childs-name"
+                                            type="text"
+                                            required
+                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Child's DOB */}
+                                <div className="sm:col-span-3">
+                                    <label
+                                        htmlFor="inputChildDOB"
+                                        className="block text-sm/6 font-medium text-gray-900"
+                                    >
+                                        Child&apos;s DOB:
+                                    </label>
+                                    <div className="mt-2">
+                                        <input
+                                            id="inputChildDOB"
+                                            name="child-dob"
+                                            type="date"
+                                            required
+                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Email */}
+                                <div className="sm:col-span-3">
+                                    <label
+                                        htmlFor="inputEmail"
+                                        className="block text-sm/6 font-medium text-gray-900"
+                                    >
+                                        Email:
+                                    </label>
+                                    <div className="mt-2">
+                                        <input
+                                            id="inputEmail"
+                                            name="email"
+                                            type="email"
+                                            required
+                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                        />
+                                    </div>
+                                    <small
+                                        id="emailHelp"
+                                        className="text-sm text-gray-500"
+                                    >
+                                        We&apos;ll never share your email with
+                                        anyone else.
+                                    </small>
+                                </div>
+
+                                {/* Phone Number */}
+                                <div className="sm:col-span-3">
+                                    <label
+                                        htmlFor="inputTel"
+                                        className="block text-sm/6 font-medium text-gray-900"
+                                    >
+                                        Phone Number:
+                                    </label>
+                                    <div className="mt-2">
+                                        <input
+                                            id="inputTel"
+                                            name="phone"
+                                            type="tel"
+                                            required
+                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Home Address */}
+                                <div className="sm:col-span-2 sm:col-start-1">
+                                    <label
+                                        htmlFor="inputAddress"
+                                        className="block text-sm/6 font-medium text-gray-900"
+                                    >
+                                        Home Address:
+                                    </label>
+                                    <div className="mt-2">
+                                        <input
+                                            id="inputAddress"
+                                            name="address"
+                                            type="text"
+                                            placeholder="1234 Main St"
+                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* City */}
+                                <div className="sm:col-span-2">
+                                    <label
+                                        htmlFor="inputCity"
+                                        className="block text-sm/6 font-medium text-gray-900"
+                                    >
+                                        City:
+                                    </label>
+                                    <div className="mt-2">
+                                        <input
+                                            id="inputCity"
+                                            name="city"
+                                            type="text"
+                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Zip */}
+                                <div className="sm:col-span-2">
+                                    <label
+                                        htmlFor="inputZip"
+                                        className="block text-sm/6 font-medium text-gray-900"
+                                    >
+                                        Zip:
+                                    </label>
+                                    <div className="mt-2">
+                                        <input
+                                            id="inputZip"
+                                            name="zip"
+                                            type="text"
+                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* County */}
+                                <div className="sm:col-span-6 md:col-span-3">
+                                    <label
+                                        htmlFor="inputCounty"
+                                        className="block text-sm/6 font-medium text-gray-900"
+                                    >
+                                        County:
+                                    </label>
+                                    <div className="mt-2">
+                                        <input
+                                            id="inputCounty"
+                                            name="county"
+                                            type="text"
+                                            placeholder="County"
+                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Language Spoken in the Home */}
+                                <div className="sm:col-span-6 md:col-span-3">
+                                    <label
+                                        htmlFor="inputLanguage"
+                                        className="block text-sm/6 font-medium text-gray-900"
+                                    >
+                                        Language Spoken in the Home:
+                                    </label>
+                                    <div className="mt-2">
+                                        <input
+                                            id="inputLanguage"
+                                            name="language"
+                                            type="text"
+                                            placeholder="Language"
+                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Type of Hearing Loss */}
+                                <div className="sm:col-span-6 md:col-span-3">
+                                    <label
+                                        htmlFor="inputHearingLoss"
+                                        className="block text-sm/6 font-medium text-gray-900"
+                                    >
+                                        Type of Hearing Loss:
+                                    </label>
+                                    <div className="mt-2">
+                                        <select
+                                            id="inputHearingLoss"
+                                            name="hearing-loss"
+                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                        >
+                                            <option value="not-sure">
+                                                Not Sure
+                                            </option>
+                                            <option value="conductive">
+                                                Conductive (middle ear)
+                                            </option>
+                                            <option value="sensorineural">
+                                                Sensorineural (inner ear)
+                                            </option>
+                                            <option value="mixed">
+                                                Mixed (Conductive &amp;
+                                                Sensorineural)
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                {/* Degree of Hearing Loss (left ear) */}
+                                <div className="sm:col-span-6 md:col-span-3">
+                                    <label
+                                        htmlFor="inputDegreeLeft"
+                                        className="block text-sm/6 font-medium text-gray-900"
+                                    >
+                                        Degree of Hearing Loss (left ear):
+                                    </label>
+                                    <div className="mt-2">
+                                        <select
+                                            id="inputDegreeLeft"
+                                            name="degree-left"
+                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                        >
+                                            <option value="unsure">
+                                                Unsure
+                                            </option>
+                                            <option value="normal">
+                                                Normal
+                                            </option>
+                                            <option value="mild">Mild</option>
+                                            <option value="moderate">
+                                                Moderate
+                                            </option>
+                                            <option value="severe">
+                                                Severe
+                                            </option>
+                                            <option value="profound">
+                                                Profound
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                {/* Degree of Hearing Loss (right ear) */}
+                                <div className="sm:col-span-6 md:col-span-3">
+                                    <label
+                                        htmlFor="inputDegreeRight"
+                                        className="block text-sm/6 font-medium text-gray-900"
+                                    >
+                                        Degree of Hearing Loss (right ear):
+                                    </label>
+                                    <div className="mt-2">
+                                        <select
+                                            id="inputDegreeRight"
+                                            name="degree-right"
+                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                        >
+                                            <option value="unsure">
+                                                Unsure
+                                            </option>
+                                            <option value="normal">
+                                                Normal
+                                            </option>
+                                            <option value="mild">Mild</option>
+                                            <option value="moderate">
+                                                Moderate
+                                            </option>
+                                            <option value="severe">
+                                                Severe
+                                            </option>
+                                            <option value="profound">
+                                                Profound
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                {/* Hearing device if used */}
+                                <div className="sm:col-span-6 md:col-span-3">
+                                    <label
+                                        htmlFor="inputHearingDevice"
+                                        className="block text-sm/6 font-medium text-gray-900"
+                                    >
+                                        Hearing device if used:
+                                    </label>
+                                    <div className="mt-2">
+                                        <select
+                                            id="inputHearingDevice"
+                                            name="hearing-device"
+                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                        >
+                                            <option value="none">None</option>
+                                            <option value="unsure">
+                                                Unsure
+                                            </option>
+                                            <option value="hearing-aid">
+                                                Hearing aid(s)
+                                            </option>
+                                            <option value="cochlear-implant">
+                                                Cochlear Implant(s)
+                                            </option>
+                                            <option value="baha">
+                                                Bone-anchored Hearing Aid(s)
+                                                (BAHA)
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                {/* Communication modes */}
+                                <div className="col-span-full">
+                                    <label className="mb-2 block text-sm/6 font-medium text-gray-900">
+                                        Communication mode(s):
+                                    </label>
+                                    <div className="space-y-2">
+                                        {/* ASL */}
+                                        <div className="flex items-center">
+                                            <input
+                                                name="communication-mode-asl"
+                                                className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                                type="checkbox"
+                                                id="aslCheck"
+                                            />
+                                            <label
+                                                htmlFor="aslCheck"
+                                                className="ml-2 text-sm text-gray-900"
+                                            >
+                                                American Sign Language
+                                            </label>
+                                        </div>
+
+                                        {/* Listening and Spoken Language */}
+                                        <div className="flex items-center">
+                                            <input
+                                                name="communication-mode-listening"
+                                                className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                                type="checkbox"
+                                                id="listeningCheck"
+                                            />
+                                            <label
+                                                htmlFor="listeningCheck"
+                                                className="ml-2 text-sm text-gray-900"
+                                            >
+                                                Listening and Spoken Language
+                                            </label>
+                                        </div>
+
+                                        {/* Fingerspelling */}
+                                        <div className="flex items-center">
+                                            <input
+                                                name="communication-mode-fingerspelling"
+                                                className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                                type="checkbox"
+                                                id="fingerspellingCheck"
+                                            />
+                                            <label
+                                                htmlFor="fingerspellingCheck"
+                                                className="ml-2 text-sm text-gray-900"
+                                            >
+                                                Fingerspelling
+                                            </label>
+                                        </div>
+
+                                        {/* Cued Speech */}
+                                        <div className="flex items-center">
+                                            <input
+                                                name="communication-mode-cuedSpeech"
+                                                className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                                type="checkbox"
+                                                id="cuedSpeechCheck"
+                                            />
+                                            <label
+                                                htmlFor="cuedSpeechCheck"
+                                                className="ml-2 text-sm text-gray-900"
+                                            >
+                                                Cued Speech
+                                            </label>
+                                        </div>
+
+                                        {/* Combination */}
+                                        <div className="flex items-center">
+                                            <input
+                                                name="communication-mode-combination"
+                                                className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                                type="checkbox"
+                                                id="combinationCheck"
+                                            />
+                                            <label
+                                                htmlFor="combinationCheck"
+                                                className="ml-2 text-sm text-gray-900"
+                                            >
+                                                Combination of two or more:
+                                            </label>
+                                        </div>
+
+                                        {/* Other */}
+                                        <div className="flex items-center">
+                                            <input
+                                                name="communication-mode-other"
+                                                className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                                type="checkbox"
+                                                id="otherCheck"
+                                            />
+                                            <label
+                                                htmlFor="otherCheck"
+                                                className="ml-2 text-sm text-gray-900"
+                                            >
+                                                Other:
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Parent Questions */}
+                                <div className="col-span-full">
+                                    <label
+                                        htmlFor="inputParentQuestions"
+                                        className="block text-sm/6 font-medium text-gray-900"
+                                    >
+                                        Please provide initial parent
+                                        questions/support requested, special
+                                        needs or important information:
+                                    </label>
+                                    <div className="mt-2">
+                                        <textarea
+                                            name="parent-questions"
+                                            id="inputParentQuestions"
+                                            rows={3}
+                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                        />
+                                    </div>
+                                    <small className="text-sm text-gray-500">
+                                        I authorize Alabama Hands &amp; Voices
+                                        to disclose to our Parent Guide(s) my
+                                        name, contact information, name and age
+                                        of my child so that a Parent Guide(s)
+                                        may reach out to me regarding Alabama
+                                        Hands &amp; Voices activities and
+                                        resources and parent‐to‐parent support.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Footer (Submit Button) */}
+                        <div className="flex items-center justify-end gap-x-6 border-t border-gray-900/10 px-4 py-4 sm:px-8">
+                            {/* Cancel button (optional) */}
+                            <button
+                                type="button"
+                                className="text-sm/6 font-semibold text-gray-900"
                             >
-                                Parent/Guardian Name
-                            </label>
-                            <input
-                                type="text"
-                                name="parentGuardianName"
-                                required
-                                className="w-full rounded-md border-gray-300 p-2"
-                            />
+                                Cancel
+                            </button>
+                            {/* Submit button */}
+                            <button
+                                type="submit"
+                                className="rounded-md bg-hvblue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-hvblue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hvblue-600"
+                            >
+                                Submit
+                            </button>
                         </div>
-
-                        <div>
-                            <label className="block font-medium">
-                                Secondary Parent/Guardian
-                            </label>
-                            <input
-                                type="text"
-                                name="secondaryParentGuardian"
-                                className="w-full rounded-md border-gray-300 p-2"
-                            />
-                        </div>
-
-                        <div>
-                            <label className="block font-medium">
-                                Phone Number
-                            </label>
-                            <input
-                                type="tel"
-                                name="phoneNumber"
-                                required
-                                className="w-full rounded-md border-gray-300 p-2"
-                            />
-                        </div>
-
-                        <div>
-                            <label className="block font-medium">
-                                Child&apos;s Name
-                            </label>
-                            <input
-                                type="text"
-                                name="childName"
-                                required
-                                className="w-full rounded-md border-gray-300 p-2"
-                            />
-                        </div>
-
-                        <button
-                            type="submit"
-                            className="col-span-2 rounded-md bg-blue-600 py-2 text-white"
-                            disabled={status === 'pending'}
-                        >
-                            {status === 'ok'
-                                ? 'Submitted'
-                                : status === 'pending'
-                                  ? 'Submitting...'
-                                  : 'Submit'}
-                        </button>
-
-                        {status === 'error' && (
-                            <div className="text-red-500">Error: {error}</div>
-                        )}
                     </form>
                 ) : (
                     <form
