@@ -64,10 +64,22 @@ const GBYSForm = () => {
                     <form
                         method="post"
                         name="gbys"
+                        data-netlify="true"
+                        netlify-honeypot="bot-field"
                         className="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2"
                     >
                         {/* Let Netlify know this is the gbys form */}
                         <input type="hidden" name="form-name" value="gbys" />
+                        <p className="hidden">
+                            <label>
+                                Don’t fill this out if you’re human:
+                                <input
+                                    name="bot-field"
+                                    tabIndex={-1}
+                                    autoComplete="off"
+                                />
+                            </label>
+                        </p>
 
                         {/* Form Content */}
                         <div className="px-4 py-6 sm:p-8">
@@ -576,7 +588,7 @@ const GBYSForm = () => {
                         onSubmit={(e) =>
                             submitNetlifyForm(e, setStatus, setError)
                         }
-                        className="grid grid-cols-1 gap-6 md:grid-cols-2"
+                        className="grid grid-cols-1 gap-6 shadow-sm ring-1 ring-gray-900/5 md:grid-cols-2"
                     >
                         <input type="hidden" name="form-name" value="gbysref" />
 
