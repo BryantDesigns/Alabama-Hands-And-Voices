@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-function otherComponents() {
+function OtherComponents() {
     return (
         <>
             <div className="relative isolate overflow-hidden bg-gradient-to-b from-hvblue-100/20 pt-14">
@@ -51,4 +51,4 @@ function otherComponents() {
     )
 }
 
-export default otherComponents
+export default OtherComponents
