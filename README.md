@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Alabama Hands & Voices Website
 
-## Getting Started
+This repository contains the source code for the **Alabama Hands & Voices** website. The site is built with [Next.js](https://nextjs.org/), TypeScript and Tailwind CSS. Content is managed in [Firebase](https://firebase.google.com/) and deployed via [Netlify](https://www.netlify.com/).
 
-First, run the development server:
+## Features
+
+- **Next.js App Router** with dynamic routes under `src/app`.
+- **Tailwind CSS** with custom color palette (`hvblue` and `hvorange`) and local fonts.
+- **Firebase Firestore** for storing page sections and other content.
+- **Firebase Authentication** protecting the `/admin` interface for editing pages.
+- **Netlify build hook** triggered after admin updates to redeploy the static site.
+- Rich component library in `src/components` using Headless UI.
+
+## Development
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+- Firebase project credentials
+
+### Environment variables
+
+Create a `.env.local` file at the project root and provide your Firebase credentials:
+
+```bash
+NEXT_PUBLIC_FIREBASE_API_KEY=your-key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-sender-id
+NEXT_PUBLIC_FIREBASE_APP_ID=your-app-id
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit <http://localhost:3000> to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Building
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To create a production build:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The project is designed for Netlify. A build hook is triggered from the admin panel after saving content. You can also deploy manually by pushing to the main branch or running:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build && npm run start
+```
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```text
+src/
+  app/            # Next.js routes
+  components/     # Reusable UI and page components
+  data/           # Static data (e.g. board members)
+  services/       # Firebase utilities
+  types/          # Shared TypeScript types
+  utils/          # Helper utilities
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Data Flow
+
+The following diagram illustrates how content is fetched and updated.
+
+```mermaid
+sequenceDiagram
+    participant Visitor
+    participant NextJS as Next.js App
+    participant Firebase
+    participant Netlify
+
+    Visitor->>NextJS: Request page
+    NextJS->>Firebase: fetchPageContent()
+    Firebase-->>NextJS: PageData
+    NextJS-->>Visitor: Render HTML
+
+    Admin->>NextJS: Login & edit
+    NextJS->>Firebase: updateDoc()
+    Firebase-->>NextJS: confirm
+    NextJS->>Netlify: Trigger build hook
+    Netlify-->>Visitor: New deploy
+```
+
+## Folder Overview
+
+```mermaid
+graph TD
+    A[src] --> B(app)
+    A --> C(components)
+    A --> D(data)
+    A --> E(services)
+    A --> F(types)
+    A --> G(utils)
+```
+
+## License
+
+This project is maintained by Alabama Hands & Voices. All rights reserved.
+
