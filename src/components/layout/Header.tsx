@@ -27,7 +27,7 @@ import {
     RectangleGroupIcon,
 } from '@heroicons/react/20/solid'
 import Logo from '@/components/ui/Logo'
-import { Link } from '@/components/ui/default/link'
+import Link from 'next/link'
 
 const callsToAction = [
     { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
