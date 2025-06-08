@@ -18,42 +18,86 @@ import {
 } from '@/components/ui/default/checkbox'
 import { Textarea } from '@/components/ui/default/textarea'
 
-// If you want to create a field wrapper or label component, you can do so too.
+
+
 
 const GBYSForm = () => {
     const [activeTab, setActiveTab] = useState('personal')
     const [status, setStatus] = useState<string | null>(null)
     const [error, setError] = useState<string | null>(null)
 
+    const handleFormSubmit = async (
+        event: React.FormEvent<HTMLFormElement>
+    ) => {
+        event.preventDefault()
+        try {
+            setStatus('pending')
+            setError(null)
+
+            const form = event.target as HTMLFormElement
+            const formData = new FormData(form)
+
+            const response = await fetch('/__forms.html', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(
+                    Array.from(formData.entries()).map(([key, value]) => [
+                        key,
+                        value.toString(),
+                    ])
+                ).toString(),
+            })
+
+            if (response.ok) {
+                setStatus('success')
+                form.reset() // Reset the form on success
+            } else {
+                setStatus('error')
+                setError(`${response.status} ${response.statusText}`)
+            }
+        } catch (err) {
+            setStatus('error')
+            if (err instanceof Error) {
+                setError(err.message)
+            } else {
+                setError('An unknown error occurred')
+            }
+        }
+    }
+
     return (
         <section className="container mx-auto px-6 py-12">
             <p className="text-center text-lg">
                 To be connected with a Parent Guide, please fill out the form
                 below. To become an Alabama Hands & Voices member, visit the{' '}
-                <a href="/membership" className="font-bold text-blue-600">
+                <a href="/membership" className="font-bold text-hvorange">
                     membership page
                 </a>
                 .
             </p>
 
-            <div className="mt-6 flex justify-center space-x-4">
+            <div className="mt-6 flex justify-center space-x-2">
                 <button
-                    className={`border-b-2 px-4 py-2 font-medium ${
+                    className={`relative rounded-t-lg px-5 py-2 font-semibold transition-all duration-150 ${
                         activeTab === 'personal'
-                            ? 'border-blue-600 text-blue-600'
-                            : 'text-gray-600'
-                    }`}
+                            ? 'z-10 -mb-px border-b-0 border-l border-r border-t border-gray-900/5 bg-white text-hvorange'
+                            : 'border-b-2 border-transparent bg-white text-gray-600 hover:border-hvorange-400 hover:text-hvorange focus:border-hvorange-500 focus:text-hvorange'
+                    } cursor-pointer outline-none`}
                     onClick={() => setActiveTab('personal')}
+                    type="button"
                 >
                     Personal
                 </button>
                 <button
-                    className={`border-b-2 px-4 py-2 font-medium ${
+                    className={`relative rounded-t-lg px-5 py-2 font-semibold transition-all duration-150 ${
                         activeTab === 'professional'
-                            ? 'border-blue-600 text-blue-600'
-                            : 'text-gray-600'
-                    }`}
+                            ? 'z-10 -mb-px border-b-0 border-l border-r border-t border-gray-900/5 bg-white text-hvorange'
+                            : 'border-b-2 border-transparent bg-white text-gray-600 hover:border-hvorange-400 hover:text-hvorange focus:border-hvorange-500 focus:text-hvorange'
+                    } cursor-pointer outline-none`}
                     onClick={() => setActiveTab('professional')}
+                    type="button"
                 >
                     Professional Referral
                 </button>
@@ -66,7 +110,8 @@ const GBYSForm = () => {
                         name="gbys"
                         data-netlify="true"
                         netlify-honeypot="bot-field"
-                        className="mx-auto max-w-5xl bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2"
+                        onSubmit={handleFormSubmit}
+                        className="mx-auto max-w-5xl border border-gray-900/5 bg-white shadow-sm sm:rounded-xl md:col-span-2"
                     >
                         {/* Netlify required fields */}
                         <input type="hidden" name="form-name" value="gbys" />
