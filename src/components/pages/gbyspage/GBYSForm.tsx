@@ -540,11 +540,20 @@ const GBYSForm = () => {
 
                         {/* Footer (Submit Button) */}
                         <div className="flex items-center justify-end gap-x-6 border-t border-gray-900/10 px-4 py-4 sm:px-8">
+                            {/* Cancel button (optional) */}
                             <button
                                 type="button"
                                 className="text-sm font-semibold text-gray-900"
+                                // onClick={() => ... } // optional: add a handler to close or reset the form
                             >
                                 Cancel
+                            </button>
+                            {/* Submit button */}
+                            <button
+                                type="submit"
+                                className="rounded-lg bg-hvblue-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-hvblue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hvblue-500"
+                            >
+                                Submit
                             </button>
                         </div>
                     </form>
