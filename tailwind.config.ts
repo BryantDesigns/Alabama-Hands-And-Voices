@@ -2,6 +2,9 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+    // ⬇️ NEW — tell Tailwind that either a `.dark` class OR
+    // `[data-color-scheme="dark"]` should activate the `dark:` variant
+    darkMode: ['class', '[data-color-scheme="dark"]'],
     content: [
         './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
         './src/components/**/*.{js,ts,jsx,tsx,mdx}',
