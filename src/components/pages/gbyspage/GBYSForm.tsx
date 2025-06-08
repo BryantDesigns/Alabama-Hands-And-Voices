@@ -62,13 +62,13 @@ const GBYSForm = () => {
             <div className="">
                 {activeTab === 'personal' ? (
                     <form
-                        method="post"
+                        method="POST"
                         name="gbys"
                         data-netlify="true"
                         netlify-honeypot="bot-field"
-                        className="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2"
+                        className="mx-auto max-w-5xl bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2"
                     >
-                        {/* Let Netlify know this is the gbys form */}
+                        {/* Netlify required fields */}
                         <input type="hidden" name="form-name" value="gbys" />
                         <p className="hidden">
                             <label>
@@ -81,14 +81,13 @@ const GBYSForm = () => {
                             </label>
                         </p>
 
-                        {/* Form Content */}
                         <div className="px-4 py-6 sm:p-8">
                             <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                                 {/* Parent/Guardian Name */}
                                 <div className="sm:col-span-3">
                                     <label
                                         htmlFor="inputName"
-                                        className="block text-sm/6 font-medium text-gray-900"
+                                        className="block text-sm font-medium text-gray-900"
                                     >
                                         Parent/Guardian Name:
                                     </label>
@@ -97,16 +96,16 @@ const GBYSForm = () => {
                                             id="inputName"
                                             name="name"
                                             type="text"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                            required
+                                            className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
                                         />
                                     </div>
                                 </div>
-
                                 {/* Secondary Parent/Guardian Name */}
                                 <div className="sm:col-span-3">
                                     <label
                                         htmlFor="inputSecondary"
-                                        className="block text-sm/6 font-medium text-gray-900"
+                                        className="block text-sm font-medium text-gray-900"
                                     >
                                         Secondary Parent/Guardian Name:
                                     </label>
@@ -115,18 +114,17 @@ const GBYSForm = () => {
                                             id="inputSecondary"
                                             name="secondary-parent"
                                             type="text"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                            className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
                                         />
                                     </div>
                                 </div>
-
                                 {/* Child's Name */}
                                 <div className="sm:col-span-3">
                                     <label
                                         htmlFor="childs-name"
-                                        className="block text-sm/6 font-medium text-gray-900"
+                                        className="block text-sm font-medium text-gray-900"
                                     >
-                                        Child&apos;s Name:
+                                        Child's Name:
                                     </label>
                                     <div className="mt-2">
                                         <input
@@ -134,18 +132,17 @@ const GBYSForm = () => {
                                             name="childs-name"
                                             type="text"
                                             required
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                            className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
                                         />
                                     </div>
                                 </div>
-
                                 {/* Child's DOB */}
                                 <div className="sm:col-span-3">
                                     <label
                                         htmlFor="inputChildDOB"
-                                        className="block text-sm/6 font-medium text-gray-900"
+                                        className="block text-sm font-medium text-gray-900"
                                     >
-                                        Child&apos;s DOB:
+                                        Child's DOB:
                                     </label>
                                     <div className="mt-2">
                                         <input
@@ -153,16 +150,15 @@ const GBYSForm = () => {
                                             name="child-dob"
                                             type="date"
                                             required
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                            className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
                                         />
                                     </div>
                                 </div>
-
                                 {/* Email */}
                                 <div className="sm:col-span-3">
                                     <label
                                         htmlFor="inputEmail"
-                                        className="block text-sm/6 font-medium text-gray-900"
+                                        className="block text-sm font-medium text-gray-900"
                                     >
                                         Email:
                                     </label>
@@ -172,23 +168,19 @@ const GBYSForm = () => {
                                             name="email"
                                             type="email"
                                             required
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                            className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
                                         />
                                     </div>
-                                    <small
-                                        id="emailHelp"
-                                        className="text-sm text-gray-500"
-                                    >
-                                        We&apos;ll never share your email with
-                                        anyone else.
+                                    <small className="text-sm text-gray-500">
+                                        We'll never share your email with anyone
+                                        else.
                                     </small>
                                 </div>
-
                                 {/* Phone Number */}
                                 <div className="sm:col-span-3">
                                     <label
                                         htmlFor="inputTel"
-                                        className="block text-sm/6 font-medium text-gray-900"
+                                        className="block text-sm font-medium text-gray-900"
                                     >
                                         Phone Number:
                                     </label>
@@ -198,16 +190,15 @@ const GBYSForm = () => {
                                             name="phone"
                                             type="tel"
                                             required
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                            className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
                                         />
                                     </div>
                                 </div>
-
                                 {/* Home Address */}
                                 <div className="sm:col-span-2 sm:col-start-1">
                                     <label
                                         htmlFor="inputAddress"
-                                        className="block text-sm/6 font-medium text-gray-900"
+                                        className="block text-sm font-medium text-gray-900"
                                     >
                                         Home Address:
                                     </label>
@@ -217,16 +208,15 @@ const GBYSForm = () => {
                                             name="address"
                                             type="text"
                                             placeholder="1234 Main St"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                            className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
                                         />
                                     </div>
                                 </div>
-
                                 {/* City */}
                                 <div className="sm:col-span-2">
                                     <label
                                         htmlFor="inputCity"
-                                        className="block text-sm/6 font-medium text-gray-900"
+                                        className="block text-sm font-medium text-gray-900"
                                     >
                                         City:
                                     </label>
@@ -235,16 +225,15 @@ const GBYSForm = () => {
                                             id="inputCity"
                                             name="city"
                                             type="text"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                            className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
                                         />
                                     </div>
                                 </div>
-
                                 {/* Zip */}
                                 <div className="sm:col-span-2">
                                     <label
                                         htmlFor="inputZip"
-                                        className="block text-sm/6 font-medium text-gray-900"
+                                        className="block text-sm font-medium text-gray-900"
                                     >
                                         Zip:
                                     </label>
@@ -253,16 +242,15 @@ const GBYSForm = () => {
                                             id="inputZip"
                                             name="zip"
                                             type="text"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                            className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
                                         />
                                     </div>
                                 </div>
-
                                 {/* County */}
                                 <div className="sm:col-span-6 md:col-span-3">
                                     <label
                                         htmlFor="inputCounty"
-                                        className="block text-sm/6 font-medium text-gray-900"
+                                        className="block text-sm font-medium text-gray-900"
                                     >
                                         County:
                                     </label>
@@ -272,16 +260,15 @@ const GBYSForm = () => {
                                             name="county"
                                             type="text"
                                             placeholder="County"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                            className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
                                         />
                                     </div>
                                 </div>
-
                                 {/* Language Spoken in the Home */}
                                 <div className="sm:col-span-6 md:col-span-3">
                                     <label
                                         htmlFor="inputLanguage"
-                                        className="block text-sm/6 font-medium text-gray-900"
+                                        className="block text-sm font-medium text-gray-900"
                                     >
                                         Language Spoken in the Home:
                                     </label>
@@ -291,16 +278,15 @@ const GBYSForm = () => {
                                             name="language"
                                             type="text"
                                             placeholder="Language"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                            className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
                                         />
                                     </div>
                                 </div>
-
                                 {/* Type of Hearing Loss */}
                                 <div className="sm:col-span-6 md:col-span-3">
                                     <label
                                         htmlFor="inputHearingLoss"
-                                        className="block text-sm/6 font-medium text-gray-900"
+                                        className="block text-sm font-medium text-gray-900"
                                     >
                                         Type of Hearing Loss:
                                     </label>
@@ -308,7 +294,7 @@ const GBYSForm = () => {
                                         <select
                                             id="inputHearingLoss"
                                             name="hearing-loss"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                            className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
                                         >
                                             <option value="not-sure">
                                                 Not Sure
@@ -326,12 +312,11 @@ const GBYSForm = () => {
                                         </select>
                                     </div>
                                 </div>
-
                                 {/* Degree of Hearing Loss (left ear) */}
                                 <div className="sm:col-span-6 md:col-span-3">
                                     <label
                                         htmlFor="inputDegreeLeft"
-                                        className="block text-sm/6 font-medium text-gray-900"
+                                        className="block text-sm font-medium text-gray-900"
                                     >
                                         Degree of Hearing Loss (left ear):
                                     </label>
@@ -339,7 +324,7 @@ const GBYSForm = () => {
                                         <select
                                             id="inputDegreeLeft"
                                             name="degree-left"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                            className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
                                         >
                                             <option value="unsure">
                                                 Unsure
@@ -360,12 +345,11 @@ const GBYSForm = () => {
                                         </select>
                                     </div>
                                 </div>
-
                                 {/* Degree of Hearing Loss (right ear) */}
                                 <div className="sm:col-span-6 md:col-span-3">
                                     <label
                                         htmlFor="inputDegreeRight"
-                                        className="block text-sm/6 font-medium text-gray-900"
+                                        className="block text-sm font-medium text-gray-900"
                                     >
                                         Degree of Hearing Loss (right ear):
                                     </label>
@@ -373,7 +357,7 @@ const GBYSForm = () => {
                                         <select
                                             id="inputDegreeRight"
                                             name="degree-right"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                            className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
                                         >
                                             <option value="unsure">
                                                 Unsure
@@ -394,12 +378,11 @@ const GBYSForm = () => {
                                         </select>
                                     </div>
                                 </div>
-
                                 {/* Hearing device if used */}
                                 <div className="sm:col-span-6 md:col-span-3">
                                     <label
                                         htmlFor="inputHearingDevice"
-                                        className="block text-sm/6 font-medium text-gray-900"
+                                        className="block text-sm font-medium text-gray-900"
                                     >
                                         Hearing device if used:
                                     </label>
@@ -407,7 +390,7 @@ const GBYSForm = () => {
                                         <select
                                             id="inputHearingDevice"
                                             name="hearing-device"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                            className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
                                         >
                                             <option value="none">None</option>
                                             <option value="unsure">
@@ -426,10 +409,9 @@ const GBYSForm = () => {
                                         </select>
                                     </div>
                                 </div>
-
                                 {/* Communication modes */}
                                 <div className="col-span-full">
-                                    <label className="mb-2 block text-sm/6 font-medium text-gray-900">
+                                    <label className="mb-2 block text-sm font-medium text-gray-900">
                                         Communication mode(s):
                                     </label>
                                     <div className="space-y-2">
@@ -448,7 +430,6 @@ const GBYSForm = () => {
                                                 American Sign Language
                                             </label>
                                         </div>
-
                                         {/* Listening and Spoken Language */}
                                         <div className="flex items-center">
                                             <input
@@ -464,7 +445,6 @@ const GBYSForm = () => {
                                                 Listening and Spoken Language
                                             </label>
                                         </div>
-
                                         {/* Fingerspelling */}
                                         <div className="flex items-center">
                                             <input
@@ -480,7 +460,6 @@ const GBYSForm = () => {
                                                 Fingerspelling
                                             </label>
                                         </div>
-
                                         {/* Cued Speech */}
                                         <div className="flex items-center">
                                             <input
@@ -496,7 +475,6 @@ const GBYSForm = () => {
                                                 Cued Speech
                                             </label>
                                         </div>
-
                                         {/* Combination */}
                                         <div className="flex items-center">
                                             <input
@@ -512,7 +490,6 @@ const GBYSForm = () => {
                                                 Combination of two or more:
                                             </label>
                                         </div>
-
                                         {/* Other */}
                                         <div className="flex items-center">
                                             <input
@@ -530,12 +507,11 @@ const GBYSForm = () => {
                                         </div>
                                     </div>
                                 </div>
-
                                 {/* Parent Questions */}
                                 <div className="col-span-full">
                                     <label
                                         htmlFor="inputParentQuestions"
-                                        className="block text-sm/6 font-medium text-gray-900"
+                                        className="block text-sm font-medium text-gray-900"
                                     >
                                         Please provide initial parent
                                         questions/support requested, special
@@ -546,7 +522,7 @@ const GBYSForm = () => {
                                             name="parent-questions"
                                             id="inputParentQuestions"
                                             rows={3}
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-600 sm:text-sm/6"
+                                            className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
                                         />
                                     </div>
                                     <small className="text-sm text-gray-500">
@@ -564,19 +540,11 @@ const GBYSForm = () => {
 
                         {/* Footer (Submit Button) */}
                         <div className="flex items-center justify-end gap-x-6 border-t border-gray-900/10 px-4 py-4 sm:px-8">
-                            {/* Cancel button (optional) */}
                             <button
                                 type="button"
-                                className="text-sm/6 font-semibold text-gray-900"
+                                className="text-sm font-semibold text-gray-900"
                             >
                                 Cancel
-                            </button>
-                            {/* Submit button */}
-                            <button
-                                type="submit"
-                                className="rounded-md bg-hvblue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-hvblue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hvblue-600"
-                            >
-                                Submit
                             </button>
                         </div>
                     </form>
