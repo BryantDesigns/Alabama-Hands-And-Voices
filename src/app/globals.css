@@ -1,11 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Quill editor skin */
 @import 'react-quill/dist/quill.snow.css';
+
+/* Custom hero banner utility */
 .header-banner-bg {
   background-image: url('/images/homePageBanner.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
+
+/* Google font */
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
