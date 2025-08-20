@@ -25,7 +25,7 @@ const GBYSForm = () => {
                     className={`relative rounded-t-lg px-5 py-2 font-semibold transition-all duration-150 ${
                         activeTab === 'personal'
                             ? 'z-10 -mb-px border-b-0 border-l border-r border-t border-gray-900/5 bg-white text-hvorange'
-                            : 'border-b-2 border-transparent bg-white text-gray-600 hover:border-hvorange-400 hover:text-hvorange focus:border-hvorange-500 focus:text-hvorange'
+                            : 'border-b-2 border-transparent bg-gray-100 text-gray-600 hover:border-hvorange-400 hover:bg-white hover:text-hvorange focus:border-hvorange-500 focus:text-hvorange'
                     } cursor-pointer outline-none`}
                     onClick={() => setActiveTab('personal')}
                     type="button"
@@ -36,7 +36,7 @@ const GBYSForm = () => {
                     className={`relative rounded-t-lg px-5 py-2 font-semibold transition-all duration-150 ${
                         activeTab === 'professional'
                             ? 'z-10 -mb-px border-b-0 border-l border-r border-t border-gray-900/5 bg-white text-hvorange'
-                            : 'border-b-2 border-transparent bg-white text-gray-600 hover:border-hvorange-400 hover:text-hvorange focus:border-hvorange-500 focus:text-hvorange'
+                            : 'border-b-2 border-transparent bg-gray-100 text-gray-600 hover:border-hvorange-400 hover:bg-white hover:text-hvorange focus:border-hvorange-500 focus:text-hvorange'
                     } cursor-pointer outline-none`}
                     onClick={() => setActiveTab('professional')}
                     type="button"
