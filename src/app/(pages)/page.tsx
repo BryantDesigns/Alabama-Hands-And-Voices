@@ -52,7 +52,6 @@ export default async function Home() {
             <SupportOurMission
                 heading={data?.support?.heading ?? ''}
                 body={data?.support?.body ?? ''}
-                ctaLabel={data?.support?.ctaLabel ?? ''}
             />
 
             <EventsSection

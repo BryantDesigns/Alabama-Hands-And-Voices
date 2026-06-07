@@ -3,7 +3,6 @@ import PayPalDonation from '@/components/common/PayPalDonation'
 interface SupportProps {
     heading: string
     body: string
-    ctaLabel: string
 }
 
 export default function SupportOurMission({ heading, body }: SupportProps) {
