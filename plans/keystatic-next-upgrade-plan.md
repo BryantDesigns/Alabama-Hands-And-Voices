@@ -94,9 +94,9 @@ Goal: fix obvious production issues before adding Keystatic or upgrading framewo
 
 - [ ] Replace stale `/gbys` links with `/programs/gbys`.
 - [ ] Replace stale `/astra` links with `/programs/astra`.
-- [ ] Use `/programs/dhh-committee` as the canonical DHH Committee route.
-- [ ] Decide whether `/programs/dhh` should redirect, be removed, or become an alias.
-- [ ] Fix footer links currently pointing to stale paths such as `/who-we-are` or `/contact`.
+- [x] Use `/programs/dhh-committee` as the canonical DHH Committee route.
+- [x] Decide whether `/programs/dhh` should redirect, be removed, or become an alias. — `/programs/dhh` now redirects to `/programs/dhh-committee`.
+- [x] Fix footer links currently pointing to stale paths such as `/who-we-are` or `/contact`. — `/who-we-are`→`/about`, `/contact`→`/about/contact`, PDF path fixed.
 - [ ] Fix resources links that point to `assets/...` instead of the actual public path.
 - [ ] Fix membership and about page document links to match `public/assets/documents`.
 
@@ -106,26 +106,34 @@ Goal: fix obvious production issues before adding Keystatic or upgrading framewo
 - [ ] Replace missing image filenames with existing files from `public/images`.
 - [ ] Normalize legacy image filenames with spaces only if required by build/runtime behavior.
 - [ ] Add `sizes` to `next/image` usages that use `fill`.
-- [ ] Replace any production `<img>` usage with `next/image` unless there is a clear exception.
+- [x] Replace any production `<img>` usage with `next/image` unless there is a clear exception. — `VideoGallery.tsx` converted; `img.youtube.com` added to `next.config.mjs` remote patterns.
 
 ### Layout And Navigation
 
 - [ ] Keep one active public header implementation.
 - [ ] Move navigation data into a single typed source.
 - [ ] Remove demo-only calls-to-action from production navigation.
-- [ ] Remove unused header imports from `src/app/(pages)/layout.tsx`.
-- [ ] Keep footer content consistent with actual site routes.
+- [x] Remove unused header imports from `src/app/(pages)/layout.tsx`. — Removed `Header` and `TwoTierHeader` imports.
+- [x] Keep footer content consistent with actual site routes. — Footer stale links fixed.
 
 ### Metadata And Config
 
-- [ ] Replace root metadata title and description with Alabama Hands & Voices metadata.
+- [x] Replace root metadata title and description with Alabama Hands & Voices metadata.
 - [ ] Add route-level metadata for major content pages where useful.
-- [ ] Review `next.config.mjs` image remote patterns.
+- [x] Review `next.config.mjs` image remote patterns. — Added `img.youtube.com`; existing patterns confirmed correct.
 - [ ] Keep `eslint.ignoreDuringBuilds` unchanged until the app can pass lint, then remove it.
+
+### Lint
+
+- [x] Fix all `react/no-unescaped-entities` errors across 12 files (faq, safety, astra, dhh-committee pages; GBYSForm, AstraForm, DHHRMForm, ExampleForms, FormTest, InputGroups, MembershipForm, Centered).
+- [x] Fix `@typescript-eslint/no-unused-vars` in `GBYSForm.tsx` (`status`, `error`), `FormTest.tsx` (`PhotoIcon`, `UserCircleIcon`), `layout.tsx` (`Header`, `TwoTierHeader`), `database.ts` (`DocumentData`).
+- [x] Fix `@typescript-eslint/no-explicit-any` in `database.ts` — replaced with `StatItem[]`, `Partial<PageData>`, `Record<string, unknown>`.
+- [x] Fix `@next/next/no-img-element` in `VideoGallery.tsx`.
+- [x] `npm run lint` passes with no warnings or errors.
 
 Acceptance criteria:
 
-- [ ] No known broken internal links remain on the core public pages.
+- [x] No known broken internal links remain on the core public pages (partial — footer links fixed; remaining stale links deferred to Phase 1 continuation).
 - [ ] Known missing local image and document paths are fixed.
 - [ ] Production layout uses one header and one navigation data source.
 
@@ -478,3 +486,4 @@ Use this section to track decisions and implementation milestones.
 | 2026-06-06 | Planning | Added Keystatic content model, Firebase/auth removal, and Next/React upgrade sub-plan links and trackers. | Codex |
 | 2026-06-07 | Planning | Added Keystatic reference improvements from homeschool project: storage-mode decision gate, reader helper architecture, route wiring details, and content bundling checks. | Codex |
 | 2026-06-07 | Phase 0 | Baseline captured. Build: PASS. Lint: FAIL (react/no-unescaped-entities across multiple files; unused vars in layout, form components, firebase/database.ts; one no-img-element warning). | Claude |
+| 2026-06-07 | Phase 1 | Stabilized routes, layout, metadata, and fixed lint errors. DHH redirect added, footer stale links fixed, root metadata updated, VideoGallery converted to next/image, all ESLint errors resolved. `npm run lint` passes clean. | Claude |
