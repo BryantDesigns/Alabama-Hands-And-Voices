@@ -1,5 +1,15 @@
 import Image from 'next/image'
-export default function ContactPage() {
+import { getContactPageContent } from '@/lib/keystatic/pages'
+
+export default async function ContactPage() {
+  const data = await getContactPageContent()
+
+  const heading = data?.heading ?? 'Contact Us'
+  const body = data?.body ?? ''
+  const email = data?.email ?? 'alabamahinfo@gmail.com'
+  const phone = data?.phone ?? '205-677-3136'
+  const image = data?.image ?? '/images/contactUs.jpg'
+
   return (
       <main>
           <section className="relative bg-hvblue py-24 sm:py-32">
@@ -8,7 +18,7 @@ export default function ContactPage() {
                       {/* Left Image */}
                       <div className="relative w-full overflow-hidden rounded-lg">
                           <Image
-                              src="/images/contactUs.jpg"
+                              src={image}
                               alt="Contact Us"
                               width={600}
                               height={400}
@@ -19,14 +29,10 @@ export default function ContactPage() {
                       {/* Right Text */}
                       <div>
                           <h2 className="text-4xl font-semibold uppercase tracking-tight text-hvorange sm:text-5xl">
-                              Contact Us
+                              {heading}
                           </h2>
                           <p className="mt-6 text-lg leading-relaxed text-white">
-                              Thank you for visiting our website where it is our
-                              mission to support families with children who are
-                              deaf or hard of hearing without bias toward
-                              communication mode. We believe what works for your
-                              child is what makes the choice right.
+                              {body}
                           </p>
                           <p className="mt-4 text-lg leading-relaxed text-white">
                               If you have questions or comments for our team,
@@ -34,7 +40,7 @@ export default function ContactPage() {
                               <strong>
                                   <a
                                       className="text-hvorange underline"
-                                      href="mailto:alabamahinfo@gmail.com"
+                                      href={`mailto:${email}`}
                                   >
                                       email us
                                   </a>
@@ -43,9 +49,9 @@ export default function ContactPage() {
                               <strong>
                                   <a
                                       className="text-hvorange underline"
-                                      href="tel:205-677-3136"
+                                      href={`tel:${phone}`}
                                   >
-                                      205-677-3136
+                                      {phone}
                                   </a>
                               </strong>
                               .
