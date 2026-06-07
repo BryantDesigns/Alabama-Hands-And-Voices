@@ -1,7 +1,16 @@
 import Image from 'next/image'
-import { boardMembers } from '@/data/aboutPages/boardMembers'
 
-export default function BoardSection() {
+interface BoardMemberData {
+    name: string
+    role: string
+    imageUrl: string
+}
+
+interface BoardSectionProps {
+    members: BoardMemberData[]
+}
+
+export default function BoardSection({ members }: BoardSectionProps) {
     return (
         <section>
             {/* Banner Section */}
@@ -43,7 +52,7 @@ export default function BoardSection() {
                         role="list"
                         className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
                     >
-                        {boardMembers.map((member) => (
+                        {members.map((member) => (
                             <li
                                 key={member.name}
                                 className="flex flex-col items-center text-center"
