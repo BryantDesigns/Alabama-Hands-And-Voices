@@ -1,24 +1,66 @@
+import { getHomePageContent } from '@/lib/keystatic/pages'
 import HeroSection from '@/components/pages/homepage/HeroSection'
-import { fetchPageContent } from '@/services/firebase/database'
-import SectionsRenderer from '@/components/SectionsRenderer'
-
+import WhatIsAlabama from '@/components/pages/homepage/WhatIsAlabama'
+import WhereToStart from '@/components/pages/homepage/WhereToStart'
+import LearnMoreAboutUs from '@/components/pages/homepage/LearnMoreAboutUs'
+import SupportOurMission from '@/components/pages/homepage/SupportOurMission'
+import EventsSection from '@/components/pages/homepage/EventsSection'
 
 export default async function Home() {
-    // Fetch data for the 'home' page from Firestore
-    const pageData = await fetchPageContent('home')
+    const data = await getHomePageContent()
 
-    // If there's no data, you can show a fallback or error
-    if (!pageData) {
-        return <div>No data found for home page.</div>
+    if (!data) {
+        return (
+            <div>
+                Homepage content not found. Run the dev server and check
+                Keystatic.
+            </div>
+        )
     }
-
-    const { sections = [] } = pageData
 
     return (
         <main>
-            <HeroSection />
+            <HeroSection
+                quote={data?.heroQuote ?? ''}
+                logoImage={data?.heroLogoImage ?? ''}
+            />
 
-            <SectionsRenderer sections={sections} />
+            <WhatIsAlabama
+                heading={data?.intro?.heading ?? ''}
+                body={data?.intro?.body ?? ''}
+                image={data?.intro?.image ?? ''}
+                imageAlt={data?.intro?.imageAlt ?? ''}
+            />
+
+            <WhereToStart
+                heading={data?.whereToStart?.heading ?? ''}
+                subheading={data?.whereToStart?.subheading ?? ''}
+                body={data?.whereToStart?.body ?? ''}
+                quoteText={data?.whereToStart?.quoteText ?? ''}
+                quoteAuthors={data?.whereToStart?.quoteAuthors ?? ''}
+                backgroundImage={data?.whereToStart?.backgroundImage ?? ''}
+                stats={[...(data?.whereToStart?.stats ?? [])]}
+                ctaLabel={data?.whereToStart?.ctaLabel ?? ''}
+                ctaHref={data?.whereToStart?.ctaHref ?? ''}
+            />
+
+            <LearnMoreAboutUs
+                heading={data?.learnMore?.heading ?? ''}
+                featureBlocks={[...(data?.learnMore?.featureBlocks ?? [])]}
+            />
+
+            <SupportOurMission
+                heading={data?.support?.heading ?? ''}
+                body={data?.support?.body ?? ''}
+                ctaLabel={data?.support?.ctaLabel ?? ''}
+            />
+
+            <EventsSection
+                heading={data?.events?.heading ?? ''}
+                intro={data?.events?.intro ?? ''}
+                backgroundImage={data?.events?.backgroundImage ?? ''}
+                events={[...(data?.events?.events ?? [])]}
+            />
         </main>
     )
 }

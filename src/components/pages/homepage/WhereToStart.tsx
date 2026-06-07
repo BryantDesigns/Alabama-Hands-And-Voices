@@ -1,36 +1,29 @@
-'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Section } from '@/types/pageTypes' // <-- import Section
 
 interface WhereToStartProps {
-    data: Section
+    heading: string
+    subheading: string
+    body: string
+    quoteText: string
+    quoteAuthors: string
+    backgroundImage: string
+    stats: { number: string; label: string }[]
+    ctaLabel: string
+    ctaHref: string
 }
 
-export default function WhereToStart({ data }: WhereToStartProps) {
-    /*
-    Data example:
-    {
-      heading: "Where to start",
-      subheading: "First, take a deep breath",
-      backgroundImage: "https://images.unsplash.com/...",
-      quote: {
-        text: "“Our lives and our children's lives ...”",
-        authors: ["Susan Fingerle", "Jessica Havard", "Maria Katz"]
-      },
-      stats: [
-        { label: "Years Serving Families", value: "10+" },
-        { label: "Chapters Nationwide", value: "40+" },
-        { label: "Founded", value: "2017" }
-      ],
-      cta: {
-        link: "#",
-        text: "Learn more about our company"
-      },
-      htmlContent: "...",
-    }
-  */
-
+export default function WhereToStart({
+    heading,
+    subheading,
+    body,
+    quoteText,
+    quoteAuthors,
+    backgroundImage,
+    stats,
+    ctaLabel,
+    ctaHref,
+}: WhereToStartProps) {
     return (
         <section>
             <div className="bg-white py-12 sm:py-24">
@@ -41,10 +34,10 @@ export default function WhereToStart({ data }: WhereToStartProps) {
                         <div className="lg:pr-4">
                             <div className="relative overflow-hidden rounded-3xl bg-gray-900 px-6 pb-9 pt-64 shadow-2xl sm:px-12 lg:max-w-lg lg:px-8 lg:pb-8 xl:px-10 xl:pb-10">
                                 {/* Background Image */}
-                                {data.backgroundImage && (
+                                {backgroundImage && (
                                     <Image
                                         alt=""
-                                        src={data.backgroundImage}
+                                        src={backgroundImage}
                                         fill
                                         sizes="(max-width: 1024px) 100vw, 50vw"
                                         className="absolute inset-0 size-full object-cover brightness-125 saturate-0"
@@ -67,92 +60,79 @@ export default function WhereToStart({ data }: WhereToStartProps) {
                                 </div>
 
                                 {/* Quote section */}
-                                {data.quote && data.quote.text && (
+                                {quoteText && (
                                     <figure className="relative isolate">
-                                        {/* Example of a fancy shape or an SVG background can go here */}
                                         <blockquote className="mt-6 text-xl/8 font-semibold text-white">
-                                            <p>{data.quote.text}</p>
+                                            <p>{quoteText}</p>
                                         </blockquote>
-                                        {/* Authors */}
-                                        {Array.isArray(data.quote.authors) &&
-                                            data.quote.authors.length > 0 && (
-                                                <figcaption className="mt-6 text-sm/6 text-gray-300">
-                                                    <strong className="font-semibold text-white">
-                                                        {data.quote.authors.join(
-                                                            ', '
-                                                        )}
-                                                    </strong>{' '}
-                                                    <br />- Alabama Hands &amp;
-                                                    Voices Founders
-                                                </figcaption>
-                                            )}
+                                        {quoteAuthors && (
+                                            <figcaption className="mt-6 text-sm/6 text-gray-300">
+                                                <strong className="font-semibold text-white">
+                                                    {quoteAuthors}
+                                                </strong>{' '}
+                                                <br />- Alabama Hands &amp;
+                                                Voices Founders
+                                            </figcaption>
+                                        )}
                                     </figure>
                                 )}
                             </div>
 
                             {/* Stats */}
-                            {Array.isArray(data.stats) &&
-                                data.stats.length > 0 && (
-                                    <dl className="mt-5 grid grid-cols-6 gap-8 border-t border-gray-900/10 pt-10 sm:grid-cols-6">
-                                        {data.stats.map((stat, statIdx) => (
-                                            <div
-                                                key={statIdx}
-                                                className="col-span-2"
-                                            >
-                                                <dt className="text-nowrap text-sm/6 font-semibold text-gray-600">
-                                                    {stat.label}
-                                                </dt>
-                                                <dd className="mt-2 text-3xl/10 font-bold tracking-tight text-gray-900">
-                                                    {stat.value}
-                                                </dd>
-                                            </div>
-                                        ))}
-                                    </dl>
-                                )}
+                            {Array.isArray(stats) && stats.length > 0 && (
+                                <dl className="mt-5 grid grid-cols-6 gap-8 border-t border-gray-900/10 pt-10 sm:grid-cols-6">
+                                    {stats.map((stat, statIdx) => (
+                                        <div
+                                            key={statIdx}
+                                            className="col-span-2"
+                                        >
+                                            <dt className="text-nowrap text-sm/6 font-semibold text-gray-600">
+                                                {stat.label}
+                                            </dt>
+                                            <dd className="mt-2 text-3xl/10 font-bold tracking-tight text-gray-900">
+                                                {stat.number}
+                                            </dd>
+                                        </div>
+                                    ))}
+                                </dl>
+                            )}
 
                             {/* CTA */}
-                            {data.cta &&
-                                typeof data.cta === 'object' &&
-                                'link' in data.cta && (
-                                    <div className="mt-10 flex">
-                                        <Link
-                                            href={data.cta.link as string}
-                                            className="text-base/7 font-semibold text-hvorange-600"
-                                        >
-                                            {data.cta.text}{' '}
-                                            <span aria-hidden="true">
-                                                &rarr;
-                                            </span>
-                                        </Link>
-                                    </div>
-                                )}
+                            {ctaLabel && ctaHref && (
+                                <div className="mt-10 flex">
+                                    <Link
+                                        href={ctaHref}
+                                        className="text-base/7 font-semibold text-hvorange-600"
+                                    >
+                                        {ctaLabel}{' '}
+                                        <span aria-hidden="true">&rarr;</span>
+                                    </Link>
+                                </div>
+                            )}
                         </div>
 
                         {/* Right Column: heading, subheading, main text */}
                         <div>
                             <div className="text-base/7 text-gray-700 lg:max-w-lg">
                                 {/* Main heading */}
-                                {data.heading && (
+                                {heading && (
                                     <p className="text-base/7 font-semibold text-hvorange-600">
-                                        {data.heading}
+                                        {heading}
                                     </p>
                                 )}
 
                                 {/* Subheading */}
-                                {data.subheading && (
+                                {subheading && (
                                     <h1 className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-                                        {data.subheading}
+                                        {subheading}
                                     </h1>
                                 )}
 
-                                {/* Body content rendered as HTML */}
-                                {data.htmlContent && (
-                                    <div
-                                        className="mt-6"
-                                        dangerouslySetInnerHTML={{
-                                            __html: data.htmlContent,
-                                        }}
-                                    />
+                                {/* Body content */}
+                                {body && (
+                                    <p className="mt-6">
+                                        {body}
+                                    </p>
                                 )}
                             </div>
                         </div>
