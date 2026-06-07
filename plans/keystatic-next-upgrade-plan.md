@@ -189,65 +189,64 @@ See [Keystatic Content Model Sub-Plan](subplans/keystatic-content-model-sub-plan
 
 ### Singletons
 
-- [ ] `siteSettings`
-  - [ ] Logo/image references
-  - [ ] Contact email
-  - [ ] Phone number
-  - [ ] Address
-  - [ ] Donation button metadata
-  - [ ] Social links
-  - [ ] Footer copy
-- [ ] `navigation`
-  - [ ] Top-level links
-  - [ ] About menu items
-  - [ ] Program menu items
-  - [ ] Resources, membership, FAQ links
-- [ ] `homePage`
-  - [ ] Hero quote
-  - [ ] Hero image/logo
-  - [ ] Homepage section blocks
-- [ ] `aboutPage`
-- [ ] `contactPage`
-- [ ] `membershipPage`
-- [ ] `astraPage`
-- [ ] `gbysPage`
-- [ ] `safetyPage`
-- [ ] `dhhCommitteePage`
-- [ ] `resourcesPage`
-- [ ] `faqPage`
+- [x] `siteSettings`
+  - [x] Logo/image references
+  - [x] Contact email
+  - [x] Phone number
+  - [x] Address
+  - [x] Donation button metadata
+  - [x] Social links
+  - [x] Footer copy
+- [x] `navigation`
+  - [x] About menu items
+  - [x] Program menu items
+- [x] `homePage`
+  - [x] Hero quote
+  - [x] Hero image/logo
+  - [x] Homepage section blocks (intro, whereToStart, learnMore, support, events)
+- [x] `aboutPage`
+- [x] `contactPage`
+- [x] `membershipPage`
+- [x] `chooseMembershipPage`
+- [x] `astraPage`
+- [x] `gbysPage`
+- [x] `safetyPage`
+- [x] `dhhCommitteePage`
+- [x] `resourcesPage`
+- [x] `faqPage`
 
 ### Collections
 
-- [ ] `boardMembers`
-  - [ ] Name
-  - [ ] Role
-  - [ ] Image
-  - [ ] Sort order
-- [ ] `staffMembers`
-  - [ ] Name
-  - [ ] Role
-  - [ ] Category
-  - [ ] Image
-  - [ ] Sort order
-- [ ] `videos`
-  - [ ] Title
-  - [ ] YouTube ID
-  - [ ] Thumbnail
-  - [ ] Sort order
-  - [ ] Category or placement
+- [x] `boardMembers`
+  - [x] Name (slug field)
+  - [x] Role
+  - [x] Image
+  - [x] Sort order
+- [x] `staffMembers`
+  - [x] Name (slug field)
+  - [x] Role
+  - [x] Category
+  - [x] Image
+  - [x] Sort order
+- [x] `videos`
+  - [x] Title (slug field)
+  - [x] YouTube ID
+  - [x] Sort order
+  - [x] Category or placement
+  - [x] Active flag
 
 ### Field Rules
 
-- [ ] Use structured fields for titles, links, images, stats, cards, resources, and repeatable lists.
-- [ ] Use Markdoc only for rich body copy.
-- [ ] Keep form field definitions out of Keystatic for this phase.
-- [ ] Use explicit sort order fields for people/resources/videos where current order matters.
-- [ ] Use required fields only where missing content would break rendering.
+- [x] Use structured fields for titles, links, images, stats, cards, resources, and repeatable lists.
+- [x] Use text (multiline) for body copy in Phase 3; Markdoc deferred to Phase 4.
+- [x] Keep form field definitions out of Keystatic for this phase.
+- [x] Use explicit sort order fields for people/resources/videos where current order matters.
+- [x] Use required fields only where missing content would break rendering.
 
 Acceptance criteria:
 
-- [ ] Keystatic schemas can represent the current public content without needing Firebase.
-- [ ] Editors get structured fields for common content and rich text only where useful.
+- [x] Keystatic schemas can represent the current public content without needing Firebase.
+- [x] Editors get structured fields for common content and rich text only where useful.
 
 ## Phase 4: Migrate Content And Refactor Components
 
@@ -487,3 +486,4 @@ Use this section to track decisions and implementation milestones.
 | 2026-06-07 | Phase 0 | Baseline captured. Build: PASS. Lint: FAIL (react/no-unescaped-entities across multiple files; unused vars in layout, form components, firebase/database.ts; one no-img-element warning). | Claude |
 | 2026-06-07 | Phase 1 | Stabilized routes, layout, metadata, and fixed lint errors. DHH redirect added, footer stale links fixed, root metadata updated, VideoGallery converted to next/image, all ESLint errors resolved. `npm run lint` passes clean. | Claude |
 | 2026-06-07 | Phase 2 | Keystatic foundation installed. Packages: `@keystatic/core`, `@keystatic/next`, `@markdoc/markdoc`. Created: `keystatic.config.ts` (local-file storage, empty singletons/collections), `src/app/keystatic/layout.tsx`, `src/app/keystatic/[[...params]]/page.tsx` (uses `makePage` from `@keystatic/next/ui/app`), `src/app/api/keystatic/[...params]/route.ts` (uses `makeRouteHandler`), `src/lib/keystatic/reader.ts`, `src/lib/keystatic/pages.ts`, `src/lib/keystatic/collections.ts`, `src/content/.gitkeep`. Added `experimental.outputFileTracingIncludes` to `next.config.mjs`. `/keystatic` returns HTTP 200 with no config warnings. | Claude |
+| 2026-06-07 | Phase 3 | Defined all Keystatic schemas: 12 singletons (siteSettings, navigation, homePage, aboutPage, contactPage, membershipPage, chooseMembershipPage, astraPage, gbysPage, safetyPage, dhhCommitteePage, resourcesPage, faqPage) and 3 collections (boardMembers, staffMembers, videos). All body copy uses `fields.text({ multiline: true })` — Markdoc deferred to Phase 4. Collections use `fields.slug()` for the slugField. Seeded all singletons under `src/content/singletons/`, 11 board members under `src/content/boardMembers/`, 10 staff members under `src/content/staffMembers/`. Updated `pages.ts` and `collections.ts` with typed reader helpers for all singletons and collections. Build: PASS. Lint: PASS. | Claude |
