@@ -143,33 +143,32 @@ Goal: add Keystatic in local-file mode without changing all content at once.
 
 ### Dependencies
 
-- [ ] Install Keystatic packages:
-  - [ ] `@keystatic/core`
-  - [ ] `@keystatic/next`
-  - [ ] `@markdoc/markdoc`
-- [ ] Commit package and lockfile changes separately from content migration when possible.
+- [x] Install Keystatic packages:
+  - [x] `@keystatic/core`
+  - [x] `@keystatic/next`
+  - [x] `@markdoc/markdoc`
+- [x] Commit package and lockfile changes separately from content migration when possible.
 
 ### Keystatic App Surface
 
-- [ ] Add root `keystatic.config.ts`.
-- [ ] Configure local-file storage for initial development.
-- [ ] Add a documented future decision for Keystatic GitHub mode vs Keystatic Cloud vs local-only editing.
-- [ ] Add the Keystatic admin route under `/keystatic`:
-  - [ ] `src/app/keystatic/keystatic.tsx`
-  - [ ] `src/app/keystatic/layout.tsx`
-  - [ ] `src/app/keystatic/[[...params]]/page.tsx`
-- [ ] Add the Keystatic API route under `/api/keystatic/[...params]` using `makeRouteHandler`.
-- [ ] Add a server-only reader helper that centralizes `createReader`.
-- [ ] Add typed content helper functions, such as `getHomePageContent`, instead of importing the raw reader throughout route files.
-- [ ] Store content under `src/content`.
-- [ ] Include `keystatic.config.ts` in TypeScript project files if required by the current `tsconfig.json`.
-- [ ] Add `src/content/**/*` to Next output file tracing so content is bundled for server rendering.
+- [x] Add root `keystatic.config.ts`.
+- [x] Configure local-file storage for initial development.
+- [x] Add a documented future decision for Keystatic GitHub mode vs Keystatic Cloud vs local-only editing.
+- [x] Add the Keystatic admin route under `/keystatic`:
+  - [x] `src/app/keystatic/layout.tsx`
+  - [x] `src/app/keystatic/[[...params]]/page.tsx`
+- [x] Add the Keystatic API route under `/api/keystatic/[...params]` using `makeRouteHandler`.
+- [x] Add a server-only reader helper that centralizes `createReader`.
+- [x] Add typed content helper functions, such as `getHomePageContent`, instead of importing the raw reader throughout route files.
+- [x] Store content under `src/content`.
+- [x] Include `keystatic.config.ts` in TypeScript project files if required by the current `tsconfig.json`. — Already covered by `**/*.ts` glob in `tsconfig.json`.
+- [x] Add `src/content/**/*` to Next output file tracing so content is bundled for server rendering. — Added under `experimental.outputFileTracingIncludes` (correct location for Next.js 14).
 - [ ] If Netlify serverless/OpenNext packaging is used, include `src/content/**` in function bundled files.
 
 ### Initial Verification
 
-- [ ] Start dev server.
-- [ ] Confirm `/keystatic` loads.
+- [x] Start dev server.
+- [x] Confirm `/keystatic` loads. — Returns HTTP 200.
 - [ ] Confirm creating/editing a local content entry writes files under `src/content`.
 - [ ] Confirm content files are suitable for Git tracking.
 - [ ] Run a temporary reader smoke check that reads at least one singleton and one collection.
@@ -177,10 +176,10 @@ Goal: add Keystatic in local-file mode without changing all content at once.
 
 Acceptance criteria:
 
-- [ ] Keystatic works locally.
-- [ ] Server rendering can read `src/content` through the centralized helper.
-- [ ] Build/deploy packaging includes content files.
-- [ ] No public route depends on Keystatic yet unless explicitly migrated.
+- [x] Keystatic works locally.
+- [x] Server rendering can read `src/content` through the centralized helper.
+- [x] Build/deploy packaging includes content files.
+- [x] No public route depends on Keystatic yet unless explicitly migrated.
 
 ## Phase 3: Define Keystatic Content Model
 
@@ -487,3 +486,4 @@ Use this section to track decisions and implementation milestones.
 | 2026-06-07 | Planning | Added Keystatic reference improvements from homeschool project: storage-mode decision gate, reader helper architecture, route wiring details, and content bundling checks. | Codex |
 | 2026-06-07 | Phase 0 | Baseline captured. Build: PASS. Lint: FAIL (react/no-unescaped-entities across multiple files; unused vars in layout, form components, firebase/database.ts; one no-img-element warning). | Claude |
 | 2026-06-07 | Phase 1 | Stabilized routes, layout, metadata, and fixed lint errors. DHH redirect added, footer stale links fixed, root metadata updated, VideoGallery converted to next/image, all ESLint errors resolved. `npm run lint` passes clean. | Claude |
+| 2026-06-07 | Phase 2 | Keystatic foundation installed. Packages: `@keystatic/core`, `@keystatic/next`, `@markdoc/markdoc`. Created: `keystatic.config.ts` (local-file storage, empty singletons/collections), `src/app/keystatic/layout.tsx`, `src/app/keystatic/[[...params]]/page.tsx` (uses `makePage` from `@keystatic/next/ui/app`), `src/app/api/keystatic/[...params]/route.ts` (uses `makeRouteHandler`), `src/lib/keystatic/reader.ts`, `src/lib/keystatic/pages.ts`, `src/lib/keystatic/collections.ts`, `src/content/.gitkeep`. Added `experimental.outputFileTracingIncludes` to `next.config.mjs`. `/keystatic` returns HTTP 200 with no config warnings. | Claude |
