@@ -78,7 +78,7 @@ const faqs = [
                     ADRS has developed a resource manual for families of deaf and hard of hearing children
                     &quot;Pathways for Families&quot; which we include as a pdf.{' '}
                     <a
-                        href="/assets/Pathways.pdf"
+                        href="/assets/documents/Pathways.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="font-bold text-hvblue-600 underline hover:text-hvblue-700"

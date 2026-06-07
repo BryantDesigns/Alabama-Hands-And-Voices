@@ -217,13 +217,8 @@ export const updateFirestoreSection = async (
 
         console.log('✅ Section updated successfully!')
 
-        // Optionally update the cache
-        const cachedPage = cache.get(pageId)
-        if (cachedPage && cachedPage.sections[sectionIndex]) {
-            cachedPage.sections[sectionIndex].content = content as unknown as string[]
-            cachedPage.lastUpdated = null // or new Date(), etc.
-            cache.set(pageId, cachedPage)
-        }
+        // Invalidate the cache so the next read fetches fresh data from Firestore
+        cache.delete(pageId)
     } catch (error) {
         console.error('❌ Error updating section:', error)
     }
