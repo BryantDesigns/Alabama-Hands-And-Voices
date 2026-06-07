@@ -1,0 +1,91 @@
+heroQuote: '"What works for your child is what makes the choice right." ™'
+heroLogoImage: /images/hvlogo.svg
+intro:
+  heading: What is Alabama Hands & Voices?
+  body: >-
+    Alabama Hands & Voices is a parent-driven, non-profit organization that
+    supports families with children who are deaf or hard of hearing. We are
+    parents who understand the journey you are on. We provide unbiased
+    information, resources, and support — regardless of communication method
+    or technology choice.
+
+
+    Whether your child uses hearing aids, cochlear implants, sign language,
+    spoken language, or a combination, we are here for you.
+  image: /images/aboutUsWhoWeAre1.jpg
+  imageAlt: Hands & Voices family gathering
+whereToStart:
+  heading: Where to start
+  subheading: First, take a deep breath
+  body: >-
+    We know this may feel overwhelming. You have just learned that your child
+    has a hearing loss, and you are not sure what to do next. That is okay.
+
+
+    We have walked this path. Our organization is made up of parents just like
+    you — parents who have navigated newborn hearing screening follow-up,
+    early intervention, IEPs, technology choices, and communication decisions.
+
+
+    There is no single right answer for every child or every family. What
+    works for your child is what makes the choice right. We will help you find
+    your way.
+  quoteText: >-
+    "Our lives and our children's lives are richer because of Hands & Voices.
+    This community gave us hope and a path forward."
+  quoteAuthors: Susan Fingerle, Jessica Havard, Maria Katz
+  backgroundImage: /images/family.jpg
+  stats:
+    - number: "10+"
+      label: Years Serving Families
+    - number: "40+"
+      label: Chapters Nationwide
+    - number: "2017"
+      label: Founded in Alabama
+  ctaLabel: Learn more about our programs
+  ctaHref: /programs/gbys
+learnMore:
+  heading: Learn More About Us
+  featureBlocks:
+    - heading: Guide By Your Side
+      body: >-
+        Connect with a trained Parent Guide who has a child who is deaf or
+        hard of hearing. Our GBYS program provides one-on-one support tailored
+        to your family's unique journey — completely free of charge.
+      image: /images/aboutUsWhoWeAreFamily.jpg
+      imageAlt: GBYS family support
+    - heading: Educational Advocacy
+      body: >-
+        ASTra (Advocacy Support and Training) helps families navigate the
+        special education system. We can help you prepare for IEP meetings,
+        understand your rights, and build an effective educational team for
+        your child.
+      image: /images/aboutUsWhoWeAreTrail.jpeg
+      imageAlt: Educational advocacy support
+support:
+  heading: Support Our Mission
+  body: >-
+    Alabama Hands & Voices relies on the generosity of donors and members to
+    provide free services to families across the state. Your donation helps us
+    connect more families, fund family retreats, and train parent guides.
+  ctaLabel: Donate Now
+events:
+  heading: Events
+  intro: >-
+    We are always planning events and gatherings for families. From family
+    retreats to virtual workshops, there is always something happening in the
+    Alabama Hands & Voices community.
+  backgroundImage: /images/family.jpg
+  events:
+    - title: Family Retreat at Lake Martin
+      description: >-
+        Join us for our annual family retreat. Families connect, children play,
+        and parents share their journeys in a relaxed, welcoming setting.
+    - title: Virtual & In-Person Workshops
+      description: >-
+        We host workshops on topics like IEP preparation, communication
+        strategies, and technology options throughout the year.
+    - title: Community Gatherings
+      description: >-
+        Regional social events give families a chance to meet others in their
+        area and build lasting friendships.

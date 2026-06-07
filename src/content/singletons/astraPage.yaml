@@ -1,0 +1,25 @@
+programDescription: >-
+  ASTra (Advocacy Support and Training) is Alabama Hands & Voices's program to
+  help families navigate the educational system for their deaf or hard of
+  hearing children.
+questions:
+  - question: Are you confused by your child's IEP or educational plan?
+  - question: Do you need help preparing for meetings with your child's school?
+  - question: Are you unsure of your rights as a parent in the special education process?
+  - question: Do you need support communicating with your child's educational team?
+  - question: Are you looking for resources to help your child succeed in school?
+resourceLinks:
+  - name: IEP Meeting Planner
+    url: https://handsandvoices.org/IEPmeetingplanner/
+  - name: IEP/504 Checklist
+    url: /assets/documents/IEP_Checklist.pdf
+  - name: Communication Plan
+    url: /assets/documents/communicationPlan.pdf
+  - name: Pop-Up IEP
+    url: https://handsandvoices.org/articles/education/popup/pop_index.html
+  - name: D/HH Student Self-Advocacy Inventory
+    url: /assets/documents/SAIInventory.pdf
+  - name: Functional Listening Evaluation
+    url: https://handsandvoices.org/pdf/func_eval.pdf
+trainingCtaLabel: Register for Level 1 Training
+trainingCtaHref: https://forms.office.com/r/5AjZw87bMV

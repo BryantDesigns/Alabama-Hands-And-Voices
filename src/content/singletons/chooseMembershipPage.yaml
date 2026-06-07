@@ -1,0 +1,16 @@
+membershipOptions:
+  - title: "$25 Membership"
+    subtitle: "Parents, Students, DHH Adults"
+    price: "25.00"
+    paypalButtonId: E5Q6YYU8F3M66
+    image: /images/family.jpg
+  - title: "$40 Professional Membership"
+    subtitle: Professionals in the field
+    price: "40.00"
+    paypalButtonId: 32NBUMV7CGXJE
+    image: /images/aboutUsWhoWeAre1.jpg
+  - title: "$50 Organization Membership"
+    subtitle: Organizations supporting DHH children
+    price: "50.00"
+    paypalButtonId: TN95YMB8QNGZN
+    image: /images/aboutUsWhoWeAreFamily.jpg
