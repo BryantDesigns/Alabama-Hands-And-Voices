@@ -27,7 +27,7 @@ const AstraForm = () => {
                     <input type="hidden" name="form-name" value="astra" />
                     <p className="hidden">
                         <label>
-                            Don't fill this out if you're human:
+                            Don&apos;t fill this out if you&apos;re human:
                             <input
                                 name="bot-field"
                                 tabIndex={-1}
@@ -109,7 +109,7 @@ const AstraForm = () => {
                                     />
                                 </div>
                                 <small className="text-sm text-gray-500">
-                                    We'll never share your email with anyone else.
+                                    We&apos;ll never share your email with anyone else.
                                 </small>
                             </div>
                             {/* Student Name */}
@@ -137,7 +137,7 @@ const AstraForm = () => {
                                     htmlFor="inputAge"
                                     className="block text-sm font-medium text-gray-900"
                                 >
-                                    Student's Age:
+                                    Student&apos;s Age:
                                 </label>
                                 <div className="mt-2">
                                     <input
@@ -155,7 +155,7 @@ const AstraForm = () => {
                                     htmlFor="inputGrade"
                                     className="block text-sm font-medium text-gray-900"
                                 >
-                                    Student's Grade:
+                                    Student&apos;s Grade:
                                 </label>
                                 <div className="mt-2">
                                     <input

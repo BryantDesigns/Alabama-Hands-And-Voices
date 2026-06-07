@@ -1,4 +1,6 @@
+'use client'
 import { useState } from 'react'
+import Image from 'next/image'
 
 const videos = [
     {
@@ -60,9 +62,11 @@ export default function VideoGallery() {
                             onClick={() => setSelectedVideo(video.id)}
                             className="group flex flex-col items-center rounded-lg bg-gray-100 p-4 shadow-md transition hover:bg-gray-200 focus:outline-none"
                         >
-                            <img
+                            <Image
                                 src={`https://img.youtube.com/vi/${video.id}/0.jpg`}
                                 alt={video.title}
+                                width={480}
+                                height={270}
                                 className="aspect-video w-full rounded-md"
                             />
                             <p className="mt-2 text-center text-lg font-medium text-gray-900 group-hover:text-hvorange">

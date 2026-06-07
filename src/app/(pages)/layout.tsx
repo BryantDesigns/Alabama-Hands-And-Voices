@@ -1,5 +1,5 @@
 import Footer from '@/components/layout/Footer'
-import Header from '@/components/layout/Header'
+import OverlappingLogoHeader from '@/components/ui/examples/OverlappingLogoHeader'
 
 export default function PagesLayout({
     children,
@@ -8,7 +8,7 @@ export default function PagesLayout({
 }) {
     return (
         <>
-            <Header />
+            <OverlappingLogoHeader />
             {children}
             <Footer />
         </>

@@ -62,11 +62,11 @@ export default function AstraPage() {
                             <ul className="space-y-3 text-lg text-white">
                                 <li className="flex items-start">
                                     <span className="mr-3 mt-1 h-2 w-2 rounded-full bg-hvorange-500"></span>
-                                    What laws support my child's education?
+                                    What laws support my child&apos;s education?
                                 </li>
                                 <li className="flex items-start">
                                     <span className="mr-3 mt-1 h-2 w-2 rounded-full bg-hvorange-500"></span>
-                                    I don't understand what my child might be eligible for.
+                                    I don&apos;t understand what my child might be eligible for.
                                 </li>
                                 <li className="flex items-start">
                                     <span className="mr-3 mt-1 h-2 w-2 rounded-full bg-hvorange-500"></span>

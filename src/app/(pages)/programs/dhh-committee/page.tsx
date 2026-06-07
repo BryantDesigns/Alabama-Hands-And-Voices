@@ -36,7 +36,7 @@ export default function DHHCommitteePage() {
                             The inclusion of Deaf and Hard of Hearing committee members can
                             have a profound impact for everyone, child, parent and professional. Deaf and Hard of
                             Hearing (DHH) committee members are uniquely qualified to provide the child, parents,
-                            professionals, and the family's broader community with a positive and hopeful
+                            professionals, and the family&apos;s broader community with a positive and hopeful
                             perspective drawn from their day-to-day real life experiences as a person who lives with
                             hearing loss.
                         </p>

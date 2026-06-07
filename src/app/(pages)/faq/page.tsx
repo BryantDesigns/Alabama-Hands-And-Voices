@@ -11,10 +11,10 @@ const faqs = [
         answer: (
             <div className="space-y-4">
                 <p>
-                    Follow up and have your child's hearing tested by an audiologist! Most babies are born with hearing, so many
-                    pediatricians are not used to seeing this. Often people will speculate that it's fluid on the ear causing the hearing test
+                    Follow up and have your child&apos;s hearing tested by an audiologist! Most babies are born with hearing, so many
+                    pediatricians are not used to seeing this. Often people will speculate that it&apos;s fluid on the ear causing the hearing test
                     result. A pediatric audiologist can get you the right information. If the tests are inconclusive, make sure that you
-                    have a follow-up plan in place. These early years are critical for your child's learning, so you need to know as soon as
+                    have a follow-up plan in place. These early years are critical for your child&apos;s learning, so you need to know as soon as
                     possible if she is learning through hearing.
                 </p>
                 <div className="space-y-2">
@@ -58,11 +58,11 @@ const faqs = [
         answer: (
             <div className="space-y-4">
                 <p>
-                    If you are feeling emotions around your child's diagnosis, acknowledge them. Be kind to yourself and find someone to share
+                    If you are feeling emotions around your child&apos;s diagnosis, acknowledge them. Be kind to yourself and find someone to share
                     your emotions. Fellow parents in this chapter can help. Start building a community of parents. If you feel that you need
                     professional assistance, seek it. Your child needs you to take care of yourself so that you can care for him. And, while you
                     are caring for yourself, take action for your child! Children who are deaf or hard of hearing often need extra help to learn in the early years. Under the
-                    Individuals with Disabilities Education Act (IDEA), children who are deaf or hard of hearing receive "early intervention"
+                    Individuals with Disabilities Education Act (IDEA), children who are deaf or hard of hearing receive &quot;early intervention&quot;
                     services from ages 0-3. In Alabama, the{' '}
                     <a
                         href="https://www.rehab.alabama.gov/services/ei"
@@ -76,14 +76,14 @@ const faqs = [
                 </p>
                 <p>
                     ADRS has developed a resource manual for families of deaf and hard of hearing children
-                    "Pathways for Families" which we include as a pdf.{' '}
+                    &quot;Pathways for Families&quot; which we include as a pdf.{' '}
                     <a
                         href="/assets/Pathways.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="font-bold text-hvblue-600 underline hover:text-hvblue-700"
                     >
-                        Download the ADRS "Pathways" PDF
+                        Download the ADRS &quot;Pathways&quot; PDF
                     </a>
                 </p>
                 <p>
@@ -109,7 +109,7 @@ const faqs = [
                         rel="noopener noreferrer"
                         className="font-bold text-hvblue-600 underline hover:text-hvblue-700"
                     >
-                        "A PARENTS GUIDE TO DEAF AND HARD OF HEARING EARLY INTERVENTION RECOMMENDATIONS"
+                        &quot;A PARENTS GUIDE TO DEAF AND HARD OF HEARING EARLY INTERVENTION RECOMMENDATIONS&quot;
                     </a>
                 </p>
             </div>
@@ -139,7 +139,7 @@ const faqs = [
                         cochlear implants
                     </a>
                     . If your child is a candidate for the technology, you must decide whether you want your child to hear and whether you are
-                    willing to put in the work to make sure that the technology continually provides your child with access to hearing. It's not
+                    willing to put in the work to make sure that the technology continually provides your child with access to hearing. It&apos;s not
                     automatic, you must help him learn to listen with his technology, make sure that the technology stays in working
                     order, and if speech is a goal teach spoken language.
                 </p>
@@ -183,7 +183,7 @@ const faqs = [
                             rel="noopener noreferrer"
                             className="font-bold text-hvorange-600 underline hover:text-hvorange-700"
                         >
-                            Children's Rehabilitation Service (CRS) (Hearing Aids and Audiology)
+                            Children&apos;s Rehabilitation Service (CRS) (Hearing Aids and Audiology)
                         </a>
                     </p>
                     <p>
@@ -213,7 +213,7 @@ const faqs = [
                             rel="noopener noreferrer"
                             className="font-bold text-hvorange-600 underline hover:text-hvorange-700"
                         >
-                            The HEAR Center of Children's Hospital– Birmingham (hearing aids, cochlear implants, audiology)
+                            The HEAR Center of Children&apos;s Hospital– Birmingham (hearing aids, cochlear implants, audiology)
                         </a>
                     </p>
                     <p>
@@ -245,13 +245,13 @@ const faqs = [
         answer: (
             <div className="space-y-4">
                 <p>
-                    Ok, here's where the controversy is. People have some very strong opinions on this
+                    Ok, here&apos;s where the controversy is. People have some very strong opinions on this
                     topic based on what has worked well or not well for them or their child. Everyone wants the very best for
-                    all children who are deaf or hard of hearing. But, here's the thing, you are your child's parent and you
-                    have to decide what's best for her. So, take it all in – all of the life experiences that people will
+                    all children who are deaf or hard of hearing. But, here&apos;s the thing, you are your child&apos;s parent and you
+                    have to decide what&apos;s best for her. So, take it all in – all of the life experiences that people will
                     share with you and all of the professional opinions that you seek. And, after you have visited and
                     listened and read and thought and talked about it, take a good look at your family and your child and
-                    decide what you think is the best path to take. Then start moving down that path! It's going to be a lot
+                    decide what you think is the best path to take. Then start moving down that path! It&apos;s going to be a lot
                     of work, and you may decide that you need to take a different path once your start down the road. But,
                     your child needs to make the most of these early years so start moving! Whichever path you choose, there
                     are people willing to help you. I hope that Alabama Hands & Voices can help you find them.
@@ -304,7 +304,7 @@ export default function FAQPage() {
                     <div className="mx-auto max-w-4xl text-center">
                         <div className="mb-8">
                             <h1 className="font-kaushan mb-4 text-5xl font-bold text-white">
-                                "What works for your child is what makes the choice right."™
+                                &quot;What works for your child is what makes the choice right.&quot;™
                             </h1>
                         </div>
                     </div>

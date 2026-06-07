@@ -9,7 +9,7 @@ export default function SafetyProjectPage() {
                     <div className="flex justify-center">
                         <div className="max-w-3xl text-center">
                             <h1 className="font-kaushan mb-8 text-4xl text-gray-900 md:text-5xl">
-                                O.U.R. Children's Safety Project
+                                O.U.R. Children&apos;s Safety Project
                             </h1>
                             <div className="relative -mb-12 rounded-lg bg-white p-8 shadow-xl">
                                 <Image
@@ -32,7 +32,7 @@ export default function SafetyProjectPage() {
                         {/* Introduction */}
                         <div className="mb-12 space-y-6 text-lg leading-relaxed text-gray-700">
                             <p>
-                                We don't like to think about it, but our kids who are deaf or hard of hearing
+                                We don&apos;t like to think about it, but our kids who are deaf or hard of hearing
                                 are at a higher risk for both abuse and neglect. Like any children, they are at risk. As
                                 children who might not always be able to communicate easily and fluently, or understand the
                                 nuances of conversation with neighbors, caregivers, or strangers, they are at an even higher
@@ -50,7 +50,7 @@ export default function SafetyProjectPage() {
                                 </a>
                                 . Below are resources that will be useful
                                 to parents in developing skills that will prepare us to share effectively with their own
-                                children. But don't just stop at your own child or student, here are some things that you
+                                children. But don&apos;t just stop at your own child or student, here are some things that you
                                 can do to help others be prepared:
                             </p>
                         </div>
@@ -79,7 +79,7 @@ export default function SafetyProjectPage() {
                                         Hands & Voices website
                                     </a>{' '}
                                     and its related resources, with at least one other parent, and
-                                    then ask them to "pass-it-on."
+                                    then ask them to &quot;pass-it-on.&quot;
                                 </p>
                             </div>
 
@@ -95,8 +95,8 @@ export default function SafetyProjectPage() {
                                 </div>
                                 <h3 className="font-kaushan mb-4 text-xl text-gray-900">Share the Story</h3>
                                 <p className="text-gray-700">
-                                    Have a conversation with your child about abuse and neglect (see attached "Helping
-                                    Parents Talk to Children" below) then share the story of how it went so that other parents can
+                                    Have a conversation with your child about abuse and neglect (see attached &quot;Helping
+                                    Parents Talk to Children&quot; below) then share the story of how it went so that other parents can
                                     learn from your experience.
                                 </p>
                             </div>

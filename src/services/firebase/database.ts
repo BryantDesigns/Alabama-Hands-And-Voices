@@ -4,9 +4,9 @@ import {
     setDoc,
     updateDoc,
     serverTimestamp,
-    DocumentData,
 } from 'firebase/firestore'
 import { db } from './config'
+import type { StatItem } from '@/types/pageTypes'
 
 /* -------------------------------------------------------------------------- */
 /*                                   Types                                    */
@@ -15,14 +15,14 @@ import { db } from './config'
 export interface PageData {
     title: string
     sections: SectionData[]
-    lastUpdated?: any | null // e.g., serverTimestamp or Firestore Timestamp
+    lastUpdated?: unknown | null // e.g., serverTimestamp or Firestore Timestamp
 }
 
 export interface SectionData {
     heading?: string
     content?: string[] 
     image?: string
-    stats?: Array<any> 
+    stats?: StatItem[]
     quote?: {
         text: string
         authors: string[]
@@ -72,7 +72,7 @@ function formatPageData(data: Partial<PageData> | undefined): PageData {
 /* -------------------------------------------------------------------------- */
 const cache = new Map<string, PageData>();
 
-export async function updateCacheAfterSave(pageId: string, docData: any) {
+export async function updateCacheAfterSave(pageId: string, docData: Partial<PageData>) {
   const formatted = formatPageData(docData);
   cache.set(pageId, formatted);
   console.log(`✅ Cache updated for '${pageId}' after save.`);
@@ -188,7 +188,7 @@ export const getFirestoreData = async (pageId: string) => {
 export const updateFirestoreSection = async (
     pageId: string,
     sectionIndex: number,
-    content: any
+    content: Record<string, unknown>
 ) => {
     try {
         const pageRef = doc(db, 'pages', pageId)
@@ -220,7 +220,7 @@ export const updateFirestoreSection = async (
         // Optionally update the cache
         const cachedPage = cache.get(pageId)
         if (cachedPage && cachedPage.sections[sectionIndex]) {
-            cachedPage.sections[sectionIndex].content = content
+            cachedPage.sections[sectionIndex].content = content as unknown as string[]
             cachedPage.lastUpdated = null // or new Date(), etc.
             cache.set(pageId, cachedPage)
         }

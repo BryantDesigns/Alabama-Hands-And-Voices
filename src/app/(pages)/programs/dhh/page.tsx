@@ -1,8 +1,5 @@
-export default function DHHCommitteePage() {
-  return (
-    <main>
-      <h1>DHH Committee Members</h1>
-      <p>Placeholder content for DHH Committee Members.</p>
-    </main>
-  );
+import { redirect } from 'next/navigation'
+
+export default function DHHPage() {
+    redirect('/programs/dhh-committee')
 }
