@@ -136,7 +136,7 @@ export default function SafetyProjectPage() {
                             opportunity for families to build bonds with their parent guide and with each other. Contact your parent guide or connect with
                             one today for more information on registration for our{' '}
                             <a
-                                href="/gbys"
+                                href="/programs/gbys"
                                 className="font-bold text-hvblue-600 underline hover:text-hvblue-700"
                             >
                                 Guide By Your Side Program

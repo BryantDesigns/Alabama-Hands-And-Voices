@@ -283,7 +283,7 @@ const faqs = [
                     </a>{' '}
                     and/or request a parent guide from our{' '}
                     <a
-                        href="/gbys"
+                        href="/programs/gbys"
                         className="font-bold text-hvblue-600 underline hover:text-hvblue-700"
                     >
                         Guide By Your Side Program

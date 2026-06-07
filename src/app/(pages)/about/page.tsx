@@ -207,6 +207,7 @@ const AboutPage = async () => {
                                     src="/images/aboutUsWhoWeAreTrail.jpeg"
                                     alt="Our Mission"
                                     fill
+                                    sizes="(max-width: 768px) 100vw, 50vw"
                                     className="rounded-lg object-cover object-center shadow-lg"
                                 />
                             </div>

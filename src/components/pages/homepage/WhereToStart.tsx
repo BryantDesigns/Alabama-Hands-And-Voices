@@ -46,6 +46,7 @@ export default function WhereToStart({ data }: WhereToStartProps) {
                                         alt=""
                                         src={data.backgroundImage}
                                         fill
+                                        sizes="(max-width: 1024px) 100vw, 50vw"
                                         className="absolute inset-0 size-full object-cover brightness-125 saturate-0"
                                     />
                                 )}

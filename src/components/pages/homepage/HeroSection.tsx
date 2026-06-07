@@ -24,6 +24,7 @@ const HeroSection: React.FC = () => (
                                 src="/images/hvlogo.svg"
                                 alt="Alabama Hands & Voices Logo"
                                 fill
+                                sizes="150px"
                                 className="object-contain"
                             />
                         </div>

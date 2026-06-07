@@ -55,7 +55,7 @@ export default function ContactPage() {
                               <strong>
                                   <a
                                       className="text-hvorange underline"
-                                      href="/gbys"
+                                      href="/programs/gbys"
                                   >
                                       Guide By Your Side page
                                   </a>

@@ -7,8 +7,8 @@ export default function ResourcesPage() {
         {
             title: 'Confirmed Hearing Loss',
             resources: [
-                { name: 'Guide By Your Side', url: '/gbys' },
-                { name: 'Educational Advocacy (ASTra)', url: '/astra' },
+                { name: 'Guide By Your Side', url: '/programs/gbys' },
+                { name: 'Educational Advocacy (ASTra)', url: '/programs/astra' },
             ],
         },
         {
