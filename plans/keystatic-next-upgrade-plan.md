@@ -272,23 +272,23 @@ Acceptance criteria:
 
 ### Static Pages
 
-- [ ] Migrate About page content.
-- [ ] Migrate Board page to `boardMembers`.
-- [ ] Migrate Staff page to `staffMembers`.
-- [ ] Migrate Contact page content.
-- [ ] Migrate Resources page content.
-- [ ] Migrate FAQ page content.
-- [ ] Migrate Membership page content.
-- [ ] Migrate Choose Membership page content.
-- [ ] Migrate ASTra page content.
-- [ ] Migrate GBYS page content.
-- [ ] Migrate Safety page content.
-- [ ] Migrate DHH Committee page content and videos.
+- [x] Migrate About page content.
+- [x] Migrate Board page to `boardMembers`.
+- [x] Migrate Staff page to `staffMembers`.
+- [x] Migrate Contact page content.
+- [x] Migrate Resources page content.
+- [x] Migrate FAQ page content.
+- [x] Migrate Membership page content.
+- [x] Migrate Choose Membership page content.
+- [x] Migrate ASTra page content.
+- [x] Migrate GBYS page content.
+- [x] Migrate Safety page content.
+- [x] Migrate DHH Committee page content and videos.
 
 Acceptance criteria:
 
-- [ ] Public pages render from Keystatic where content has been migrated.
-- [ ] Static JSX content remains only for layout and behavior, not editable copy or resource lists.
+- [x] Public pages render from Keystatic where content has been migrated.
+- [x] Static JSX content remains only for layout and behavior, not editable copy or resource lists.
 
 ### Component Refactor
 
@@ -488,3 +488,4 @@ Use this section to track decisions and implementation milestones.
 | 2026-06-07 | Phase 2 | Keystatic foundation installed. Packages: `@keystatic/core`, `@keystatic/next`, `@markdoc/markdoc`. Created: `keystatic.config.ts` (local-file storage, empty singletons/collections), `src/app/keystatic/layout.tsx`, `src/app/keystatic/[[...params]]/page.tsx` (uses `makePage` from `@keystatic/next/ui/app`), `src/app/api/keystatic/[...params]/route.ts` (uses `makeRouteHandler`), `src/lib/keystatic/reader.ts`, `src/lib/keystatic/pages.ts`, `src/lib/keystatic/collections.ts`, `src/content/.gitkeep`. Added `experimental.outputFileTracingIncludes` to `next.config.mjs`. `/keystatic` returns HTTP 200 with no config warnings. | Claude |
 | 2026-06-07 | Phase 3 | Defined all Keystatic schemas: 12 singletons (siteSettings, navigation, homePage, aboutPage, contactPage, membershipPage, chooseMembershipPage, astraPage, gbysPage, safetyPage, dhhCommitteePage, resourcesPage, faqPage) and 3 collections (boardMembers, staffMembers, videos). All body copy uses `fields.text({ multiline: true })` — Markdoc deferred to Phase 4. Collections use `fields.slug()` for the slugField. Seeded all singletons under `src/content/singletons/`, 11 board members under `src/content/boardMembers/`, 10 staff members under `src/content/staffMembers/`. Updated `pages.ts` and `collections.ts` with typed reader helpers for all singletons and collections. Build: PASS. Lint: PASS. | Claude |
 | 2026-06-07 | Phase 4a | Homepage migrated from Firebase to Keystatic. `src/app/(pages)/page.tsx` now calls `getHomePageContent()` — no Firebase import. All 6 homepage section components refactored to accept typed props matching the homePage schema: HeroSection, WhatIsAlabama, WhereToStart, LearnMoreAboutUs, SupportOurMission, EventsSection. Removed `Section` type imports, `dangerouslySetInnerHTML`, and `use client` from display-only components. `SectionsRenderer.tsx` stubbed to compile cleanly (Phase 5 removes it). Build: PASS. Lint: PASS. | Claude |
+| 2026-06-07 | Phase 4b | All 12 static pages migrated to Keystatic. Board and Staff pages: BoardSection and StaffSection refactored to accept props (removing static imports); pages call `getBoardMembers()`/`getStaffMembers()`, sort by `sortOrder`, map `entry.name` (string slug field). About page: calls `getAboutPageContent()`, replaces body text and images from `data.images[]`. Contact page: email, phone, image, heading from `getContactPageContent()`. Resources page: removed `'use client'`, now async server component calling `getResourcesPageContent()`, categories and EHDI sidebar from Keystatic. FAQ page: interactive accordion extracted to `FaqAccordion` client component; page is async server component calling `getFaqPageContent()`, plain-text answers rendered as `<p>`. Membership page: heroText, documentDownloadUrl, scholarshipNote from `getMembershipPageContent()`. Choose Membership page: maps `data.membershipOptions` from `getChooseMembershipPageContent()`. ASTra page: programDescription, questions[], resourceLinks[], trainingCtaLabel/Href from `getAstraPageContent()`. GBYS page: programIntro, services[], enrollmentNote from `getGbysPageContent()`. Safety page: introCopy, actionCards[], familyRetreats* from `getSafetyPageContent()`. DHH Committee page: description, benefits[], videoSectionHeading from `getDhhCommitteePageContent()`. Build: PASS (20/20 pages). Lint: PASS. | Claude |
