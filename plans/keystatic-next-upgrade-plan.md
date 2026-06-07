@@ -255,20 +255,20 @@ Goal: progressively move content out of JSX and Firestore into Keystatic files.
 ### Homepage First
 
 - See [Homepage Rebuild Sub-Plan](subplans/homepage-rebuild-sub-plan.md) for the detailed homepage rebuild tracker.
-- [ ] Abandon the old Firestore `Section` homepage model instead of migrating it 1:1.
-- [ ] Preserve current homepage design parity while rebuilding the architecture.
-- [ ] Seed `homePage` content from the current rendered homepage/Firebase-backed content.
-- [ ] Replace `fetchPageContent('home')` with Keystatic reader data.
-- [ ] Read homepage content through a typed helper rather than importing the raw reader in the page route.
-- [ ] Replace `SectionsRenderer` with explicit typed homepage sections.
-- [ ] Remove unnecessary `'use client'` from display-only homepage sections.
-- [ ] Keep interactive components as client components only where needed.
+- [x] Abandon the old Firestore `Section` homepage model instead of migrating it 1:1.
+- [x] Preserve current homepage design parity while rebuilding the architecture.
+- [x] Seed `homePage` content from the current rendered homepage/Firebase-backed content.
+- [x] Replace `fetchPageContent('home')` with Keystatic reader data.
+- [x] Read homepage content through a typed helper rather than importing the raw reader in the page route.
+- [x] Replace `SectionsRenderer` with explicit typed homepage sections.
+- [x] Remove unnecessary `'use client'` from display-only homepage sections.
+- [x] Keep interactive components as client components only where needed.
 
 Acceptance criteria:
 
-- [ ] Homepage renders from Keystatic content.
-- [ ] Homepage no longer imports Firebase data helpers.
-- [ ] Homepage no longer depends on `SectionsRenderer` or old Firestore `Section` types.
+- [x] Homepage renders from Keystatic content.
+- [x] Homepage no longer imports Firebase data helpers.
+- [x] Homepage no longer depends on `SectionsRenderer` or old Firestore `Section` types.
 
 ### Static Pages
 
@@ -487,3 +487,4 @@ Use this section to track decisions and implementation milestones.
 | 2026-06-07 | Phase 1 | Stabilized routes, layout, metadata, and fixed lint errors. DHH redirect added, footer stale links fixed, root metadata updated, VideoGallery converted to next/image, all ESLint errors resolved. `npm run lint` passes clean. | Claude |
 | 2026-06-07 | Phase 2 | Keystatic foundation installed. Packages: `@keystatic/core`, `@keystatic/next`, `@markdoc/markdoc`. Created: `keystatic.config.ts` (local-file storage, empty singletons/collections), `src/app/keystatic/layout.tsx`, `src/app/keystatic/[[...params]]/page.tsx` (uses `makePage` from `@keystatic/next/ui/app`), `src/app/api/keystatic/[...params]/route.ts` (uses `makeRouteHandler`), `src/lib/keystatic/reader.ts`, `src/lib/keystatic/pages.ts`, `src/lib/keystatic/collections.ts`, `src/content/.gitkeep`. Added `experimental.outputFileTracingIncludes` to `next.config.mjs`. `/keystatic` returns HTTP 200 with no config warnings. | Claude |
 | 2026-06-07 | Phase 3 | Defined all Keystatic schemas: 12 singletons (siteSettings, navigation, homePage, aboutPage, contactPage, membershipPage, chooseMembershipPage, astraPage, gbysPage, safetyPage, dhhCommitteePage, resourcesPage, faqPage) and 3 collections (boardMembers, staffMembers, videos). All body copy uses `fields.text({ multiline: true })` — Markdoc deferred to Phase 4. Collections use `fields.slug()` for the slugField. Seeded all singletons under `src/content/singletons/`, 11 board members under `src/content/boardMembers/`, 10 staff members under `src/content/staffMembers/`. Updated `pages.ts` and `collections.ts` with typed reader helpers for all singletons and collections. Build: PASS. Lint: PASS. | Claude |
+| 2026-06-07 | Phase 4a | Homepage migrated from Firebase to Keystatic. `src/app/(pages)/page.tsx` now calls `getHomePageContent()` — no Firebase import. All 6 homepage section components refactored to accept typed props matching the homePage schema: HeroSection, WhatIsAlabama, WhereToStart, LearnMoreAboutUs, SupportOurMission, EventsSection. Removed `Section` type imports, `dangerouslySetInnerHTML`, and `use client` from display-only components. `SectionsRenderer.tsx` stubbed to compile cleanly (Phase 5 removes it). Build: PASS. Lint: PASS. | Claude |
