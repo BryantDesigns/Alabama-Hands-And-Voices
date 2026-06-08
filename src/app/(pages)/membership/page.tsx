@@ -1,6 +1,13 @@
 import MembershipForm from '@/components/pages/membership/MembershipForm'
+import { getMembershipPageContent } from '@/lib/keystatic/pages'
 
-export default function MembershipPage() {
+export default async function MembershipPage() {
+    const data = await getMembershipPageContent()
+
+    const heroText = data?.heroText ?? ''
+    const documentDownloadUrl = data?.documentDownloadUrl ?? '/assets/03_hv-membership-form.docx'
+    const scholarshipNote = data?.scholarshipNote ?? 'Scholarships are available for parents upon request.'
+
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section */}
@@ -11,28 +18,19 @@ export default function MembershipPage() {
                             Help Us Help You!
                         </h1>
                         <div className="space-y-6 text-lg text-white">
-                            <p>
-                                We are a non-profit organization dedicated to supporting families
-                                of children who are deaf or hard of hearing with information and resources so they can make the best choices for
-                                their child.
-                            </p>
-                            <p>
-                                Your contribution helps us to continue developing and
-                                disseminating resources designed to give families unbiased information for their
-                                children who are deaf or hard-of-hearing. We are grateful for your support. Thank you!
-                            </p>
+                            <p>{heroText}</p>
                             <p>
                                 Download our{' '}
                                 <a
-                                    href="/assets/03_hv-membership-form.docx"
+                                    href={documentDownloadUrl}
                                     className="font-bold text-hvorange-400 underline hover:text-hvorange-300"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     Membership Form
                                 </a>{' '}
-                                or fill out the form below to pay online. Scholarships are available for
-                                parents upon request.
+                                or fill out the form below to pay online.{' '}
+                                {scholarshipNote}
                             </p>
                         </div>
                     </div>

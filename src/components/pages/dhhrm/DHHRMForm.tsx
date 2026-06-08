@@ -27,7 +27,7 @@ const DHHRMForm = () => {
                     <input type="hidden" name="form-name" value="dhhrm" />
                     <p className="hidden">
                         <label>
-                            Don't fill this out if you're human:
+                            Don&apos;t fill this out if you&apos;re human:
                             <input
                                 name="bot-field"
                                 tabIndex={-1}
@@ -92,7 +92,7 @@ const DHHRMForm = () => {
                                     />
                                 </div>
                                 <small className="text-sm text-gray-500">
-                                    We'll never share your email with anyone else.
+                                    We&apos;ll never share your email with anyone else.
                                 </small>
                             </div>
                             {/* Child's Name */}
@@ -101,7 +101,7 @@ const DHHRMForm = () => {
                                     htmlFor="childs-name"
                                     className="block text-sm font-medium text-gray-900"
                                 >
-                                    Child's Name:
+                                    Child&apos;s Name:
                                 </label>
                                 <div className="mt-2">
                                     <input
@@ -119,7 +119,7 @@ const DHHRMForm = () => {
                                     htmlFor="childs-dob"
                                     className="block text-sm font-medium text-gray-900"
                                 >
-                                    Child's DOB:
+                                    Child&apos;s DOB:
                                 </label>
                                 <div className="mt-2">
                                     <input

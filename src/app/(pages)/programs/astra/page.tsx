@@ -1,7 +1,16 @@
 import Image from 'next/image'
 import AstraForm from '@/components/pages/astrapage/AstraForm'
+import { getAstraPageContent } from '@/lib/keystatic/pages'
 
-export default function AstraPage() {
+export default async function AstraPage() {
+    const data = await getAstraPageContent()
+
+    const programDescription = data?.programDescription ?? ''
+    const questions = data?.questions ?? []
+    const resourceLinks = data?.resourceLinks ?? []
+    const trainingCtaLabel = data?.trainingCtaLabel ?? 'here'
+    const trainingCtaHref = data?.trainingCtaHref ?? 'https://forms.office.com/r/5AjZw87bMV'
+
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section */}
@@ -32,15 +41,7 @@ export default function AstraPage() {
                     {/* Program Description */}
                     <div className="mx-auto max-w-4xl text-center">
                         <p className="text-lg leading-relaxed text-white">
-                            ASTra is an educational advocacy program that embodies the mission
-                            and vision of Hands & Voices. ASTra stands for the Advocacy
-                            Support and Training Program. We provide support to families with
-                            children who are deaf or hard of hearing (d/hh) without bias
-                            around communication mode, method, or educational setting so that
-                            every child has the opportunity to achieve their full potential.
-                            We foster collaboration and build partnerships with school
-                            districts and other professionals who serve deaf or hard of
-                            hearing students.
+                            {programDescription}
                         </p>
                     </div>
 
@@ -60,26 +61,12 @@ export default function AstraPage() {
                                 Do you have questions like this?
                             </h3>
                             <ul className="space-y-3 text-lg text-white">
-                                <li className="flex items-start">
-                                    <span className="mr-3 mt-1 h-2 w-2 rounded-full bg-hvorange-500"></span>
-                                    What laws support my child's education?
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="mr-3 mt-1 h-2 w-2 rounded-full bg-hvorange-500"></span>
-                                    I don't understand what my child might be eligible for.
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="mr-3 mt-1 h-2 w-2 rounded-full bg-hvorange-500"></span>
-                                    What is a Communication Plan? Safety Plan? Health Plans?
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="mr-3 mt-1 h-2 w-2 rounded-full bg-hvorange-500"></span>
-                                    I need to learn the difference between an IEP and a 504 Plan.
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="mr-3 mt-1 h-2 w-2 rounded-full bg-hvorange-500"></span>
-                                    What rights do I have as a parent?
-                                </li>
+                                {questions.map((item) => (
+                                    <li key={item.question} className="flex items-start">
+                                        <span className="mr-3 mt-1 h-2 w-2 rounded-full bg-hvorange-500"></span>
+                                        {item.question}
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>
@@ -94,12 +81,12 @@ export default function AstraPage() {
                             Join the wait list for Level 1 Educational Advocacy training class
                             by registering{' '}
                             <a
-                                href="https://forms.office.com/r/5AjZw87bMV"
+                                href={trainingCtaHref}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="font-bold text-hvorange-400 underline hover:text-hvorange-300"
                             >
-                                here
+                                {trainingCtaLabel}
                             </a>
                             .
                         </p>
@@ -120,66 +107,18 @@ export default function AstraPage() {
                                 </a>
                             </h3>
                             <ul className="space-y-4 text-white">
-                                <li>
-                                    <a
-                                        href="https://handsandvoices.org/IEPmeetingplanner/"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="font-semibold text-hvorange-400 underline hover:text-hvorange-300"
-                                    >
-                                        IEP Meeting Planner
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="https://handsandvoices.org/pdf/IEP_Checklist.pdf"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="font-semibold text-hvorange-400 underline hover:text-hvorange-300"
-                                    >
-                                        IEP/504 Checklist
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="/assets/ALHV V17 4.13.24 Communication Plan - fillable form.docx"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="font-semibold text-hvorange-400 underline hover:text-hvorange-300"
-                                    >
-                                        Communication Plan
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="https://handsandvoices.org/articles/education/popup/pop_index.html"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="font-semibold text-hvorange-400 underline hover:text-hvorange-300"
-                                    >
-                                        Pop-Up IEP
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="https://handsandvoices.org/pdf/SAIInventory.pdf"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="font-semibold text-hvorange-400 underline hover:text-hvorange-300"
-                                    >
-                                        D/HH Student Self-Advocacy Inventory
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="https://handsandvoices.org/pdf/func_eval.pdf"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="font-semibold text-hvorange-400 underline hover:text-hvorange-300"
-                                    >
-                                        Functional Listening Evaluation
-                                    </a>
-                                </li>
+                                {resourceLinks.map((link) => (
+                                    <li key={link.name}>
+                                        <a
+                                            href={link.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="font-semibold text-hvorange-400 underline hover:text-hvorange-300"
+                                        >
+                                            {link.name}
+                                        </a>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                         <div className="order-2">

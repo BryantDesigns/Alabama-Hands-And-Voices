@@ -27,7 +27,7 @@ const MembershipForm = () => {
                     <input type="hidden" name="form-name" value="membership" />
                     <p className="hidden">
                         <label>
-                            Don't fill this out if you're human:
+                            Don&apos;t fill this out if you&apos;re human:
                             <input
                                 name="bot-field"
                                 tabIndex={-1}
@@ -106,7 +106,7 @@ const MembershipForm = () => {
                                     />
                                 </div>
                                 <small className="text-sm text-gray-500">
-                                    We'll never share your email with anyone else.
+                                    We&apos;ll never share your email with anyone else.
                                 </small>
                             </div>
                             {/* Home Address */}

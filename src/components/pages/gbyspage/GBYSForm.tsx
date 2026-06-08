@@ -5,8 +5,8 @@ import { submitNetlifyForm } from '@/utils/submitNetlifyForm'
 
 const GBYSForm = () => {
     const [activeTab, setActiveTab] = useState('personal')
-    const [status, setStatus] = useState<string | null>(null)
-    const [error, setError] = useState<string | null>(null)
+    const [, setStatus] = useState<string | null>(null)
+    const [, setError] = useState<string | null>(null)
 
 
     return (
@@ -113,7 +113,7 @@ const GBYSForm = () => {
                                         htmlFor="childs-name"
                                         className="block text-sm font-medium text-gray-900"
                                     >
-                                        Child's Name:
+                                        Child&apos;s Name:
                                     </label>
                                     <div className="mt-2">
                                         <input
@@ -131,7 +131,7 @@ const GBYSForm = () => {
                                         htmlFor="inputChildDOB"
                                         className="block text-sm font-medium text-gray-900"
                                     >
-                                        Child's DOB:
+                                        Child&apos;s DOB:
                                     </label>
                                     <div className="mt-2">
                                         <input
@@ -161,7 +161,7 @@ const GBYSForm = () => {
                                         />
                                     </div>
                                     <small className="text-sm text-gray-500">
-                                        We'll never share your email with anyone
+                                        We&apos;ll never share your email with anyone
                                         else.
                                     </small>
                                 </div>
@@ -650,7 +650,7 @@ const GBYSForm = () => {
                                         htmlFor="pr-childs-name"
                                         className="block text-sm/6 font-medium text-gray-900"
                                     >
-                                        Child's Name:
+                                        Child&apos;s Name:
                                     </label>
                                     <div className="mt-2">
                                         <input
@@ -680,7 +680,7 @@ const GBYSForm = () => {
                                         />
                                     </div>
                                     <small className="text-sm text-gray-500">
-                                        We'll never share your email with anyone
+                                        We&apos;ll never share your email with anyone
                                         else.
                                     </small>
                                 </div>

@@ -1,12 +1,13 @@
 import Image from 'next/image'
-import { Section } from '@/types/pageTypes' // <-- import your Section interface
 
-interface WhatIsAlabamaProps {
-    data: Section
+interface IntroSectionProps {
+    heading: string
+    body: string
+    image: string
+    imageAlt: string
 }
 
-export default function WhatIsAlabama({ data }: WhatIsAlabamaProps) {
-
+export default function WhatIsAlabama({ heading, body, image, imageAlt }: IntroSectionProps) {
     return (
         <section className="overflow-hidden bg-gray-100 py-12 sm:py-24">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -15,27 +16,21 @@ export default function WhatIsAlabama({ data }: WhatIsAlabamaProps) {
                     <div className="lg:pr-8 lg:pt-4">
                         <div className="lg:max-w-lg">
                             <h2 className="text-2xl font-semibold tracking-tight text-hvblue-600 sm:text-3xl">
-                                {data.heading}
+                                {heading}
                             </h2>
 
-                            {/* Render the HTML content safely */}
-                            {data.htmlContent && (
-                                <div
-                                    className="mt-6 text-lg text-gray-700"
-                                    dangerouslySetInnerHTML={{
-                                        __html: data.htmlContent,
-                                    }}
-                                />
-                            )}
+                            <p className="mt-6 text-lg text-gray-700">
+                                {body}
+                            </p>
                         </div>
                     </div>
 
                     {/* Right Column - Image */}
                     <div>
-                        {data.image && (
+                        {image && (
                             <Image
-                                src={data.image}
-                                alt={data.heading || 'Hands & Voices Image'}
+                                src={image}
+                                alt={imageAlt || heading}
                                 width={500}
                                 height={400}
                                 className="max-h-[25rem] w-[38rem] max-w-none rounded-xl object-cover shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"

@@ -1,10 +1,13 @@
 import StaffCard from './StaffCard'
-import { staff } from '@/data/aboutPages/staff'
 import { Staff } from '@/types/Staff'
 
-export default function StaffSection() {
+interface StaffSectionProps {
+    members: Staff[]
+}
+
+export default function StaffSection({ members }: StaffSectionProps) {
     // Group staff by category
-    const groupedStaff = staff.reduce(
+    const groupedStaff = members.reduce(
         (acc, person) => {
             if (!acc[person.category]) {
                 acc[person.category] = []
@@ -33,13 +36,13 @@ export default function StaffSection() {
             {/* Staff List Section */}
             <div className="bg-gray-50 py-16">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    {Object.entries(groupedStaff).map(([category, members]) => (
+                    {Object.entries(groupedStaff).map(([category, categoryMembers]) => (
                         <div key={category} className="mt-12">
                             <h2 className="text-center text-3xl font-semibold text-hvorange">
                                 {category}
                             </h2>
                             <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                                {members.map((person) => (
+                                {categoryMembers.map((person) => (
                                     <StaffCard
                                         key={person.name}
                                         staff={person}

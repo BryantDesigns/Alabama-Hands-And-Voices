@@ -34,6 +34,7 @@ const WhereToStartSection: React.FC<WhereToStartProps> = ({
                             alt=""
                             src={backgroundImage}
                             fill
+                            sizes="(max-width: 1024px) 100vw, 50vw"
                             className="absolute inset-0 size-full object-cover brightness-125 saturate-0"
                         />
                         <div className="absolute inset-0 bg-gray-900 mix-blend-multiply" />

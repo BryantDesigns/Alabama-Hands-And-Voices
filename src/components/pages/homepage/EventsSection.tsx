@@ -1,37 +1,22 @@
-'use client'
 import Image from 'next/image'
-import { Section } from '@/types/pageTypes'
 
-export default function EventsSection({ data }: { data: Section }) {
-    /*
-    Data example:
-    {
-      heading: "Events",
-      backgroundImage: "/images/family.jpg",
-      introHtml: "<p>We are hosting events/gatherings ...</p>",
-      events: [
-        {
-          title: "Family Retreat at Lake Martin",
-          descriptionHtml: "August 9th - 11th, registration..."
-        },
-        {
-          title: "Virtual & In-Person Events",
-          descriptionHtml: "We are always planning events..."
-        },
-        ...
-      ]
-    }
-  */
+interface EventsSectionProps {
+    heading: string
+    intro: string
+    backgroundImage: string
+    events: { title: string; description: string }[]
+}
 
+export default function EventsSection({ heading, intro, backgroundImage, events }: EventsSectionProps) {
     return (
         <section>
             <div className="bg-white">
                 {/* Background Image */}
                 <div aria-hidden="true" className="relative">
-                    {data.backgroundImage && (
+                    {backgroundImage && (
                         <Image
                             alt="Community gathering event"
-                            src={data.backgroundImage}
+                            src={backgroundImage}
                             width={1200}
                             height={400}
                             className="h-64 w-full object-cover"
@@ -45,22 +30,19 @@ export default function EventsSection({ data }: { data: Section }) {
                     {/* Heading + Intro */}
                     <div className="mx-auto max-w-2xl text-center lg:max-w-4xl">
                         <h2 className="text-3xl font-bold uppercase tracking-tight text-hvorange sm:text-4xl">
-                            {data.heading}
+                            {heading}
                         </h2>
-                        {data.introHtml && (
-                            <div
-                                className="mt-4 text-lg text-gray-600"
-                                dangerouslySetInnerHTML={{
-                                    __html: data.introHtml,
-                                }}
-                            />
+                        {intro && (
+                            <p className="mt-4 text-lg text-gray-600">
+                                {intro}
+                            </p>
                         )}
                     </div>
 
                     {/* Events list */}
-                    {Array.isArray(data.events) && data.events.length > 0 && (
+                    {Array.isArray(events) && events.length > 0 && (
                         <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:max-w-none lg:grid-cols-3 lg:gap-x-8">
-                            {data.events.map((evt, idx) => (
+                            {events.map((evt, idx) => (
                                 <div
                                     key={idx}
                                     className="border-t border-gray-200 pt-4"
@@ -68,13 +50,10 @@ export default function EventsSection({ data }: { data: Section }) {
                                     <dt className="text-lg font-semibold text-gray-900">
                                         {evt.title}
                                     </dt>
-                                    {evt.descriptionHtml && (
-                                        <dd
-                                            className="mt-2 text-sm text-gray-600"
-                                            dangerouslySetInnerHTML={{
-                                                __html: evt.descriptionHtml,
-                                            }}
-                                        />
+                                    {evt.description && (
+                                        <dd className="mt-2 text-sm text-gray-600">
+                                            {evt.description}
+                                        </dd>
                                     )}
                                 </div>
                             ))}

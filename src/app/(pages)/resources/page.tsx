@@ -1,87 +1,15 @@
-'use client'
 import Image from 'next/image'
 import VideoGallery from '@/components/common/VideoGallery'
 import React from 'react'
-export default function ResourcesPage() {
-    const categories = [
-        {
-            title: 'Confirmed Hearing Loss',
-            resources: [
-                { name: 'Guide By Your Side', url: '/gbys' },
-                { name: 'Educational Advocacy (ASTra)', url: '/astra' },
-            ],
-        },
-        {
-            title: 'Children Ages 0-3',
-            resources: [
-                {
-                    name: 'Testing Baby’s Hearing',
-                    url: 'assets/02_Parent%20Road%20Map.pdf',
-                },
-                {
-                    name: 'Alabama Newborn Screening Program',
-                    url: 'https://www.alabamapublichealth.gov/newbornscreening/newborn-hearing-screening.html',
-                },
-                {
-                    name: 'Parent’s Guide to D/HH Early Intervention (English)',
-                    url: 'https://www.handsandvoices.org/resources/pubs/Final_8-30-2017.pdf',
-                },
-                {
-                    name: 'Parent’s Guide to D/HH Early Intervention (Spanish)',
-                    url: 'https://www.handsandvoices.org/resources/pubs/jci-parentsguide-spanish.pdf',
-                },
-                {
-                    name: 'Alabama Early Intervention’s System',
-                    url: 'https://rehab.alabama.gov/nevertooearlyal/',
-                },
-                {
-                    name: 'Alabama Hearing Loss Options',
-                    url: 'https://www.alhearinglossoptions.org/',
-                },
-                {
-                    name: 'List of Resources and Providers',
-                    url: 'assets/0-3%20Children%20Resources.pdf',
-                },
-            ],
-        },
-        {
-            title: 'Children 3+',
-            resources: [
-                {
-                    name: 'Alabama Parent Education Center',
-                    url: 'http://alabamaparentcenter.com/web/',
-                },
-                {
-                    name: 'Alabama Department of Special Education Services',
-                    url: 'https://www.alabamaachieves.org/special-education/',
-                },
-                {
-                    name: 'Alabama Vocational Rehabilitation Services',
-                    url: 'https://www.rehab.alabama.gov/services/vr/vr',
-                },
-                {
-                    name: 'Deaf Education Guidelines',
-                    url: 'https://deafedguidelines.org/',
-                },
-                {
-                    name: 'Alabama Hands & Voices Communication Plan',
-                    url: 'assets/ALHV V17 4.13.24 Communication Plan - fillable form.docx',
-                },
-                {
-                    name: 'Alabama Hands & Voices Spanish Communication Plan',
-                    url: 'assets/Communication%20Plan%20-%20Spanish%20Version%202024.docx',
-                },
-                {
-                    name: 'List of Resources and Providers',
-                    url: 'assets/11_List%20of%20Resources%20and%20Providers%20Age%203+.pdf',
-                },
-                {
-                    name: 'Cheryl Johnson discussion of Educational Service Guidelines',
-                    url: 'https://www.youtube.com/watch?v=toZKXzZ20UA',
-                },
-            ],
-        },
-    ]
+import { getResourcesPageContent } from '@/lib/keystatic/pages'
+
+export default async function ResourcesPage() {
+    const data = await getResourcesPageContent()
+
+    const introCopy = data?.introCopy ?? 'Below is a list of valuable resources and organizations providing support for families with children who are deaf or hard of hearing.'
+    const categories = data?.resourceCategories ?? []
+    const ehdiSidebarBody = data?.ehdiSidebarBody ?? ''
+    const ehdiSidebarUrl = data?.ehdiSidebarUrl ?? 'http://www.ehdi-pals.org/'
 
     return (
         <>
@@ -91,9 +19,7 @@ export default function ResourcesPage() {
                         Alabama Hands & Voices Resources
                     </h2>
                     <p className="mt-6 text-center text-lg leading-relaxed text-gray-200">
-                        Below is a list of valuable resources and organizations
-                        providing support for families with children who are
-                        deaf or hard of hearing.
+                        {introCopy}
                     </p>
 
                     {/* Table Section */}
@@ -251,27 +177,10 @@ export default function ResourcesPage() {
                                     className="mx-auto rounded-md"
                                 />
                                 <p className="text-md mt-4 text-gray-700">
-                                    The EHDI-PALS directory has information
-                                    about hearing (audiology) services for
-                                    children from birth to age five. All of the
-                                    facilities in this directory report that
-                                    they have the equipment and expertise to
-                                    serve children and have licensed
-                                    audiologists. The directory contains clinic
-                                    information, including:
-                                </p>
-                                <ul className="mt-4 list-disc space-y-2 text-left text-gray-700">
-                                    <li>Audiology (hearing) services</li>
-                                    <li>Languages available</li>
-                                    <li>Payment options</li>
-                                    <li>Appointment availability</li>
-                                </ul>
-                                <p className="mt-4 text-gray-700">
-                                    To learn more about childhood hearing loss
-                                    and to find a pediatric audiologist, visit:
+                                    {ehdiSidebarBody}
                                 </p>
                                 <a
-                                    href="http://www.ehdi-pals.org/"
+                                    href={ehdiSidebarUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >

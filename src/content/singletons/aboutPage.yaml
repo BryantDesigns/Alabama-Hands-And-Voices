@@ -1,0 +1,18 @@
+whoWeAreBody: >-
+  We are parents of kids who are deaf or hard of hearing, and we understand
+  the journey you're on. Hands & Voices is a safe place to explore options,
+  connect with other families, and find the support you need.
+whyWeAreHereBody: >-
+  Alabama Hands & Voices is a parent-driven, non-profit organization that
+  supports families with children who are deaf or hard of hearing. We provide
+  unbiased information, resources, and support — regardless of communication
+  method or technology choice.
+membershipCtaText: Become a member and join our community of families supporting each other.
+membershipFormUrl: /assets/documents/HV-Membership-Form.pdf
+images:
+  - src: /images/aboutUsWhoWeAre1.jpg
+    alt: Hands & Voices family gathering
+  - src: /images/aboutUsWhoWeAreFamily.jpg
+    alt: Family at retreat
+  - src: /images/aboutUsWhoWeAreTrail.jpeg
+    alt: Family on trail

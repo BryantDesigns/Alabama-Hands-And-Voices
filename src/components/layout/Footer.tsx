@@ -37,9 +37,9 @@ export default function Footer() {
                         <ul className="space-y-2">
                             {[
                                 { name: 'Home', href: '/' },
-                                { name: 'About', href: '/who-we-are' },
+                                { name: 'About', href: '/about' },
                                 { name: 'Resources', href: '/resources' },
-                                { name: 'Contact', href: '/contact' },
+                                { name: 'Contact', href: '/about/contact' },
                             ].map((link) => (
                                 <li key={link.name}>
                                     <Link
@@ -53,7 +53,7 @@ export default function Footer() {
                             {/* External Link */}
                             <li>
                                 <a
-                                    href="assets/02_Parent%20Road%20Map.pdf"
+                                    href="/assets/documents/Road_map.pdf"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-gray-700 transition-colors hover:text-hvorange"
