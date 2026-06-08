@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    experimental: {
-        outputFileTracingIncludes: {
-            '/': ['./src/content/**/*'],
-        },
+    outputFileTracingIncludes: {
+        '/': ['./src/content/**/*'],
     },
     images: {
         remotePatterns: [
@@ -32,10 +30,6 @@ const nextConfig = {
                 pathname: '/**',
             },
         ],
-        domains: [],
-    },
-    eslint: {
-        ignoreDuringBuilds: true,
     },
 }
 

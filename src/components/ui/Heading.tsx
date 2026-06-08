@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import clsx from 'clsx'
 
 // Define accepted props
@@ -17,7 +17,7 @@ const Heading = ({
     color = 'gray',
     className = '',
 }: HeadingProps) => {
-    const Tag = `h${level}` as keyof JSX.IntrinsicElements // Dynamic heading level
+    const Tag = `h${level}` as keyof React.JSX.IntrinsicElements
 
     return (
         <Tag

@@ -346,41 +346,41 @@ See [Next/React Upgrade Sub-Plan](subplans/next-react-upgrade-sub-plan.md) for t
 
 ### Preparation
 
-- [ ] Confirm Node version is at least the required version for the target Next release.
-- [ ] Confirm `react-quill` has been removed before upgrading to React 19 or later.
-- [ ] Check official Next upgrade docs immediately before implementation.
-- [ ] Run codemods in the recommended order.
+- [x] Confirm Node version is at least the required version for the target Next release. — Node v22.19.0.
+- [x] Confirm `react-quill` has been removed before upgrading to React 19 or later.
+- [x] Check official Next upgrade docs immediately before implementation.
+- [x] Run codemods in the recommended order.
 
 ### Dependency Upgrade
 
-- [ ] Upgrade runtime dependencies:
-  - [ ] `next@latest`
-  - [ ] `react@latest`
-  - [ ] `react-dom@latest`
-- [ ] Upgrade dev dependencies:
-  - [ ] `eslint-config-next@latest`
-  - [ ] `@types/react@latest`
-  - [ ] `@types/react-dom@latest`
-  - [ ] TypeScript if required by target Next version
-- [ ] Update scripts:
-  - [ ] Replace `next lint` with ESLint CLI.
-  - [ ] Keep `dev`, `build`, and `start` scripts compatible with target Next behavior.
+- [x] Upgrade runtime dependencies:
+  - [x] `next@latest` — 16.2.7
+  - [x] `react@latest` — 19.2.7
+  - [x] `react-dom@latest` — 19.2.7
+- [x] Upgrade dev dependencies:
+  - [x] `eslint-config-next@latest` — 16.2.7
+  - [x] `@types/react@latest` — ^19
+  - [x] `@types/react-dom@latest` — ^19
+  - [x] TypeScript if required by target Next version — Not required; kept at ^5.7.2.
+- [x] Update scripts:
+  - [x] Replace `next lint` with ESLint CLI. — `"lint": "eslint ."`
+  - [x] Keep `dev`, `build`, and `start` scripts compatible with target Next behavior.
 
 ### Migration Review
 
-- [ ] Review async request API changes.
-- [ ] Review Turbopack default behavior.
-- [ ] Review image config changes.
-- [ ] Preserve `src/content/**/*` output tracing and Netlify bundled-file settings through config changes.
-- [ ] Review middleware/proxy conventions if middleware is introduced.
-- [ ] Review route handler compatibility for Keystatic API route.
-- [ ] Keep `cacheComponents` disabled.
+- [x] Review async request API changes. — No params/cookies/headers in app; no changes needed.
+- [x] Review Turbopack default behavior. — Fixed CSS `@import` ordering; `JSX.IntrinsicElements` updated.
+- [x] Review image config changes. — `images.domains` removed; `remotePatterns` already in use.
+- [x] Preserve `src/content/**/*` output tracing and Netlify bundled-file settings through config changes.
+- [x] Review middleware/proxy conventions if middleware is introduced. — No middleware; no changes.
+- [x] Review route handler compatibility for Keystatic API route. — Build passes.
+- [x] Keep `cacheComponents` disabled.
 
 Acceptance criteria:
 
-- [ ] App builds on latest stable Next/React.
-- [ ] Keystatic admin still loads.
-- [ ] Public pages still render.
+- [x] App builds on latest stable Next/React.
+- [ ] Keystatic admin still loads. — Deferred to manual QA.
+- [ ] Public pages still render. — Deferred to manual QA.
 
 ## Phase 7: Verification And Release Readiness
 
@@ -488,5 +488,6 @@ Use this section to track decisions and implementation milestones.
 | 2026-06-07 | Phase 2 | Keystatic foundation installed. Packages: `@keystatic/core`, `@keystatic/next`, `@markdoc/markdoc`. Created: `keystatic.config.ts` (local-file storage, empty singletons/collections), `src/app/keystatic/layout.tsx`, `src/app/keystatic/[[...params]]/page.tsx` (uses `makePage` from `@keystatic/next/ui/app`), `src/app/api/keystatic/[...params]/route.ts` (uses `makeRouteHandler`), `src/lib/keystatic/reader.ts`, `src/lib/keystatic/pages.ts`, `src/lib/keystatic/collections.ts`, `src/content/.gitkeep`. Added `experimental.outputFileTracingIncludes` to `next.config.mjs`. `/keystatic` returns HTTP 200 with no config warnings. | Claude |
 | 2026-06-07 | Phase 3 | Defined all Keystatic schemas: 12 singletons (siteSettings, navigation, homePage, aboutPage, contactPage, membershipPage, chooseMembershipPage, astraPage, gbysPage, safetyPage, dhhCommitteePage, resourcesPage, faqPage) and 3 collections (boardMembers, staffMembers, videos). All body copy uses `fields.text({ multiline: true })` — Markdoc deferred to Phase 4. Collections use `fields.slug()` for the slugField. Seeded all singletons under `src/content/singletons/`, 11 board members under `src/content/boardMembers/`, 10 staff members under `src/content/staffMembers/`. Updated `pages.ts` and `collections.ts` with typed reader helpers for all singletons and collections. Build: PASS. Lint: PASS. | Claude |
 | 2026-06-07 | Phase 4a | Homepage migrated from Firebase to Keystatic. `src/app/(pages)/page.tsx` now calls `getHomePageContent()` — no Firebase import. All 6 homepage section components refactored to accept typed props matching the homePage schema: HeroSection, WhatIsAlabama, WhereToStart, LearnMoreAboutUs, SupportOurMission, EventsSection. Removed `Section` type imports, `dangerouslySetInnerHTML`, and `use client` from display-only components. `SectionsRenderer.tsx` stubbed to compile cleanly (Phase 5 removes it). Build: PASS. Lint: PASS. | Claude |
+| 2026-06-07 | Phase 6 | Next.js and React upgraded. next→16.2.7, react→19.2.7, eslint→9.x, eslint-config-next→16.2.7, @types/react→^19. ESLint migrated to v9 flat config. Lint script → `eslint .`. `next.config.mjs` cleaned: `outputFileTracingIncludes` top-level, removed `eslint`/`images.domains` keys. Turbopack fixes: CSS @import ordering in globals.css, JSX.IntrinsicElements → React.JSX.IntrinsicElements. Build: PASS (Turbopack). Lint: PASS. TypeScript: PASS. | Claude |
 | 2026-06-07 | Phase 5 | Firebase CMS/Admin removed. Deleted: `/admin`, `/auth` route trees, `src/services/firebase/`, `RichTextEditor.tsx`, `SectionsRenderer.tsx`. Removed `firebase` and `react-quill` from `package.json`. Removed Quill CSS import from `globals.css`. Build: PASS (18 pages — admin/auth routes gone). Lint: PASS. | Claude |
 | 2026-06-07 | Phase 4b | All 12 static pages migrated to Keystatic. Board and Staff pages: BoardSection and StaffSection refactored to accept props (removing static imports); pages call `getBoardMembers()`/`getStaffMembers()`, sort by `sortOrder`, map `entry.name` (string slug field). About page: calls `getAboutPageContent()`, replaces body text and images from `data.images[]`. Contact page: email, phone, image, heading from `getContactPageContent()`. Resources page: removed `'use client'`, now async server component calling `getResourcesPageContent()`, categories and EHDI sidebar from Keystatic. FAQ page: interactive accordion extracted to `FaqAccordion` client component; page is async server component calling `getFaqPageContent()`, plain-text answers rendered as `<p>`. Membership page: heroText, documentDownloadUrl, scholarshipNote from `getMembershipPageContent()`. Choose Membership page: maps `data.membershipOptions` from `getChooseMembershipPageContent()`. ASTra page: programDescription, questions[], resourceLinks[], trainingCtaLabel/Href from `getAstraPageContent()`. GBYS page: programIntro, services[], enrollmentNote from `getGbysPageContent()`. Safety page: introCopy, actionCards[], familyRetreats* from `getSafetyPageContent()`. DHH Committee page: description, benefits[], videoSectionHeading from `getDhhCommitteePageContent()`. Build: PASS (20/20 pages). Lint: PASS. | Claude |
