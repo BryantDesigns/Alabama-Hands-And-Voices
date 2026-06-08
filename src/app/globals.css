@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Quill editor skin */
-@import 'react-quill/dist/quill.snow.css';
-
 /* Custom hero banner utility */
 .header-banner-bg {
   background-image: url('/images/homePageBanner.jpg');

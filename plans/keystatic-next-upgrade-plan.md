@@ -320,23 +320,23 @@ See [Firebase/Auth Removal Sub-Plan](subplans/firebase-auth-removal-sub-plan.md)
 
 ### Removal Checklist
 
-- [ ] Confirm no public page imports `fetchPageContent`, `getFirestoreData`, or `updateFirestoreSection`.
-- [ ] Confirm no active component imports Firebase auth/database helpers.
-- [ ] Remove `/admin` custom CMS route.
-- [ ] Remove `/auth` custom CMS login route if it is only used for Firebase admin.
-- [ ] Remove admin hooks and admin components.
-- [ ] Remove `RichTextEditor`.
-- [ ] Remove Quill CSS imports from global styles.
-- [ ] Remove Firebase service files if no non-CMS feature uses them.
-- [ ] Remove `firebase` dependency if no longer used.
-- [ ] Remove `react-quill` dependency.
-- [ ] Remove obsolete Firebase environment variable docs.
+- [x] Confirm no public page imports `fetchPageContent`, `getFirestoreData`, or `updateFirestoreSection`.
+- [x] Confirm no active component imports Firebase auth/database helpers.
+- [x] Remove `/admin` custom CMS route.
+- [x] Remove `/auth` custom CMS login route if it is only used for Firebase admin.
+- [x] Remove admin hooks and admin components.
+- [x] Remove `RichTextEditor`.
+- [x] Remove Quill CSS imports from global styles.
+- [x] Remove Firebase service files if no non-CMS feature uses them.
+- [x] Remove `firebase` dependency if no longer used.
+- [x] Remove `react-quill` dependency.
+- [x] Remove obsolete Firebase environment variable docs.
 
 Acceptance criteria:
 
-- [ ] No custom CMS/admin code remains.
-- [ ] No `react-quill` code or dependency remains.
-- [ ] Firebase is removed unless a non-CMS feature still requires it.
+- [x] No custom CMS/admin code remains.
+- [x] No `react-quill` code or dependency remains.
+- [x] Firebase is removed unless a non-CMS feature still requires it.
 
 ## Phase 6: Upgrade Next.js And React
 
@@ -488,4 +488,5 @@ Use this section to track decisions and implementation milestones.
 | 2026-06-07 | Phase 2 | Keystatic foundation installed. Packages: `@keystatic/core`, `@keystatic/next`, `@markdoc/markdoc`. Created: `keystatic.config.ts` (local-file storage, empty singletons/collections), `src/app/keystatic/layout.tsx`, `src/app/keystatic/[[...params]]/page.tsx` (uses `makePage` from `@keystatic/next/ui/app`), `src/app/api/keystatic/[...params]/route.ts` (uses `makeRouteHandler`), `src/lib/keystatic/reader.ts`, `src/lib/keystatic/pages.ts`, `src/lib/keystatic/collections.ts`, `src/content/.gitkeep`. Added `experimental.outputFileTracingIncludes` to `next.config.mjs`. `/keystatic` returns HTTP 200 with no config warnings. | Claude |
 | 2026-06-07 | Phase 3 | Defined all Keystatic schemas: 12 singletons (siteSettings, navigation, homePage, aboutPage, contactPage, membershipPage, chooseMembershipPage, astraPage, gbysPage, safetyPage, dhhCommitteePage, resourcesPage, faqPage) and 3 collections (boardMembers, staffMembers, videos). All body copy uses `fields.text({ multiline: true })` — Markdoc deferred to Phase 4. Collections use `fields.slug()` for the slugField. Seeded all singletons under `src/content/singletons/`, 11 board members under `src/content/boardMembers/`, 10 staff members under `src/content/staffMembers/`. Updated `pages.ts` and `collections.ts` with typed reader helpers for all singletons and collections. Build: PASS. Lint: PASS. | Claude |
 | 2026-06-07 | Phase 4a | Homepage migrated from Firebase to Keystatic. `src/app/(pages)/page.tsx` now calls `getHomePageContent()` — no Firebase import. All 6 homepage section components refactored to accept typed props matching the homePage schema: HeroSection, WhatIsAlabama, WhereToStart, LearnMoreAboutUs, SupportOurMission, EventsSection. Removed `Section` type imports, `dangerouslySetInnerHTML`, and `use client` from display-only components. `SectionsRenderer.tsx` stubbed to compile cleanly (Phase 5 removes it). Build: PASS. Lint: PASS. | Claude |
+| 2026-06-07 | Phase 5 | Firebase CMS/Admin removed. Deleted: `/admin`, `/auth` route trees, `src/services/firebase/`, `RichTextEditor.tsx`, `SectionsRenderer.tsx`. Removed `firebase` and `react-quill` from `package.json`. Removed Quill CSS import from `globals.css`. Build: PASS (18 pages — admin/auth routes gone). Lint: PASS. | Claude |
 | 2026-06-07 | Phase 4b | All 12 static pages migrated to Keystatic. Board and Staff pages: BoardSection and StaffSection refactored to accept props (removing static imports); pages call `getBoardMembers()`/`getStaffMembers()`, sort by `sortOrder`, map `entry.name` (string slug field). About page: calls `getAboutPageContent()`, replaces body text and images from `data.images[]`. Contact page: email, phone, image, heading from `getContactPageContent()`. Resources page: removed `'use client'`, now async server component calling `getResourcesPageContent()`, categories and EHDI sidebar from Keystatic. FAQ page: interactive accordion extracted to `FaqAccordion` client component; page is async server component calling `getFaqPageContent()`, plain-text answers rendered as `<p>`. Membership page: heroText, documentDownloadUrl, scholarshipNote from `getMembershipPageContent()`. Choose Membership page: maps `data.membershipOptions` from `getChooseMembershipPageContent()`. ASTra page: programDescription, questions[], resourceLinks[], trainingCtaLabel/Href from `getAstraPageContent()`. GBYS page: programIntro, services[], enrollmentNote from `getGbysPageContent()`. Safety page: introCopy, actionCards[], familyRetreats* from `getSafetyPageContent()`. DHH Committee page: description, benefits[], videoSectionHeading from `getDhhCommitteePageContent()`. Build: PASS (20/20 pages). Lint: PASS. | Claude |
