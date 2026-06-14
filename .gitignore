@@ -39,3 +39,35 @@ next-env.d.ts
 
 # Local Netlify folder
 .netlify
+
+_pginfo/
+
+.agents/
+
+.vscode/
+
+docs/
+
+plans/
+
+legacyHTMLForms.html
+
+originalAstraPage.html
+
+originalChooseYourMembershipPage.html
+
+originalFaqPage.html
+
+originalMembershipPage.html
+
+originalRoleModelPage.html
+
+originalSafetyPage.html
+
+ref.js
+
+plan.md
+
+pinegrow.json
+
+CLAUDE.md
