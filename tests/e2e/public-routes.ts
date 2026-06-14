@@ -1,0 +1,15 @@
+export const canonicalPublicRoutes = [
+    '/',
+    '/about',
+    '/about/board',
+    '/about/staff',
+    '/about/contact',
+    '/membership',
+    '/membership/choose-membership',
+    '/programs/astra',
+    '/programs/dhh-committee',
+    '/programs/gbys',
+    '/programs/safety',
+    '/resources',
+    '/faq',
+] as const

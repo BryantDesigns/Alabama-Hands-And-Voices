@@ -3,7 +3,12 @@ import { selectActiveVideos } from '../../src/lib/videos'
 
 test('renders fixed navigation and connected global settings', async ({
     page,
-}) => {
+}, testInfo) => {
+    test.skip(
+        testInfo.project.name === 'mobile-chromium',
+        'Desktop navigation is hidden at the mobile breakpoint.'
+    )
+
     await page.goto('/')
 
     await page.getByRole('button', { name: 'About Us' }).click()

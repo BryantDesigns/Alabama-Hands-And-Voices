@@ -2,7 +2,12 @@ import { expect, test, type Page } from '@playwright/test'
 
 const browserErrorsByPage = new WeakMap<Page, string[]>()
 
-test.beforeEach(async ({ page }) => {
+test.beforeEach(async ({ page }, testInfo) => {
+    test.skip(
+        testInfo.project.name !== 'chromium',
+        'Keystatic admin smoke tests run in desktop Chromium only.'
+    )
+
     const browserErrors: string[] = []
     browserErrorsByPage.set(page, browserErrors)
 
@@ -14,7 +19,11 @@ test.beforeEach(async ({ page }) => {
     page.on('pageerror', (error) => browserErrors.push(error.message))
 })
 
-test.afterEach(async ({ page }) => {
+test.afterEach(async ({ page }, testInfo) => {
+    if (testInfo.project.name !== 'chromium') {
+        return
+    }
+
     expect(browserErrorsByPage.get(page)).toEqual([])
 })
 
