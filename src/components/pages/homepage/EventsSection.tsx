@@ -1,11 +1,12 @@
 import Image from 'next/image'
 import { DocumentRenderer } from '@keystatic/core/renderer'
+import type { DocumentElement } from '@keystatic/core'
 
 interface EventsSectionProps {
     heading: string
     intro: string
     backgroundImage: string
-    events: { title: string; description: any }[]
+    events: { title: string; description: DocumentElement[] }[]
 }
 
 export default function EventsSection({ heading, intro, backgroundImage, events }: EventsSectionProps) {
