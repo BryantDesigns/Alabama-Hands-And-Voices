@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import type {
     getMembershipPageContent,
     getChooseMembershipPageContent,
@@ -394,13 +393,13 @@ export default function MembershipV2({ membership, choose }: MembershipV2Props) 
                             <p className="mt-5 text-base leading-relaxed text-slate-700">
                                 {scholarshipNote}
                             </p>
-                            <Link
-                                href="/design-options/v2/contact"
+                            <a
+                                href="mailto:info@alhandsandvoices.org"
                                 className="mt-6 inline-flex items-center gap-2 font-semibold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                             >
                                 Contact us about scholarships
                                 <ArrowIcon className="h-4 w-4" />
-                            </Link>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -447,12 +446,12 @@ export default function MembershipV2({ membership, choose }: MembershipV2Props) 
                                     <HeartIcon className="h-5 w-5" />
                                     Join now — download the form
                                 </a>
-                                <Link
-                                    href="/design-options/v2/contact"
+                                <a
+                                    href="mailto:info@alhandsandvoices.org"
                                     className="inline-flex items-center gap-2 rounded-full border-2 border-white/60 px-8 py-4 text-base font-semibold text-white transition hover:border-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                 >
                                     Questions? Contact us
-                                </Link>
+                                </a>
                             </div>
                         </div>
                     </div>

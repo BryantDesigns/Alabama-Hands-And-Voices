@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import type {
     getMembershipPageContent,
     getChooseMembershipPageContent,
@@ -480,13 +479,13 @@ export default function MembershipV3({ membership, choose }: MembershipV3Props) 
                             <p className="text-base leading-relaxed text-slate-700 md:text-lg">
                                 {scholarshipNote}
                             </p>
-                            <Link
-                                href="/design-options/v3/contact"
+                            <a
+                                href="mailto:info@alhandsandvoices.org"
                                 className="mt-6 inline-flex min-h-[44px] items-center gap-2 rounded-xl border-2 border-hvblue px-6 py-3 text-base font-bold text-hvblue transition duration-150 hover:bg-hvblue hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                             >
                                 Contact us about scholarships
                                 <ArrowIcon className="h-4 w-4" />
-                            </Link>
+                            </a>
                         </div>
 
                         {/* Reinforcement copy */}
@@ -546,13 +545,13 @@ export default function MembershipV3({ membership, choose }: MembershipV3Props) 
                             <HeartIcon className="h-5 w-5" />
                             Join now — download the form
                         </a>
-                        <Link
-                            href="/design-options/v3/contact"
+                        <a
+                            href="mailto:info@alhandsandvoices.org"
                             className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                         >
                             Questions? Contact us
                             <ArrowIcon className="h-5 w-5" />
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </section>
