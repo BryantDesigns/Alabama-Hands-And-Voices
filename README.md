@@ -26,60 +26,92 @@ npm install
 npm run dev
 ```
 
-Visit <http://localhost:3000> to view the site, and <http://localhost:3000/keystatic> to open the content editor.
+Open:
 
-### Other commands
+- Site: <http://localhost:3000>
+- Local Keystatic editor: <http://localhost:3000/keystatic>
+
+In development, `keystatic.config.ts` selects `storage.kind: 'local'`. Saving in the local editor writes YAML files directly under `src/content/`; commit those files through the normal Git workflow.
+
+### Verification commands
+
+Install Playwright browsers once:
 
 ```bash
-npm run build    # Production build
-npm run start    # Serve the production build
-npm run lint     # ESLint
+npx playwright install
+```
+
+Run the project checks:
+
+```bash
+npm run lint
+npx tsc --noEmit
+npm run build
+npm run test:e2e
+```
+
+Run a focused browser project or test:
+
+```bash
+npx playwright test --project=chromium
+npx playwright test tests/e2e/accessibility.spec.ts --project=mobile-chromium
+npx playwright test tests/e2e/keystatic.spec.ts --project=chromium
 ```
 
 ## Content Management
 
-Content schemas are defined in `keystatic.config.ts`:
+Content schemas are defined in `keystatic.config.ts`.
 
-- **Singletons** — one YAML file per page (home, about, contact, membership, programs, resources, FAQ) plus global site settings and navigation, in `src/content/singletons/`.
-- **Collections** — board members, staff members, and videos, one YAML file per entry in `src/content/`.
+- Singletons contain global settings, navigation copy, and page content.
+- Collections contain board members, staff members, and videos.
+- Server-only readers live in `src/lib/keystatic/`.
+- Functional constants such as routes, navigation order, membership prices/titles, and PayPal IDs remain in code.
 
-Editing content in the `/keystatic` admin writes directly to these YAML files, so content changes appear as normal git diffs and deploy with the next push.
+See the [Keystatic Editor Guide](docs/keystatic-editor-guide.md) for staff instructions and protected-field details.
 
-Server-side reader helpers live in `src/lib/keystatic/` (`pages.ts` for singletons, `collections.ts` for collections). These are server-only and must not be imported from client components.
+### Production Cloud workflow
+
+Production uses Keystatic Cloud project `al-hands-and-voices/al-hands-and-voices`.
+
+1. Open <https://alabama-hands-and-voices-redesign.netlify.app/keystatic>.
+2. Authenticate through the Keystatic Cloud login screen.
+3. Edit an allowed field and save the entry.
+4. Keystatic stores the content change in the connected GitHub repository.
+5. Netlify builds and publishes the updated `main` branch.
+6. Verify the public page after the Netlify production deploy reaches `ready`.
+
+The production editor does not write to the deployed server filesystem. Git remains the content source of truth.
 
 ## Project Structure
 
 ```text
 src/
-  app/              # Next.js routes (public pages, /keystatic admin, API)
-  components/       # Layout, page-specific, and UI components
+  app/              # Public routes, metadata routes, Keystatic, and API routes
+  components/       # Layout, page, and UI components
   content/          # Keystatic-managed YAML content
-  lib/keystatic/    # Server-only content reader helpers
+  lib/keystatic/    # Server-only content readers
+  lib/seo.ts        # Fixed route metadata and canonical route list
   types/            # Shared TypeScript types
-  utils/            # Helpers (e.g. Netlify form submission)
-```
-
-## Data Flow
-
-```mermaid
-sequenceDiagram
-    participant Editor
-    participant Keystatic as Keystatic Admin (/keystatic)
-    participant Repo as YAML files (src/content)
-    participant NextJS as Next.js App
-    participant Visitor
-
-    Editor->>Keystatic: Edit content
-    Keystatic->>Repo: Write YAML
-    Repo->>NextJS: reader.singletons / reader.collections
-    NextJS-->>Visitor: Rendered page
+  utils/            # Form helpers
+tests/e2e/           # Playwright, Axe, CMS, and SEO checks
 ```
 
 ## Deployment
 
-The site deploys to Netlify on pushes to `main`. The build command is `npm run build`; `next.config.mjs` includes `outputFileTracingIncludes` so the `src/content/` YAML files are bundled with the deployed app.
+Netlify deploys pushes to `main` using `npm run build`. Production verification should include:
 
-The production content-editing mode (Keystatic GitHub mode, Keystatic Cloud, or local-only editing) is still an open decision — see `plans/keystatic-next-upgrade-plan.md`.
+- The deploy commit matches the intended GitHub commit.
+- `/keystatic` displays the Cloud login/editor surface.
+- Public navigation, membership values, payment IDs, and video galleries still match their tests.
+- `/sitemap.xml`, `/robots.txt`, and an unknown-route 404 render correctly.
+
+The canonical production URL is <https://alabama-hands-and-voices-redesign.netlify.app>.
+
+## Additional Documentation
+
+- [Staff Keystatic Editor Guide](docs/keystatic-editor-guide.md)
+- [Accessibility Findings](docs/accessibility-findings.md)
+- [Migration Plan](plans/keystatic-next-upgrade-plan.md)
 
 ## License
 
