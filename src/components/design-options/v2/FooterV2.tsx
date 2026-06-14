@@ -30,17 +30,10 @@ export default function FooterV2() {
                             <Image
                                 src="/images/alabamahvlogo.svg"
                                 alt="Alabama Hands & Voices logo"
-                                width={52}
-                                height={52}
+                                width={148}
+                                height={48}
                                 className="h-12 w-auto transition-opacity duration-150 group-hover:opacity-80"
                             />
-                            <span className="font-serif text-base font-semibold leading-tight tracking-tight text-hvblue">
-                                Alabama
-                                <br />
-                                <span className="font-kaushan text-lg text-hvorange-700">
-                                    Hands &amp; Voices
-                                </span>
-                            </span>
                         </Link>
 
                         <p className="mt-5 max-w-xs text-base leading-relaxed text-slate-700">

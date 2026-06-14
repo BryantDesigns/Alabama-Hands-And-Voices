@@ -55,19 +55,11 @@ export default function HeaderV2() {
                             <Image
                                 src="/images/alabamahvlogo.svg"
                                 alt="Alabama Hands & Voices logo"
-                                width={48}
+                                width={148}
                                 height={48}
                                 className="h-10 w-auto transition-opacity duration-150 group-hover:opacity-80 md:h-12"
                                 priority
                             />
-                            {/* Editorial wordmark beside logo on md+ */}
-                            <span className="hidden font-serif text-sm font-semibold leading-tight tracking-tight text-hvblue md:block lg:text-base">
-                                Alabama
-                                <br />
-                                <span className="font-kaushan text-base text-hvorange-700 lg:text-lg">
-                                    Hands &amp; Voices
-                                </span>
-                            </span>
                         </Link>
 
                         {/* Desktop nav */}
