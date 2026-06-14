@@ -151,7 +151,11 @@ export default config({
             events: fields.array(
               fields.object({
                 title: fields.text({ label: 'Title' }),
-                description: fields.text({ label: 'Description', multiline: true }),
+                description: fields.document({
+                  label: 'Description',
+                  formatting: true,
+                  links: true,
+                }),
               }),
               {
                 label: 'Events',

@@ -77,14 +77,17 @@ events:
   backgroundImage: /images/family.jpg
   events:
     - title: Family Retreat at Lake Martin
-      description: >-
-        Join us for our annual family retreat. Families connect, children play,
-        and parents share their journeys in a relaxed, welcoming setting.
+      description:
+        - type: paragraph
+          children:
+            - text: Join us for our annual family retreat. Families connect, children play, and parents share their journeys in a relaxed, welcoming setting.
     - title: Virtual & In-Person Workshops
-      description: >-
-        We host workshops on topics like IEP preparation, communication
-        strategies, and technology options throughout the year.
+      description:
+        - type: paragraph
+          children:
+            - text: We host workshops on topics like IEP preparation, communication strategies, and technology options throughout the year.
     - title: Community Gatherings
-      description: >-
-        Regional social events give families a chance to meet others in their
-        area and build lasting friendships.
+      description:
+        - type: paragraph
+          children:
+            - text: Regional social events give families a chance to meet others in their area and build lasting friendships.
