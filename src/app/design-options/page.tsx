@@ -1,5 +1,7 @@
-export const metadata = { title: 'Design Options' }
+import ShowcaseIndex from '@/components/design-options/ShowcaseIndex'
+
+export const metadata = { title: 'Design Options — Alabama Hands & Voices' }
 
 export default function DesignOptionsIndex() {
-    return <main className="p-8">Design Options index — placeholder</main>
+    return <ShowcaseIndex />
 }
