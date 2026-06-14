@@ -1,3 +1,13 @@
-export default function Page() {
-    return <main className="p-8">v2 / Home — placeholder</main>
+import { getHomePageContent, getSiteSettings } from '@/lib/keystatic/pages'
+import HomeV2 from '@/components/design-options/v2/home/HomeV2'
+
+export const metadata = { title: 'Home — Warm & Editorial (v2)' }
+
+export default async function Page() {
+    const [data, settings] = await Promise.all([
+        getHomePageContent(),
+        getSiteSettings(),
+    ])
+    if (!data) return <main className="p-8">Home content not found.</main>
+    return <HomeV2 data={data} donationLabel={settings.donationButtonLabel} />
 }
