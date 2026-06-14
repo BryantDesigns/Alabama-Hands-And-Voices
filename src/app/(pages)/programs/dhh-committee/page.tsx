@@ -19,7 +19,7 @@ export default async function DHHCommitteePage() {
         data?.videoSectionHeading ?? 'Deaf & Hard of Hearing Role Models'
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <main className="min-h-screen bg-gray-50">
             {/* Hero Section */}
             <section className="bg-gray-100 pb-16 pt-24">
                 <div className="container mx-auto px-6">
@@ -38,7 +38,7 @@ export default async function DHHCommitteePage() {
                         {/* Hero Image */}
                         <div className="mb-8">
                             <Image
-                                src="/images/Retreat 2.jpg"
+                                src="/images/retreat2.jpg"
                                 alt="Family retreat gathering"
                                 width={800}
                                 height={500}
@@ -95,6 +95,6 @@ export default async function DHHCommitteePage() {
                     </div>
                 </section>
             )}
-        </div>
+        </main>
     )
 }

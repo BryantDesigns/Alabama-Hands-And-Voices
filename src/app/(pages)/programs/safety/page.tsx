@@ -14,7 +14,7 @@ export default async function SafetyProjectPage() {
     const familyRetreatsLink = data?.familyRetreatsLink ?? '/programs/gbys'
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <main className="min-h-screen bg-gray-50">
             {/* Hero Section */}
             <section className="bg-gray-100 pb-16 pt-24">
                 <div className="container mx-auto px-6">
@@ -84,6 +84,6 @@ export default async function SafetyProjectPage() {
                     </div>
                 </div>
             </section>
-        </div>
+        </main>
     )
 }

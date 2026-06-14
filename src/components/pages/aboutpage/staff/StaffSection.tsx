@@ -41,14 +41,14 @@ export default function StaffSection({ members }: StaffSectionProps) {
                             <h2 className="text-center text-3xl font-semibold text-hvorange">
                                 {category}
                             </h2>
-                            <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                            <ul className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                                 {categoryMembers.map((person) => (
                                     <StaffCard
                                         key={person.name}
                                         staff={person}
                                     />
                                 ))}
-                            </div>
+                            </ul>
                         </div>
                     ))}
                 </div>

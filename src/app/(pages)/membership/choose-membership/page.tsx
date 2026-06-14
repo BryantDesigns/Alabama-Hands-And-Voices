@@ -20,7 +20,7 @@ export default async function ChooseMembershipPage() {
     }))
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <main className="min-h-screen bg-gray-50">
             {/* Hero Section */}
             <section className="bg-hvblue-600 pb-16 pt-24">
                 <div className="container mx-auto px-6">
@@ -87,6 +87,6 @@ export default async function ChooseMembershipPage() {
                     </div>
                 </div>
             </section>
-        </div>
+        </main>
     )
 }

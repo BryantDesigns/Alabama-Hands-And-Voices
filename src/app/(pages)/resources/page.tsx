@@ -192,10 +192,9 @@ export default async function ResourcesPage() {
                                     href={ehdiSidebarUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    className="mt-4 inline-block rounded-md bg-hvorange px-4 py-2 text-white hover:bg-hvorange-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hvblue"
                                 >
-                                    <button className="mt-4 rounded-md bg-hvorange px-4 py-2 text-white hover:bg-hvorange-700">
-                                        Visit EHDI-PALS
-                                    </button>
+                                    Visit EHDI-PALS
                                 </a>
                             </div>
                             {/* Alabama Options for Services for Deaf/Hard of Hearing Children Section */}
@@ -215,6 +214,6 @@ export default async function ResourcesPage() {
                 </div>
             </section>
             <VideoGallery videos={videos} />
-        </>
+        </main>
     )
 }

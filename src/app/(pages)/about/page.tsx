@@ -14,8 +14,7 @@ const AboutPage = async () => {
     const image2 = images[2] ?? { src: '/images/aboutUsWhoWeAreTrail.jpeg', alt: '' }
 
     return (
-        <>
-            <div className="bg-white">
+        <main className="bg-white">
                 {/* Who We Are Section */}
                 <section>
                     {/* Who We Are Section */}
@@ -102,14 +101,14 @@ const AboutPage = async () => {
                             Download our{' '}
                             <Link
                                 href={data?.membershipFormUrl ?? '/assets/membership-form.pdf'}
-                                className="py-3 text-lg font-semibold text-hvorange transition hover:text-hvorange-700"
+                                className="py-3 text-lg font-semibold text-hvorange-700 underline transition hover:text-hvorange-900"
                             >
                                 Membership Form
                             </Link>{' '}
                             or visit our{' '}
                             <Link
                                 href="/membership"
-                                className="py-3 text-lg font-semibold text-hvorange transition hover:text-hvorange-700"
+                                className="py-3 text-lg font-semibold text-hvorange-700 underline transition hover:text-hvorange-900"
                             >
                                 membership
                             </Link>{' '}
@@ -117,8 +116,7 @@ const AboutPage = async () => {
                         </p>
                     </div>
                 </section>
-            </div>
-        </>
+        </main>
     )
 }
 
