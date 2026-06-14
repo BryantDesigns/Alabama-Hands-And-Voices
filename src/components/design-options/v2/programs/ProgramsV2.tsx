@@ -182,7 +182,7 @@ export default function ProgramsV2({ programs }: ProgramsV2Props) {
             {/* ============================================================ */}
             {/* HERO — warm gradient, serif headline, kaushan tagline */}
             {/* ============================================================ */}
-            <section className="relative isolate overflow-hidden bg-gradient-to-b from-hvorange-50 via-hvorange-50/30 to-white">
+            <section className="relative isolate overflow-hidden bg-linear-to-b from-hvorange-50 via-hvorange-50/30 to-white">
                 <div
                     aria-hidden="true"
                     className="pointer-events-none absolute -left-20 top-8 h-64 w-64 rounded-full bg-hvorange-100/50 blur-3xl"
@@ -224,7 +224,7 @@ export default function ProgramsV2({ programs }: ProgramsV2Props) {
                                 <a
                                     key={p.key}
                                     href={`#program-${p.key}`}
-                                    className="rounded-full border border-slate-200 bg-white px-5 py-2 text-sm font-semibold text-hvblue shadow-sm transition hover:border-hvorange-300 hover:bg-hvorange-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                    className="rounded-full border border-slate-200 bg-white px-5 py-2 text-sm font-semibold text-hvblue shadow-sm transition hover:border-hvorange-300 hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                 >
                                     {p.title.split('(')[0].trim()}
                                 </a>
@@ -235,7 +235,7 @@ export default function ProgramsV2({ programs }: ProgramsV2Props) {
 
                 <div
                     aria-hidden="true"
-                    className="h-px w-full bg-gradient-to-r from-transparent via-hvorange-200 to-transparent"
+                    className="h-px w-full bg-linear-to-r from-transparent via-hvorange-200 to-transparent"
                 />
             </section>
 
@@ -281,7 +281,7 @@ export default function ProgramsV2({ programs }: ProgramsV2Props) {
                                                 />
                                             </div>
                                         ) : (
-                                            <div className="relative aspect-[4/3] overflow-hidden">
+                                            <div className="relative aspect-4/3 overflow-hidden">
                                                 <Image
                                                     src={
                                                         PROGRAM_PHOTOS[
@@ -359,7 +359,7 @@ export default function ProgramsV2({ programs }: ProgramsV2Props) {
                                     {/* Learn more link */}
                                     <Link
                                         href={program.href}
-                                        className="mt-8 inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                        className="mt-8 inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                     >
                                         Learn more about {program.title.split('(')[0].trim()}
                                         <ArrowIcon className="h-4 w-4" />
@@ -400,7 +400,7 @@ export default function ProgramsV2({ programs }: ProgramsV2Props) {
                             <li key={program.key}>
                                 <Link
                                     href={program.href}
-                                    className="group flex h-full flex-col rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                    className="group flex h-full flex-col rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                 >
                                     {/* Icon/logo badge */}
                                     <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-hvorange-100 text-hvorange-700 transition group-hover:bg-hvorange-600 group-hover:text-white">
@@ -475,14 +475,14 @@ export default function ProgramsV2({ programs }: ProgramsV2Props) {
                             <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                                 <Link
                                     href="/programs/gbys"
-                                    className="inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-8 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-300 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-8 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-300 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                 >
                                     <HeartIcon className="h-5 w-5" />
                                     Find a Parent Guide
                                 </Link>
                                 <Link
                                     href="/design-options/v2/membership"
-                                    className="inline-flex items-center gap-2 rounded-full border-2 border-white/60 px-8 py-4 text-base font-semibold text-white transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="inline-flex items-center gap-2 rounded-full border-2 border-white/60 px-8 py-4 text-base font-semibold text-white transition hover:bg-white/10 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                 >
                                     Join our community
                                 </Link>

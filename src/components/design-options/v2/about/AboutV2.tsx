@@ -117,7 +117,7 @@ export default function AboutV2({ about, board, staff }: AboutV2Props) {
             {/* ================================================================ */}
             {/* HERO — warm gradient, serif headline, kaushan tagline */}
             {/* ================================================================ */}
-            <section className="relative isolate overflow-hidden bg-gradient-to-b from-hvorange-50 via-hvorange-50/30 to-white">
+            <section className="relative isolate overflow-hidden bg-linear-to-b from-hvorange-50 via-hvorange-50/30 to-white">
                 {/* Decorative blobs */}
                 <div
                     aria-hidden="true"
@@ -158,7 +158,7 @@ export default function AboutV2({ about, board, staff }: AboutV2Props) {
                 {/* Divider */}
                 <div
                     aria-hidden="true"
-                    className="h-px w-full bg-gradient-to-r from-transparent via-hvorange-200 to-transparent"
+                    className="h-px w-full bg-linear-to-r from-transparent via-hvorange-200 to-transparent"
                 />
             </section>
 
@@ -281,7 +281,7 @@ export default function AboutV2({ about, board, staff }: AboutV2Props) {
                                     key={i}
                                     className="group overflow-hidden rounded-2xl shadow-sm ring-1 ring-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:shadow-lg"
                                 >
-                                    <div className="relative aspect-[4/3] overflow-hidden">
+                                    <div className="relative aspect-4/3 overflow-hidden">
                                         <Image
                                             src={img.src}
                                             alt={img.alt}
@@ -445,7 +445,7 @@ export default function AboutV2({ about, board, staff }: AboutV2Props) {
                             <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
                                 <Link
                                     href="/design-options/v2/membership"
-                                    className="inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-8 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-300 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-8 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-300 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                 >
                                     <HeartIcon className="h-5 w-5" />
                                     Join Now
@@ -455,7 +455,7 @@ export default function AboutV2({ about, board, staff }: AboutV2Props) {
                                         href={membershipFormUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 rounded-full border-2 border-white/60 px-8 py-3.5 text-base font-semibold text-white transition hover:border-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                        className="inline-flex items-center gap-2 rounded-full border-2 border-white/60 px-8 py-3.5 text-base font-semibold text-white transition hover:border-white hover:bg-white/10 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                     >
                                         Download Form
                                         <ArrowIcon className="h-4 w-4" />

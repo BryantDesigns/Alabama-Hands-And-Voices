@@ -116,7 +116,7 @@ function ResourceLink({
 }: ResourceLinkProps) {
     const isExternal = url.startsWith('http')
 
-    const linkClasses = `group flex min-h-[44px] items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${linkBase}`
+    const linkClasses = `group flex min-h-[44px] items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition duration-150 cursor-pointer focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 ${linkBase}`
 
     if (isExternal) {
         return (
@@ -368,7 +368,7 @@ export default function ResourcesV3({ data }: ResourcesV3Props) {
                                     href={ehdiSidebarUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                 >
                                     Search EHDI-PALS
                                     <ExternalLinkIcon className="h-4 w-4" />
@@ -414,14 +414,14 @@ export default function ResourcesV3({ data }: ResourcesV3Props) {
                     <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
                         <Link
                             href="/design-options/v3/programs"
-                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                         >
                             <HeartIcon className="h-5 w-5" />
                             Get Parent Guide Support
                         </Link>
                         <Link
                             href="/design-options/v3/membership"
-                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/60 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/60 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                         >
                             Join the community
                             <ArrowIcon className="h-5 w-5" />

@@ -12,7 +12,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ quote, logoImage }) => (
         <div className="absolute inset-0 bg-white opacity-40"></div>
 
         {/* Content Container */}
-        <div className="relative w-full bg-hvorange bg-opacity-50 py-3">
+        <div className="relative w-full bg-hvorange/50 py-3">
             <div className="container max-w-7xl mx-auto px-4">
                 <div className="flex flex-col items-center md:flex-row">
                     <div className="flex items-center justify-center text-center md:w-3/4 md:justify-start md:text-left">

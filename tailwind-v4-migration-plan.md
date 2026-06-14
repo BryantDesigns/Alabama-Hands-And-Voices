@@ -89,11 +89,11 @@ Based on our codebase scan, the CLI should handle these changes across all `.tsx
 | `rounded` (bare) → `rounded-sm` | ~17 | Renames (scale shift) |
 | `outline-none` → `outline-hidden` | **50+** | Renames |
 | `bg-gradient-to-*` → `bg-linear-to-*` | **24** | Renames |
-| `flex-grow` → `grow` | 2 | Renames |
-| `flex-shrink` → `shrink` | 0 | N/A |
+| `grow` → `grow` | 2 | Renames |
+| `shrink` → `shrink` | 0 | N/A |
 | `!important` prefix → suffix (`!p-4` → `p-4!`) | 0 | N/A (none found) |
 | `[--var]` → `(--var)` for CSS variable syntax | 0 | N/A (none found) |
-| `overflow-ellipsis` → `text-ellipsis` | 0 | N/A (none found) |
+| `text-ellipsis` → `text-ellipsis` | 0 | N/A (none found) |
 | `@tailwind base/components/utilities` → `@import "tailwindcss"` | 3 | Converts |
 | `tailwind.config.ts` → `@theme` in CSS | 1 file | Attempts conversion |
 | `postcss.config.mjs` plugin name | 1 file | Updates |
@@ -365,7 +365,7 @@ grep -rn '@tailwind' src/ --include="*.css"           # Should be 0
 grep -rn 'bg-gradient-to-' src/ --include="*.tsx"     # Should be 0
 grep -rn 'bg-opacity-' src/ --include="*.tsx"         # Should be 0
 grep -rn 'text-opacity-' src/ --include="*.tsx"       # Should be 0
-grep -rn 'flex-grow' src/ --include="*.tsx"            # Should be 0
+grep -rn 'grow' src/ --include="*.tsx"            # Should be 0
 grep -rn 'ring-inset' src/ --include="*.tsx"           # Should be 0
 ls tailwind.config.ts 2>/dev/null && echo "REMOVE THIS FILE" # Should not exist
 ```
@@ -383,7 +383,7 @@ ls tailwind.config.ts 2>/dev/null && echo "REMOVE THIS FILE" # Should not exist
 | Shadow scale | `shadow-sm` → `shadow-xs`, `shadow` → `shadow-sm` | ~59 | CLI (Step 3) |
 | Rounded scale | `rounded-sm` → `rounded-xs`, `rounded` → `rounded-sm` | ~24 | CLI (Step 3) |
 | Outline | `outline-none` → `outline-hidden` | 50+ | CLI (Step 3) |
-| Flex | `flex-grow` → `grow` | 2 | CLI (Step 3) |
+| Flex | `grow` → `grow` | 2 | CLI (Step 3) |
 | Opacity | `bg-opacity-*` → `/` modifier | 2 | Manual (Step 5a) |
 | Transform | Remove `transform`, `transform-gpu` | 8 | Manual (Step 5b) |
 | Ring inset | `ring-inset` → `inset-ring` | 8 | Manual (Step 5c) |

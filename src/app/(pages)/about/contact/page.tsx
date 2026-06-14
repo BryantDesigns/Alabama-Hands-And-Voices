@@ -25,7 +25,7 @@ export default async function ContactPage() {
                               alt="Contact Us"
                               width={600}
                               height={400}
-                              className="aspect-[16/9] w-full object-cover shadow-lg"
+                              className="aspect-16/9 w-full object-cover shadow-lg"
                           />
                       </div>
 

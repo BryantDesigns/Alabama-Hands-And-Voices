@@ -207,14 +207,14 @@ export default function MembershipV3({ membership, choose }: MembershipV3Props) 
                                 <a
                                     href={documentDownloadUrl}
                                     download
-                                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                 >
                                     <DownloadIcon className="h-5 w-5" />
                                     Download Membership Form
                                 </a>
                                 <a
                                     href="#membership-tiers"
-                                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/70 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/70 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                 >
                                     See membership types
                                     <ArrowIcon className="h-5 w-5" />
@@ -343,7 +343,7 @@ export default function MembershipV3({ membership, choose }: MembershipV3Props) 
                                 className="group flex flex-col overflow-hidden rounded-3xl bg-white text-hvblue shadow-xl ring-1 ring-white/10 transition duration-200 hover:-translate-y-1 hover:shadow-2xl"
                             >
                                 {/* Photo top */}
-                                <div className="relative aspect-[3/2] overflow-hidden">
+                                <div className="relative aspect-3/2 overflow-hidden">
                                     <Image
                                         src={tier.image}
                                         alt={`${tier.title} — ${tier.subtitle}`}
@@ -362,7 +362,7 @@ export default function MembershipV3({ membership, choose }: MembershipV3Props) 
                                     {/* Bottom gradient */}
                                     <div
                                         aria-hidden="true"
-                                        className="absolute inset-0 bg-gradient-to-t from-hvblue/40 via-transparent to-transparent"
+                                        className="absolute inset-0 bg-linear-to-t from-hvblue/40 via-transparent to-transparent"
                                     />
                                 </div>
 
@@ -441,7 +441,7 @@ export default function MembershipV3({ membership, choose }: MembershipV3Props) 
                             <a
                                 href={documentDownloadUrl}
                                 download
-                                className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl bg-hvblue px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange md:text-lg lg:w-auto"
+                                className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl bg-hvblue px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange md:text-lg lg:w-auto"
                             >
                                 <DownloadIcon className="h-5 w-5" />
                                 Download Membership Form
@@ -481,7 +481,7 @@ export default function MembershipV3({ membership, choose }: MembershipV3Props) 
                             </p>
                             <a
                                 href="mailto:info@alhandsandvoices.org"
-                                className="mt-6 inline-flex min-h-[44px] items-center gap-2 rounded-xl border-2 border-hvblue px-6 py-3 text-base font-bold text-hvblue transition duration-150 hover:bg-hvblue hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="mt-6 inline-flex min-h-[44px] items-center gap-2 rounded-xl border-2 border-hvblue px-6 py-3 text-base font-bold text-hvblue transition duration-150 hover:bg-hvblue hover:text-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                             >
                                 Contact us about scholarships
                                 <ArrowIcon className="h-4 w-4" />
@@ -540,14 +540,14 @@ export default function MembershipV3({ membership, choose }: MembershipV3Props) 
                         <a
                             href={documentDownloadUrl}
                             download
-                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                         >
                             <HeartIcon className="h-5 w-5" />
                             Join now — download the form
                         </a>
                         <a
                             href="mailto:info@alhandsandvoices.org"
-                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                         >
                             Questions? Contact us
                             <ArrowIcon className="h-5 w-5" />

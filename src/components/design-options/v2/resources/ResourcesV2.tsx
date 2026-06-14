@@ -138,7 +138,7 @@ function ResourceLink({ name, url }: ResourceLinkProps) {
     const isExternal = url.startsWith('http')
 
     const linkClasses =
-        'group inline-flex min-h-[44px] w-full items-center gap-3 rounded-xl px-4 py-3 text-base font-medium text-hvblue transition duration-150 hover:bg-white hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2'
+        'group inline-flex min-h-[44px] w-full items-center gap-3 rounded-xl px-4 py-3 text-base font-medium text-hvblue transition duration-150 hover:bg-white hover:shadow-sm focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2'
 
     if (isExternal) {
         return (
@@ -182,7 +182,7 @@ export default function ResourcesV2({ data }: ResourcesV2Props) {
             {/* ============================================================ */}
             {/* HERO — warm gradient, serif heading, kaushan tagline          */}
             {/* ============================================================ */}
-            <section className="relative isolate overflow-hidden bg-gradient-to-b from-hvorange-50 via-hvorange-50/30 to-white">
+            <section className="relative isolate overflow-hidden bg-linear-to-b from-hvorange-50 via-hvorange-50/30 to-white">
                 {/* Decorative warm blobs */}
                 <div
                     aria-hidden="true"
@@ -219,7 +219,7 @@ export default function ResourcesV2({ data }: ResourcesV2Props) {
                         {/* Thin orange rule */}
                         <span
                             aria-hidden="true"
-                            className="mx-auto mt-6 block h-px w-24 bg-gradient-to-r from-transparent via-hvorange-400 to-transparent"
+                            className="mx-auto mt-6 block h-px w-24 bg-linear-to-r from-transparent via-hvorange-400 to-transparent"
                         />
 
                         {/* Intro copy */}
@@ -232,7 +232,7 @@ export default function ResourcesV2({ data }: ResourcesV2Props) {
                 {/* Soft bottom edge */}
                 <div
                     aria-hidden="true"
-                    className="h-px w-full bg-gradient-to-r from-transparent via-hvorange-200/60 to-transparent"
+                    className="h-px w-full bg-linear-to-r from-transparent via-hvorange-200/60 to-transparent"
                 />
             </section>
 
@@ -328,7 +328,7 @@ export default function ResourcesV2({ data }: ResourcesV2Props) {
                                         href={ehdiSidebarUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="mt-5 inline-flex min-h-[44px] items-center gap-2 rounded-full bg-hvorange-600 px-5 py-2.5 text-sm font-semibold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                        className="mt-5 inline-flex min-h-[44px] items-center gap-2 rounded-full bg-hvorange-600 px-5 py-2.5 text-sm font-semibold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                     >
                                         Search EHDI-PALS
                                         <ExternalLinkIcon className="h-3.5 w-3.5" />
@@ -351,7 +351,7 @@ export default function ResourcesV2({ data }: ResourcesV2Props) {
                                         </p>
                                         <Link
                                             href="/design-options/v2/programs"
-                                            className="mt-3 inline-flex min-h-[40px] items-center gap-1.5 text-sm font-semibold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                            className="mt-3 inline-flex min-h-[40px] items-center gap-1.5 text-sm font-semibold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                         >
                                             Find a guide
                                             <ArrowIcon className="h-3.5 w-3.5" />
@@ -399,14 +399,14 @@ export default function ResourcesV2({ data }: ResourcesV2Props) {
                             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                                 <Link
                                     href="/design-options/v2/programs"
-                                    className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-hvorange-600 px-7 py-3.5 text-base font-semibold text-white shadow-sm transition duration-150 hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-300 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-hvorange-600 px-7 py-3.5 text-base font-semibold text-white shadow-sm transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-300 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                 >
                                     <HeartIcon className="h-5 w-5" />
                                     Get matched with a Parent Guide
                                 </Link>
                                 <Link
                                     href="/design-options/v2/membership"
-                                    className="inline-flex min-h-[44px] items-center gap-2 rounded-full border-2 border-white/60 px-7 py-3 text-base font-semibold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="inline-flex min-h-[44px] items-center gap-2 rounded-full border-2 border-white/60 px-7 py-3 text-base font-semibold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                 >
                                     Join our community
                                 </Link>

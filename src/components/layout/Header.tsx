@@ -131,7 +131,7 @@ export default function Header() {
 
                         <PopoverPanel
                             transition
-                            className="absolute -left-8 top-full z-10 mt-3 w-96 rounded-3xl bg-white p-4 shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+                            className="absolute -left-8 top-full z-10 mt-3 w-96 rounded-3xl bg-white p-4 shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-leave:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
                         >
                             {about.map((item) => (
                                 <div
@@ -166,7 +166,7 @@ export default function Header() {
 
                         <PopoverPanel
                             transition
-                            className="absolute inset-x-0 top-0 -z-10 bg-white pt-14 shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+                            className="absolute inset-x-0 top-0 -z-10 bg-white pt-14 shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-leave:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
                         >
                             <div className="mx-auto grid max-w-7xl grid-cols-4 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
                                 {programs.map((item) => (

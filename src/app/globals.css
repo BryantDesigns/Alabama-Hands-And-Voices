@@ -1,10 +1,61 @@
-/* Google font */
-@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+/* Google font — must come BEFORE the Tailwind import */
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap')
+  layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
+/* Load the forms plugin via CSS */
+@plugin "@tailwindcss/forms";
+
+/* Define custom theme tokens */
+@theme {
+  /* Core variables */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* The hvblue palette */
+  --color-hvblue: #141B4B;
+  --color-hvblue-50: #4859CE;
+  --color-hvblue-100: #384BCA;
+  --color-hvblue-200: #2E3EAC;
+  --color-hvblue-300: #25328B;
+  --color-hvblue-400: #1D276B;
+  --color-hvblue-500: #141B4B;
+  --color-hvblue-600: #080B1F;
+
+  /* The hvorange palette */
+  --color-hvorange: #FF7F32;
+  --color-hvorange-50: #FFF2EA;
+  --color-hvorange-100: #FFE5D5;
+  --color-hvorange-200: #FFCBAC;
+  --color-hvorange-300: #FFB284;
+  --color-hvorange-400: #FF985B;
+  --color-hvorange-500: #FF7F32;
+  --color-hvorange-600: #F95D00;
+  --color-hvorange-700: #C14800;
+  --color-hvorange-800: #893300;
+  --color-hvorange-900: #511E00;
+
+  /* Custom fonts */
+  --font-kaushan: "Kaushan Script", cursive;
+}
+
+/*
+ * Dark mode: the v3 config used darkMode: ['class', '[data-color-scheme="dark"]']
+ * In v4, we register a custom variant to match either selector.
+ */
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Restore cursor: pointer on buttons (v4 preflight sets cursor: default)
+ */
+@layer base {
+  button, [role="button"] {
+    cursor: pointer;
+  }
+}
+
+/* Accessibility: custom focus-visible ring */
 @layer base {
   :where(a, button, input, select, textarea):focus-visible {
     outline: 3px solid #c14800;
@@ -12,6 +63,7 @@
   }
 }
 
+/* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -23,8 +75,8 @@
   }
 }
 
-/* Custom hero banner utility */
-.header-banner-bg {
+/* Custom hero banner utility — wrapped in @utility for variant support */
+@utility header-banner-bg {
   background-image: url('/images/homePageBanner.jpg');
   background-size: cover;
   background-position: center;

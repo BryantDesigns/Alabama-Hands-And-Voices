@@ -4,7 +4,7 @@ import Image from 'next/image'
 function OtherComponents() {
     return (
         <>
-            <div className="relative isolate overflow-hidden bg-gradient-to-b from-hvblue-100/20 pt-14">
+            <div className="relative isolate overflow-hidden bg-linear-to-b from-hvblue-100/20 pt-14">
                 <div
                     aria-hidden="true"
                     className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-hvblue-600/10 ring-1 ring-hvblue-50 sm:-mr-80 lg:-mr-96"
@@ -40,12 +40,12 @@ function OtherComponents() {
                             src="/images/aboutUsWhoWeAre1.jpg"
                             width={600}
                             height={500}
-                            className="mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2"
+                            className="mt-10 aspect-6/5 w-full max-w-lg rounded-2xl object-cover lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2"
                         />
                     </div>
                 </div>
 
-                <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white sm:h-32" />
+                <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-linear-to-t from-white sm:h-32" />
             </div>
         </>
     )

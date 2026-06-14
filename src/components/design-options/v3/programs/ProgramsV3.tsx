@@ -271,7 +271,7 @@ function ProgramCard({
             {/* CTA */}
             <Link
                 href={program.href}
-                className={`mt-6 inline-flex items-center gap-2 self-start rounded-xl px-5 py-2.5 text-sm font-bold transition duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${linkClasses[variant]} ${
+                className={`mt-6 inline-flex items-center gap-2 self-start rounded-xl px-5 py-2.5 text-sm font-bold transition duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 ${linkClasses[variant]} ${
                     variant === 'blue'
                         ? 'focus-visible:ring-white focus-visible:ring-offset-hvblue'
                         : variant === 'orange'
@@ -331,14 +331,14 @@ export default function ProgramsV3({ programs }: ProgramsV3Props) {
                         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                             <Link
                                 href="/programs/gbys"
-                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                             >
                                 <HeartIcon className="h-5 w-5" />
                                 Find a Parent Guide
                             </Link>
                             <a
                                 href="#programs-grid"
-                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/70 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/70 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                             >
                                 Explore all programs
                                 <ArrowIcon className="h-5 w-5" />
@@ -449,7 +449,7 @@ export default function ProgramsV3({ programs }: ProgramsV3Props) {
                             />
                             <div
                                 aria-hidden="true"
-                                className="absolute inset-0 bg-gradient-to-t from-hvblue/40 via-transparent to-transparent"
+                                className="absolute inset-0 bg-linear-to-t from-hvblue/40 via-transparent to-transparent"
                             />
                         </div>
                     </div>
@@ -490,14 +490,14 @@ export default function ProgramsV3({ programs }: ProgramsV3Props) {
                     <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
                         <Link
                             href="/programs/gbys"
-                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                         >
                             <HeartIcon className="h-5 w-5" />
                             Find a Parent Guide
                         </Link>
                         <Link
                             href="/design-options/v3/membership"
-                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                         >
                             Join the community
                             <ArrowIcon className="h-5 w-5" />

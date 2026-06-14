@@ -46,11 +46,11 @@ export default async function GBYSPage() {
             <section className="bg-gray-100 py-12">
                 <div className="container mx-auto px-6">
                     <div className="flex items-center justify-center">
-                        <hr className="flex-grow border-gray-400" />
+                        <hr className="grow border-gray-400" />
                         <h3 className="mx-4 text-xl text-hvorange font-semibold uppercase">
                             Services Available
                         </h3>
-                        <hr className="flex-grow border-gray-400" />
+                        <hr className="grow border-gray-400" />
                     </div>
 
                     <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
