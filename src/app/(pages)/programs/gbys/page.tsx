@@ -32,9 +32,9 @@ export default async function GBYSPage() {
             </div>
             <section className="bg-hvorange py-12 text-white">
                 <div className="container mx-auto px-6 text-center">
-                    <h2 className="text-3xl font-bold">
+                    <h1 className="text-3xl font-bold">
                         Alabama Hands & Voices Guide By Your Side
-                    </h2>
+                    </h1>
                     <p className="mx-auto mt-4 max-w-3xl text-lg">
                         {programIntro}
                     </p>

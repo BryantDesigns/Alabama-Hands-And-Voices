@@ -267,14 +267,22 @@ const DHHRMForm = () => {
 
                     {/* Status Messages */}
                     {status && (
-                        <div className="px-4 py-4 sm:px-8">
+                        <div
+                            className="px-4 py-4 sm:px-8"
+                            role="status"
+                            aria-live="polite"
+                        >
                             <div className="rounded-md bg-green-50 p-4">
                                 <div className="text-sm text-green-700">{status}</div>
                             </div>
                         </div>
                     )}
                     {error && (
-                        <div className="px-4 py-4 sm:px-8">
+                        <div
+                            className="px-4 py-4 sm:px-8"
+                            role="alert"
+                            aria-live="assertive"
+                        >
                             <div className="rounded-md bg-red-50 p-4">
                                 <div className="text-sm text-red-700">{error}</div>
                             </div>

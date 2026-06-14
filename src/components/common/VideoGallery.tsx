@@ -52,7 +52,7 @@ export default function VideoGallery({ videos }: VideoGalleryProps) {
                         <button
                             key={video.id}
                             onClick={() => setSelectedVideoId(video.youtubeId)}
-                            className="group flex flex-col items-center rounded-lg bg-gray-100 p-4 shadow-md transition hover:bg-gray-200 focus:outline-none"
+                            className="group flex flex-col items-center rounded-lg bg-gray-100 p-4 shadow-md transition hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hvblue"
                         >
                             <Image
                                 src={`https://img.youtube.com/vi/${video.youtubeId}/${video.thumbnailFrame}.jpg`}

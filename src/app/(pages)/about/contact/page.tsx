@@ -28,9 +28,9 @@ export default async function ContactPage() {
 
                       {/* Right Text */}
                       <div>
-                          <h2 className="text-4xl font-semibold uppercase tracking-tight text-hvorange sm:text-5xl">
+                          <h1 className="text-4xl font-semibold uppercase tracking-tight text-hvorange sm:text-5xl">
                               {heading}
-                          </h2>
+                          </h1>
                           <p className="mt-6 text-lg leading-relaxed text-white">
                               {body}
                           </p>
@@ -39,7 +39,7 @@ export default async function ContactPage() {
                               please{' '}
                               <strong>
                                   <a
-                                      className="text-hvorange underline"
+                                      className="text-hvorange-400 underline"
                                       href={`mailto:${email}`}
                                   >
                                       email us
@@ -48,7 +48,7 @@ export default async function ContactPage() {
                               or call{' '}
                               <strong>
                                   <a
-                                      className="text-hvorange underline"
+                                      className="text-hvorange-400 underline"
                                       href={`tel:${phone}`}
                                   >
                                       {phone}
@@ -60,7 +60,7 @@ export default async function ContactPage() {
                               Visit our{' '}
                               <strong>
                                   <a
-                                      className="text-hvorange underline"
+                                      className="text-hvorange-400 underline"
                                       href="/programs/gbys"
                                   >
                                       Guide By Your Side page

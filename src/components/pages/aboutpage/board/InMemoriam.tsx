@@ -7,9 +7,9 @@ export default function InMemoriam() {
                 <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
                     {/* Left Side - Text Content */}
                     <div className="flex flex-col justify-center">
-                        <h6 className="text-lg font-semibold uppercase text-hvblue">
+                        <p className="text-lg font-semibold uppercase text-hvblue">
                             Kristine Lemoyne Mathis Henderson
-                        </h6>
+                        </p>
                         <h2 className="mt-2 text-4xl font-bold text-gray-800">
                             In Memoriam
                         </h2>

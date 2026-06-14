@@ -20,9 +20,9 @@ const AboutPage = async () => {
                         <div className="mx-auto max-w-7xl px-6 lg:px-8">
                             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
                                 <div className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
-                                    <h2 className="text-3xl font-semibold uppercase tracking-tight text-hvorange sm:text-4xl">
+                                    <h1 className="text-3xl font-semibold uppercase tracking-tight text-hvorange sm:text-4xl">
                                         WHO WE ARE
-                                    </h2>
+                                    </h1>
                                     <p className="mt-6 text-lg/8 text-gray-600 sm:text-xl/8">
                                         {data?.whoWeAreBody ?? ''}
                                     </p>

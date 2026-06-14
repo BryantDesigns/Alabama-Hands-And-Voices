@@ -18,12 +18,12 @@ export default async function ResourcesPage() {
     const ehdiSidebarUrl = data?.ehdiSidebarUrl ?? 'http://www.ehdi-pals.org/'
 
     return (
-        <>
+        <main>
             <section className="bg-hvblue py-24">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <h2 className="text-center text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+                    <h1 className="text-center text-4xl font-semibold tracking-tight text-white sm:text-5xl">
                         Alabama Hands & Voices Resources
-                    </h2>
+                    </h1>
                     <p className="mt-6 text-center text-lg leading-relaxed text-gray-200">
                         {introCopy}
                     </p>

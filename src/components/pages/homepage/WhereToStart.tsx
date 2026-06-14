@@ -123,9 +123,9 @@ export default function WhereToStart({
 
                                 {/* Subheading */}
                                 {subheading && (
-                                    <h1 className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+                                    <h2 className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
                                         {subheading}
-                                    </h1>
+                                    </h2>
                                 )}
 
                                 {/* Body content */}

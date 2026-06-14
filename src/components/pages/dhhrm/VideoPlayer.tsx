@@ -38,7 +38,7 @@ const VideoPlayer = ({ videos }: VideoPlayerProps) => {
                     <button
                         key={video.id}
                         onClick={() => setCurrentVideoId(video.youtubeId)}
-                        className="group flex flex-col overflow-hidden rounded-lg bg-white shadow-md transition-all hover:shadow-lg"
+                        className="group flex flex-col overflow-hidden rounded-lg bg-white shadow-md transition-all hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hvorange-400"
                     >
                         <div className="relative aspect-video overflow-hidden">
                             <Image

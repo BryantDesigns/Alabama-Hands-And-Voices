@@ -12,15 +12,15 @@ export default async function FAQPage() {
     }))
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <main className="min-h-screen bg-gray-50">
             {/* Hero Section */}
             <section className="bg-hvblue-600 pb-16 pt-24">
                 <div className="container mx-auto px-6">
                     <div className="mx-auto max-w-4xl text-center">
                         <div className="mb-8">
-                            <h1 className="font-kaushan mb-4 text-5xl font-bold text-white">
+                            <p className="font-kaushan mb-4 text-5xl font-bold text-white">
                                 &quot;What works for your child is what makes the choice right.&quot;™
-                            </h1>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -34,9 +34,9 @@ export default async function FAQPage() {
                             <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-gray-500">
                                 FAQ
                             </p>
-                            <h2 className="font-kaushan text-4xl font-semibold tracking-tight text-gray-900">
+                            <h1 className="font-kaushan text-4xl font-semibold tracking-tight text-gray-900">
                                 {heading}
-                            </h2>
+                            </h1>
                             {introCopy && (
                                 <p className="mt-4 text-lg text-gray-600">{introCopy}</p>
                             )}

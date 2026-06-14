@@ -97,7 +97,7 @@ export default function OverlappingLogoHeader({
                     className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8"
                 >
                     {/* Mobile menu button */}
-                    <div className="flex lg:hidden">
+                    <div className="ml-auto flex lg:hidden">
                         <button
                             type="button"
                             onClick={() => setMobileMenuOpen(true)}
@@ -260,6 +260,7 @@ export default function OverlappingLogoHeader({
                         </Link>
                         <button
                             type="button"
+                            data-autofocus
                             onClick={() => setMobileMenuOpen(false)}
                             className="-m-2.5 rounded-md p-2.5 text-gray-700"
                         >

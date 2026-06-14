@@ -64,9 +64,9 @@ const WhereToStartSection: React.FC<WhereToStartProps> = ({
                     <p className="text-base/7 font-semibold text-hvorange-600">
                         {heading}
                     </p>
-                    <h1 className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+                    <h2 className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
                         {subheading}
-                    </h1>
+                    </h2>
                     <div className="max-w-xl">
                         {paragraphs.map((paragraph, index) => (
                             <p key={index} className="mt-6">

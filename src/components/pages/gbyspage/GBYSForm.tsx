@@ -1,12 +1,21 @@
 'use client'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { submitNetlifyForm } from '@/utils/submitNetlifyForm'
 
 
 const GBYSForm = () => {
     const [activeTab, setActiveTab] = useState('personal')
-    const [, setStatus] = useState<string | null>(null)
-    const [, setError] = useState<string | null>(null)
+    const [status, setStatus] = useState<string | null>(null)
+    const [error, setError] = useState<string | null>(null)
+    const personalTabRef = useRef<HTMLButtonElement>(null)
+    const professionalTabRef = useRef<HTMLButtonElement>(null)
+
+    const selectTab = (tab: 'personal' | 'professional') => {
+        setActiveTab(tab)
+        const target =
+            tab === 'personal' ? personalTabRef.current : professionalTabRef.current
+        target?.focus()
+    }
 
 
     return (
@@ -20,32 +29,64 @@ const GBYSForm = () => {
                 .
             </p>
 
-            <div className="mt-6 flex justify-center space-x-2">
+            <div
+                className="mt-6 flex justify-center space-x-2"
+                role="tablist"
+                aria-label="Guide By Your Side forms"
+            >
                 <button
+                    ref={personalTabRef}
+                    id="personal-tab"
+                    role="tab"
+                    aria-controls="personal-panel"
+                    aria-selected={activeTab === 'personal'}
+                    tabIndex={activeTab === 'personal' ? 0 : -1}
                     className={`relative rounded-t-lg px-5 py-2 font-semibold transition-all duration-150 ${
                         activeTab === 'personal'
                             ? 'z-10 -mb-px border-b-0 border-l border-r border-t border-gray-900/5 bg-white text-hvorange'
                             : 'border-b-2 border-transparent bg-gray-100 text-gray-600 hover:border-hvorange-400 hover:bg-white hover:text-hvorange focus:border-hvorange-500 focus:text-hvorange'
-                    } cursor-pointer outline-none`}
-                    onClick={() => setActiveTab('personal')}
+                    } cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hvblue`}
+                    onClick={() => selectTab('personal')}
+                    onKeyDown={(event) => {
+                        if (event.key === 'ArrowRight') {
+                            event.preventDefault()
+                            selectTab('professional')
+                        }
+                    }}
                     type="button"
                 >
                     Personal
                 </button>
                 <button
+                    ref={professionalTabRef}
+                    id="professional-tab"
+                    role="tab"
+                    aria-controls="professional-panel"
+                    aria-selected={activeTab === 'professional'}
+                    tabIndex={activeTab === 'professional' ? 0 : -1}
                     className={`relative rounded-t-lg px-5 py-2 font-semibold transition-all duration-150 ${
                         activeTab === 'professional'
                             ? 'z-10 -mb-px border-b-0 border-l border-r border-t border-gray-900/5 bg-white text-hvorange'
                             : 'border-b-2 border-transparent bg-gray-100 text-gray-600 hover:border-hvorange-400 hover:bg-white hover:text-hvorange focus:border-hvorange-500 focus:text-hvorange'
-                    } cursor-pointer outline-none`}
-                    onClick={() => setActiveTab('professional')}
+                    } cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hvblue`}
+                    onClick={() => selectTab('professional')}
+                    onKeyDown={(event) => {
+                        if (event.key === 'ArrowLeft') {
+                            event.preventDefault()
+                            selectTab('personal')
+                        }
+                    }}
                     type="button"
                 >
                     Professional Referral
                 </button>
             </div>
 
-            <div className="">
+            <div
+                id={`${activeTab}-panel`}
+                role="tabpanel"
+                aria-labelledby={`${activeTab}-tab`}
+            >
                 {activeTab === 'personal' ? (
                     <form
                         method="POST"
@@ -1049,6 +1090,28 @@ const GBYSForm = () => {
                     </form>
                 )}
             </div>
+            {status && (
+                <div
+                    className="mx-auto max-w-5xl px-4 py-4 sm:px-8"
+                    role="status"
+                    aria-live="polite"
+                >
+                    <div className="rounded-md bg-green-50 p-4 text-sm text-green-700">
+                        {status}
+                    </div>
+                </div>
+            )}
+            {error && (
+                <div
+                    className="mx-auto max-w-5xl px-4 py-4 sm:px-8"
+                    role="alert"
+                    aria-live="assertive"
+                >
+                    <div className="rounded-md bg-red-50 p-4 text-sm text-red-700">
+                        {error}
+                    </div>
+                </div>
+            )}
         </section>
     )
 }

@@ -15,9 +15,9 @@ export default function Footer({ settings }: FooterProps) {
             {/* Donation Section */}
             <div className="border-t-4 border-hvorange bg-hvblue py-6 text-white">
                 <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-12">
-                    <h5 className="text-lg font-semibold">
+                    <h2 className="text-lg font-semibold">
                         Want to donate to our mission?
-                    </h5>
+                    </h2>
                     <PayPalDonation label={settings.donationButtonLabel} />
                 </div>
             </div>
@@ -37,9 +37,9 @@ export default function Footer({ settings }: FooterProps) {
 
                     {/* Navigation Links */}
                     <div className="text-center lg:text-left">
-                        <h6 className="text-lg font-semibold uppercase">
+                        <h2 className="text-lg font-semibold uppercase">
                             Pages
-                        </h6>
+                        </h2>
                         <hr className="mx-auto my-4 w-12 border-2 border-hvorange lg:mx-0" />
                         <ul className="space-y-2">
                             {[
@@ -73,9 +73,9 @@ export default function Footer({ settings }: FooterProps) {
 
                     {/* Contact Information */}
                     <div className="text-center lg:text-left">
-                        <h6 className="text-lg font-semibold uppercase">
+                        <h2 className="text-lg font-semibold uppercase">
                             Contact
-                        </h6>
+                        </h2>
                         <hr className="mx-auto my-4 w-12 border-2 border-hvorange lg:mx-0" />
                         <p>
                             <i className="fas fa-home mr-2"></i>{' '}
@@ -106,9 +106,7 @@ export default function Footer({ settings }: FooterProps) {
             {/* Copyright Section */}
             <div className="bg-secondary py-4 text-center text-sm text-gray-800">
                 {settings.footerCopyright} | Designed by{' '}
-                <a href="#" className="transition-colors hover:text-hvorange">
-                    Bryant Designs
-                </a>
+                <span>Bryant Designs</span>
             </div>
         </footer>
     )
