@@ -9,5 +9,19 @@ export default async function Page() {
         getSiteSettings(),
     ])
     if (!data) return <main className="p-8">Home content not found.</main>
-    return <HomeV3 data={data} donationLabel={settings.donationButtonLabel} />
+
+    const resolvedEvents = await Promise.all(
+        (data?.events?.events ?? []).map(async (evt) => ({
+            title: evt.title,
+            description: await evt.description(),
+        }))
+    )
+
+    return (
+        <HomeV3
+            data={data}
+            donationLabel={settings.donationButtonLabel}
+            resolvedEvents={resolvedEvents}
+        />
+    )
 }

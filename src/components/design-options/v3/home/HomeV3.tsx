@@ -1,12 +1,21 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { DocumentRenderer } from '@keystatic/core/renderer'
+import type { DocumentElement } from '@keystatic/core'
 import type { getHomePageContent } from '@/lib/keystatic/pages'
 
 type HomeData = NonNullable<Awaited<ReturnType<typeof getHomePageContent>>>
 
+// Resolved event with description already awaited from the document reader
+interface ResolvedEvent {
+    title: string
+    description: DocumentElement[]
+}
+
 interface HomeV3Props {
     data: HomeData
     donationLabel: string
+    resolvedEvents: ResolvedEvent[]
 }
 
 // Split a Keystatic `body` field (paragraphs separated by blank lines)
@@ -103,7 +112,7 @@ function QuoteMark({ className = '' }: { className?: string }) {
     )
 }
 
-export default function HomeV3({ data, donationLabel }: HomeV3Props) {
+export default function HomeV3({ data, donationLabel, resolvedEvents }: HomeV3Props) {
     const {
         heroQuote,
         heroLogoImage,
@@ -530,7 +539,7 @@ export default function HomeV3({ data, donationLabel }: HomeV3Props) {
                         </div>
 
                         {/* Event cards */}
-                        {events.events.map((event, i) => (
+                        {resolvedEvents.map((event, i) => (
                             <article
                                 key={i}
                                 className="group flex gap-5 rounded-3xl bg-slate-50 p-6 ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:bg-white hover:shadow-lg lg:col-span-2"
@@ -545,9 +554,9 @@ export default function HomeV3({ data, donationLabel }: HomeV3Props) {
                                     <h3 className="text-xl font-bold tracking-tight text-hvblue md:text-2xl">
                                         {event.title}
                                     </h3>
-                                    <p className="mt-2 text-base leading-relaxed text-slate-700">
-                                        {event.description}
-                                    </p>
+                                    <div className="mt-2 text-base leading-relaxed text-slate-700 [&_a]:text-hvorange-700 [&_a]:underline [&_a:hover]:text-hvorange-800">
+                                        <DocumentRenderer document={event.description} />
+                                    </div>
                                 </div>
                             </article>
                         ))}
