@@ -6,8 +6,8 @@ intro:
     Alabama Hands & Voices is a parent-driven, non-profit organization that
     supports families with children who are deaf or hard of hearing. We are
     parents who understand the journey you are on. We provide unbiased
-    information, resources, and support — regardless of communication method
-    or technology choice.
+    information, resources, and support — regardless of communication method or
+    technology choice.
 
 
     Whether your child uses hearing aids, cochlear implants, sign language,
@@ -23,24 +23,24 @@ whereToStart:
 
 
     We have walked this path. Our organization is made up of parents just like
-    you — parents who have navigated newborn hearing screening follow-up,
-    early intervention, IEPs, technology choices, and communication decisions.
+    you — parents who have navigated newborn hearing screening follow-up, early
+    intervention, IEPs, technology choices, and communication decisions.
 
 
-    There is no single right answer for every child or every family. What
-    works for your child is what makes the choice right. We will help you find
-    your way.
+    There is no single right answer for every child or every family. What works
+    for your child is what makes the choice right. We will help you find your
+    way.
   quoteText: >-
     "Our lives and our children's lives are richer because of Hands & Voices.
     This community gave us hope and a path forward."
   quoteAuthors: Susan Fingerle, Jessica Havard, Maria Katz
   backgroundImage: /images/family.jpg
   stats:
-    - number: "10+"
+    - number: 10+
       label: Years Serving Families
-    - number: "40+"
+    - number: 41+
       label: Chapters Nationwide
-    - number: "2017"
+    - number: '2017'
       label: Founded in Alabama
   ctaLabel: Learn more about our programs
   ctaHref: /programs/gbys
@@ -49,17 +49,17 @@ learnMore:
   featureBlocks:
     - heading: Guide By Your Side
       body: >-
-        Connect with a trained Parent Guide who has a child who is deaf or
-        hard of hearing. Our GBYS program provides one-on-one support tailored
-        to your family's unique journey — completely free of charge.
+        Connect with a trained Parent Guide who has a child who is deaf or hard
+        of hearing. Our GBYS program provides one-on-one support tailored to
+        your family's unique journey — completely free of charge.
       image: /images/aboutUsWhoWeAreFamily.jpg
       imageAlt: GBYS family support
     - heading: Educational Advocacy
       body: >-
         ASTra (Advocacy Support and Training) helps families navigate the
         special education system. We can help you prepare for IEP meetings,
-        understand your rights, and build an effective educational team for
-        your child.
+        understand your rights, and build an effective educational team for your
+        child.
       image: /images/aboutUsWhoWeAreTrail.jpeg
       imageAlt: Educational advocacy support
 support:
