@@ -1,10 +1,11 @@
 import Image from 'next/image'
+import { DocumentRenderer } from '@keystatic/core/renderer'
 
 interface EventsSectionProps {
     heading: string
     intro: string
     backgroundImage: string
-    events: { title: string; description: string }[]
+    events: { title: string; description: any }[]
 }
 
 export default function EventsSection({ heading, intro, backgroundImage, events }: EventsSectionProps) {
@@ -51,8 +52,8 @@ export default function EventsSection({ heading, intro, backgroundImage, events 
                                         {evt.title}
                                     </dt>
                                     {evt.description && (
-                                        <dd className="mt-2 text-sm text-gray-600">
-                                            {evt.description}
+                                        <dd className="mt-2 text-sm text-gray-600 [&_a]:text-blue-600 [&_a]:underline [&_a:hover]:text-blue-800">
+                                            <DocumentRenderer document={evt.description} />
                                         </dd>
                                     )}
                                 </div>

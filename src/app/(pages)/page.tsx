@@ -24,6 +24,13 @@ export default async function Home() {
         )
     }
 
+    const resolvedEvents = await Promise.all(
+        (data?.events?.events ?? []).map(async (evt) => ({
+            title: evt.title,
+            description: await evt.description(),
+        }))
+    )
+
     return (
         <main>
             <HeroSection
@@ -65,7 +72,7 @@ export default async function Home() {
                 heading={data?.events?.heading ?? ''}
                 intro={data?.events?.intro ?? ''}
                 backgroundImage={data?.events?.backgroundImage ?? ''}
-                events={[...(data?.events?.events ?? [])]}
+                events={resolvedEvents}
             />
         </main>
     )
