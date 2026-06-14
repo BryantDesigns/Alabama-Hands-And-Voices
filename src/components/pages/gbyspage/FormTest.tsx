@@ -384,14 +384,14 @@ export default function Example() {
                                                         strokeWidth={2}
                                                         strokeLinecap="round"
                                                         strokeLinejoin="round"
-                                                        className="opacity-0 group-has-[:checked]:opacity-100"
+                                                        className="opacity-0 group-has-checked:opacity-100"
                                                     />
                                                     <path
                                                         d="M3 7H11"
                                                         strokeWidth={2}
                                                         strokeLinecap="round"
                                                         strokeLinejoin="round"
-                                                        className="opacity-0 group-has-[:indeterminate]:opacity-100"
+                                                        className="opacity-0 group-has-indeterminate:opacity-100"
                                                     />
                                                 </svg>
                                             </div>
@@ -432,14 +432,14 @@ export default function Example() {
                                                         strokeWidth={2}
                                                         strokeLinecap="round"
                                                         strokeLinejoin="round"
-                                                        className="opacity-0 group-has-[:checked]:opacity-100"
+                                                        className="opacity-0 group-has-checked:opacity-100"
                                                     />
                                                     <path
                                                         d="M3 7H11"
                                                         strokeWidth={2}
                                                         strokeLinecap="round"
                                                         strokeLinejoin="round"
-                                                        className="opacity-0 group-has-[:indeterminate]:opacity-100"
+                                                        className="opacity-0 group-has-indeterminate:opacity-100"
                                                     />
                                                 </svg>
                                             </div>
@@ -480,14 +480,14 @@ export default function Example() {
                                                         strokeWidth={2}
                                                         strokeLinecap="round"
                                                         strokeLinejoin="round"
-                                                        className="opacity-0 group-has-[:checked]:opacity-100"
+                                                        className="opacity-0 group-has-checked:opacity-100"
                                                     />
                                                     <path
                                                         d="M3 7H11"
                                                         strokeWidth={2}
                                                         strokeLinecap="round"
                                                         strokeLinejoin="round"
-                                                        className="opacity-0 group-has-[:indeterminate]:opacity-100"
+                                                        className="opacity-0 group-has-indeterminate:opacity-100"
                                                     />
                                                 </svg>
                                             </div>
@@ -526,7 +526,7 @@ export default function Example() {
                                             id="push-everything"
                                             name="push-notifications"
                                             type="radio"
-                                            className="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden"
+                                            className="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden not-checked:before:hidden"
                                         />
                                         <label
                                             htmlFor="push-everything"
@@ -540,7 +540,7 @@ export default function Example() {
                                             id="push-email"
                                             name="push-notifications"
                                             type="radio"
-                                            className="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden"
+                                            className="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden not-checked:before:hidden"
                                         />
                                         <label
                                             htmlFor="push-email"
@@ -554,7 +554,7 @@ export default function Example() {
                                             id="push-nothing"
                                             name="push-notifications"
                                             type="radio"
-                                            className="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden"
+                                            className="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden not-checked:before:hidden"
                                         />
                                         <label
                                             htmlFor="push-nothing"

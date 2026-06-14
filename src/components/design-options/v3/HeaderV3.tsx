@@ -80,25 +80,16 @@ export default function HeaderV3() {
                         <Link
                             href="/design-options/v3"
                             aria-label="Alabama Hands & Voices — home"
-                            className="group flex shrink-0 items-center gap-3 pl-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                            className="group flex shrink-0 items-center gap-3 pl-2 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                         >
                             <Image
                                 src="/images/alabamahvlogo.svg"
                                 alt="Alabama Hands & Voices logo"
-                                width={48}
+                                width={148}
                                 height={48}
                                 className="h-10 w-auto transition-opacity duration-150 group-hover:opacity-80 md:h-12"
                                 priority
                             />
-                            {/* Bold geometric wordmark — only on md+ */}
-                            <span className="hidden flex-col leading-none md:flex">
-                                <span className="text-[11px] font-bold uppercase tracking-widest text-slate-500">
-                                    Alabama
-                                </span>
-                                <span className="text-base font-extrabold tracking-tight text-hvblue lg:text-lg">
-                                    Hands &amp; Voices
-                                </span>
-                            </span>
                         </Link>
 
                         {/* ── Desktop nav ── */}
@@ -109,7 +100,7 @@ export default function HeaderV3() {
                                     <Link
                                         key={link.href}
                                         href={link.href}
-                                        className={`relative flex h-20 items-center px-4 text-sm font-bold uppercase tracking-wide transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-hvorange-600 lg:px-5 lg:text-base ${
+                                        className={`relative flex h-20 items-center px-4 text-sm font-bold uppercase tracking-wide transition-colors duration-150 focus-visible:outline-hidden focus-visible:inset-ring-2 focus-visible:inset-ring-hvorange-600 lg:px-5 lg:text-base ${
                                             active
                                                 ? 'text-hvblue'
                                                 : 'text-slate-500 hover:text-hvblue'
@@ -134,7 +125,7 @@ export default function HeaderV3() {
                         <div className="hidden items-center gap-3 md:flex">
                             <Link
                                 href="/design-options/v3/membership"
-                                className="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-hvblue px-6 py-2.5 text-sm font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 lg:px-7 lg:py-3 lg:text-base"
+                                className="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-hvblue px-6 py-2.5 text-sm font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 lg:px-7 lg:py-3 lg:text-base"
                             >
                                 {/* Arrow icon — forward/action */}
                                 <svg
@@ -163,7 +154,7 @@ export default function HeaderV3() {
                             aria-expanded={menuOpen}
                             aria-controls="v3-mobile-menu"
                             onClick={() => setMenuOpen((prev) => !prev)}
-                            className="flex h-11 w-11 items-center justify-center rounded-xl text-hvblue transition-colors duration-150 hover:bg-hvblue/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 md:hidden"
+                            className="flex h-11 w-11 items-center justify-center rounded-xl text-hvblue transition-colors duration-150 hover:bg-hvblue/5 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 md:hidden"
                         >
                             <span aria-hidden="true" className="block">
                                 {menuOpen ? (
@@ -232,7 +223,7 @@ export default function HeaderV3() {
                                         <Link
                                             href={link.href}
                                             onClick={closeMenu}
-                                            className={`flex min-h-[52px] items-center gap-3 border-b border-slate-100 text-base font-bold uppercase tracking-wide transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-hvorange-600 ${
+                                            className={`flex min-h-[52px] items-center gap-3 border-b border-slate-100 text-base font-bold uppercase tracking-wide transition-colors duration-150 focus-visible:outline-hidden focus-visible:inset-ring-2 focus-visible:inset-ring-hvorange-600 ${
                                                 active
                                                     ? 'text-hvblue'
                                                     : 'text-slate-500 hover:text-hvblue'
@@ -259,7 +250,7 @@ export default function HeaderV3() {
                             <Link
                                 href="/design-options/v3/membership"
                                 onClick={closeMenu}
-                                className="flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl bg-hvblue px-6 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2"
+                                className="flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl bg-hvblue px-6 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2"
                             >
                                 <svg
                                     aria-hidden="true"

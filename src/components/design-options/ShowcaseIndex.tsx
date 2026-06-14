@@ -61,7 +61,7 @@ export default function ShowcaseIndex() {
                     {/* v2 — Warm & Editorial */}
                     <Link
                         href="/design-options/v2"
-                        className="group block rounded-2xl bg-white ring-1 ring-slate-200 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                        className="group block rounded-2xl bg-white ring-1 ring-slate-200 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                     >
                         <div className="flex h-full min-h-[280px] flex-col rounded-2xl border-l-4 border-hvorange-200 p-8">
                             {/* Tag row */}
@@ -105,7 +105,7 @@ export default function ShowcaseIndex() {
                     {/* v3 — Bold & Uplifting */}
                     <Link
                         href="/design-options/v3"
-                        className="group block rounded-2xl bg-hvblue transition-all duration-200 hover:-translate-y-1 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                        className="group block rounded-2xl bg-hvblue transition-all duration-200 hover:-translate-y-1 hover:shadow-xl focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                     >
                         <div className="flex h-full min-h-[280px] flex-col p-8">
                             {/* Tag row */}
@@ -188,7 +188,7 @@ export default function ShowcaseIndex() {
                                         <td className="px-6 py-1">
                                             <Link
                                                 href={page.v2}
-                                                className="inline-flex min-h-[44px] items-center text-sm font-semibold text-hvorange-700 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                                className="inline-flex min-h-[44px] items-center text-sm font-semibold text-hvorange-700 underline-offset-4 hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                             >
                                                 v2 → {page.label}
                                             </Link>
@@ -196,7 +196,7 @@ export default function ShowcaseIndex() {
                                         <td className="px-6 py-1">
                                             <Link
                                                 href={page.v3}
-                                                className="inline-flex min-h-[44px] items-center text-sm font-semibold text-hvorange-700 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                                className="inline-flex min-h-[44px] items-center text-sm font-semibold text-hvorange-700 underline-offset-4 hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                             >
                                                 v3 → {page.label}
                                             </Link>

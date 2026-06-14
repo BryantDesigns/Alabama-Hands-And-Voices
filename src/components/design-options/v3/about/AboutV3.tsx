@@ -150,14 +150,14 @@ export default function AboutV3({ about, board, staff }: AboutV3Props) {
                         <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
                             <Link
                                 href="/design-options/v3/membership"
-                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                             >
                                 <HeartIcon className="h-5 w-5" />
                                 Join Our Community
                             </Link>
                             <a
                                 href="#board"
-                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/60 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/60 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                             >
                                 Meet the Team
                                 <ArrowIcon className="h-5 w-5" />
@@ -306,7 +306,7 @@ export default function AboutV3({ about, board, staff }: AboutV3Props) {
                                         i === 0 ? 'sm:col-span-2 lg:col-span-1' : ''
                                     }`}
                                 >
-                                    <div className="relative aspect-[4/3] overflow-hidden">
+                                    <div className="relative aspect-4/3 overflow-hidden">
                                         <Image
                                             src={img.src}
                                             alt={img.alt}
@@ -316,7 +316,7 @@ export default function AboutV3({ about, board, staff }: AboutV3Props) {
                                         />
                                         <div
                                             aria-hidden="true"
-                                            className="absolute inset-0 bg-gradient-to-t from-hvblue/60 via-hvblue/5 to-transparent opacity-0 transition duration-200 group-hover:opacity-100"
+                                            className="absolute inset-0 bg-linear-to-t from-hvblue/60 via-hvblue/5 to-transparent opacity-0 transition duration-200 group-hover:opacity-100"
                                         />
                                     </div>
                                     {img.alt && (
@@ -501,7 +501,7 @@ export default function AboutV3({ about, board, staff }: AboutV3Props) {
                         <div className="flex flex-col gap-4 lg:justify-self-end">
                             <Link
                                 href="/design-options/v3/membership"
-                                className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl bg-hvblue px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange lg:w-auto"
+                                className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl bg-hvblue px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange lg:w-auto"
                             >
                                 <HeartIcon className="h-5 w-5" />
                                 Join Now
@@ -511,7 +511,7 @@ export default function AboutV3({ about, board, staff }: AboutV3Props) {
                                     href={membershipFormUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl border-2 border-hvblue/60 px-8 py-3.5 text-base font-bold text-hvblue transition duration-150 hover:border-hvblue hover:bg-hvblue/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange lg:w-auto"
+                                    className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl border-2 border-hvblue/60 px-8 py-3.5 text-base font-bold text-hvblue transition duration-150 hover:border-hvblue hover:bg-hvblue/10 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange lg:w-auto"
                                 >
                                     Download Form
                                     <ArrowIcon className="h-5 w-5" />

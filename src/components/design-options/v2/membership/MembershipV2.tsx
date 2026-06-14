@@ -146,7 +146,7 @@ export default function MembershipV2({ membership, choose }: MembershipV2Props) 
             {/* ============================================================ */}
             {/* HERO — warm editorial gradient, serif headline, kaushan tagline */}
             {/* ============================================================ */}
-            <section className="relative isolate overflow-hidden bg-gradient-to-b from-hvorange-50 via-white to-white">
+            <section className="relative isolate overflow-hidden bg-linear-to-b from-hvorange-50 via-white to-white">
                 {/* Decorative atmosphere blobs */}
                 <div
                     aria-hidden="true"
@@ -187,14 +187,14 @@ export default function MembershipV2({ membership, choose }: MembershipV2Props) 
                             <a
                                 href={documentDownloadUrl}
                                 download
-                                className="inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-7 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-7 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                             >
                                 <DownloadIcon className="h-5 w-5" />
                                 Download Membership Form
                             </a>
                             <a
                                 href="#membership-tiers"
-                                className="inline-flex items-center gap-2 rounded-full border-2 border-hvblue px-7 py-3 text-base font-semibold text-hvblue transition hover:bg-hvblue hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="inline-flex items-center gap-2 rounded-full border-2 border-hvblue px-7 py-3 text-base font-semibold text-hvblue transition hover:bg-hvblue hover:text-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                             >
                                 See membership types
                                 <ArrowIcon className="h-4 w-4" />
@@ -205,7 +205,7 @@ export default function MembershipV2({ membership, choose }: MembershipV2Props) 
 
                 <div
                     aria-hidden="true"
-                    className="h-px w-full bg-gradient-to-r from-transparent via-hvorange-200 to-transparent"
+                    className="h-px w-full bg-linear-to-r from-transparent via-hvorange-200 to-transparent"
                 />
             </section>
 
@@ -294,7 +294,7 @@ export default function MembershipV2({ membership, choose }: MembershipV2Props) 
                             <li key={tier.key}>
                                 <article className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200/70 transition duration-200 hover:-translate-y-0.5 hover:shadow-lg">
                                     {/* Photo */}
-                                    <div className="relative aspect-[4/3] overflow-hidden">
+                                    <div className="relative aspect-4/3 overflow-hidden">
                                         <Image
                                             src={tier.image}
                                             alt={`${tier.title} membership — ${tier.subtitle}`}
@@ -306,7 +306,7 @@ export default function MembershipV2({ membership, choose }: MembershipV2Props) 
                                         {/* Soft gradient overlay for text legibility */}
                                         <div
                                             aria-hidden="true"
-                                            className="absolute inset-0 bg-gradient-to-t from-hvblue/60 via-hvblue/10 to-transparent"
+                                            className="absolute inset-0 bg-linear-to-t from-hvblue/60 via-hvblue/10 to-transparent"
                                         />
                                         {/* Index number badge */}
                                         <span
@@ -365,7 +365,7 @@ export default function MembershipV2({ membership, choose }: MembershipV2Props) 
                             <a
                                 href={documentDownloadUrl}
                                 download
-                                className="mt-8 inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-7 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="mt-8 inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-7 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                             >
                                 <DownloadIcon className="h-5 w-5" />
                                 Download Membership Form
@@ -395,7 +395,7 @@ export default function MembershipV2({ membership, choose }: MembershipV2Props) 
                             </p>
                             <a
                                 href="mailto:info@alhandsandvoices.org"
-                                className="mt-6 inline-flex items-center gap-2 font-semibold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="mt-6 inline-flex items-center gap-2 font-semibold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                             >
                                 Contact us about scholarships
                                 <ArrowIcon className="h-4 w-4" />
@@ -441,14 +441,14 @@ export default function MembershipV2({ membership, choose }: MembershipV2Props) 
                                 <a
                                     href={documentDownloadUrl}
                                     download
-                                    className="inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-8 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-300 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-8 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-300 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                 >
                                     <HeartIcon className="h-5 w-5" />
                                     Join now — download the form
                                 </a>
                                 <a
                                     href="mailto:info@alhandsandvoices.org"
-                                    className="inline-flex items-center gap-2 rounded-full border-2 border-white/60 px-8 py-4 text-base font-semibold text-white transition hover:border-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="inline-flex items-center gap-2 rounded-full border-2 border-white/60 px-8 py-4 text-base font-semibold text-white transition hover:border-white hover:bg-white/10 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                 >
                                     Questions? Contact us
                                 </a>

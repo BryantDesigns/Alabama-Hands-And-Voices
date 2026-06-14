@@ -173,14 +173,14 @@ export default function HomeV3({ data, donationLabel, resolvedEvents }: HomeV3Pr
                         <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
                             <Link
                                 href="/design-options/v3/membership"
-                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                             >
                                 <HeartIcon className="h-5 w-5" />
                                 {donationLabel}
                             </Link>
                             <Link
                                 href="/design-options/v3/programs"
-                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/70 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/70 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                             >
                                 Get Support
                                 <ArrowIcon className="h-5 w-5" />
@@ -234,7 +234,7 @@ export default function HomeV3({ data, donationLabel, resolvedEvents }: HomeV3Pr
                             </div>
                             <Link
                                 href="/design-options/v3/about"
-                                className="mt-8 inline-flex items-center gap-2 text-base font-bold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="mt-8 inline-flex items-center gap-2 text-base font-bold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                             >
                                 Read our full story
                                 <ArrowIcon className="h-4 w-4" />
@@ -302,7 +302,7 @@ export default function HomeV3({ data, donationLabel, resolvedEvents }: HomeV3Pr
                     </div>
 
                     {/* BENTO GRID — varied col/row spans, mixed surfaces */}
-                    <div className="mt-12 grid auto-rows-[minmax(0,1fr)] grid-cols-2 gap-4 md:grid-cols-4 md:gap-5">
+                    <div className="mt-12 grid auto-rows-fr grid-cols-2 gap-4 md:grid-cols-4 md:gap-5">
                         {/* Testimonial — large white card spanning 2x2 on md+ */}
                         <figure className="col-span-2 row-span-2 flex flex-col justify-between rounded-3xl bg-white p-6 text-hvblue shadow-xl md:col-span-2 md:row-span-2 md:p-8">
                             <div>
@@ -367,7 +367,7 @@ export default function HomeV3({ data, donationLabel, resolvedEvents }: HomeV3Pr
                         {/* CTA tile — fills remaining bento cell, links to programs */}
                         <Link
                             href="/design-options/v3/programs"
-                            className="group col-span-2 flex items-center justify-between gap-4 rounded-3xl bg-hvorange-600 p-6 text-left text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue md:col-span-2"
+                            className="group col-span-2 flex items-center justify-between gap-4 rounded-3xl bg-hvorange-600 p-6 text-left text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue md:col-span-2"
                         >
                             <span className="text-lg font-extrabold tracking-tight md:text-xl">
                                 {whereToStart.ctaLabel}
@@ -408,7 +408,7 @@ export default function HomeV3({ data, donationLabel, resolvedEvents }: HomeV3Pr
                                 className="group flex flex-col overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-xl"
                             >
                                 {/* Photo top */}
-                                <div className="relative aspect-[16/10] overflow-hidden">
+                                <div className="relative aspect-16/10 overflow-hidden">
                                     <Image
                                         src={block.image}
                                         alt={block.imageAlt}
@@ -481,7 +481,7 @@ export default function HomeV3({ data, donationLabel, resolvedEvents }: HomeV3Pr
                         <div className="lg:justify-self-end">
                             <Link
                                 href="/design-options/v3/membership"
-                                className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl bg-hvblue px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange md:text-lg lg:w-auto"
+                                className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl bg-hvblue px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange md:text-lg lg:w-auto"
                             >
                                 <HeartIcon className="h-5 w-5" />
                                 {donationLabel}
@@ -525,7 +525,7 @@ export default function HomeV3({ data, donationLabel, resolvedEvents }: HomeV3Pr
                             />
                             <div
                                 aria-hidden="true"
-                                className="absolute inset-0 bg-gradient-to-t from-hvblue/80 via-hvblue/10 to-transparent"
+                                className="absolute inset-0 bg-linear-to-t from-hvblue/80 via-hvblue/10 to-transparent"
                             />
                             <div className="absolute inset-x-0 bottom-0 p-6">
                                 <p className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white ring-1 ring-white/30 backdrop-blur">
@@ -593,14 +593,14 @@ export default function HomeV3({ data, donationLabel, resolvedEvents }: HomeV3Pr
                     <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
                         <Link
                             href="/design-options/v3/membership"
-                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                         >
                             <HeartIcon className="h-5 w-5" />
                             {donationLabel}
                         </Link>
                         <Link
                             href="/design-options/v3/programs"
-                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                         >
                             Explore programs
                             <ArrowIcon className="h-5 w-5" />

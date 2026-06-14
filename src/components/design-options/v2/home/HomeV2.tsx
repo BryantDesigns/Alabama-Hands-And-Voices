@@ -116,7 +116,7 @@ export default function HomeV2({ data, donationLabel, resolvedEvents }: HomeV2Pr
             {/* ============================================================ */}
             {/* HERO — warm gradient wash, kaushan tagline, layered logo */}
             {/* ============================================================ */}
-            <section className="relative isolate overflow-hidden bg-gradient-to-b from-hvorange-50 via-hvorange-50/40 to-white">
+            <section className="relative isolate overflow-hidden bg-linear-to-b from-hvorange-50 via-hvorange-50/40 to-white">
                 {/* Soft decorative blobs for atmosphere */}
                 <div
                     aria-hidden="true"
@@ -163,14 +163,14 @@ export default function HomeV2({ data, donationLabel, resolvedEvents }: HomeV2Pr
                         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                             <Link
                                 href="/design-options/v2/programs"
-                                className="inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-7 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-7 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                             >
                                 Find your support
                                 <ArrowIcon className="h-4 w-4" />
                             </Link>
                             <Link
                                 href="/design-options/v2/about"
-                                className="inline-flex items-center gap-2 rounded-full border-2 border-hvblue px-7 py-3 text-base font-semibold text-hvblue transition hover:bg-hvblue hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="inline-flex items-center gap-2 rounded-full border-2 border-hvblue px-7 py-3 text-base font-semibold text-hvblue transition hover:bg-hvblue hover:text-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                             >
                                 Our story
                             </Link>
@@ -181,7 +181,7 @@ export default function HomeV2({ data, donationLabel, resolvedEvents }: HomeV2Pr
                 {/* Soft bottom fade into the next section */}
                 <div
                     aria-hidden="true"
-                    className="h-px w-full bg-gradient-to-r from-transparent via-hvorange-200 to-transparent"
+                    className="h-px w-full bg-linear-to-r from-transparent via-hvorange-200 to-transparent"
                 />
             </section>
 
@@ -249,7 +249,7 @@ export default function HomeV2({ data, donationLabel, resolvedEvents }: HomeV2Pr
                 />
                 <div
                     aria-hidden="true"
-                    className="absolute inset-0 -z-10 bg-gradient-to-br from-hvblue/40 via-hvblue/80 to-hvblue-600/80"
+                    className="absolute inset-0 -z-10 bg-linear-to-br from-hvblue/40 via-hvblue/80 to-hvblue-600/80"
                 />
 
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -274,7 +274,7 @@ export default function HomeV2({ data, donationLabel, resolvedEvents }: HomeV2Pr
 
                             <Link
                                 href="/design-options/v2/programs"
-                                className="mt-8 inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-7 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-300 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="mt-8 inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-7 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-300 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                             >
                                 {whereToStart.ctaLabel}
                                 <ArrowIcon className="h-4 w-4" />
@@ -435,7 +435,7 @@ export default function HomeV2({ data, donationLabel, resolvedEvents }: HomeV2Pr
 
                             <Link
                                 href="/design-options/v2/membership"
-                                className="mt-9 inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-8 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-300 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="mt-9 inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-8 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-300 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                             >
                                 <HeartIcon className="h-5 w-5" />
                                 {donationLabel}

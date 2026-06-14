@@ -57,7 +57,7 @@ export default function BoardSection({ members }: BoardSectionProps) {
                                 key={member.name}
                                 className="flex flex-col items-center text-center"
                             >
-                                <div className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl">
+                                <div className="relative aspect-3/2 w-full overflow-hidden rounded-2xl">
                                     <Image
                                         src={member.imageUrl}
                                         alt={`Photo of ${member.name}`}

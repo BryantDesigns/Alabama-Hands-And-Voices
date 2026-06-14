@@ -51,7 +51,7 @@ export default function FooterV3() {
                                     <li key={link.href}>
                                         <Link
                                             href={link.href}
-                                            className="group inline-flex min-h-[44px] items-center gap-2 text-base font-semibold text-white/80 transition-colors duration-150 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                            className="group inline-flex min-h-[44px] items-center gap-2 text-base font-semibold text-white/80 transition-colors duration-150 hover:text-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                         >
                                             {/* Geometric bullet — grows on hover */}
                                             <span
@@ -78,7 +78,7 @@ export default function FooterV3() {
                                 </p>
                                 <a
                                     href="mailto:info@alhandsandvoices.org"
-                                    className="text-base font-semibold text-white underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="text-base font-semibold text-white underline-offset-4 hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                 >
                                     info@alhandsandvoices.org
                                 </a>
@@ -87,7 +87,7 @@ export default function FooterV3() {
                             {/* Donate CTA — white-on-dark per v3 system */}
                             <Link
                                 href="/design-options/v3/membership"
-                                className="inline-flex min-h-[52px] items-center gap-2 rounded-xl bg-hvorange-600 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="inline-flex min-h-[52px] items-center gap-2 rounded-xl bg-hvorange-600 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                             >
                                 <svg
                                     aria-hidden="true"

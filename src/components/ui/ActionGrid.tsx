@@ -32,7 +32,7 @@ export default function ActionGrid({ actions }: ActionGridProps) {
             actionIdx === actions.length - 1
               ? "rounded-bl-lg rounded-br-lg sm:rounded-bl-none"
               : "",
-            "group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500"
+            "group relative bg-white p-6 focus-within:inset-ring-2 focus-within:inset-ring-indigo-500"
           )}
         >
           <div>
@@ -48,7 +48,7 @@ export default function ActionGrid({ actions }: ActionGridProps) {
           </div>
           <div className="mt-8">
             <h3 className="text-base font-semibold text-gray-900">
-              <a href={action.href} className="focus:outline-none">
+              <a href={action.href} className="focus:outline-hidden">
                 <span aria-hidden="true" className="absolute inset-0" />
                 {action.title}
               </a>

@@ -24,7 +24,7 @@ export default function EventsSection({ heading, intro, backgroundImage, events 
                             className="h-64 w-full object-cover"
                         />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-white" />
+                    <div className="absolute inset-0 bg-linear-to-t from-white" />
                 </div>
 
                 {/* Content Section */}

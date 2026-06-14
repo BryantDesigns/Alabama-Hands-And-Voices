@@ -15,7 +15,7 @@ export default function FooterV2() {
     return (
         <footer className="bg-hvorange-50">
             {/* Top accent rule */}
-            <div className="h-0.5 w-full bg-gradient-to-r from-hvorange-600 via-hvorange to-hvorange-50" />
+            <div className="h-0.5 w-full bg-linear-to-r from-hvorange-600 via-hvorange to-hvorange-50" />
 
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 {/* Main footer content */}
@@ -25,22 +25,15 @@ export default function FooterV2() {
                         <Link
                             href="/design-options/v2"
                             aria-label="Alabama Hands & Voices — home"
-                            className="group inline-flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange-50"
+                            className="group inline-flex items-center gap-3 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange-50"
                         >
                             <Image
                                 src="/images/alabamahvlogo.svg"
                                 alt="Alabama Hands & Voices logo"
-                                width={52}
-                                height={52}
+                                width={148}
+                                height={48}
                                 className="h-12 w-auto transition-opacity duration-150 group-hover:opacity-80"
                             />
-                            <span className="font-serif text-base font-semibold leading-tight tracking-tight text-hvblue">
-                                Alabama
-                                <br />
-                                <span className="font-kaushan text-lg text-hvorange-700">
-                                    Hands &amp; Voices
-                                </span>
-                            </span>
                         </Link>
 
                         <p className="mt-5 max-w-xs text-base leading-relaxed text-slate-700">
@@ -73,7 +66,7 @@ export default function FooterV2() {
                                 </svg>
                                 <a
                                     href="mailto:info@alhandsandvoices.org"
-                                    className="font-medium transition-colors duration-150 hover:text-hvblue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-1 focus-visible:ring-offset-hvorange-50"
+                                    className="font-medium transition-colors duration-150 hover:text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-1 focus-visible:ring-offset-hvorange-50"
                                 >
                                     info@alhandsandvoices.org
                                 </a>
@@ -116,7 +109,7 @@ export default function FooterV2() {
                                 <li key={link.href}>
                                     <Link
                                         href={link.href}
-                                        className="text-base font-medium text-slate-700 transition-colors duration-150 hover:text-hvblue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-1 focus-visible:ring-offset-hvorange-50"
+                                        className="text-base font-medium text-slate-700 transition-colors duration-150 hover:text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-1 focus-visible:ring-offset-hvorange-50"
                                     >
                                         {link.label}
                                     </Link>
@@ -136,7 +129,7 @@ export default function FooterV2() {
                         </p>
                         <Link
                             href="/design-options/v2/membership"
-                            className="mt-5 inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition duration-150 hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange-50"
+                            className="mt-5 inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange-50"
                         >
                             Become a Member
                             <svg

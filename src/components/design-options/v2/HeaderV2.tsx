@@ -39,7 +39,7 @@ export default function HeaderV2() {
                 }`}
             >
                 {/* Thin orange top accent rule */}
-                <div className="h-0.5 w-full bg-gradient-to-r from-hvorange-600 via-hvorange to-hvorange-50" />
+                <div className="h-0.5 w-full bg-linear-to-r from-hvorange-600 via-hvorange to-hvorange-50" />
 
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <nav
@@ -50,24 +50,16 @@ export default function HeaderV2() {
                         <Link
                             href="/design-options/v2"
                             aria-label="Alabama Hands & Voices — home"
-                            className="group flex shrink-0 items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                            className="group flex shrink-0 items-center gap-3 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                         >
                             <Image
                                 src="/images/alabamahvlogo.svg"
                                 alt="Alabama Hands & Voices logo"
-                                width={48}
+                                width={148}
                                 height={48}
                                 className="h-10 w-auto transition-opacity duration-150 group-hover:opacity-80 md:h-12"
                                 priority
                             />
-                            {/* Editorial wordmark beside logo on md+ */}
-                            <span className="hidden font-serif text-sm font-semibold leading-tight tracking-tight text-hvblue md:block lg:text-base">
-                                Alabama
-                                <br />
-                                <span className="font-kaushan text-base text-hvorange-700 lg:text-lg">
-                                    Hands &amp; Voices
-                                </span>
-                            </span>
                         </Link>
 
                         {/* Desktop nav */}
@@ -76,7 +68,7 @@ export default function HeaderV2() {
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className={`relative px-3 py-2 text-sm font-semibold transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 lg:text-base ${
+                                    className={`relative px-3 py-2 text-sm font-semibold transition-colors duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 lg:text-base ${
                                         isActive(link.href)
                                             ? 'text-hvblue'
                                             : 'text-slate-600 hover:text-hvblue'
@@ -98,7 +90,7 @@ export default function HeaderV2() {
                         <div className="hidden md:block">
                             <Link
                                 href="/design-options/v2/membership"
-                                className="inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition duration-150 hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 lg:px-7 lg:py-3 lg:text-base"
+                                className="inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 lg:px-7 lg:py-3 lg:text-base"
                             >
                                 <svg
                                     aria-hidden="true"
@@ -119,7 +111,7 @@ export default function HeaderV2() {
                             aria-expanded={menuOpen}
                             aria-controls="mobile-menu"
                             onClick={() => setMenuOpen((prev) => !prev)}
-                            className="flex h-11 w-11 items-center justify-center rounded-lg text-hvblue transition-colors duration-150 hover:bg-hvblue/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 md:hidden"
+                            className="flex h-11 w-11 items-center justify-center rounded-lg text-hvblue transition-colors duration-150 hover:bg-hvblue/5 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 md:hidden"
                         >
                             <span aria-hidden="true" className="block">
                                 {menuOpen ? (
@@ -171,7 +163,7 @@ export default function HeaderV2() {
                     className="fixed inset-x-0 top-[calc(4rem+2px)] z-30 bg-white shadow-lg md:hidden"
                 >
                     {/* Thin accent top rule */}
-                    <div className="h-0.5 w-full bg-gradient-to-r from-hvorange-600 via-hvorange to-hvorange-50" />
+                    <div className="h-0.5 w-full bg-linear-to-r from-hvorange-600 via-hvorange to-hvorange-50" />
 
                     <nav
                         aria-label="Mobile navigation"
@@ -183,7 +175,7 @@ export default function HeaderV2() {
                                     <Link
                                         href={link.href}
                                         onClick={closeMenu}
-                                        className={`flex min-h-[44px] items-center py-3 text-base font-semibold transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-hvorange-600 ${
+                                        className={`flex min-h-[44px] items-center py-3 text-base font-semibold transition-colors duration-150 focus-visible:outline-hidden focus-visible:inset-ring-2 focus-visible:inset-ring-hvorange-600 ${
                                             isActive(link.href)
                                                 ? 'text-hvblue'
                                                 : 'text-slate-700 hover:text-hvblue'
@@ -205,7 +197,7 @@ export default function HeaderV2() {
                             <Link
                                 href="/design-options/v2/membership"
                                 onClick={closeMenu}
-                                className="flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full bg-hvorange-600 px-6 py-3 text-base font-semibold text-white shadow-sm transition duration-150 hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full bg-hvorange-600 px-6 py-3 text-base font-semibold text-white shadow-sm transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                             >
                                 <svg
                                     aria-hidden="true"

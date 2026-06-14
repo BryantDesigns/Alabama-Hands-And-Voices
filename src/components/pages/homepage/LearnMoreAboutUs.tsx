@@ -59,7 +59,7 @@ export default function LearnMoreAboutUs({ heading, featureBlocks }: LearnMorePr
                                                 src={block.image}
                                                 width={700}
                                                 height={400}
-                                                className="aspect-[4/2] w-full rounded-lg bg-gray-100 object-cover"
+                                                className="aspect-4/2 w-full rounded-lg bg-gray-100 object-cover"
                                             />
                                         )}
                                     </div>

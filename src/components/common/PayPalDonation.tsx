@@ -22,7 +22,7 @@ export default function PayPalDonation({
             />
             <button
                 type="submit"
-                className="rounded-md bg-hvorange px-6 py-3 font-semibold text-white shadow-md transition hover:bg-opacity-90"
+                className="rounded-md bg-hvorange px-6 py-3 font-semibold text-white shadow-md transition hover:bg-hvorange/90"
             >
                 {label}
             </button>
