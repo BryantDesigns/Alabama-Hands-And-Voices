@@ -1,11 +1,11 @@
 import { config, fields, singleton, collection } from '@keystatic/core'
 
-// Storage mode: local-file for development.
-// Decision for production (GitHub mode, Keystatic Cloud, or local-only) is deferred
-// until local schemas and rendering are stable.
+const isProduction = process.env.NODE_ENV === 'production'
+
 export default config({
-  storage: {
-    kind: 'local',
+  storage: isProduction ? { kind: 'cloud' } : { kind: 'local' },
+  cloud: {
+    project: 'al-hands-and-voices/al-hands-and-voices',
   },
 
   singletons: {
