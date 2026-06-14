@@ -1,23 +1,24 @@
 # Alabama Hands & Voices Website
 
-This repository contains the source code for the **Alabama Hands & Voices** website. The site is built with [Next.js](https://nextjs.org/) (App Router), TypeScript and Tailwind CSS. Content is managed with [Keystatic](https://keystatic.com/) and the site is deployed via [Netlify](https://www.netlify.com/).
+This repository contains the Alabama Hands & Voices website. It uses Next.js 16, React 19, TypeScript, Tailwind CSS, Keystatic, and Netlify.
 
 ## Features
 
-- **Next.js 16 App Router** with React 19 — pages are async server components.
-- **Keystatic CMS** in local-file storage mode: content lives as YAML files in `src/content/` and is edited through the admin UI at `/keystatic`.
-- **Tailwind CSS** with custom brand palette (`hvblue` #141B4B, `hvorange` #FF7F32) and the Kaushan Script decorative font.
-- **Netlify Forms** for contact/membership form submissions.
-- Component library in `src/components` using Headless UI and Framer Motion.
+- Next.js App Router with fixed, code-reviewed SEO metadata.
+- Keystatic local-file editing during development and Keystatic Cloud in production.
+- Git-backed YAML content under `src/content/`.
+- Controlled CMS fields that keep routes, payments, and other functional values in code.
+- Netlify Forms for membership and program forms.
+- Playwright coverage for public routes, Chromium, Firefox, WebKit, mobile Chromium, and WCAG 2.2 A/AA Axe checks.
 
 ## Development
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 20.9 or newer
 - npm
 
-No environment variables are required for local development.
+No environment variables are required for normal local development.
 
 ### Install and run
 
