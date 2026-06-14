@@ -1,9 +1,20 @@
 import Image from 'next/image'
 import { getChooseMembershipPageContent } from '@/lib/keystatic/pages'
+import { membershipTiers } from '@/lib/membership'
 
 export default async function ChooseMembershipPage() {
     const data = await getChooseMembershipPageContent()
-    const membershipOptions = data?.membershipOptions ?? []
+
+    if (!data) {
+        throw new Error(
+            '[Keystatic] Required Choose Membership Page content is missing.'
+        )
+    }
+
+    const membershipOptions = membershipTiers.map((tier) => ({
+        ...tier,
+        ...data.membershipOptions[tier.key],
+    }))
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -24,7 +35,7 @@ export default async function ChooseMembershipPage() {
                     <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                         {membershipOptions.map((option) => (
                             <div
-                                key={option.title}
+                                key={option.key}
                                 className="overflow-hidden rounded-lg bg-white shadow-lg transition-shadow hover:shadow-xl"
                             >
                                 <div className="aspect-video overflow-hidden">
@@ -50,7 +61,11 @@ export default async function ChooseMembershipPage() {
                                         method="post"
                                         target="_top"
                                     >
-                                        <input type="hidden" name="cmd" value="_s-xclick" />
+                                        <input
+                                            type="hidden"
+                                            name="cmd"
+                                            value="_s-xclick"
+                                        />
                                         <input
                                             type="hidden"
                                             name="hosted_button_id"

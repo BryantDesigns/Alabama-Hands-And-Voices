@@ -3,9 +3,14 @@ import PayPalDonation from '@/components/common/PayPalDonation'
 interface SupportProps {
     heading: string
     body: string
+    donationLabel: string
 }
 
-export default function SupportOurMission({ heading, body }: SupportProps) {
+export default function SupportOurMission({
+    heading,
+    body,
+    donationLabel,
+}: SupportProps) {
     return (
         <section>
             <div className="bg-hvblue">
@@ -24,7 +29,7 @@ export default function SupportOurMission({ heading, body }: SupportProps) {
                         )}
 
                         <div className="mt-10 flex items-center justify-center gap-x-6">
-                            <PayPalDonation />
+                            <PayPalDonation label={donationLabel} />
                         </div>
                     </div>
                 </div>

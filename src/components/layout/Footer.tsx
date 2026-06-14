@@ -1,8 +1,15 @@
 import PayPalDonation from '@/components/common/PayPalDonation'
 import Image from 'next/image'
 import Link from 'next/link'
+import type { SiteSettings } from '@/types/cms'
 
-export default function Footer() {
+interface FooterProps {
+    settings: SiteSettings
+}
+
+export default function Footer({ settings }: FooterProps) {
+    const telephoneHref = `tel:${settings.phone.replace(/[^\d+]/g, '')}`
+
     return (
         <footer className="bg-white text-black">
             {/* Donation Section */}
@@ -11,7 +18,7 @@ export default function Footer() {
                     <h5 className="text-lg font-semibold">
                         Want to donate to our mission?
                     </h5>
-                    <PayPalDonation />
+                    <PayPalDonation label={settings.donationButtonLabel} />
                 </div>
             </div>
 
@@ -24,7 +31,7 @@ export default function Footer() {
                             src="/images/hvlogo.svg"
                             width={160}
                             height={150}
-                            alt="Hands & Voices Logo"
+                            alt={`${settings.siteName} logo`}
                         />
                     </div>
 
@@ -71,21 +78,26 @@ export default function Footer() {
                         </h6>
                         <hr className="mx-auto my-4 w-12 border-2 border-hvorange lg:mx-0" />
                         <p>
-                            <i className="fas fa-home mr-2"></i> P.O. Box 130627
-                            Birmingham, AL 35213
+                            <i className="fas fa-home mr-2"></i>{' '}
+                            {settings.address}
                         </p>
                         <p>
                             <i className="fas fa-envelope mr-2"></i>{' '}
                             <a
-                                href="mailto:alabamahinfo@gmail.com"
+                                href={`mailto:${settings.contactEmail}`}
                                 className="transition-colors hover:text-hvorange"
                             >
-                                alabamahinfo@gmail.com
+                                {settings.contactEmail}
                             </a>
                         </p>
                         <p>
-                            <i className="fas fa-phone mr-2"></i> +1 205
-                            677-3136
+                            <i className="fas fa-phone mr-2"></i>{' '}
+                            <a
+                                href={telephoneHref}
+                                className="transition-colors hover:text-hvorange"
+                            >
+                                {settings.phone}
+                            </a>
                         </p>
                     </div>
                 </div>
@@ -93,11 +105,8 @@ export default function Footer() {
 
             {/* Copyright Section */}
             <div className="bg-secondary py-4 text-center text-sm text-gray-800">
-                &copy; 2024 Hands & Voices | Designed by{' '}
-                <a
-                    href="#"
-                    className="transition-colors hover:text-hvorange"
-                >
+                {settings.footerCopyright} | Designed by{' '}
+                <a href="#" className="transition-colors hover:text-hvorange">
                     Bryant Designs
                 </a>
             </div>

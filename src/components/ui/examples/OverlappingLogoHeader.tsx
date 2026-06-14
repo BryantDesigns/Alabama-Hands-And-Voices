@@ -20,72 +20,73 @@ import {
     SquaresPlusIcon,
     XMarkIcon,
 } from '@heroicons/react/24/outline'
-import {
-    ChevronDownIcon,
-} from '@heroicons/react/20/solid'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import Logo from '@/components/ui/Logo'
 import Link from 'next/link'
+import type { NavigationContent } from '@/types/cms'
 
-const about = [
+const aboutRoutes = [
     {
-        name: 'Who We Are',
+        key: 'whoWeAre',
         href: '/about',
-        description:
-            'Discover our mission, vision, and values, and learn how we empower families and communities.',
     },
     {
-        name: 'Board Members',
+        key: 'boardMembers',
         href: '/about/board',
-        description:
-            'Meet the dedicated individuals on our board who guide our organization\'s efforts and impact.',
     },
     {
-        name: 'Staff',
+        key: 'staff',
         href: '/about/staff',
-        description:
-            'Get to know the passionate team working behind the scenes to support our mission and programs.',
     },
     {
-        name: 'Contact',
+        key: 'contact',
         href: '/about/contact',
-        description:
-            'Reach out to us with any questions, inquiries, or feedback. We\'re here to help!',
     },
-]
+] as const
 
-const programs = [
+const programRoutes = [
     {
-        name: 'Guide By Your Side (GBYS)',
+        key: 'gbys',
         href: '/programs/gbys',
         icon: ChartPieIcon,
-        description:
-            'Learn about our family support program offering parent-to-parent connections and resources.',
     },
     {
-        name: 'Educational Advocacy (ASTra)',
+        key: 'astra',
         href: '/programs/astra',
         icon: CursorArrowRaysIcon,
-        description:
-            'Explore our Advocacy, Support, and Training program designed to empower families in educational advocacy.',
     },
     {
-        name: "O.U.R. Children's Safety Project",
+        key: 'safety',
         href: '/programs/safety',
         icon: FingerPrintIcon,
-        description:
-            'Discover resources and strategies to ensure safety and preparedness for children and families.',
     },
     {
-        name: 'DHH Committee Members',
+        key: 'dhhCommittee',
         href: '/programs/dhh-committee',
         icon: SquaresPlusIcon,
-        description:
-            'Connect with role models who provide inspiration and guidance for children who are deaf or hard of hearing.',
     },
-]
+] as const
 
-export default function OverlappingLogoHeader() {
+interface OverlappingLogoHeaderProps {
+    navigation: NavigationContent
+    facebookUrl: string
+}
+
+export default function OverlappingLogoHeader({
+    navigation,
+    facebookUrl,
+}: OverlappingLogoHeaderProps) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const about = aboutRoutes.map((item) => ({
+        ...item,
+        name: navigation.about[item.key].title,
+        description: navigation.about[item.key].description,
+    }))
+    const programs = programRoutes.map((item) => ({
+        ...item,
+        name: navigation.programs[item.key].title,
+        description: navigation.programs[item.key].description,
+    }))
 
     return (
         <header className="relative isolate z-10">
@@ -217,7 +218,7 @@ export default function OverlappingLogoHeader() {
                         {/* Social Media */}
                         <div className="flex items-center">
                             <a
-                                href="https://www.facebook.com/alabamahandsandvoices/"
+                                href={facebookUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-hvorange-600 transition-colors hover:text-hvorange-700"

@@ -2,11 +2,17 @@ import Image from 'next/image'
 import VideoGallery from '@/components/common/VideoGallery'
 import React from 'react'
 import { getResourcesPageContent } from '@/lib/keystatic/pages'
+import { getVideosByPlacement } from '@/lib/keystatic/collections'
 
 export default async function ResourcesPage() {
-    const data = await getResourcesPageContent()
+    const [data, videos] = await Promise.all([
+        getResourcesPageContent(),
+        getVideosByPlacement('resources'),
+    ])
 
-    const introCopy = data?.introCopy ?? 'Below is a list of valuable resources and organizations providing support for families with children who are deaf or hard of hearing.'
+    const introCopy =
+        data?.introCopy ??
+        'Below is a list of valuable resources and organizations providing support for families with children who are deaf or hard of hearing.'
     const categories = data?.resourceCategories ?? []
     const ehdiSidebarBody = data?.ehdiSidebarBody ?? ''
     const ehdiSidebarUrl = data?.ehdiSidebarUrl ?? 'http://www.ehdi-pals.org/'
@@ -153,7 +159,7 @@ export default async function ResourcesPage() {
                                                                     {row.length ===
                                                                         1 && (
                                                                         <td className="hidden px-4 py-4 md:block"></td>
-                                                                    )}{' '}
+                                                                    )}
                                                                     {/* Empty column if odd row */}
                                                                 </tr>
                                                             )
@@ -205,7 +211,7 @@ export default async function ResourcesPage() {
                     </div>
                 </div>
             </section>
-            <VideoGallery />
+            <VideoGallery videos={videos} />
         </>
     )
 }

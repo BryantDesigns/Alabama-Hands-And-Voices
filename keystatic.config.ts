@@ -15,13 +15,40 @@ export default config({
       path: 'src/content/singletons/siteSettings',
       format: { data: 'yaml' },
       schema: {
-        siteName: fields.text({ label: 'Site Name' }),
-        contactEmail: fields.text({ label: 'Contact Email' }),
-        phone: fields.text({ label: 'Phone' }),
-        address: fields.text({ label: 'Address' }),
-        facebookUrl: fields.text({ label: 'Facebook URL' }),
-        donationButtonLabel: fields.text({ label: 'Donation Button Label' }),
-        footerCopyright: fields.text({ label: 'Footer Copyright' }),
+        siteName: fields.text({
+          label: 'Site Name',
+          validation: { isRequired: true, length: { max: 80 } },
+        }),
+        contactEmail: fields.text({
+          label: 'Contact Email',
+          validation: {
+            isRequired: true,
+            pattern: {
+              regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              message: 'Enter a valid email address.',
+            },
+          },
+        }),
+        phone: fields.text({
+          label: 'Phone',
+          validation: { isRequired: true, length: { max: 40 } },
+        }),
+        address: fields.text({
+          label: 'Address',
+          validation: { isRequired: true, length: { max: 160 } },
+        }),
+        facebookUrl: fields.url({
+          label: 'Facebook URL',
+          validation: { isRequired: true },
+        }),
+        donationButtonLabel: fields.text({
+          label: 'Donation Button Label',
+          validation: { isRequired: true, length: { max: 40 } },
+        }),
+        footerCopyright: fields.text({
+          label: 'Footer Copyright',
+          validation: { isRequired: true, length: { max: 120 } },
+        }),
       },
     }),
 
@@ -30,27 +57,23 @@ export default config({
       path: 'src/content/singletons/navigation',
       format: { data: 'yaml' },
       schema: {
-        aboutMenuItems: fields.array(
-          fields.object({
-            name: fields.text({ label: 'Name' }),
-            href: fields.text({ label: 'Href' }),
-            description: fields.text({ label: 'Description' }),
-          }),
+        about: fields.object(
           {
-            label: 'About Menu Items',
-            itemLabel: (props) => props.fields.name.value || 'Menu Item',
-          }
+            whoWeAre: navigationItem('Who We Are'),
+            boardMembers: navigationItem('Board Members'),
+            staff: navigationItem('Staff'),
+            contact: navigationItem('Contact'),
+          },
+          { label: 'About Menu Items' }
         ),
-        programMenuItems: fields.array(
-          fields.object({
-            name: fields.text({ label: 'Name' }),
-            href: fields.text({ label: 'Href' }),
-            description: fields.text({ label: 'Description' }),
-          }),
+        programs: fields.object(
           {
-            label: 'Program Menu Items',
-            itemLabel: (props) => props.fields.name.value || 'Menu Item',
-          }
+            gbys: navigationItem('Guide By Your Side (GBYS)'),
+            astra: navigationItem('Educational Advocacy (ASTra)'),
+            safety: navigationItem("O.U.R. Children's Safety Project"),
+            dhhCommittee: navigationItem('DHH Committee Members'),
+          },
+          { label: 'Program Menu Items' }
         ),
       },
     }),
@@ -117,7 +140,6 @@ export default config({
           {
             heading: fields.text({ label: 'Heading' }),
             body: fields.text({ label: 'Body', multiline: true }),
-            ctaLabel: fields.text({ label: 'CTA Label' }),
           },
           { label: 'Support Section' }
         ),
@@ -193,18 +215,13 @@ export default config({
       path: 'src/content/singletons/chooseMembershipPage',
       format: { data: 'yaml' },
       schema: {
-        membershipOptions: fields.array(
-          fields.object({
-            title: fields.text({ label: 'Title' }),
-            subtitle: fields.text({ label: 'Subtitle' }),
-            price: fields.text({ label: 'Price' }),
-            paypalButtonId: fields.text({ label: 'PayPal Button ID' }),
-            image: fields.text({ label: 'Image Path' }),
-          }),
+        membershipOptions: fields.object(
           {
-            label: 'Membership Options',
-            itemLabel: (props) => props.fields.title.value || 'Option',
-          }
+            parent: membershipOption('Parent, Student, and DHH Adult'),
+            professional: membershipOption('Professional'),
+            organization: membershipOption('Organization'),
+          },
+          { label: 'Membership Options' }
         ),
       },
     }),
@@ -381,15 +398,96 @@ export default config({
     videos: collection({
       label: 'Videos',
       path: 'src/content/videos/*',
-      slugField: 'title',
+      slugField: 'internalId',
       format: { data: 'yaml' },
       schema: {
-        title: fields.slug({ name: { label: 'Title' } }),
-        youtubeId: fields.text({ label: 'YouTube ID' }),
-        placement: fields.text({ label: 'Placement' }),
-        sortOrder: fields.integer({ label: 'Sort Order', defaultValue: 99 }),
-        active: fields.checkbox({ label: 'Active', defaultValue: true }),
+        internalId: fields.slug({
+          name: {
+            label: 'Internal ID',
+            description: 'Used for the content filename; not displayed publicly.',
+            validation: { isRequired: true, length: { max: 100 } },
+          },
+        }),
+        title: fields.text({
+          label: 'Title',
+          validation: { isRequired: true, length: { max: 160 } },
+        }),
+        youtubeId: fields.text({
+          label: 'YouTube ID',
+          description: 'The 11-character ID from the YouTube URL.',
+          validation: {
+            isRequired: true,
+            pattern: {
+              regex: /^[A-Za-z0-9_-]{11}$/,
+              message: 'Enter a valid 11-character YouTube video ID.',
+            },
+          },
+        }),
+        placement: fields.select({
+          label: 'Placement',
+          options: [
+            { label: 'Resources', value: 'resources' },
+            { label: 'DHH Committee', value: 'dhh-committee' },
+          ],
+          defaultValue: 'resources',
+        }),
+        thumbnailFrame: fields.select({
+          label: 'Thumbnail Frame',
+          options: [
+            { label: 'Default frame', value: '0' },
+            { label: 'Alternate frame', value: '1' },
+          ],
+          defaultValue: '0',
+        }),
+        sortOrder: fields.integer({
+          label: 'Sort Order',
+          defaultValue: 99,
+          validation: { isRequired: true, min: 0 },
+        }),
+        active: fields.checkbox({
+          label: 'Active',
+          defaultValue: true,
+        }),
       },
     }),
   },
 })
+
+function navigationItem(label: string) {
+  return fields.object(
+    {
+      title: fields.text({
+        label: 'Title',
+        validation: { isRequired: true, length: { max: 80 } },
+      }),
+      description: fields.text({
+        label: 'Description',
+        multiline: true,
+        validation: { isRequired: true, length: { max: 240 } },
+      }),
+    },
+    { label }
+  )
+}
+
+function membershipOption(label: string) {
+  return fields.object(
+    {
+      subtitle: fields.text({
+        label: 'Subtitle',
+        validation: { isRequired: true, length: { max: 120 } },
+      }),
+      image: fields.text({
+        label: 'Image Path',
+        validation: {
+          isRequired: true,
+          pattern: {
+            regex: /^\/images\/.+/,
+            message: 'Use a path under /images/.',
+          },
+        },
+      }),
+    },
+    { label }
+  )
+}

@@ -1,4 +1,4 @@
-import { getHomePageContent } from '@/lib/keystatic/pages'
+import { getHomePageContent, getSiteSettings } from '@/lib/keystatic/pages'
 import HeroSection from '@/components/pages/homepage/HeroSection'
 import WhatIsAlabama from '@/components/pages/homepage/WhatIsAlabama'
 import WhereToStart from '@/components/pages/homepage/WhereToStart'
@@ -7,7 +7,10 @@ import SupportOurMission from '@/components/pages/homepage/SupportOurMission'
 import EventsSection from '@/components/pages/homepage/EventsSection'
 
 export default async function Home() {
-    const data = await getHomePageContent()
+    const [data, settings] = await Promise.all([
+        getHomePageContent(),
+        getSiteSettings(),
+    ])
 
     if (!data) {
         return (
@@ -52,6 +55,7 @@ export default async function Home() {
             <SupportOurMission
                 heading={data?.support?.heading ?? ''}
                 body={data?.support?.body ?? ''}
+                donationLabel={settings.donationButtonLabel}
             />
 
             <EventsSection

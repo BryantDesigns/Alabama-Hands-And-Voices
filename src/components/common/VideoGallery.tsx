@@ -1,32 +1,23 @@
 'use client'
 import { useState } from 'react'
 import Image from 'next/image'
+import type { VideoContent } from '@/types/cms'
 
-const videos = [
-    {
-        id: 'T8nDcBvOWnk',
-        title: 'Hands & Voices: Lost and Found',
-    },
-    {
-        id: '9U-abNjAMiY',
-        title: 'Alabama Hands & Voices - Unlocking the Access Toolbox',
-    },
-    {
-        id: 'PCX219_FsB0',
-        title: 'Hands & Voices The Time is Now',
-    },
-    {
-        id: '8Qr9RHOidV4',
-        title: 'The Mission of Hands & Voices (American Sign Language)',
-    },
-    {
-        id: 'HVU2MEcJzxI',
-        title: 'Deaf and Hard of Hearing Hidden Figures',
-    },
-]
+interface VideoGalleryProps {
+    videos: VideoContent[]
+}
 
-export default function VideoGallery() {
-    const [selectedVideo, setSelectedVideo] = useState(videos[0].id)
+export default function VideoGallery({ videos }: VideoGalleryProps) {
+    const [selectedVideoId, setSelectedVideoId] = useState(
+        videos[0]?.youtubeId ?? ''
+    )
+
+    if (videos.length === 0) {
+        return null
+    }
+
+    const selectedVideo =
+        videos.find((video) => video.youtubeId === selectedVideoId) ?? videos[0]
 
     return (
         <section className="bg-white py-16">
@@ -45,9 +36,10 @@ export default function VideoGallery() {
                         <div className="aspect-video rounded-lg shadow-lg">
                             <iframe
                                 id="vid_frame"
-                                src={`https://www.youtube.com/embed/${selectedVideo}?rel=0&showinfo=0&autohide=1`}
+                                src={`https://www.youtube.com/embed/${selectedVideo.youtubeId}?rel=0&showinfo=0&autohide=1`}
                                 frameBorder="0"
                                 allowFullScreen
+                                title={selectedVideo.title}
                                 className="h-full w-full rounded-lg"
                             />
                         </div>
@@ -59,11 +51,11 @@ export default function VideoGallery() {
                     {videos.map((video) => (
                         <button
                             key={video.id}
-                            onClick={() => setSelectedVideo(video.id)}
+                            onClick={() => setSelectedVideoId(video.youtubeId)}
                             className="group flex flex-col items-center rounded-lg bg-gray-100 p-4 shadow-md transition hover:bg-gray-200 focus:outline-none"
                         >
                             <Image
-                                src={`https://img.youtube.com/vi/${video.id}/0.jpg`}
+                                src={`https://img.youtube.com/vi/${video.youtubeId}/${video.thumbnailFrame}.jpg`}
                                 alt={video.title}
                                 width={480}
                                 height={270}

@@ -1,6 +1,12 @@
 'use client'
 
-export default function PayPalDonation() {
+interface PayPalDonationProps {
+    label?: string
+}
+
+export default function PayPalDonation({
+    label = 'Donate Here!',
+}: PayPalDonationProps) {
     return (
         <form
             action="https://www.paypal.com/cgi-bin/webscr"
@@ -18,7 +24,7 @@ export default function PayPalDonation() {
                 type="submit"
                 className="rounded-md bg-hvorange px-6 py-3 font-semibold text-white shadow-md transition hover:bg-opacity-90"
             >
-                Donate Here!
+                {label}
             </button>
         </form>
     )

@@ -1,26 +1,26 @@
-aboutMenuItems:
-  - name: Who We Are
-    href: /about
+about:
+  whoWeAre:
+    title: Who We Are
     description: Discover our mission, vision, and values.
-  - name: Board Members
-    href: /about/board
+  boardMembers:
+    title: Board Members
     description: Meet the dedicated individuals on our board.
-  - name: Staff
-    href: /about/staff
+  staff:
+    title: Staff
     description: Get to know the passionate team behind our mission.
-  - name: Contact
-    href: /about/contact
+  contact:
+    title: Contact
     description: Reach out with questions or feedback.
-programMenuItems:
-  - name: Guide By Your Side (GBYS)
-    href: /programs/gbys
+programs:
+  gbys:
+    title: Guide By Your Side (GBYS)
     description: Family support program with parent-to-parent connections.
-  - name: Educational Advocacy (ASTra)
-    href: /programs/astra
+  astra:
+    title: Educational Advocacy (ASTra)
     description: Advocacy, Support, and Training for families.
-  - name: "O.U.R. Children's Safety Project"
-    href: /programs/safety
+  safety:
+    title: "O.U.R. Children's Safety Project"
     description: Safety and preparedness resources for children and families.
-  - name: DHH Committee Members
-    href: /programs/dhh-committee
+  dhhCommittee:
+    title: DHH Committee Members
     description: Role models for children who are deaf or hard of hearing.
