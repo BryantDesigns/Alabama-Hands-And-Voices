@@ -1,5 +1,8 @@
 import Image from 'next/image'
 import { getContactPageContent } from '@/lib/keystatic/pages'
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata = createPageMetadata('/about/contact')
 
 export default async function ContactPage() {
   const data = await getContactPageContent()

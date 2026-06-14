@@ -1,5 +1,8 @@
 import MembershipForm from '@/components/pages/membership/MembershipForm'
 import { getMembershipPageContent } from '@/lib/keystatic/pages'
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata = createPageMetadata('/membership')
 
 export default async function MembershipPage() {
     const data = await getMembershipPageContent()

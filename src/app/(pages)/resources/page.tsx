@@ -3,6 +3,9 @@ import VideoGallery from '@/components/common/VideoGallery'
 import React from 'react'
 import { getResourcesPageContent } from '@/lib/keystatic/pages'
 import { getVideosByPlacement } from '@/lib/keystatic/collections'
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata = createPageMetadata('/resources')
 
 export default async function ResourcesPage() {
     const [data, videos] = await Promise.all([

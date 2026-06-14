@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
+import { SITE_NAME, SITE_URL, pageMetadata } from '@/lib/seo'
 import './globals.css'
 
 const geistSans = localFont({
@@ -19,8 +20,25 @@ const geistMono = localFont({
 })
 
 export const metadata: Metadata = {
-    title: 'Alabama Hands & Voices',
-    description: 'Alabama Hands & Voices — empowering families of children who are deaf or hard of hearing through parent-to-parent support, education, and advocacy.',
+    metadataBase: new URL(SITE_URL),
+    title: {
+        default: SITE_NAME,
+        template: `%s | ${SITE_NAME}`,
+    },
+    description: pageMetadata['/'].description,
+    applicationName: SITE_NAME,
+    openGraph: {
+        type: 'website',
+        url: '/',
+        siteName: SITE_NAME,
+        title: SITE_NAME,
+        description: pageMetadata['/'].description,
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: SITE_NAME,
+        description: pageMetadata['/'].description,
+    },
 }
 
 export default function RootLayout({

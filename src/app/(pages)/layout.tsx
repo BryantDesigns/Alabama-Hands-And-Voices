@@ -1,15 +1,7 @@
 import Footer from '@/components/layout/Footer'
 import OverlappingLogoHeader from '@/components/ui/examples/OverlappingLogoHeader'
 import { getNavigation, getSiteSettings } from '@/lib/keystatic/pages'
-import type { Metadata } from 'next'
-
-export async function generateMetadata(): Promise<Metadata> {
-    const settings = await getSiteSettings()
-
-    return {
-        title: settings.siteName,
-    }
-}
+import { SITE_URL } from '@/lib/seo'
 
 export default async function PagesLayout({
     children,

@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import { getChooseMembershipPageContent } from '@/lib/keystatic/pages'
 import { membershipTiers } from '@/lib/membership'
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata = createPageMetadata('/membership/choose-membership')
 
 export default async function ChooseMembershipPage() {
     const data = await getChooseMembershipPageContent()

@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { getAboutPageContent } from '@/lib/keystatic/pages'
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata = createPageMetadata('/about')
 
 const AboutPage = async () => {
     const data = await getAboutPageContent()

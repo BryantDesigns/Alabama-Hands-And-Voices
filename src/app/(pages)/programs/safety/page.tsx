@@ -1,5 +1,8 @@
 import Image from 'next/image'
 import { getSafetyPageContent } from '@/lib/keystatic/pages'
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata = createPageMetadata('/programs/safety')
 
 export default async function SafetyProjectPage() {
     const data = await getSafetyPageContent()

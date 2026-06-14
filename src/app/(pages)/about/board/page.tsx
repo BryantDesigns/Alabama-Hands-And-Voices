@@ -1,6 +1,9 @@
 import BoardSection from "@/components/pages/aboutpage/board/BoardSection";
 import InMemoriam from "@/components/pages/aboutpage/board/InMemoriam";
 import { getBoardMembers } from "@/lib/keystatic/collections";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata('/about/board');
 
 export default async function BoardMembersPage() {
   const raw = await getBoardMembers();

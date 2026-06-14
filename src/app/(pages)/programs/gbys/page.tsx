@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import GBYSForm from '@/components/pages/gbyspage/GBYSForm'
 import { getGbysPageContent } from '@/lib/keystatic/pages'
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata = createPageMetadata('/programs/gbys')
 
 export default async function GBYSPage() {
     const data = await getGbysPageContent()

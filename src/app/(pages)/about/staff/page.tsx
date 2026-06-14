@@ -1,5 +1,8 @@
 import StaffSection from "@/components/pages/aboutpage/staff/StaffSection";
 import { getStaffMembers } from "@/lib/keystatic/collections";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata('/about/staff');
 
 export default async function StaffPage() {
   const raw = await getStaffMembers();

@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import AstraForm from '@/components/pages/astrapage/AstraForm'
 import { getAstraPageContent } from '@/lib/keystatic/pages'
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata = createPageMetadata('/programs/astra')
 
 export default async function AstraPage() {
     const data = await getAstraPageContent()

@@ -1,5 +1,8 @@
 import { getFaqPageContent } from '@/lib/keystatic/pages'
 import FaqAccordion from '@/components/pages/faqpage/FaqAccordion'
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata = createPageMetadata('/faq')
 
 export default async function FAQPage() {
     const data = await getFaqPageContent()

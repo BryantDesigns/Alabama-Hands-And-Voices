@@ -5,6 +5,9 @@ import WhereToStart from '@/components/pages/homepage/WhereToStart'
 import LearnMoreAboutUs from '@/components/pages/homepage/LearnMoreAboutUs'
 import SupportOurMission from '@/components/pages/homepage/SupportOurMission'
 import EventsSection from '@/components/pages/homepage/EventsSection'
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata = createPageMetadata('/')
 
 export default async function Home() {
     const [data, settings] = await Promise.all([
