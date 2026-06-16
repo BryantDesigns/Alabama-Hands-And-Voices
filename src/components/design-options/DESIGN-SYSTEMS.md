@@ -70,6 +70,27 @@ Follow these exactly:
 - Micro-interactions 150–300ms, `transition` on `transform`/`opacity`/`colors` only.
 - Subtle hover lift on cards (`hover:-translate-y-0.5 hover:shadow-lg`). Respect reduced motion.
 
+### Forms & inputs (both)
+
+- **Labels:** every input has an associated `<label>` (wrap the input or use `htmlFor`/`id`
+  pairing). Required fields are marked with a visible `*` and `aria-required="true"`.
+  Color is never the sole signal — pair the asterisk with the word "required" in a
+  visually-hidden span if needed.
+- **Focus rings:** all inputs, selects, textareas, checkboxes, and radios share the
+  standard ring: `focus-visible:outline-none focus-visible:ring-2
+  focus-visible:ring-hvorange-600 focus-visible:ring-offset-2`.
+- **Touch targets:** text inputs and selects must be ≥44px tall (use `py-3` + `text-base`
+  to hit this comfortably). Checkbox and radio click areas must also be ≥44px — pad the
+  wrapping `<label>` rather than the control itself.
+- **Help & error text:** use `text-slate-600` for hint copy and `text-red-700` for
+  validation errors (AA-compliant on white at ≥14px). Never use bright `text-hvorange`
+  for error or help text.
+- **Preview-only convention:** showcase forms do not submit to any endpoint. The submit
+  control calls `event.preventDefault()` and reveals a styled success panel in-page. A
+  visible caption — "Design preview — not submitted in this showcase" — sits adjacent to
+  or below the submit button. Do **not** add Netlify attributes (`data-netlify`,
+  `netlify-honeypot`, `bot-field`, `form-name`) to showcase forms.
+
 ---
 
 ## DIRECTION v2 — "Warm & Editorial"
@@ -107,6 +128,18 @@ generous whitespace.
 - **Secondary:** `rounded-full border-2 border-hvblue px-6 py-3 font-semibold text-hvblue
   hover:bg-hvblue hover:text-white`.
 - **Text link:** `font-semibold text-hvorange-700 underline-offset-4 hover:underline`.
+
+### Forms & inputs
+
+- **Input style:** `rounded-xl border border-slate-300 bg-white px-4 py-3 text-base
+  text-hvblue placeholder:text-slate-400` — soft corners, generous padding, calm palette.
+- **Fieldset legends:** `font-serif font-semibold text-hvblue text-lg` for a warm
+  editorial grouping header; pair with a thin `border-b border-slate-200 pb-2 mb-4`.
+- **Spacing:** generous vertical rhythm between fields (`space-y-5` or `space-y-6`);
+  label-to-input gap `mt-1.5`.
+- **Form card:** wrap forms in `rounded-2xl bg-white p-6 md:p-8 shadow-sm
+  ring-1 ring-slate-200/70` — matches the card system and grounds the form on tinted
+  section backgrounds.
 
 ### Section rhythm
 
@@ -153,6 +186,17 @@ blocks, bento grids, big type, punchy CTAs.
 - **On hvblue blocks:** `bg-white text-hvblue font-bold hover:bg-hvorange-50`.
 - **On hvorange blocks:** `bg-hvblue text-white font-bold hover:bg-hvblue-400`.
 - **Secondary/ghost:** `rounded-xl border-2 border-current px-7 py-3.5 font-bold`.
+
+### Forms & inputs
+
+- **Input style:** `rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base
+  font-medium text-hvblue` — bolder border weight mirrors the direction's confident geometry.
+- **Labels:** `text-xs font-bold uppercase tracking-widest text-hvblue` — matches the
+  eyebrow style to give forms a decisive, structured feel.
+- **Spacing:** `space-y-4` between fields; tighter than v2 to match the punchier rhythm.
+- **Form card:** `rounded-3xl bg-white p-6 md:p-8 ring-1 ring-slate-200` — placed within
+  color-block sections (e.g., on `bg-slate-50` or inside a white band between hvblue
+  blocks) so the card contrasts without floating on plain white.
 
 ### Section rhythm
 
