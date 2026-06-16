@@ -278,7 +278,7 @@ export default function GbysV3({ gbys }: GbysV3Props) {
                             </p>
                         </div>
                         <a
-                            href="/design-options/v3/contact"
+                            href="/design-options/v3/about/contact"
                             className="inline-flex min-h-[52px] shrink-0 items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-hvblue transition hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                         >
                             Contact us

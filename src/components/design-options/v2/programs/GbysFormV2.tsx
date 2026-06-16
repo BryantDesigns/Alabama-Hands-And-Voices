@@ -340,7 +340,7 @@ export default function GbysFormV2() {
                     tabIndex={tab === 'personal' ? 0 : -1}
                     onClick={() => selectTab('personal')}
                     onKeyDown={(e) => {
-                        if (e.key === 'ArrowRight') {
+                        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
                             e.preventDefault()
                             selectTab('professional')
                         }
@@ -365,7 +365,7 @@ export default function GbysFormV2() {
                     tabIndex={tab === 'professional' ? 0 : -1}
                     onClick={() => selectTab('professional')}
                     onKeyDown={(e) => {
-                        if (e.key === 'ArrowLeft') {
+                        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
                             e.preventDefault()
                             selectTab('personal')
                         }
@@ -407,6 +407,7 @@ export default function GbysFormV2() {
                             >
                                 <input
                                     id="gbys-v2-parent-name"
+                                    name="parent-name"
                                     type="text"
                                     autoComplete="name"
                                     aria-required="true"
@@ -420,6 +421,7 @@ export default function GbysFormV2() {
                             >
                                 <input
                                     id="gbys-v2-secondary-parent"
+                                    name="secondary-parent"
                                     type="text"
                                     autoComplete="off"
                                     className={inputClass}
