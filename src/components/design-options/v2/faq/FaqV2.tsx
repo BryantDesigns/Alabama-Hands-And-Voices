@@ -140,7 +140,7 @@ export default function FaqV2({ heading, introCopy, faqs }: FaqV2Props) {
                         </p>
                         <div className="mt-7">
                             <a
-                                href="/contact"
+                                href="/design-options/v2/about/contact"
                                 className="inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                             >
                                 Contact Us

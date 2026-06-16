@@ -66,11 +66,9 @@ export default function FaqV3({ heading, introCopy, faqs }: FaqV3Props) {
 
                         {/* h1 */}
                         <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight text-white md:text-7xl">
-                            {heading.split(' ').slice(0, 2).join(' ')}
-                            <br />
-                            <span className="text-hvorange">
-                                {heading.split(' ').slice(2).join(' ') ||
-                                    'Answered.'}
+                            {heading}
+                            <span aria-hidden="true" className="text-hvorange">
+                                .
                             </span>
                         </h1>
 
@@ -155,7 +153,7 @@ export default function FaqV3({ heading, introCopy, faqs }: FaqV3Props) {
                         {/* CTA — blue button on orange ✓ */}
                         <div>
                             <a
-                                href="/contact"
+                                href="/design-options/v3/about/contact"
                                 className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl bg-hvblue px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange whitespace-nowrap"
                             >
                                 Contact Us

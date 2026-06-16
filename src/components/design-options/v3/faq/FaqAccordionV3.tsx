@@ -62,7 +62,7 @@ export default function FaqAccordionV3({ faqs }: { faqs: Faq[] }) {
                                 aria-expanded={isOpen}
                                 aria-controls={panelId}
                                 onClick={() => handleToggle(index)}
-                                className={`flex w-full cursor-pointer items-center justify-between gap-6 px-6 py-5 text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 min-h-[44px] ${
+                                className={`group flex w-full cursor-pointer items-center justify-between gap-6 px-6 py-5 text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 min-h-[44px] ${
                                     isOpen ? 'text-white' : 'text-hvblue'
                                 }`}
                             >
@@ -92,7 +92,7 @@ export default function FaqAccordionV3({ faqs }: { faqs: Faq[] }) {
                             role="region"
                             aria-labelledby={buttonId}
                             hidden={!isOpen}
-                            className={`px-6 pb-6 ${isOpen ? 'pt-0' : ''}`}
+                            className="px-6 pb-6"
                         >
                             <div
                                 aria-hidden="true"
