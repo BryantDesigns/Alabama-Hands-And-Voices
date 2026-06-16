@@ -33,7 +33,7 @@ export default function MockFormV2({
                 <button
                     type="button"
                     onClick={() => setSubmitted(false)}
-                    className="mt-6 inline-flex min-h-[44px] items-center rounded-full border-2 border-hvblue px-6 py-2 font-semibold text-hvblue transition hover:bg-hvblue hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                    className="mt-6 inline-flex min-h-[44px] items-center rounded-full border-2 border-hvblue px-6 py-2 font-semibold text-hvblue transition hover:bg-hvblue hover:text-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                 >
                     Reset preview
                 </button>
@@ -54,7 +54,7 @@ export default function MockFormV2({
             <div className="mt-8 flex flex-col items-center gap-2">
                 <button
                     type="submit"
-                    className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-hvorange-600 px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                    className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-hvorange-600 px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                 >
                     {submitLabel}
                 </button>

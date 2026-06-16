@@ -6,6 +6,15 @@ interface ContactV3Props {
     contact: NonNullable<Awaited<ReturnType<typeof getContactPageContent>>>
 }
 
+// ── Helpers ───────────────────────────────────────────────────────────────────
+
+function toParagraphs(body: string): string[] {
+    return body
+        .split(/\n\s*\n/)
+        .map((p) => p.trim())
+        .filter(Boolean)
+}
+
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
 
 function EnvelopeIcon({ className = '' }: { className?: string }) {
@@ -111,25 +120,31 @@ export default function ContactV3({ contact }: ContactV3Props) {
                             </span>
                         </h1>
 
-                        <p className="mt-7 max-w-xl text-lg font-medium leading-relaxed text-white/90 md:text-xl">
-                            {body}
-                        </p>
+                        <div className="mt-7 max-w-xl space-y-4 text-lg font-medium leading-relaxed text-white/90 md:text-xl">
+                            {toParagraphs(body).map((paragraph, i) => (
+                                <p key={i}>{paragraph}</p>
+                            ))}
+                        </div>
 
                         <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-                            <a
-                                href={`mailto:${email}`}
-                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
-                            >
-                                <EnvelopeIcon className="h-5 w-5" />
-                                Email Us
-                            </a>
-                            <a
-                                href={`tel:${phone.replace(/\D/g, '')}`}
-                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/60 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
-                            >
-                                <PhoneIcon className="h-5 w-5" />
-                                {phone}
-                            </a>
+                            {email && (
+                                <a
+                                    href={`mailto:${email}`}
+                                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                >
+                                    <EnvelopeIcon className="h-5 w-5" />
+                                    Email Us
+                                </a>
+                            )}
+                            {phone && (
+                                <a
+                                    href={`tel:${phone.replace(/\D/g, '')}`}
+                                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/60 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                >
+                                    <PhoneIcon className="h-5 w-5" />
+                                    {phone}
+                                </a>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -142,28 +157,30 @@ export default function ContactV3({ contact }: ContactV3Props) {
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
                         {/* Photo with geometric offset block */}
-                        <div className="relative">
-                            <div
-                                aria-hidden="true"
-                                className="absolute -bottom-5 -left-5 hidden h-full w-full rounded-3xl bg-hvblue lg:block"
-                            />
-                            <div className="relative overflow-hidden rounded-3xl shadow-xl ring-1 ring-slate-200">
-                                <Image
-                                    src={image}
-                                    alt="Alabama Hands & Voices team member ready to welcome and support families"
-                                    width={720}
-                                    height={560}
-                                    priority
-                                    sizes="(max-width: 1024px) 100vw, 45vw"
-                                    className="h-full w-full object-cover"
-                                />
-                                {/* Orange corner badge */}
-                                <span
+                        {image && (
+                            <div className="relative">
+                                <div
                                     aria-hidden="true"
-                                    className="absolute right-4 top-4 h-12 w-12 rounded-2xl bg-hvorange-600"
+                                    className="absolute -bottom-5 -left-5 hidden h-full w-full rounded-3xl bg-hvblue lg:block"
                                 />
+                                <div className="relative overflow-hidden rounded-3xl shadow-xl ring-1 ring-slate-200">
+                                    <Image
+                                        src={image}
+                                        alt="Alabama Hands & Voices team member ready to welcome and support families"
+                                        width={720}
+                                        height={560}
+                                        priority
+                                        sizes="(max-width: 1024px) 100vw, 45vw"
+                                        className="h-full w-full object-cover"
+                                    />
+                                    {/* Orange corner badge */}
+                                    <span
+                                        aria-hidden="true"
+                                        className="absolute right-4 top-4 h-12 w-12 rounded-2xl bg-hvorange-600"
+                                    />
+                                </div>
                             </div>
-                        </div>
+                        )}
 
                         {/* Info cards */}
                         <div>
@@ -181,43 +198,47 @@ export default function ContactV3({ contact }: ContactV3Props) {
 
                             <div className="mt-8 grid gap-4 sm:grid-cols-2">
                                 {/* Email card */}
-                                <div className="rounded-3xl bg-hvblue p-6 text-white ring-1 ring-hvblue">
-                                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-hvorange-600">
-                                        <EnvelopeIcon className="h-6 w-6 text-white" />
+                                {email && (
+                                    <div className="rounded-3xl bg-hvblue p-6 text-white ring-1 ring-hvblue">
+                                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-hvorange-600">
+                                            <EnvelopeIcon className="h-6 w-6 text-white" />
+                                        </div>
+                                        <p className="mt-4 text-xs font-bold uppercase tracking-widest text-white/60">
+                                            Email
+                                        </p>
+                                        <a
+                                            href={`mailto:${email}`}
+                                            className="mt-1 block text-base font-bold text-white underline-offset-4 transition hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                        >
+                                            {email}
+                                        </a>
                                     </div>
-                                    <p className="mt-4 text-xs font-bold uppercase tracking-widest text-white/60">
-                                        Email
-                                    </p>
-                                    <a
-                                        href={`mailto:${email}`}
-                                        className="mt-1 block text-base font-bold text-white underline-offset-4 transition hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
-                                    >
-                                        {email}
-                                    </a>
-                                </div>
+                                )}
 
                                 {/* Phone card */}
-                                <div className="rounded-3xl bg-hvorange p-6 text-hvblue ring-1 ring-hvorange">
-                                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-hvblue">
-                                        <PhoneIcon className="h-6 w-6 text-white" />
+                                {phone && (
+                                    <div className="rounded-3xl bg-hvorange p-6 text-hvblue ring-1 ring-hvorange">
+                                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-hvblue">
+                                            <PhoneIcon className="h-6 w-6 text-white" />
+                                        </div>
+                                        <p className="mt-4 text-xs font-bold uppercase tracking-widest text-hvblue/60">
+                                            Phone
+                                        </p>
+                                        <a
+                                            href={`tel:${phone.replace(/\D/g, '')}`}
+                                            className="mt-1 block text-base font-bold text-hvblue underline-offset-4 transition hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange"
+                                        >
+                                            {phone}
+                                        </a>
                                     </div>
-                                    <p className="mt-4 text-xs font-bold uppercase tracking-widest text-hvblue/60">
-                                        Phone
-                                    </p>
-                                    <a
-                                        href={`tel:${phone.replace(/\D/g, '')}`}
-                                        className="mt-1 block text-base font-bold text-hvblue underline-offset-4 transition hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange"
-                                    >
-                                        {phone}
-                                    </a>
-                                </div>
+                                )}
                             </div>
 
                             <p className="mt-8 text-base font-medium leading-relaxed text-slate-700">
                                 Looking for family support?{' '}
                                 <Link
                                     href="/design-options/v3/programs/gbys"
-                                    className="font-bold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                    className="font-bold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                 >
                                     Learn about our GBYS program
                                 </Link>{' '}
@@ -266,7 +287,7 @@ export default function ContactV3({ contact }: ContactV3Props) {
                         <div className="flex flex-col gap-4 lg:justify-self-end">
                             <Link
                                 href="/design-options/v3/programs/gbys"
-                                className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl bg-hvblue px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange lg:w-auto"
+                                className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl bg-hvblue px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange lg:w-auto"
                             >
                                 Learn About GBYS
                                 <ArrowIcon className="h-5 w-5" />

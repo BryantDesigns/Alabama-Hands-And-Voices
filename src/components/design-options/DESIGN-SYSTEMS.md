@@ -35,7 +35,7 @@ Follow these exactly:
 
 ### Accessibility (both)
 
-- Focus rings on every interactive element: `focus-visible:outline-none
+- Focus rings on every interactive element: `focus-visible:outline-hidden
   focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2`.
 - Body text ≥16px (`text-base`+). Line-height 1.5–1.75 (`leading-relaxed` for prose).
 - Sequential headings (one `h1` per page, then `h2`→`h3`). Don't skip levels.
@@ -77,7 +77,7 @@ Follow these exactly:
   Color is never the sole signal — pair the asterisk with the word "required" in a
   visually-hidden span if needed.
 - **Focus rings:** all inputs, selects, textareas, checkboxes, and radios share the
-  standard ring: `focus-visible:outline-none focus-visible:ring-2
+  standard ring: `focus-visible:outline-hidden focus-visible:ring-2
   focus-visible:ring-hvorange-600 focus-visible:ring-offset-2`.
 - **Touch targets:** text inputs and selects must be ≥44px tall (use `py-3` + `text-base`
   to hit this comfortably). Checkbox and radio click areas must also be ≥44px — pad the

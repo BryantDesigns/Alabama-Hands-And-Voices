@@ -6,6 +6,15 @@ interface ContactV2Props {
     contact: NonNullable<Awaited<ReturnType<typeof getContactPageContent>>>
 }
 
+// ── Helpers ───────────────────────────────────────────────────────────────────
+
+function toParagraphs(body: string): string[] {
+    return body
+        .split(/\n\s*\n/)
+        .map((p) => p.trim())
+        .filter(Boolean)
+}
+
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
 
 function LeafMark({ className = '' }: { className?: string }) {
@@ -122,9 +131,11 @@ export default function ContactV2({ contact }: ContactV2Props) {
                             We&rsquo;re just a message away.
                         </p>
 
-                        <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-700 md:text-lg">
-                            {body}
-                        </p>
+                        <div className="mx-auto mt-6 max-w-2xl space-y-4 text-base leading-relaxed text-slate-700 md:text-lg">
+                            {toParagraphs(body).map((paragraph, i) => (
+                                <p key={i}>{paragraph}</p>
+                            ))}
+                        </div>
                     </div>
                 </div>
 
@@ -141,23 +152,25 @@ export default function ContactV2({ contact }: ContactV2Props) {
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
                         {/* Photo with offset accent frame */}
-                        <div className="relative">
-                            <div
-                                aria-hidden="true"
-                                className="absolute -bottom-4 -left-4 hidden h-full w-full rounded-2xl border-2 border-hvorange-200 lg:block"
-                            />
-                            <div className="relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-slate-200/70">
-                                <Image
-                                    src={image}
-                                    alt="Alabama Hands & Voices staff member ready to assist families"
-                                    width={720}
-                                    height={560}
-                                    priority
-                                    sizes="(max-width: 1024px) 100vw, 45vw"
-                                    className="h-full w-full object-cover"
+                        {image && (
+                            <div className="relative">
+                                <div
+                                    aria-hidden="true"
+                                    className="absolute -bottom-4 -left-4 hidden h-full w-full rounded-2xl border-2 border-hvorange-200 lg:block"
                                 />
+                                <div className="relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-slate-200/70">
+                                    <Image
+                                        src={image}
+                                        alt="Alabama Hands & Voices staff member ready to assist families"
+                                        width={720}
+                                        height={560}
+                                        priority
+                                        sizes="(max-width: 1024px) 100vw, 45vw"
+                                        className="h-full w-full object-cover"
+                                    />
+                                </div>
                             </div>
-                        </div>
+                        )}
 
                         {/* Contact details */}
                         <div>
@@ -174,47 +187,51 @@ export default function ContactV2({ contact }: ContactV2Props) {
 
                             <div className="mt-8 space-y-5">
                                 {/* Email */}
-                                <div className="flex items-start gap-4 rounded-2xl bg-hvorange-50 p-5">
-                                    <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-slate-200/70">
-                                        <EnvelopeIcon className="h-5 w-5 text-hvorange-700" />
-                                    </span>
-                                    <div>
-                                        <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                                            Email
-                                        </p>
-                                        <a
-                                            href={`mailto:${email}`}
-                                            className="mt-1 block text-base font-semibold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
-                                        >
-                                            {email}
-                                        </a>
+                                {email && (
+                                    <div className="flex items-start gap-4 rounded-2xl bg-hvorange-50 p-5">
+                                        <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-slate-200/70">
+                                            <EnvelopeIcon className="h-5 w-5 text-hvorange-700" />
+                                        </span>
+                                        <div>
+                                            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                                                Email
+                                            </p>
+                                            <a
+                                                href={`mailto:${email}`}
+                                                className="mt-1 block text-base font-semibold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                            >
+                                                {email}
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
+                                )}
 
                                 {/* Phone */}
-                                <div className="flex items-start gap-4 rounded-2xl bg-slate-50 p-5">
-                                    <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-slate-200/70">
-                                        <PhoneIcon className="h-5 w-5 text-hvorange-700" />
-                                    </span>
-                                    <div>
-                                        <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                                            Phone
-                                        </p>
-                                        <a
-                                            href={`tel:${phone.replace(/\D/g, '')}`}
-                                            className="mt-1 block text-base font-semibold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
-                                        >
-                                            {phone}
-                                        </a>
+                                {phone && (
+                                    <div className="flex items-start gap-4 rounded-2xl bg-slate-50 p-5">
+                                        <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-slate-200/70">
+                                            <PhoneIcon className="h-5 w-5 text-hvorange-700" />
+                                        </span>
+                                        <div>
+                                            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                                                Phone
+                                            </p>
+                                            <a
+                                                href={`tel:${phone.replace(/\D/g, '')}`}
+                                                className="mt-1 block text-base font-semibold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                            >
+                                                {phone}
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
+                                )}
                             </div>
 
                             <p className="mt-8 text-base leading-relaxed text-slate-700">
                                 Looking for family support?{' '}
                                 <Link
                                     href="/design-options/v2/programs/gbys"
-                                    className="font-semibold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                    className="font-semibold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                 >
                                     Visit our Guide By Your Side (GBYS) page
                                 </Link>{' '}
@@ -262,7 +279,7 @@ export default function ContactV2({ contact }: ContactV2Props) {
                             <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
                                 <Link
                                     href="/design-options/v2/programs/gbys"
-                                    className="inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-8 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hvorange-300 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="inline-flex items-center gap-2 rounded-full bg-hvorange-600 px-8 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-300 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                 >
                                     Learn About GBYS
                                     <ArrowIcon className="h-4 w-4" />
