@@ -1,25 +1,101 @@
+import { Fragment } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const pages = [
+interface PageLink {
+    label: string
+    v2: string
+    v3: string
+}
+
+interface PageGroup extends PageLink {
+    children?: PageLink[]
+}
+
+const groups: PageGroup[] = [
     { label: 'Home', v2: '/design-options/v2', v3: '/design-options/v3' },
-    { label: 'About', v2: '/design-options/v2/about', v3: '/design-options/v3/about' },
+    {
+        label: 'About',
+        v2: '/design-options/v2/about',
+        v3: '/design-options/v3/about',
+        children: [
+            {
+                label: 'Contact',
+                v2: '/design-options/v2/about/contact',
+                v3: '/design-options/v3/about/contact',
+            },
+        ],
+    },
     {
         label: 'Membership',
         v2: '/design-options/v2/membership',
         v3: '/design-options/v3/membership',
+        children: [
+            {
+                label: 'Choose Membership',
+                v2: '/design-options/v2/membership/choose-membership',
+                v3: '/design-options/v3/membership/choose-membership',
+            },
+        ],
     },
     {
         label: 'Programs',
         v2: '/design-options/v2/programs',
         v3: '/design-options/v3/programs',
+        children: [
+            {
+                label: 'GBYS',
+                v2: '/design-options/v2/programs/gbys',
+                v3: '/design-options/v3/programs/gbys',
+            },
+            {
+                label: 'ASTra',
+                v2: '/design-options/v2/programs/astra',
+                v3: '/design-options/v3/programs/astra',
+            },
+            {
+                label: 'D/HH Committee',
+                v2: '/design-options/v2/programs/dhh-committee',
+                v3: '/design-options/v3/programs/dhh-committee',
+            },
+        ],
     },
+    { label: 'FAQ', v2: '/design-options/v2/faq', v3: '/design-options/v3/faq' },
     {
         label: 'Resources',
         v2: '/design-options/v2/resources',
         v3: '/design-options/v3/resources',
     },
 ]
+
+const matrixLinkClass =
+    'inline-flex min-h-[44px] items-center text-sm font-semibold text-hvorange-700 underline-offset-4 hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2'
+
+function MatrixRow({ link, isChild = false }: { link: PageLink; isChild?: boolean }) {
+    return (
+        <tr className="transition-colors hover:bg-slate-50">
+            <td
+                className={
+                    isChild
+                        ? 'py-3 pl-12 pr-6 text-sm text-slate-600'
+                        : 'px-6 py-3 text-sm font-medium text-hvblue'
+                }
+            >
+                {link.label}
+            </td>
+            <td className="px-6 py-1">
+                <Link href={link.v2} className={matrixLinkClass}>
+                    v2 → {link.label}
+                </Link>
+            </td>
+            <td className="px-6 py-1">
+                <Link href={link.v3} className={matrixLinkClass}>
+                    v3 → {link.label}
+                </Link>
+            </td>
+        </tr>
+    )
+}
 
 export default function ShowcaseIndex() {
     return (
@@ -177,31 +253,17 @@ export default function ShowcaseIndex() {
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-slate-100">
-                                {pages.map((page) => (
-                                    <tr
-                                        key={page.label}
-                                        className="transition-colors hover:bg-slate-50"
-                                    >
-                                        <td className="px-6 py-3 text-sm font-medium text-hvblue">
-                                            {page.label}
-                                        </td>
-                                        <td className="px-6 py-1">
-                                            <Link
-                                                href={page.v2}
-                                                className="inline-flex min-h-[44px] items-center text-sm font-semibold text-hvorange-700 underline-offset-4 hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
-                                            >
-                                                v2 → {page.label}
-                                            </Link>
-                                        </td>
-                                        <td className="px-6 py-1">
-                                            <Link
-                                                href={page.v3}
-                                                className="inline-flex min-h-[44px] items-center text-sm font-semibold text-hvorange-700 underline-offset-4 hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
-                                            >
-                                                v3 → {page.label}
-                                            </Link>
-                                        </td>
-                                    </tr>
+                                {groups.map((group) => (
+                                    <Fragment key={group.label}>
+                                        <MatrixRow link={group} />
+                                        {group.children?.map((child) => (
+                                            <MatrixRow
+                                                key={child.label}
+                                                link={child}
+                                                isChild
+                                            />
+                                        ))}
+                                    </Fragment>
                                 ))}
                             </tbody>
                         </table>
