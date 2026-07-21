@@ -276,6 +276,8 @@ export default config({
           }
         ),
         enrollmentNote: fields.text({ label: 'Enrollment Note', multiline: true }),
+        flyerEnglishUrl: fields.text({ label: 'English Flyer URL' }),
+        flyerSpanishUrl: fields.text({ label: 'Spanish Flyer URL' }),
       },
     }),
 

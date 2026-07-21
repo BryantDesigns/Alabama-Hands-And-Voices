@@ -1,11 +1,13 @@
 programIntro: >-
-  The Guide By Your Side (GBYS) program connects families of children who are
-  deaf or hard of hearing with trained Parent Guides who have walked a similar
-  path.
+    The Guide By Your Side (GBYS) program connects families of children who are
+    deaf or hard of hearing with trained Parent Guides who have walked a similar
+    path.
 services:
-  - service: Connection to local, state, and national resources for hearing loss
-  - service: Regional social events, family connections, and workshops
-  - service: Support for Spanish-speaking families and families with unique hearing needs
-  - service: Advocacy through Early Intervention, school transitions, and IEP/IFSP development
-  - service: One-on-one parent support tailored to your family's journey
-enrollmentNote: "Thanks to generous donors, this program is free of charge."
+    - service: Connection to local, state, and national resources for hearing loss
+    - service: Regional social events, family connections, and workshops
+    - service: Support for Spanish-speaking families and families with unique hearing needs
+    - service: Advocacy through Early Intervention, school transitions, and IEP/IFSP development
+    - service: One-on-one parent support tailored to your family's journey
+enrollmentNote: 'Thanks to generous donors, this program is free of charge.'
+flyerEnglishUrl: /assets/documents/GBYS-English.pdf
+flyerSpanishUrl: /assets/documents/GBYS-Spanish.pdf
