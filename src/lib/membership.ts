@@ -18,3 +18,8 @@ export const membershipTiers = [
         paypalButtonId: 'TN95YMB8QNGZN',
     },
 ] as const
+
+export const PAYPAL_CGI_URL = 'https://www.paypal.com/cgi-bin/webscr'
+
+// Sitewide "Donate" hosted button — carried over from the original site footer
+export const donateButtonId = 'R99Y9497TS2SW'

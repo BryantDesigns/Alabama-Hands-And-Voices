@@ -2,7 +2,6 @@ import Footer from '@/components/layout/Footer'
 import Header from '@/components/layout/Header'
 import { getNavigation, getSiteSettings } from '@/lib/keystatic/pages'
 import { SITE_URL } from '@/lib/seo'
-import HeaderBackup from '@/components/layout/HeaderBackup'
 
 export default async function PagesLayout({
     children,
@@ -33,12 +32,14 @@ export default async function PagesLayout({
             >
                 Skip to main content
             </a>
-            <HeaderBackup />
-            <Header />
+            <Header
+                navigation={navigation}
+                facebookUrl={settings.facebookUrl}
+            />
             <div id="main-content" tabIndex={-1}>
                 {children}
             </div>
-            <Footer />
+            <Footer navigation={navigation} settings={settings} />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{

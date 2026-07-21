@@ -1,24 +1,75 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
-import Link from 'next/link'
+import {
+    Disclosure,
+    DisclosureButton,
+    DisclosurePanel,
+    Popover,
+    PopoverButton,
+    PopoverGroup,
+    PopoverPanel,
+} from '@headlessui/react'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import Image from 'next/image'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useEffect, useRef, useState } from 'react'
+import type { NavigationContent } from '@/types/cms'
 
-const navLinks = [
-    { label: 'Home', href: '/' },
-    { label: 'About', href: '/about' },
-    { label: 'Membership', href: '/membership' },
-    { label: 'Programs', href: '/programs' },
-    { label: 'Resources', href: '/resources' },
+const aboutLinks = (nav: NavigationContent) => [
+    { ...nav.about.whoWeAre, href: '/about' },
+    { ...nav.about.boardMembers, href: '/about/board' },
+    { ...nav.about.staff, href: '/about/staff' },
+    { ...nav.about.contact, href: '/about/contact' },
 ]
 
-export default function Header() {
+const programLinks = (nav: NavigationContent) => [
+    { ...nav.programs.gbys, href: '/programs/gbys' },
+    { ...nav.programs.astra, href: '/programs/astra' },
+    { ...nav.programs.safety, href: '/programs/safety' },
+    { ...nav.programs.dhhCommittee, href: '/programs/dhh-committee' },
+]
+
+const plainLinks = [
+    { label: 'Resources', href: '/resources' },
+    { label: 'Membership', href: '/membership' },
+    { label: 'FAQ', href: '/faq' },
+]
+
+function FacebookIcon() {
+    return (
+        <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="h-5 w-5"
+        >
+            <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.435H7.078v-3.492h3.047V9.414c0-3.027 1.792-4.7 4.533-4.7 1.312 0 2.686.236 2.686.236v2.974h-1.513c-1.49 0-1.956.931-1.956 1.887v2.262h3.328l-.532 3.492h-2.796V24C19.612 23.094 24 18.1 24 12.073Z" />
+        </svg>
+    )
+}
+
+export default function Header({
+    navigation,
+    facebookUrl,
+}: {
+    navigation: NavigationContent
+    facebookUrl: string
+}) {
     const [menuOpen, setMenuOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
     const pathname = usePathname()
     const menuRef = useRef<HTMLDivElement>(null)
     const toggleRef = useRef<HTMLButtonElement>(null)
+    const about = aboutLinks(navigation)
+    const programs = [
+        {
+            title: 'All Programs',
+            description: 'Overview of everything we offer.',
+            href: '/programs',
+        },
+        ...programLinks(navigation),
+    ]
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 4)
@@ -26,18 +77,14 @@ export default function Header() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    // Close menu when pathname changes — driven by the Link onClick handlers
-    // (closeMenu is called directly in each mobile Link, so no effect needed here)
-
-    // Close on outside click
     useEffect(() => {
         if (!menuOpen) return
-        const handleClick = (e: MouseEvent) => {
+        const handleClick = (event: MouseEvent) => {
             if (
                 menuRef.current &&
-                !menuRef.current.contains(e.target as Node) &&
+                !menuRef.current.contains(event.target as Node) &&
                 toggleRef.current &&
-                !toggleRef.current.contains(e.target as Node)
+                !toggleRef.current.contains(event.target as Node)
             ) {
                 setMenuOpen(false)
             }
@@ -52,6 +99,34 @@ export default function Header() {
         if (href === '/') return pathname === href
         return pathname.startsWith(href)
     }
+
+    const desktopLinkClasses = (active: boolean) =>
+        `relative flex h-20 items-center px-4 text-sm font-bold uppercase tracking-wide transition-colors duration-150 focus-visible:outline-hidden focus-visible:inset-ring-2 focus-visible:inset-ring-hvorange-600 lg:px-5 lg:text-base ${
+            active ? 'text-hvblue' : 'text-slate-500 hover:text-hvblue'
+        }`
+
+    const activeIndicator = (active: boolean) => (
+        <span
+            aria-hidden="true"
+            className={`absolute inset-x-4 bottom-0 h-[3px] rounded-t-full bg-hvorange-600 transition-transform duration-200 lg:inset-x-5 ${
+                active ? 'scale-x-100' : 'scale-x-0'
+            }`}
+        />
+    )
+
+    const mobileLinkClasses = (active: boolean) =>
+        `flex min-h-[52px] w-full items-center gap-3 border-b border-slate-100 text-base font-bold uppercase tracking-wide transition-colors duration-150 focus-visible:outline-hidden focus-visible:inset-ring-2 focus-visible:inset-ring-hvorange-600 ${
+            active ? 'text-hvblue' : 'text-slate-500 hover:text-hvblue'
+        }`
+
+    const mobileActiveIndicator = (active: boolean) => (
+        <span
+            aria-hidden="true"
+            className={`h-2 w-2 shrink-0 rounded-sm transition-colors duration-150 ${
+                active ? 'bg-hvorange-600' : 'bg-transparent'
+            }`}
+        />
+    )
 
     return (
         <>
@@ -93,41 +168,122 @@ export default function Header() {
                         </Link>
 
                         {/* ── Desktop nav ── */}
-                        <div className="hidden items-center gap-0 md:flex">
-                            {navLinks.map((link) => {
+                        <PopoverGroup className="hidden items-center gap-0 md:flex">
+                            <Link href="/" className={desktopLinkClasses(isActive('/'))}>
+                                Home
+                                {activeIndicator(isActive('/'))}
+                            </Link>
+
+                            <Popover className="relative">
+                                {({ close }) => (
+                                    <>
+                                        <PopoverButton
+                                            className={desktopLinkClasses(
+                                                isActive('/about')
+                                            )}
+                                        >
+                                            About
+                                            <ChevronDownIcon
+                                                aria-hidden="true"
+                                                className="ml-1 h-4 w-4 shrink-0"
+                                            />
+                                            {activeIndicator(
+                                                isActive('/about')
+                                            )}
+                                        </PopoverButton>
+                                        <PopoverPanel className="absolute left-0 top-full z-50 mt-3 w-96 rounded-3xl bg-white p-4 shadow-lg ring-1 ring-slate-200">
+                                            {about.map((item) => (
+                                                <div
+                                                    key={item.href}
+                                                    className="rounded-xl p-4 hover:bg-slate-50"
+                                                >
+                                                    <Link
+                                                        href={item.href}
+                                                        onClick={() => close()}
+                                                        className="block text-sm font-bold text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                                    >
+                                                        {item.title}
+                                                    </Link>
+                                                    <p className="mt-1 text-sm text-slate-500">
+                                                        {item.description}
+                                                    </p>
+                                                </div>
+                                            ))}
+                                        </PopoverPanel>
+                                    </>
+                                )}
+                            </Popover>
+
+                            <Popover className="relative">
+                                {({ close }) => (
+                                    <>
+                                        <PopoverButton
+                                            className={desktopLinkClasses(
+                                                isActive('/programs')
+                                            )}
+                                        >
+                                            Programs
+                                            <ChevronDownIcon
+                                                aria-hidden="true"
+                                                className="ml-1 h-4 w-4 shrink-0"
+                                            />
+                                            {activeIndicator(
+                                                isActive('/programs')
+                                            )}
+                                        </PopoverButton>
+                                        <PopoverPanel className="absolute left-0 top-full z-50 mt-3 w-96 rounded-3xl bg-white p-4 shadow-lg ring-1 ring-slate-200">
+                                            {programs.map((item) => (
+                                                <div
+                                                    key={item.href}
+                                                    className="rounded-xl p-4 hover:bg-slate-50"
+                                                >
+                                                    <Link
+                                                        href={item.href}
+                                                        onClick={() => close()}
+                                                        className="block text-sm font-bold text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                                    >
+                                                        {item.title}
+                                                    </Link>
+                                                    <p className="mt-1 text-sm text-slate-500">
+                                                        {item.description}
+                                                    </p>
+                                                </div>
+                                            ))}
+                                        </PopoverPanel>
+                                    </>
+                                )}
+                            </Popover>
+
+                            {plainLinks.map((link) => {
                                 const active = isActive(link.href)
                                 return (
                                     <Link
                                         key={link.href}
                                         href={link.href}
-                                        className={`relative flex h-20 items-center px-4 text-sm font-bold uppercase tracking-wide transition-colors duration-150 focus-visible:outline-hidden focus-visible:inset-ring-2 focus-visible:inset-ring-hvorange-600 lg:px-5 lg:text-base ${
-                                            active
-                                                ? 'text-hvblue'
-                                                : 'text-slate-500 hover:text-hvblue'
-                                        }`}
+                                        className={desktopLinkClasses(active)}
                                     >
                                         {link.label}
-                                        {/* Active indicator: bottom border bar */}
-                                        <span
-                                            aria-hidden="true"
-                                            className={`absolute inset-x-4 bottom-0 h-[3px] rounded-t-full bg-hvorange-600 transition-transform duration-200 lg:inset-x-5 ${
-                                                active
-                                                    ? 'scale-x-100'
-                                                    : 'scale-x-0'
-                                            }`}
-                                        />
+                                        {activeIndicator(active)}
                                     </Link>
                                 )
                             })}
-                        </div>
+                        </PopoverGroup>
 
                         {/* ── Desktop CTA ── */}
                         <div className="hidden items-center gap-3 md:flex">
+                            <a
+                                href={facebookUrl}
+                                aria-label="Alabama Hands & Voices on Facebook"
+                                target="_blank"
+                                rel="noopener"
+                                className="flex h-11 w-11 items-center justify-center rounded-xl text-slate-500 transition-colors duration-150 hover:bg-hvblue/5 hover:text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                            >
+                                <FacebookIcon />
+                            </a>
                             <Link
                                 href="/membership"
                                 className="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-hvblue px-6 py-2.5 text-sm font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 lg:px-7 lg:py-3 lg:text-base"
                             >
-                                {/* Arrow icon — forward/action */}
                                 <svg
                                     aria-hidden="true"
                                     className="h-4 w-4 shrink-0"
@@ -153,8 +309,8 @@ export default function Header() {
                             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
                             aria-expanded={menuOpen}
                             aria-controls="v3-mobile-menu"
-                            onClick={() => setMenuOpen((prev) => !prev)}
-                            className="flex h-11 w-11 items-center justify-center rounded-xl text-hvblue transition-colors duration-150 hover:bg-hvblue/5 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 md:hidden"
+                            onClick={() => setMenuOpen((previous) => !previous)}
+                            className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-xl text-hvblue transition-colors duration-150 hover:bg-hvblue/5 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 md:hidden"
                         >
                             <span aria-hidden="true" className="block">
                                 {menuOpen ? (
@@ -203,7 +359,7 @@ export default function Header() {
                     role="dialog"
                     aria-modal="true"
                     aria-label="Navigation menu"
-                    className="fixed inset-x-0 top-[calc(4rem+6px)] z-30 border-b-2 border-slate-100 bg-white md:hidden"
+                    className="fixed inset-x-0 top-[calc(4rem+6px)] z-30 max-h-[calc(100vh-4rem-6px)] overflow-y-auto border-b-2 border-slate-100 bg-white md:hidden"
                 >
                     {/* Orange left-edge accent carries through to mobile panel */}
                     <div
@@ -216,28 +372,109 @@ export default function Header() {
                         className="mx-auto max-w-7xl px-6 py-4"
                     >
                         <ul className="space-y-0" role="list">
-                            {navLinks.map((link) => {
+                            <li>
+                                <Link
+                                    href="/"
+                                    onClick={closeMenu}
+                                    className={mobileLinkClasses(isActive('/'))}
+                                >
+                                    {mobileActiveIndicator(isActive('/'))}
+                                    Home
+                                </Link>
+                            </li>
+
+                            <li>
+                                <Disclosure>
+                                    {({ open }) => (
+                                        <>
+                                            <DisclosureButton
+                                                className={`${mobileLinkClasses(
+                                                    isActive('/about')
+                                                )} cursor-pointer justify-between`}
+                                            >
+                                                <span className="flex items-center gap-3">
+                                                    {mobileActiveIndicator(
+                                                        isActive('/about')
+                                                    )}
+                                                    About
+                                                </span>
+                                                <ChevronDownIcon
+                                                    aria-hidden="true"
+                                                    className={`h-5 w-5 shrink-0 transition-transform duration-150 ${
+                                                        open
+                                                            ? 'rotate-180'
+                                                            : 'rotate-0'
+                                                    }`}
+                                                />
+                                            </DisclosureButton>
+                                            <DisclosurePanel className="border-b border-slate-100 py-2 pl-5">
+                                                {about.map((item) => (
+                                                    <Link
+                                                        key={item.href}
+                                                        href={item.href}
+                                                        onClick={closeMenu}
+                                                        className="flex min-h-[44px] items-center text-sm font-bold text-slate-600 transition-colors hover:text-hvblue focus-visible:outline-hidden focus-visible:inset-ring-2 focus-visible:inset-ring-hvorange-600"
+                                                    >
+                                                        {item.title}
+                                                    </Link>
+                                                ))}
+                                            </DisclosurePanel>
+                                        </>
+                                    )}
+                                </Disclosure>
+                            </li>
+
+                            <li>
+                                <Disclosure>
+                                    {({ open }) => (
+                                        <>
+                                            <DisclosureButton
+                                                className={`${mobileLinkClasses(
+                                                    isActive('/programs')
+                                                )} cursor-pointer justify-between`}
+                                            >
+                                                <span className="flex items-center gap-3">
+                                                    {mobileActiveIndicator(
+                                                        isActive('/programs')
+                                                    )}
+                                                    Programs
+                                                </span>
+                                                <ChevronDownIcon
+                                                    aria-hidden="true"
+                                                    className={`h-5 w-5 shrink-0 transition-transform duration-150 ${
+                                                        open
+                                                            ? 'rotate-180'
+                                                            : 'rotate-0'
+                                                    }`}
+                                                />
+                                            </DisclosureButton>
+                                            <DisclosurePanel className="border-b border-slate-100 py-2 pl-5">
+                                                {programs.map((item) => (
+                                                    <Link
+                                                        key={item.href}
+                                                        href={item.href}
+                                                        onClick={closeMenu}
+                                                        className="flex min-h-[44px] items-center text-sm font-bold text-slate-600 transition-colors hover:text-hvblue focus-visible:outline-hidden focus-visible:inset-ring-2 focus-visible:inset-ring-hvorange-600"
+                                                    >
+                                                        {item.title}
+                                                    </Link>
+                                                ))}
+                                            </DisclosurePanel>
+                                        </>
+                                    )}
+                                </Disclosure>
+                            </li>
+
+                            {plainLinks.map((link) => {
                                 const active = isActive(link.href)
                                 return (
                                     <li key={link.href}>
                                         <Link
                                             href={link.href}
                                             onClick={closeMenu}
-                                            className={`flex min-h-[52px] items-center gap-3 border-b border-slate-100 text-base font-bold uppercase tracking-wide transition-colors duration-150 focus-visible:outline-hidden focus-visible:inset-ring-2 focus-visible:inset-ring-hvorange-600 ${
-                                                active
-                                                    ? 'text-hvblue'
-                                                    : 'text-slate-500 hover:text-hvblue'
-                                            }`}
+                                            className={mobileLinkClasses(active)}
                                         >
-                                            {/* Active: small square bullet */}
-                                            <span
-                                                aria-hidden="true"
-                                                className={`h-2 w-2 shrink-0 rounded-sm transition-colors duration-150 ${
-                                                    active
-                                                        ? 'bg-hvorange-600'
-                                                        : 'bg-transparent'
-                                                }`}
-                                            />
+                                            {mobileActiveIndicator(active)}
                                             {link.label}
                                         </Link>
                                     </li>
@@ -246,7 +483,7 @@ export default function Header() {
                         </ul>
 
                         {/* Mobile CTA — full-width, bold */}
-                        <div className="mt-5 pb-2">
+                        <div className="mt-5 flex flex-col gap-3 pb-2">
                             <Link
                                 href="/membership"
                                 onClick={closeMenu}
@@ -268,6 +505,17 @@ export default function Header() {
                                 </svg>
                                 Donate Now
                             </Link>
+                            <a
+                                href={facebookUrl}
+                                aria-label="Alabama Hands & Voices on Facebook"
+                                target="_blank"
+                                rel="noopener"
+                                onClick={closeMenu}
+                                className="flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl text-base font-bold text-hvblue transition-colors hover:bg-hvblue/5 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                            >
+                                <FacebookIcon />
+                                Facebook
+                            </a>
                         </div>
                     </nav>
                 </div>

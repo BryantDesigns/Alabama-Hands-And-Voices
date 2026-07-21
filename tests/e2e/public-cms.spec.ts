@@ -11,24 +11,23 @@ test('renders fixed navigation and connected global settings', async ({
 
     await page.goto('/')
 
-    await page.getByRole('button', { name: 'About Us' }).click()
-    for (const href of [
-        '/about',
-        '/about/board',
-        '/about/staff',
-        '/about/contact',
-    ]) {
-        await expect(page.locator(`a[href="${href}"]`).first()).toBeAttached()
+    const navigation = page.getByRole('navigation', {
+        name: 'Main navigation',
+    })
+    await navigation.getByRole('button', { name: 'About' }).click()
+    for (const name of ['Who We Are', 'Board Members', 'Staff', 'Contact']) {
+        await expect(navigation.getByRole('link', { name })).toBeVisible()
     }
 
-    await page.getByRole('button', { name: 'Programs' }).click()
-    for (const href of [
-        '/programs/gbys',
-        '/programs/astra',
-        '/programs/safety',
-        '/programs/dhh-committee',
+    await navigation.getByRole('button', { name: 'Programs' }).click()
+    for (const name of [
+        'All Programs',
+        'Guide By Your Side (GBYS)',
+        'Educational Advocacy (ASTra)',
+        "O.U.R. Children's Safety Project",
+        'DHH Committee Members',
     ]) {
-        await expect(page.locator(`a[href="${href}"]`).first()).toBeAttached()
+        await expect(navigation.getByRole('link', { name })).toBeVisible()
     }
 
     await expect(page).toHaveTitle(/Alabama Hands & Voices/)
@@ -36,26 +35,42 @@ test('renders fixed navigation and connected global settings', async ({
         page.locator(
             'a[href="https://www.facebook.com/alabamahandsandvoices/"]'
         )
-    ).toBeAttached()
+    ).toHaveCount(2)
     await expect(page.getByText('alabamahinfo@gmail.com')).toBeVisible()
     await expect(page.getByText('205-677-3136')).toBeVisible()
     await expect(
         page.getByText('P.O. Box 130627, Birmingham, AL 35213')
     ).toBeVisible()
-    await expect(page.getByText('© 2024 Alabama Hands & Voices')).toBeVisible()
+    await expect(
+        page.getByText(
+            `© ${new Date().getFullYear()} Alabama Hands & Voices. All rights reserved.`
+        )
+    ).toBeVisible()
+
+    const footer = page.getByRole('contentinfo')
+    const footerNavigation = footer.getByRole('navigation', {
+        name: 'Footer navigation',
+    })
+    for (const group of ['About', 'Programs', 'Site']) {
+        await expect(
+            footerNavigation.getByRole('heading', { name: group })
+        ).toBeVisible()
+    }
 
     const donationForms = page.locator(
         'form[action="https://www.paypal.com/cgi-bin/webscr"]'
     )
-    await expect(donationForms).toHaveCount(2)
+    await expect(donationForms).toHaveCount(1)
     expect(
         await donationForms
             .locator('input[name="hosted_button_id"]')
             .evaluateAll((inputs) =>
                 inputs.map((input) => (input as HTMLInputElement).value)
             )
-    ).toEqual(['R99Y9497TS2SW', 'R99Y9497TS2SW'])
-    await expect(page.getByRole('button', { name: 'Donate' })).toHaveCount(2)
+    ).toEqual(['R99Y9497TS2SW'])
+    await expect(
+        footer.getByRole('button', { name: 'Donate Now' })
+    ).toBeVisible()
 })
 
 test('renders fixed membership prices and payment IDs', async ({ page }) => {

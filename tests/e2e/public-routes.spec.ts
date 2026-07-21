@@ -59,38 +59,67 @@ test('desktop navigation and footer expose fixed destinations', async ({
     )
 
     await page.goto('/')
-    const navigation = page.getByRole('navigation', { name: 'Global' })
+    const navigation = page.getByRole('navigation', {
+        name: 'Main navigation',
+    })
 
-    await navigation.getByRole('button', { name: 'About Us' }).click()
+    await navigation.getByRole('button', { name: 'About' }).click()
+    for (const name of ['Who We Are', 'Board Members', 'Staff', 'Contact']) {
+        await expect(navigation.getByRole('link', { name })).toBeVisible()
+    }
+
+    await navigation.getByRole('button', { name: 'Programs' }).click()
+    for (const name of [
+        'All Programs',
+        'Guide By Your Side (GBYS)',
+        'Educational Advocacy (ASTra)',
+        "O.U.R. Children's Safety Project",
+        'DHH Committee Members',
+    ]) {
+        await expect(navigation.getByRole('link', { name })).toBeVisible()
+    }
+
+    const footer = page.getByRole('contentinfo')
+    const footerNavigation = footer.getByRole('navigation', {
+        name: 'Footer navigation',
+    })
+    for (const group of ['About', 'Programs', 'Site']) {
+        await expect(
+            footerNavigation.getByRole('heading', { name: group })
+        ).toBeVisible()
+    }
     for (const href of [
+        '/',
         '/about',
         '/about/board',
         '/about/staff',
         '/about/contact',
-    ]) {
-        await expect(page.locator(`a[href="${href}"]`).first()).toBeVisible()
-    }
-
-    await navigation.getByRole('button', { name: 'Programs' }).click()
-    for (const href of [
+        '/programs',
         '/programs/gbys',
         '/programs/astra',
         '/programs/safety',
         '/programs/dhh-committee',
-    ]) {
-        await expect(page.locator(`a[href="${href}"]`).first()).toBeVisible()
-    }
-
-    const footer = page.getByRole('contentinfo')
-    for (const href of [
-        '/',
-        '/about',
         '/resources',
-        '/about/contact',
-        '/assets/documents/Road_map.pdf',
+        '/membership',
+        '/membership/choose-membership',
+        '/faq',
     ]) {
         await expect(footer.locator(`a[href="${href}"]`)).toBeVisible()
     }
+    await expect(
+        footer.locator('form[action="https://www.paypal.com/cgi-bin/webscr"]')
+    ).toHaveCount(1)
+    await expect(
+        page.getByRole('link', {
+            name: 'Alabama Hands & Voices on Facebook',
+        })
+    ).toHaveCount(1)
+    await expect(footer.getByRole('link', { name: 'Facebook' })).toBeVisible()
+    await expect(
+        footer.getByText(
+            `© ${new Date().getFullYear()} Alabama Hands & Voices. All rights reserved.`
+        )
+    ).toBeVisible()
 })
 
 test('mobile navigation opens, receives focus, and exposes fixed destinations', async ({
@@ -107,30 +136,31 @@ test('mobile navigation opens, receives focus, and exposes fixed destinations', 
     }
 
     await page.goto('/')
-    await page.getByRole('button', { name: 'Open main menu' }).click()
+    await page.getByRole('button', { name: 'Open menu' }).click()
 
+    const menu = page.getByRole('dialog', { name: 'Navigation menu' })
     const closeButton = page.getByRole('button', { name: 'Close menu' })
     if (isTouchProject) {
         await closeButton.focus()
     }
     await expect(closeButton).toBeFocused()
-    await page.getByRole('button', { name: 'About Us' }).click()
-    await expect(page.getByRole('link', { name: 'Who We Are' })).toBeVisible()
-    await page.getByRole('button', { name: 'Programs' }).click()
+    await menu.getByRole('button', { name: 'About' }).click()
+    await expect(menu.getByRole('link', { name: 'Who We Are' })).toBeVisible()
+    await menu.getByRole('button', { name: 'Programs' }).click()
     await expect(
-        page.getByRole('link', { name: 'Guide By Your Side' })
+        menu.getByRole('link', { name: 'Guide By Your Side' })
     ).toBeVisible()
 
     await closeButton.click()
-    await expect(page.getByRole('button', { name: 'Open main menu' })).toBeFocused()
+    await expect(page.getByRole('button', { name: 'Open menu' })).toBeFocused()
 })
 
 test('FAQ accordion exposes and hides its answer', async ({ page }) => {
     await page.goto('/faq')
 
-    const question = page.getByRole('button').filter({
-        has: page.locator('span.text-base\\/7'),
-    }).first()
+    const question = page
+        .locator('button[aria-controls^="faq-v3-panel-"]')
+        .first()
     await expect(question).toHaveAttribute('aria-expanded', 'false')
     await question.click()
     await expect(question).toHaveAttribute('aria-expanded', 'true')
