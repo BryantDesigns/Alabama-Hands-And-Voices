@@ -6,6 +6,7 @@ export const canonicalPublicRoutes = [
     '/about/contact',
     '/membership',
     '/membership/choose-membership',
+    '/programs',
     '/programs/astra',
     '/programs/dhh-committee',
     '/programs/gbys',

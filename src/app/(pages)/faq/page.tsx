@@ -1,7 +1,8 @@
 import { getFaqPageContent } from '@/lib/keystatic/pages'
+import { createPageMetadata } from '@/lib/seo'
 import Faq from '@/components/pages/faqpage/Faq'
 
-export const metadata = { title: 'FAQ — Bold & Uplifting (v3)' }
+export const metadata = createPageMetadata('/faq')
 
 export default async function Page() {
     const data = await getFaqPageContent()

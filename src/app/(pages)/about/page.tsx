@@ -1,8 +1,9 @@
 import { getAboutPageContent } from '@/lib/keystatic/pages'
 import { getBoardMembers, getStaffMembers } from '@/lib/keystatic/collections'
+import { createPageMetadata } from '@/lib/seo'
 import About from '@/components/pages/aboutpage/About'
 
-export const metadata = { title: 'About — Bold & Uplifting (v3)' }
+export const metadata = createPageMetadata('/about')
 
 export default async function Page() {
     const [about, boardRaw, staffRaw] = await Promise.all([

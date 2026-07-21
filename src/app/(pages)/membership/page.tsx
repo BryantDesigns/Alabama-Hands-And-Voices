@@ -1,7 +1,8 @@
 import { getMembershipPageContent, getChooseMembershipPageContent } from '@/lib/keystatic/pages'
+import { createPageMetadata } from '@/lib/seo'
 import Membership from '@/components/pages/membership/Membership'
 
-export const metadata = { title: 'Membership — Bold & Uplifting (v3)' }
+export const metadata = createPageMetadata('/membership')
 
 export default async function Page() {
     const [membership, choose] = await Promise.all([

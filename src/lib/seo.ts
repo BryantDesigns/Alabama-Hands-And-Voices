@@ -40,6 +40,11 @@ export const pageMetadata = {
         description:
             'Choose an Alabama Hands & Voices parent, professional, or organization membership.',
     },
+    '/programs': {
+        title: 'Programs',
+        description:
+            'Explore Alabama Hands & Voices programs: Guide By Your Side, ASTra educational advocacy, the O.U.R. Children’s Safety Project, and the D/HH Committee.',
+    },
     '/programs/astra': {
         title: 'ASTra Educational Advocacy',
         description:

@@ -1,7 +1,8 @@
 import { getHomePageContent, getSiteSettings } from '@/lib/keystatic/pages'
+import { createPageMetadata } from '@/lib/seo'
 import Home from '@/components/pages/homepage/Home'
 
-export const metadata = { title: 'Home — Bold & Uplifting (v3)' }
+export const metadata = createPageMetadata('/')
 
 export default async function Page() {
     const [data, settings] = await Promise.all([

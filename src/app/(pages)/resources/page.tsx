@@ -1,7 +1,8 @@
 import { getResourcesPageContent } from '@/lib/keystatic/pages'
+import { createPageMetadata } from '@/lib/seo'
 import Resources from '@/components/pages/resourcespage/Resources'
 
-export const metadata = { title: 'Resources — Bold & Uplifting (v3)' }
+export const metadata = createPageMetadata('/resources')
 
 export default async function Page() {
     const data = await getResourcesPageContent()

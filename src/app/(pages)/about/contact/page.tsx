@@ -1,7 +1,8 @@
 import { getContactPageContent } from '@/lib/keystatic/pages'
+import { createPageMetadata } from '@/lib/seo'
 import Contact from '@/components/pages/aboutpage/Contact'
 
-export const metadata = { title: 'Contact — Bold & Uplifting (v3)' }
+export const metadata = createPageMetadata('/about/contact')
 
 export default async function Page() {
     const contact = await getContactPageContent()
