@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import MembershipForm from '@/components/pages/membership/MembershipForm'
 import type { getChooseMembershipPageContent } from '@/lib/keystatic/pages'
+import { membershipTiers, PAYPAL_CGI_URL } from '@/lib/membership'
 
 interface ChooseMembershipProps {
     choose: NonNullable<Awaited<ReturnType<typeof getChooseMembershipPageContent>>>
@@ -54,72 +55,23 @@ function CheckIcon({ className = '' }: { className?: string }) {
 
 // ── Input helpers ─────────────────────────────────────────────────────────────
 
-const inputClass =
-    'block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2'
 
-const labelClass = 'block text-xs font-bold uppercase tracking-widest text-hvblue'
-
-interface LabeledFieldProps {
-    id: string
-    label: string
-    required?: boolean
-    children: React.ReactNode
-    hint?: string
-}
-
-function LabeledField({ id, label, required, children, hint }: LabeledFieldProps) {
-    return (
-        <div>
-            <label htmlFor={id} className={labelClass}>
-                {label}
-                {required && (
-                    <span className="ml-1 text-red-700" aria-hidden="true">
-                        *
-                    </span>
-                )}
-                {required && <span className="sr-only"> (required)</span>}
-            </label>
-            <div className="mt-1.5">{children}</div>
-            {hint && <p className="mt-1.5 text-sm text-slate-600">{hint}</p>}
-        </div>
-    )
-}
 
 // ── Membership level options ───────────────────────────────────────────────────
 
-const LEVEL_OPTIONS = [
-    { id: 'cm-v3-level-0', value: '0', label: '$0 — Request scholarship / fee waiver' },
-    { id: 'cm-v3-level-25', value: '25', label: '$25 — Parent / DHH Adult / Student' },
-    { id: 'cm-v3-level-40', value: '40', label: '$40 — Professional' },
-    { id: 'cm-v3-level-50', value: '50', label: '$50 — Organization' },
-    { id: 'cm-v3-level-donate', value: 'donate', label: 'Donate / other amount' },
-] as const
+
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export default function ChooseMembership({ choose }: ChooseMembershipProps) {
     const { membershipOptions } = choose
 
-    const tiers = [
-        {
-            key: 'parent' as const,
-            title: TIER_LABELS.parent,
-            subtitle: membershipOptions.parent.subtitle,
-            image: membershipOptions.parent.image,
-        },
-        {
-            key: 'professional' as const,
-            title: TIER_LABELS.professional,
-            subtitle: membershipOptions.professional.subtitle,
-            image: membershipOptions.professional.image,
-        },
-        {
-            key: 'organization' as const,
-            title: TIER_LABELS.organization,
-            subtitle: membershipOptions.organization.subtitle,
-            image: membershipOptions.organization.image,
-        },
-    ]
+    const tiers = membershipTiers.map((tier) => ({
+        ...tier,
+        title: TIER_LABELS[tier.key],
+        subtitle: membershipOptions[tier.key].subtitle,
+        image: membershipOptions[tier.key].image,
+    }))
 
     return (
         <main className="bg-white text-hvblue">
@@ -163,7 +115,7 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
                         {/* CTAs */}
                         <div className="mt-9 flex flex-wrap items-center gap-4">
                             <a
-                                href="#membership-types"
+                                href="#membership-tiers"
                                 className="inline-flex min-h-[52px] items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                             >
                                 See membership types
@@ -183,14 +135,18 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
             {/* ============================================================ */}
             {/* MEMBERSHIP TYPES — bento-style option cards */}
             {/* ============================================================ */}
-            <section id="membership-types" className="bg-slate-50 py-14 md:py-20">
+            <section id="membership-tiers" className="bg-slate-50 py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     {/* Section header */}
                     <div className="max-w-2xl">
                         <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
                             Who can join
                         </p>
-                        <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
+                        <h2
+                            id="membership-tiers-heading"
+                            tabIndex={-1}
+                            className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-4 md:text-5xl"
+                        >
                             Membership for every part of the community.
                         </h2>
                         <span
@@ -245,6 +201,33 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
                                         <p className="mt-3 text-base font-medium leading-relaxed text-slate-600">
                                             {tier.subtitle}
                                         </p>
+                                        <p className="mt-5 text-2xl font-extrabold tracking-tight text-hvblue">
+                                            ${tier.price}
+                                        </p>
+                                        <form
+                                            action={PAYPAL_CGI_URL}
+                                            method="post"
+                                            target="_top"
+                                            className="mt-4"
+                                        >
+                                            <input
+                                                type="hidden"
+                                                name="cmd"
+                                                value="_s-xclick"
+                                            />
+                                            <input
+                                                type="hidden"
+                                                name="hosted_button_id"
+                                                value={tier.paypalButtonId}
+                                            />
+                                            <button
+                                                type="submit"
+                                                className="inline-flex min-h-[48px] w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-6 py-3 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2"
+                                            >
+                                                Pay with PayPal
+                                                <ArrowIcon className="h-5 w-5" />
+                                            </button>
+                                        </form>
                                     </div>
                                 </article>
                             </li>
@@ -273,7 +256,7 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
             {/* ============================================================ */}
             {/* REGISTRATION FORM — white band, bold form card */}
             {/* ============================================================ */}
-            <section id="registration-form" className="bg-white py-14 md:py-20">
+            <section id="membership-form" className="bg-white py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl">
                         <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
@@ -298,6 +281,69 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
 
                     <div className="mx-auto mt-10 max-w-3xl">
                         <MembershipForm />
+                    </div>
+                </div>
+            </section>
+
+            {/* ============================================================ */}
+            {/* DONATION — full-bleed hvblue support block */}
+            {/* ============================================================ */}
+            <section
+                id="donate"
+                className="relative isolate overflow-hidden bg-hvblue py-14 text-white md:py-20"
+            >
+                <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvorange/15"
+                />
+                <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className="max-w-2xl">
+                        <p className="text-sm font-bold uppercase tracking-widest text-hvorange-300">
+                            Give today
+                        </p>
+                        <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white md:text-5xl">
+                            Support Our Mission
+                        </h2>
+                        <span
+                            aria-hidden="true"
+                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
+                        />
+                        <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-white/90 md:text-lg">
+                            Your donation helps Alabama families of deaf and
+                            hard-of-hearing children find support, information, and
+                            connection when they need it most.
+                        </p>
+                        <form
+                            action={PAYPAL_CGI_URL}
+                            method="post"
+                            target="_top"
+                            className="mt-8"
+                        >
+                            <input type="hidden" name="cmd" value="_donations" />
+                            <input
+                                type="hidden"
+                                name="business"
+                                value="finance@alhandsandvoices.org"
+                            />
+                            <input type="hidden" name="lc" value="US" />
+                            <input
+                                type="hidden"
+                                name="item_name"
+                                value="Donation"
+                            />
+                            <input type="hidden" name="no_note" value="0" />
+                            <input
+                                type="hidden"
+                                name="currency_code"
+                                value="USD"
+                            />
+                            <button
+                                type="submit"
+                                className="inline-flex min-h-[52px] cursor-pointer items-center justify-center rounded-xl bg-hvorange-700 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            >
+                                Donate
+                            </button>
+                        </form>
                     </div>
                 </div>
             </section>

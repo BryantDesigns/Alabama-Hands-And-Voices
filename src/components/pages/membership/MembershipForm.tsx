@@ -1,14 +1,20 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { submitNetlifyForm } from '@/utils/submitNetlifyForm'
 
 const MembershipForm = () => {
     const [status, setStatus] = useState<string | null>(null)
     const [error, setError] = useState<string | null>(null)
 
+    useEffect(() => {
+        if (status === 'ok') {
+            document.getElementById('membership-tiers-heading')?.focus()
+        }
+    }, [status])
+
     return (
-        <section className="container mx-auto px-6 py-12">
-            <p className="text-center text-lg">
+        <section>
+            <p className="text-center text-lg font-medium text-slate-700">
                 To become an Alabama Hands & Voices member, please fill out the form below.
             </p>
 
@@ -36,7 +42,7 @@ const MembershipForm = () => {
                         </label>
                     </p>
 
-                    <div className="space-y-4">
+                    <div className="flex flex-col gap-4">
                         <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             {/* Parent/Guardian Name */}
                             <div className="sm:col-span-3">
@@ -105,7 +111,7 @@ const MembershipForm = () => {
                                         className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                     />
                                 </div>
-                                <small className="text-sm text-gray-500">
+                                <small className="text-sm text-slate-500">
                                     We&apos;ll never share your email with anyone else.
                                 </small>
                             </div>
@@ -198,10 +204,10 @@ const MembershipForm = () => {
                             </div>
                             {/* Membership Type */}
                             <div className="col-span-full">
-                                <label className="mb-2 block text-sm font-medium text-gray-900">
+                                <label className="mb-2 block text-sm font-bold text-hvblue">
                                     Choose Your Membership:
                                 </label>
-                                <div className="space-y-2">
+                                <div className="flex flex-col gap-2">
                                     <div className="flex items-center">
                                         <input
                                             name="checkbox-one-parent"
@@ -211,7 +217,7 @@ const MembershipForm = () => {
                                         />
                                         <label
                                             htmlFor="parentCheck"
-                                            className="ml-2 text-sm text-gray-900"
+                                            className="ml-2 text-sm text-slate-700"
                                         >
                                             Parent, Student, DHH Adult
                                         </label>
@@ -225,7 +231,7 @@ const MembershipForm = () => {
                                         />
                                         <label
                                             htmlFor="professionalCheck"
-                                            className="ml-2 text-sm text-gray-900"
+                                            className="ml-2 text-sm text-slate-700"
                                         >
                                             Professional
                                         </label>
@@ -239,7 +245,7 @@ const MembershipForm = () => {
                                         />
                                         <label
                                             htmlFor="organizationCheck"
-                                            className="ml-2 text-sm text-gray-900"
+                                            className="ml-2 text-sm text-slate-700"
                                         >
                                             Organization
                                         </label>
@@ -253,7 +259,7 @@ const MembershipForm = () => {
                                         />
                                         <label
                                             htmlFor="otherCheck"
-                                            className="ml-2 text-sm text-gray-900"
+                                            className="ml-2 text-sm text-slate-700"
                                         >
                                             Other
                                         </label>
@@ -262,10 +268,10 @@ const MembershipForm = () => {
                             </div>
                             {/* Membership Donation */}
                             <div className="col-span-full">
-                                <label className="mb-2 block text-sm font-medium text-gray-900">
+                                <label className="mb-2 block text-sm font-bold text-hvblue">
                                     Annual membership donation enclosed:
                                 </label>
-                                <div className="space-y-2">
+                                <div className="flex flex-col gap-2">
                                     <div className="flex items-center">
                                         <input
                                             name="membership-25"
@@ -275,7 +281,7 @@ const MembershipForm = () => {
                                         />
                                         <label
                                             htmlFor="twentyFiveCheck"
-                                            className="ml-2 text-sm text-gray-900"
+                                            className="ml-2 text-sm text-slate-700"
                                         >
                                             $25 Parent/DHH adult/Student
                                         </label>
@@ -289,7 +295,7 @@ const MembershipForm = () => {
                                         />
                                         <label
                                             htmlFor="fortyCheck"
-                                            className="ml-2 text-sm text-gray-900"
+                                            className="ml-2 text-sm text-slate-700"
                                         >
                                             $40 Professional
                                         </label>
@@ -303,7 +309,7 @@ const MembershipForm = () => {
                                         />
                                         <label
                                             htmlFor="fiftyCheck"
-                                            className="ml-2 text-sm text-gray-900"
+                                            className="ml-2 text-sm text-slate-700"
                                         >
                                             $50 Organization
                                         </label>
@@ -317,7 +323,7 @@ const MembershipForm = () => {
                                         />
                                         <label
                                             htmlFor="addDonateCheck"
-                                            className="ml-2 text-sm text-gray-900"
+                                            className="ml-2 text-sm text-slate-700"
                                         >
                                             Additional Donation to Chapter to Help Cover Scholarships/Fee Waivers and Chapter Expenses (on next page)
                                         </label>
@@ -331,7 +337,7 @@ const MembershipForm = () => {
                                         />
                                         <label
                                             htmlFor="zeroCheck"
-                                            className="ml-2 text-sm text-gray-900"
+                                            className="ml-2 text-sm text-slate-700"
                                         >
                                             $0 Request Scholarship/Fee waiver
                                         </label>
@@ -342,41 +348,46 @@ const MembershipForm = () => {
                     </div>
 
                     {/* Footer (Submit Button) */}
-                    <div className="mt-8 flex flex-col items-center gap-2">
-                        <button
-                            type="button"
-                            className="text-sm font-semibold text-gray-900"
-                        >
-                            Cancel
-                        </button>
+                    <div className="mt-8 flex flex-col items-center gap-3">
                         <button
                             type="submit"
-                            className="rounded-md bg-hvblue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-hvblue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hvblue-600"
+                            className="inline-flex min-h-[48px] cursor-pointer items-center justify-center rounded-xl bg-hvorange-700 px-8 py-3 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-70"
+                            disabled={status === 'pending'}
                         >
-                            Submit
+                            {status === 'pending' ? 'Submitting…' : 'Submit'}
                         </button>
                     </div>
 
                     {/* Status Messages */}
-                    {status && (
+                    {status === 'ok' && (
                         <div
-                            className="px-4 py-4 sm:px-8"
+                            className="mt-6"
                             role="status"
                             aria-live="polite"
                         >
-                            <div className="rounded-md bg-green-50 p-4">
-                                <div className="text-sm text-green-700">{status}</div>
+                            <div className="rounded-2xl bg-green-50 p-5 ring-1 ring-green-200">
+                                <p className="font-bold text-green-800">
+                                    Your membership form was submitted successfully.
+                                </p>
+                                <a
+                                    href="#membership-tiers"
+                                    className="mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-hvorange-700 px-6 py-3 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2"
+                                >
+                                    Thanks — now choose your membership tier below
+                                </a>
                             </div>
                         </div>
                     )}
                     {error && (
                         <div
-                            className="px-4 py-4 sm:px-8"
+                            className="mt-6"
                             role="alert"
                             aria-live="assertive"
                         >
-                            <div className="rounded-md bg-red-50 p-4">
-                                <div className="text-sm text-red-700">{error}</div>
+                            <div className="rounded-2xl bg-red-50 p-4 ring-1 ring-red-200">
+                                <div className="text-sm font-medium text-red-800">
+                                    {error}
+                                </div>
                             </div>
                         </div>
                     )}

@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test'
+import { membershipTiers, PAYPAL_CGI_URL } from '../../src/lib/membership'
 import { selectActiveVideos } from '../../src/lib/videos'
 
 test('renders fixed navigation and connected global settings', async ({
@@ -73,31 +74,59 @@ test('renders fixed navigation and connected global settings', async ({
     ).toBeVisible()
 })
 
-test('renders fixed membership prices and payment IDs', async ({ page }) => {
+test('renders membership signup, payment tiers, donation, and success handoff', async ({
+    page,
+}) => {
+    await page.route('**/__forms.html', async (route) => {
+        if (route.request().method() === 'POST') {
+            await route.fulfill({ status: 200, body: 'ok' })
+            return
+        }
+
+        await route.continue()
+    })
+
     await page.goto('/membership/choose-membership')
 
+    const signupSection = page.locator('#membership-form')
+    const signupForm = signupSection.locator('form[name="membership"]')
+    await expect(signupForm).toBeVisible()
+
+    const tiersSection = page.locator('#membership-tiers')
+    const tierForms = tiersSection.locator(`form[action="${PAYPAL_CGI_URL}"]`)
+    await expect(tierForms).toHaveCount(3)
     await expect(
-        page.getByRole('button', { name: '$25.00 Membership' })
-    ).toBeVisible()
-    await expect(
-        page.getByRole('button', { name: '$40.00 Membership' })
-    ).toBeVisible()
-    await expect(
-        page.getByRole('button', { name: '$50.00 Membership' })
-    ).toBeVisible()
+        tiersSection.getByRole('button', { name: 'Pay with PayPal' })
+    ).toHaveCount(3)
+    for (const tier of membershipTiers) {
+        await expect(
+            tiersSection.getByText(`$${tier.price}`, { exact: true })
+        ).toBeVisible()
+    }
 
     expect(
-        await page
+        await tierForms
             .locator('input[name="hosted_button_id"]')
             .evaluateAll((inputs) =>
                 inputs.map((input) => (input as HTMLInputElement).value)
             )
-    ).toEqual([
-        'E5Q6YYU8F3M66',
-        '32NBUMV7CGXJE',
-        'TN95YMB8QNGZN',
-        'R99Y9497TS2SW',
-    ])
+    ).toEqual(membershipTiers.map((tier) => tier.paypalButtonId))
+
+    const donateSection = page.locator('#donate')
+    const donationForms = donateSection.locator(
+        `form[action="${PAYPAL_CGI_URL}"]`
+    )
+    await expect(donationForms).toHaveCount(1)
+    await expect(donationForms.locator('input[name="cmd"]')).toHaveValue(
+        '_donations'
+    )
+
+    await signupForm.getByRole('button', { name: 'Submit' }).click()
+    const handoff = signupForm.getByRole('link', {
+        name: 'Thanks — now choose your membership tier below',
+    })
+    await expect(handoff).toHaveAttribute('href', '#membership-tiers')
+    await expect(page.locator('#membership-tiers-heading')).toBeFocused()
 })
 
 test('renders Resources videos in configured order', async ({ page }) => {

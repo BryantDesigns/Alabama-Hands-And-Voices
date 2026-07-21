@@ -213,10 +213,10 @@ export default function Membership({ membership, choose }: MembershipProps) {
                                     Download Membership Form
                                 </a>
                                 <a
-                                    href="#membership-tiers"
+                                    href="/membership/choose-membership"
                                     className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/70 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                 >
-                                    See membership types
+                                    Join &amp; Pay Online
                                     <ArrowIcon className="h-5 w-5" />
                                 </a>
                             </div>
@@ -480,7 +480,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                                 {scholarshipNote}
                             </p>
                             <a
-                                href="mailto:info@alhandsandvoices.org"
+                                href="/membership/choose-membership#membership-form"
                                 className="mt-6 inline-flex min-h-[44px] items-center gap-2 rounded-xl border-2 border-hvblue px-6 py-3 text-base font-bold text-hvblue transition duration-150 hover:bg-hvblue hover:text-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                             >
                                 Contact us about scholarships
@@ -546,7 +546,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                             Join now — download the form
                         </a>
                         <a
-                            href="mailto:info@alhandsandvoices.org"
+                            href="/membership/choose-membership#membership-form"
                             className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                         >
                             Questions? Contact us

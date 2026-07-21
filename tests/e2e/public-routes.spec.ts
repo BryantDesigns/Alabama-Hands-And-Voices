@@ -170,6 +170,29 @@ test('FAQ accordion exposes and hides its answer', async ({ page }) => {
 test('membership controls and GBYS tabs are keyboard reachable', async ({
     page,
 }) => {
+    await page.goto('/membership')
+    const onlineMembershipLink = page.getByRole('link', {
+        name: 'Join & Pay Online',
+    })
+    await expect(onlineMembershipLink).toHaveAttribute(
+        'href',
+        '/membership/choose-membership'
+    )
+
+    await page.goto('/membership/choose-membership')
+    const membershipForm = page.locator('#membership-form')
+    const memberName = membershipForm.getByLabel('Parent/Guardian Name:', {
+        exact: true,
+    })
+    await memberName.focus()
+    await expect(memberName).toBeFocused()
+    await page.keyboard.press('Tab')
+    await expect(
+        membershipForm.getByLabel('Secondary Parent/Guardian Name:', {
+            exact: true,
+        })
+    ).toBeFocused()
+
     await page.goto('/programs/gbys', { waitUntil: 'domcontentloaded' })
     await expect(page.locator('[data-route-loading]')).toHaveCount(0)
     // Both tab panels stay in the DOM; scope lookups to the personal panel.

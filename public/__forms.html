@@ -350,8 +350,14 @@
     </form>
 
     <!-- Membership Form for Netlify Detection -->
-    <form name="membership" method="POST" data-netlify="true" hidden>
+    <form name="membership" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
         <input type="hidden" name="form-name" value="membership" />
+        <p hidden>
+            <label>
+                Don’t fill this out if you’re human:
+                <input name="bot-field" />
+            </label>
+        </p>
         
         <!-- Parent/Guardian Name -->
         <input name="name" type="text" />
