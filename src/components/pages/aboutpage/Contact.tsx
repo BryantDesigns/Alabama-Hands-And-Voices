@@ -77,7 +77,16 @@ function ArrowIcon({ className = '' }: { className?: string }) {
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export default function Contact({ contact }: ContactProps) {
-    const { heading, body, email, phone, image } = contact
+    const {
+        heading,
+        body,
+        email,
+        phone,
+        mailingAddress,
+        facebookGroupUrl,
+        surveyUrl,
+        image,
+    } = contact
 
     return (
         <main className="bg-white text-hvblue">
@@ -97,7 +106,7 @@ export default function Contact({ contact }: ContactProps) {
                 {/* Left-edge orange bar */}
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
                 />
 
                 <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">
@@ -105,7 +114,7 @@ export default function Contact({ contact }: ContactProps) {
                         <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
                             <span
                                 aria-hidden="true"
-                                className="h-2 w-2 rounded-sm bg-hvorange-600"
+                                className="h-2 w-2 rounded-sm bg-hvorange-700"
                             />
                             Get in Touch
                         </p>
@@ -130,7 +139,7 @@ export default function Contact({ contact }: ContactProps) {
                             {email && (
                                 <a
                                     href={`mailto:${email}`}
-                                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                 >
                                     <EnvelopeIcon className="h-5 w-5" />
                                     Email Us
@@ -176,7 +185,7 @@ export default function Contact({ contact }: ContactProps) {
                                     {/* Orange corner badge */}
                                     <span
                                         aria-hidden="true"
-                                        className="absolute right-4 top-4 h-12 w-12 rounded-2xl bg-hvorange-600"
+                                        className="absolute right-4 top-4 h-12 w-12 rounded-2xl bg-hvorange-700"
                                     />
                                 </div>
                             </div>
@@ -189,21 +198,23 @@ export default function Contact({ contact }: ContactProps) {
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
                                 We&rsquo;re here.{' '}
-                                <span className="text-hvorange-700">Reach out.</span>
+                                <span className="text-hvorange-700">
+                                    Reach out.
+                                </span>
                             </h2>
                             <span
                                 aria-hidden="true"
-                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
+                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
                             />
 
                             <div className="mt-8 grid gap-4 sm:grid-cols-2">
                                 {/* Email card */}
                                 {email && (
                                     <div className="rounded-3xl bg-hvblue p-6 text-white ring-1 ring-hvblue">
-                                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-hvorange-600">
+                                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-hvorange-700">
                                             <EnvelopeIcon className="h-6 w-6 text-white" />
                                         </div>
-                                        <p className="mt-4 text-xs font-bold uppercase tracking-widest text-white/60">
+                                        <p className="mt-4 text-xs font-bold uppercase tracking-widest text-white/80">
                                             Email
                                         </p>
                                         <a
@@ -221,7 +232,7 @@ export default function Contact({ contact }: ContactProps) {
                                         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-hvblue">
                                             <PhoneIcon className="h-6 w-6 text-white" />
                                         </div>
-                                        <p className="mt-4 text-xs font-bold uppercase tracking-widest text-hvblue/60">
+                                        <p className="mt-4 text-xs font-bold uppercase tracking-widest text-hvblue">
                                             Phone
                                         </p>
                                         <a
@@ -230,6 +241,16 @@ export default function Contact({ contact }: ContactProps) {
                                         >
                                             {phone}
                                         </a>
+                                    </div>
+                                )}
+                                {mailingAddress && (
+                                    <div className="rounded-3xl bg-slate-50 p-6 text-hvblue ring-1 ring-slate-200 sm:col-span-2">
+                                        <p className="text-xs font-bold uppercase tracking-widest text-slate-600">
+                                            Mailing address
+                                        </p>
+                                        <address className="mt-1 text-base font-bold not-italic text-hvblue">
+                                            {mailingAddress}
+                                        </address>
                                     </div>
                                 )}
                             </div>
@@ -276,10 +297,11 @@ export default function Contact({ contact }: ContactProps) {
                                 className="mt-5 block h-1.5 w-20 rounded-full bg-hvblue"
                             />
                             <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-hvblue/90 md:text-lg">
-                                Our Guide By Your Side (GBYS) program pairs families of
-                                deaf and hard-of-hearing children with trained parent
-                                guides — real families who have lived this journey and
-                                are here to walk it with you.
+                                Our Guide By Your Side (GBYS) program pairs
+                                families of deaf and hard-of-hearing children
+                                with trained parent guides — real families who
+                                have lived this journey and are here to walk it
+                                with you.
                             </p>
                         </div>
 
@@ -292,6 +314,24 @@ export default function Contact({ contact }: ContactProps) {
                                 Learn About GBYS
                                 <ArrowIcon className="h-5 w-5" />
                             </Link>
+                            <a
+                                href={facebookGroupUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl border-2 border-hvblue px-8 py-3.5 text-base font-bold text-hvblue transition duration-150 hover:bg-hvblue hover:text-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange lg:w-auto"
+                            >
+                                Join our Facebook Group
+                                <ArrowIcon className="h-5 w-5" />
+                            </a>
+                            <a
+                                href={surveyUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl border-2 border-hvblue px-8 py-3.5 text-base font-bold text-hvblue transition duration-150 hover:bg-hvblue hover:text-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange lg:w-auto"
+                            >
+                                Share Feedback on SurveyMonkey
+                                <ArrowIcon className="h-5 w-5" />
+                            </a>
                         </div>
                     </div>
                 </div>

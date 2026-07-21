@@ -1,10 +1,15 @@
 import Link from 'next/link'
 import type { getResourcesPageContent } from '@/lib/keystatic/pages'
+import type { VideoContent } from '@/types/cms'
+import VideoPlayer from '@/components/pages/dhhrm/VideoPlayer'
 
-type ResourcesData = NonNullable<Awaited<ReturnType<typeof getResourcesPageContent>>>
+type ResourcesData = NonNullable<
+    Awaited<ReturnType<typeof getResourcesPageContent>>
+>
 
 interface ResourcesProps {
     data: ResourcesData
+    videos: VideoContent[]
 }
 
 // ── Inline SVG icons ─────────────────────────────────────────────────────────
@@ -68,8 +73,8 @@ const categoryBentoStyles = [
         heading: 'text-hvblue',
         linkBase:
             'text-hvblue hover:bg-slate-50 focus-visible:ring-hvorange-600',
-        linkDot: 'bg-hvblue text-white group-hover:bg-hvorange-600',
-        externalIcon: 'text-slate-400 group-hover:text-hvorange-700',
+        linkDot: 'bg-hvblue text-white group-hover:bg-hvorange-800',
+        externalIcon: 'text-slate-600 group-hover:text-hvorange-700',
         divider: 'divide-slate-100',
         countBadge: 'bg-hvblue text-white',
     },
@@ -78,20 +83,18 @@ const categoryBentoStyles = [
         wrapper: 'bg-hvblue text-white',
         eyebrow: 'text-hvorange-50',
         heading: 'text-white',
-        linkBase:
-            'text-white/90 hover:bg-white/10 focus-visible:ring-white',
-        linkDot: 'bg-hvorange-600 text-white group-hover:bg-hvorange-500',
+        linkBase: 'text-white/90 hover:bg-white/10 focus-visible:ring-white',
+        linkDot: 'bg-hvorange-700 text-white group-hover:bg-hvorange-500',
         externalIcon: 'text-white/50 group-hover:text-white',
         divider: 'divide-white/10',
-        countBadge: 'bg-hvorange-600 text-white',
+        countBadge: 'bg-hvorange-700 text-white',
     },
     {
         // Category 3: orange block — hvblue text ✓
         wrapper: 'bg-hvorange text-hvblue',
         eyebrow: 'text-hvblue',
         heading: 'text-hvblue',
-        linkBase:
-            'text-hvblue/90 hover:bg-hvblue/10 focus-visible:ring-hvblue',
+        linkBase: 'text-hvblue/90 hover:bg-hvblue/10 focus-visible:ring-hvblue',
         linkDot: 'bg-hvblue text-white group-hover:bg-hvblue-400',
         externalIcon: 'text-hvblue/50 group-hover:text-hvblue',
         divider: 'divide-hvblue/10',
@@ -151,7 +154,7 @@ function ResourceLink({
     )
 }
 
-export default function Resources({ data }: ResourcesProps) {
+export default function Resources({ data, videos }: ResourcesProps) {
     const { introCopy, resourceCategories, ehdiSidebarBody, ehdiSidebarUrl } =
         data
 
@@ -173,7 +176,7 @@ export default function Resources({ data }: ResourcesProps) {
                 {/* Left structural bar */}
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
                 />
 
                 <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-8">
@@ -183,7 +186,7 @@ export default function Resources({ data }: ResourcesProps) {
                             <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
                                 <span
                                     aria-hidden="true"
-                                    className="h-2 w-2 rounded-sm bg-hvorange-600"
+                                    className="h-2 w-2 rounded-sm bg-hvorange-700"
                                 />
                                 Family Resources
                             </p>
@@ -198,7 +201,7 @@ export default function Resources({ data }: ResourcesProps) {
 
                             <span
                                 aria-hidden="true"
-                                className="mt-6 block h-1.5 w-20 rounded-full bg-hvorange-600"
+                                className="mt-6 block h-1.5 w-20 rounded-full bg-hvorange-700"
                             />
 
                             <p className="mt-6 max-w-xl text-lg font-medium leading-relaxed text-white/90">
@@ -209,7 +212,7 @@ export default function Resources({ data }: ResourcesProps) {
                         {/* Resource count bento mini-block */}
                         <div className="flex flex-col gap-4 sm:flex-row lg:flex-col">
                             <div className="flex flex-1 flex-col justify-between rounded-3xl bg-hvorange p-6 text-hvblue">
-                                <p className="text-sm font-bold uppercase tracking-widest text-hvblue/70">
+                                <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                                     Categories
                                 </p>
                                 <p className="mt-2 text-5xl font-extrabold tracking-tight text-hvblue">
@@ -217,7 +220,7 @@ export default function Resources({ data }: ResourcesProps) {
                                 </p>
                             </div>
                             <div className="flex flex-1 flex-col justify-between rounded-3xl bg-white/10 p-6 text-white ring-1 ring-white/20">
-                                <p className="text-sm font-bold uppercase tracking-widest text-white/70">
+                                <p className="text-sm font-bold uppercase tracking-widest text-white/80">
                                     Total resources
                                 </p>
                                 <p className="mt-2 text-5xl font-extrabold tracking-tight text-white">
@@ -229,6 +232,29 @@ export default function Resources({ data }: ResourcesProps) {
                                 </p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="bg-white py-14 md:py-20">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className="max-w-2xl">
+                        <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                            Watch and learn
+                        </p>
+                        <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
+                            Hands &amp; Voices Video Library
+                        </h2>
+                        <span
+                            aria-hidden="true"
+                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
+                        />
+                    </div>
+                    <div className="mt-10">
+                        <VideoPlayer
+                            videos={videos}
+                            includeFeaturedInPlaylist
+                        />
                     </div>
                 </div>
             </section>
@@ -251,7 +277,7 @@ export default function Resources({ data }: ResourcesProps) {
                         </h2>
                         <span
                             aria-hidden="true"
-                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
+                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
                         />
                     </div>
 
@@ -336,7 +362,7 @@ export default function Resources({ data }: ResourcesProps) {
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="grid items-center gap-8 lg:grid-cols-[1.4fr_0.6fr] lg:gap-12">
                         <div>
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue/70">
+                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                                 Featured directory
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -356,7 +382,7 @@ export default function Resources({ data }: ResourcesProps) {
                         {/* CTA block */}
                         <div className="lg:justify-self-end">
                             <div className="rounded-3xl bg-hvblue p-6 md:p-8">
-                                <p className="text-sm font-bold uppercase tracking-widest text-white/70">
+                                <p className="text-sm font-bold uppercase tracking-widest text-white/80">
                                     Free &amp; searchable
                                 </p>
                                 <p className="mt-2 text-2xl font-extrabold text-white">
@@ -390,12 +416,12 @@ export default function Resources({ data }: ResourcesProps) {
                 />
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-hvorange-600/15 blur-3xl"
+                    className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-hvorange-700/15 blur-3xl"
                 />
                 {/* Left structural bar */}
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
                 />
 
                 <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
@@ -414,7 +440,7 @@ export default function Resources({ data }: ResourcesProps) {
                     <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
                         <Link
                             href="/programs"
-                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                         >
                             <HeartIcon className="h-5 w-5" />
                             Get Parent Guide Support

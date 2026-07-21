@@ -26,7 +26,11 @@ function QuestionBubbleIcon({ className = '' }: { className?: string }) {
 interface FaqProps {
     heading: string
     introCopy: string
-    faqs: { question: string; answer: string }[]
+    faqs: {
+        question: string
+        answer: string
+        resourceLinks: readonly { label: string; url: string }[]
+    }[]
 }
 
 // ── Component ─────────────────────────────────────────────────────────────────
@@ -50,7 +54,7 @@ export default function Faq({ heading, introCopy, faqs }: FaqProps) {
                 {/* Left-edge bar — v3 signature */}
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
                 />
 
                 <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">
@@ -59,7 +63,7 @@ export default function Faq({ heading, introCopy, faqs }: FaqProps) {
                         <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
                             <span
                                 aria-hidden="true"
-                                className="h-2 w-2 rounded-sm bg-hvorange-600"
+                                className="h-2 w-2 rounded-sm bg-hvorange-700"
                             />
                             FAQ
                         </p>
@@ -104,7 +108,7 @@ export default function Faq({ heading, introCopy, faqs }: FaqProps) {
                             </h2>
                             <span
                                 aria-hidden="true"
-                                className="mt-3 block h-1.5 w-16 rounded-full bg-hvorange-600"
+                                className="mt-3 block h-1.5 w-16 rounded-full bg-hvorange-700"
                             />
                         </div>
                     </div>

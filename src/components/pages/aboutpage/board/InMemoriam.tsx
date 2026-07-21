@@ -32,7 +32,7 @@ export default function InMemoriam() {
 
                     <div className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-slate-200">
                         <Image
-                            src="/images/Kristine.jpg"
+                            src="/images/kristine.jpg"
                             alt="Photo of Kristine Lemoyne Mathis Henderson"
                             width={600}
                             height={400}

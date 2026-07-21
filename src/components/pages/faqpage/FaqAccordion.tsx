@@ -5,6 +5,10 @@ import { useState } from 'react'
 interface Faq {
     question: string
     answer: string
+    resourceLinks: readonly {
+        label: string
+        url: string
+    }[]
 }
 
 function toParagraphs(text: string): string[] {
@@ -73,7 +77,7 @@ export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
                                     aria-hidden="true"
                                     className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl transition-colors duration-200 ${
                                         isOpen
-                                            ? 'bg-hvorange-600 text-white'
+                                            ? 'bg-hvorange-700 text-white'
                                             : 'bg-slate-100 text-hvblue group-hover:bg-slate-200'
                                     }`}
                                 >
@@ -103,6 +107,34 @@ export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
                                     <p key={i}>{para}</p>
                                 ))}
                             </div>
+                            {faq.resourceLinks.length > 0 && (
+                                <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+                                    {faq.resourceLinks.map((resource) => {
+                                        const isExternal =
+                                            resource.url.startsWith('http')
+                                        return (
+                                            <li key={resource.url}>
+                                                <a
+                                                    href={resource.url}
+                                                    target={
+                                                        isExternal
+                                                            ? '_blank'
+                                                            : undefined
+                                                    }
+                                                    rel={
+                                                        isExternal
+                                                            ? 'noopener noreferrer'
+                                                            : undefined
+                                                    }
+                                                    className="inline-flex min-h-[44px] w-full items-center rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-hvblue transition hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                                >
+                                                    {resource.label}
+                                                </a>
+                                            </li>
+                                        )
+                                    })}
+                                </ul>
+                            )}
                         </dd>
                     </div>
                 )

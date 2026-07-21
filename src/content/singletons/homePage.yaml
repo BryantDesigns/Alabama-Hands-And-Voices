@@ -1,81 +1,117 @@
 heroQuote: '"What works for your child is what makes the choice right." ™'
 heroLogoImage: /images/hvlogo.svg
 intro:
-  heading: What is Alabama Hands & Voices?
-  body: >-
-    Alabama Hands & Voices is a parent-driven, non-profit organization that
-    supports families with children who are deaf or hard of hearing. We are
-    parents who understand the journey you are on. We provide unbiased
-    information, resources, and support — regardless of communication method or
-    technology choice.
+    heading: What is Alabama Hands & Voices?
+    body: >-
+        Alabama Hands & Voices is a parent-driven, non-profit organization that
+        supports families with children who are deaf or hard of hearing. We are
+        parents who understand the journey you are on. We provide unbiased
+        information, resources, and support — regardless of communication method or
+        technology choice.
 
 
-    Whether your child uses hearing aids, cochlear implants, sign language,
-    spoken language, or a combination, we are here for you.
-  image: /images/aboutUsWhoWeAre1.jpg
-  imageAlt: Hands & Voices family gathering
+        Whether your child uses hearing aids, cochlear implants, sign language,
+        spoken language, or a combination, we are here for you.
+    image: /images/aboutUsWhoWeAre1.jpg
+    imageAlt: Hands & Voices family gathering
+mission:
+    heading: Our Mission
+    body: >-
+        Hands & Voices is dedicated to supporting families with children who are
+        deaf or hard of hearing without bias around communication modes or
+        methodology.
+
+
+        We are a parent-driven, non-profit organization providing families with the
+        resources, networks, and information they need to improve communication
+        access and educational outcomes for their children. Our outreach,
+        parent-professional collaboration, and advocacy help children who are deaf
+        or hard of hearing reach their highest potential.
 whereToStart:
-  heading: Where to start
-  subheading: First, take a deep breath
-  body: >-
-    We know this may feel overwhelming. You have just learned that your child
-    has a hearing loss, and you are not sure what to do next. That is okay.
+    heading: Where to start
+    subheading: First, take a deep breath
+    body: >-
+        We know this may feel overwhelming. You have just learned that your child
+        has a hearing loss, and you are not sure what to do next. That is okay.
 
 
-    We have walked this path. Our organization is made up of parents just like
-    you — parents who have navigated newborn hearing screening follow-up, early
-    intervention, IEPs, technology choices, and communication decisions.
+        We have walked this path. Our organization is made up of parents just like
+        you — parents who have navigated newborn hearing screening follow-up, early
+        intervention, IEPs, technology choices, and communication decisions.
 
 
-    There is no single right answer for every child or every family. What works
-    for your child is what makes the choice right. We will help you find your
-    way.
-  quoteText: >-
-    "Our lives and our children's lives are richer because of Hands & Voices.
-    This community gave us hope and a path forward."
-  quoteAuthors: Susan Fingerle, Jessica Havard, Maria Katz
-  backgroundImage: /images/family.jpg
-  stats:
-    - number: 10+
-      label: Years Serving Families
-    - number: 40+
-      label: Chapters Nationwide
-    - number: '2017'
-      label: Founded in Alabama
-  ctaLabel: Learn more about our programs
-  ctaHref: /programs/gbys
+        There is no single right answer for every child or every family. What works
+        for your child is what makes the choice right. We will help you find your
+        way.
+    quoteText: >-
+        Our lives and our children's lives have been enriched by those who have
+        walked this path with us and ahead of us, and we want all parents of deaf or
+        hard of hearing children to have the support they need!
+    quoteAuthors: Susan Fingerle, Jessica Havard, Maria Katz
+    backgroundImage: /images/family.jpg
+    stats:
+        - number: 10+
+          label: Years Serving Families
+        - number: 40+
+          label: Chapters Nationwide
+        - number: '2017'
+          label: Founded in Alabama
+    resourceLinks:
+        - label: Parent Road Map
+          url: /assets/documents/Road_map.pdf
+        - label: Loss & Found video
+          url: https://www.youtube.com/watch?v=T8nDcBvOWnk
+        - label: Hands & Voices Virtual Waiting Room
+          url: https://handsandvoices.org/virtual-waiting-room/index.html
+    ctaLabel: Learn more about our programs
+    ctaHref: /programs/gbys
 learnMore:
-  heading: Learn More About Us
-  featureBlocks:
-    - heading: Guide By Your Side
-      body: >-
-        Connect with a trained Parent Guide who has a child who is deaf or hard
-        of hearing. Our GBYS program provides one-on-one support tailored to
-        your family's unique journey — completely free of charge.
-      image: /images/aboutUsWhoWeAreFamily.jpg
-      imageAlt: GBYS family support
-    - heading: Educational Advocacy
-      body: >-
-        ASTra (Advocacy Support and Training) helps families navigate the
-        special education system. We can help you prepare for IEP meetings,
-        understand your rights, and build an effective educational team for your
-        child.
-      image: /images/aboutUsWhoWeAreTrail.jpeg
-      imageAlt: Educational advocacy support
+    heading: Learn More About Us
+    featureBlocks:
+        - heading: Guide By Your Side
+          body: >-
+              Connect with a trained Parent Guide who has a child who is deaf or hard
+              of hearing. Our GBYS program provides one-on-one support tailored to
+              your family's unique journey — completely free of charge.
+          image: /images/aboutUsWhoWeAreFamily.jpg
+          imageAlt: GBYS family support
+        - heading: Educational Advocacy
+          body: >-
+              ASTra (Advocacy Support and Training) helps families navigate the
+              special education system. We can help you prepare for IEP meetings,
+              understand your rights, and build an effective educational team for your
+              child.
+          image: /images/aboutUsWhoWeAreTrail.jpeg
+          imageAlt: Educational advocacy support
+membership:
+    heading: Membership
+    body: >-
+        Thank you for your interest in Alabama Hands & Voices. Membership fees help
+        fund chapter activities and operations and provide members with newsletters
+        from Hands & Voices headquarters.
+    fees:
+        - label: Families, students, and DHH adults
+          price: $25
+        - label: Professionals
+          price: $40
+        - label: Organizations
+          price: $50
+    pageUrl: /membership
+    formUrl: /assets/documents/HV-Membership-Form.pdf
 support:
-  heading: Support Our Mission
-  body: >-
-    Alabama Hands & Voices relies on the generosity of donors and members to
-    provide free services to families across the state. Your donation helps us
-    connect more families, fund family retreats, and train parent guides.
+    heading: Support Our Mission
+    body: >-
+        Alabama Hands & Voices relies on the generosity of donors and members to
+        provide free services to families across the state. Your donation helps us
+        connect more families, fund family retreats, and train parent guides.
 events:
-  heading: Events
-  intro: >-
-    We are always planning events and gatherings for families. From family
-    retreats to virtual workshops, there is always something happening in the
-    Alabama Hands & Voices community.
-  backgroundImage: /images/family.jpg
-  events:
-    - title: Family Retreat at Lake Martin
-    - title: Virtual & In-Person Workshops
-    - title: Community Gatherings
+    heading: Events
+    intro: >-
+        We host monthly virtual gatherings for parents and caregivers to connect,
+        learn, and share with other families on similar journeys. More dates are
+        coming soon. Stay tuned.
+    backgroundImage: /images/family.jpg
+    events:
+        - title: Monthly Virtual Gatherings
+        - title: Educational Advocacy (ASTra) Training
+        - title: More Events

@@ -95,6 +95,13 @@ export default config({
           },
           { label: 'Intro Section' }
         ),
+        mission: fields.object(
+          {
+            heading: fields.text({ label: 'Heading' }),
+            body: fields.text({ label: 'Body', multiline: true }),
+          },
+          { label: 'Mission Section' }
+        ),
         whereToStart: fields.object(
           {
             heading: fields.text({ label: 'Heading' }),
@@ -111,6 +118,16 @@ export default config({
               {
                 label: 'Stats',
                 itemLabel: (props) => props.fields.label.value || 'Stat',
+              }
+            ),
+            resourceLinks: fields.array(
+              fields.object({
+                label: fields.text({ label: 'Label' }),
+                url: fields.text({ label: 'URL' }),
+              }),
+              {
+                label: 'Starting Resources',
+                itemLabel: (props) => props.fields.label.value || 'Resource',
               }
             ),
             ctaLabel: fields.text({ label: 'CTA Label' }),
@@ -135,6 +152,25 @@ export default config({
             ),
           },
           { label: 'Learn More Section' }
+        ),
+        membership: fields.object(
+          {
+            heading: fields.text({ label: 'Heading' }),
+            body: fields.text({ label: 'Body', multiline: true }),
+            fees: fields.array(
+              fields.object({
+                label: fields.text({ label: 'Label' }),
+                price: fields.text({ label: 'Price' }),
+              }),
+              {
+                label: 'Membership Fees',
+                itemLabel: (props) => props.fields.label.value || 'Fee',
+              }
+            ),
+            pageUrl: fields.text({ label: 'Membership Page URL' }),
+            formUrl: fields.text({ label: 'Membership Form URL' }),
+          },
+          { label: 'Membership Section' }
         ),
         support: fields.object(
           {
@@ -173,9 +209,32 @@ export default config({
       path: 'src/content/singletons/aboutPage',
       format: { data: 'yaml' },
       schema: {
-        whoWeAreBody: fields.text({ label: 'Who We Are Body', multiline: true }),
-        whyWeAreHereBody: fields.text({ label: 'Why We Are Here Body', multiline: true }),
-        membershipCtaText: fields.text({ label: 'Membership CTA Text', multiline: true }),
+        whoWeAreBody: fields.text({
+          label: 'Who We Are Body',
+          multiline: true,
+        }),
+        whoWeAreQuote: fields.text({
+          label: 'Who We Are Quote',
+          multiline: true,
+        }),
+        whoWeAreQuoteAttribution: fields.text({ label: 'Quote Attribution' }),
+        whyWeAreHereBody: fields.text({
+          label: 'Why We Are Here Body',
+          multiline: true,
+        }),
+        values: fields.array(
+          fields.object({
+            value: fields.text({ label: 'Value', multiline: true }),
+          }),
+          {
+            label: 'Shared Values',
+            itemLabel: (props) => props.fields.value.value || 'Value',
+          }
+        ),
+        membershipCtaText: fields.text({
+          label: 'Membership CTA Text',
+          multiline: true,
+        }),
         membershipFormUrl: fields.text({ label: 'Membership Form URL' }),
         images: fields.array(
           fields.object({
@@ -199,6 +258,9 @@ export default config({
         body: fields.text({ label: 'Body', multiline: true }),
         email: fields.text({ label: 'Email' }),
         phone: fields.text({ label: 'Phone' }),
+        mailingAddress: fields.text({ label: 'Mailing Address' }),
+        facebookGroupUrl: fields.text({ label: 'Facebook Group URL' }),
+        surveyUrl: fields.text({ label: 'Survey URL' }),
         image: fields.text({ label: 'Image Path' }),
       },
     }),
@@ -208,9 +270,13 @@ export default config({
       path: 'src/content/singletons/membershipPage',
       format: { data: 'yaml' },
       schema: {
+        heroHeading: fields.text({ label: 'Hero Heading' }),
         heroText: fields.text({ label: 'Hero Text', multiline: true }),
         documentDownloadUrl: fields.text({ label: 'Document Download URL' }),
-        scholarshipNote: fields.text({ label: 'Scholarship Note', multiline: true }),
+        scholarshipNote: fields.text({
+          label: 'Scholarship Note',
+          multiline: true,
+        }),
       },
     }),
 
@@ -235,7 +301,10 @@ export default config({
       path: 'src/content/singletons/astraPage',
       format: { data: 'yaml' },
       schema: {
-        programDescription: fields.text({ label: 'Program Description', multiline: true }),
+        programDescription: fields.text({
+          label: 'Program Description',
+          multiline: true,
+        }),
         questions: fields.array(
           fields.object({
             question: fields.text({ label: 'Question' }),
@@ -275,7 +344,10 @@ export default config({
             itemLabel: (props) => props.fields.service.value || 'Service',
           }
         ),
-        enrollmentNote: fields.text({ label: 'Enrollment Note', multiline: true }),
+        enrollmentNote: fields.text({
+          label: 'Enrollment Note',
+          multiline: true,
+        }),
         flyerEnglishUrl: fields.text({ label: 'English Flyer URL' }),
         flyerSpanishUrl: fields.text({ label: 'Spanish Flyer URL' }),
       },
@@ -297,8 +369,13 @@ export default config({
             itemLabel: (props) => props.fields.title.value || 'Card',
           }
         ),
-        familyRetreatsHeading: fields.text({ label: 'Family Retreats Heading' }),
-        familyRetreatsBody: fields.text({ label: 'Family Retreats Body', multiline: true }),
+        familyRetreatsHeading: fields.text({
+          label: 'Family Retreats Heading',
+        }),
+        familyRetreatsBody: fields.text({
+          label: 'Family Retreats Body',
+          multiline: true,
+        }),
         familyRetreatsLink: fields.text({ label: 'Family Retreats Link' }),
       },
     }),
@@ -347,7 +424,10 @@ export default config({
             itemLabel: (props) => props.fields.title.value || 'Category',
           }
         ),
-        ehdiSidebarBody: fields.text({ label: 'EHDI Sidebar Body', multiline: true }),
+        ehdiSidebarBody: fields.text({
+          label: 'EHDI Sidebar Body',
+          multiline: true,
+        }),
         ehdiSidebarUrl: fields.text({ label: 'EHDI Sidebar URL' }),
       },
     }),
@@ -363,6 +443,16 @@ export default config({
           fields.object({
             question: fields.text({ label: 'Question' }),
             answer: fields.text({ label: 'Answer', multiline: true }),
+            resourceLinks: fields.array(
+              fields.object({
+                label: fields.text({ label: 'Label' }),
+                url: fields.text({ label: 'URL' }),
+              }),
+              {
+                label: 'Resource Links',
+                itemLabel: (props) => props.fields.label.value || 'Resource',
+              }
+            ),
           }),
           {
             label: 'FAQ Entries',
@@ -410,7 +500,8 @@ export default config({
         internalId: fields.slug({
           name: {
             label: 'Internal ID',
-            description: 'Used for the content filename; not displayed publicly.',
+            description:
+              'Used for the content filename; not displayed publicly.',
             validation: { isRequired: true, length: { max: 100 } },
           },
         }),

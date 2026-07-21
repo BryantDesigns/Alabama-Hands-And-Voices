@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { DocumentRenderer } from '@keystatic/core/renderer'
 import type { DocumentElement } from '@keystatic/core'
 import type { getHomePageContent } from '@/lib/keystatic/pages'
+import { PAYPAL_CGI_URL, donateButtonId } from '@/lib/membership'
 
 type HomeData = NonNullable<Awaited<ReturnType<typeof getHomePageContent>>>
 
@@ -112,13 +113,19 @@ function QuoteMark({ className = '' }: { className?: string }) {
     )
 }
 
-export default function Home({ data, donationLabel, resolvedEvents }: HomeProps) {
+export default function Home({
+    data,
+    donationLabel,
+    resolvedEvents,
+}: HomeProps) {
     const {
         heroQuote,
         heroLogoImage,
         intro,
+        mission,
         whereToStart,
         learnMore,
+        membership,
         support,
         events,
     } = data
@@ -141,7 +148,7 @@ export default function Home({ data, donationLabel, resolvedEvents }: HomeProps)
                 {/* Structural left-edge bar echoing the header */}
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
                 />
 
                 <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 md:py-24 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:px-8 lg:py-28">
@@ -150,7 +157,7 @@ export default function Home({ data, donationLabel, resolvedEvents }: HomeProps)
                         <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
                             <span
                                 aria-hidden="true"
-                                className="h-2 w-2 rounded-sm bg-hvorange-600"
+                                className="h-2 w-2 rounded-sm bg-hvorange-700"
                             />
                             Alabama Hands &amp; Voices
                         </p>
@@ -173,7 +180,7 @@ export default function Home({ data, donationLabel, resolvedEvents }: HomeProps)
                         <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
                             <Link
                                 href="/membership"
-                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                             >
                                 <HeartIcon className="h-5 w-5" />
                                 {donationLabel}
@@ -203,7 +210,7 @@ export default function Home({ data, donationLabel, resolvedEvents }: HomeProps)
                             {/* Geometric corner tab */}
                             <span
                                 aria-hidden="true"
-                                className="absolute -right-3 -top-3 h-12 w-12 rounded-2xl bg-hvorange-600"
+                                className="absolute -right-3 -top-3 h-12 w-12 rounded-2xl bg-hvorange-700"
                             />
                         </div>
                     </div>
@@ -225,7 +232,7 @@ export default function Home({ data, donationLabel, resolvedEvents }: HomeProps)
                             </h2>
                             <span
                                 aria-hidden="true"
-                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
+                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
                             />
                             <div className="mt-6 space-y-5 text-base leading-relaxed text-slate-700 md:text-lg">
                                 {toParagraphs(intro.body).map((p, i) => (
@@ -262,6 +269,30 @@ export default function Home({ data, donationLabel, resolvedEvents }: HomeProps)
                 </div>
             </section>
 
+            <section className="bg-hvorange py-14 text-hvblue md:py-20">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className="max-w-4xl">
+                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                            Why we are here
+                        </p>
+                        <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
+                            {mission.heading}
+                        </h2>
+                        <span
+                            aria-hidden="true"
+                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvblue"
+                        />
+                        <div className="mt-6 space-y-4 text-base font-medium leading-relaxed text-hvblue md:text-lg">
+                            {toParagraphs(mission.body).map(
+                                (paragraph, index) => (
+                                    <p key={index}>{paragraph}</p>
+                                )
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* ============================================================ */}
             {/* WHERE TO START — full-bleed hvblue block, BENTO grid */}
             {/* (stats + testimonial + CTA) over a photo wash */}
@@ -292,13 +323,39 @@ export default function Home({ data, donationLabel, resolvedEvents }: HomeProps)
                         </h2>
                         <span
                             aria-hidden="true"
-                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
+                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
                         />
                         <div className="mt-6 space-y-4 text-base leading-relaxed text-white/90 md:text-lg">
                             {toParagraphs(whereToStart.body).map((p, i) => (
                                 <p key={i}>{p}</p>
                             ))}
                         </div>
+                        <ul
+                            className="mt-7 flex flex-wrap gap-3"
+                            aria-label="Where to start resources"
+                        >
+                            {whereToStart.resourceLinks.map((resource) => (
+                                <li key={resource.url}>
+                                    <a
+                                        href={resource.url}
+                                        target={
+                                            resource.url.startsWith('http')
+                                                ? '_blank'
+                                                : undefined
+                                        }
+                                        rel={
+                                            resource.url.startsWith('http')
+                                                ? 'noopener noreferrer'
+                                                : undefined
+                                        }
+                                        className="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-hvblue transition hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    >
+                                        {resource.label}
+                                        <ArrowIcon className="h-4 w-4" />
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
 
                     {/* BENTO GRID — varied col/row spans, mixed surfaces */}
@@ -314,7 +371,7 @@ export default function Home({ data, donationLabel, resolvedEvents }: HomeProps)
                             <figcaption className="mt-6 flex items-center gap-3">
                                 <span
                                     aria-hidden="true"
-                                    className="h-1 w-8 rounded-full bg-hvorange-600"
+                                    className="h-1 w-8 rounded-full bg-hvorange-700"
                                 />
                                 <span className="text-sm font-bold text-slate-700">
                                     {whereToStart.quoteAuthors}
@@ -366,8 +423,8 @@ export default function Home({ data, donationLabel, resolvedEvents }: HomeProps)
 
                         {/* CTA tile — fills remaining bento cell, links to programs */}
                         <Link
-                            href="/programs"
-                            className="group col-span-2 flex items-center justify-between gap-4 rounded-3xl bg-hvorange-600 p-6 text-left text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue md:col-span-2"
+                            href={whereToStart.ctaHref}
+                            className="group col-span-2 flex items-center justify-between gap-4 rounded-3xl bg-hvorange-700 p-6 text-left text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue md:col-span-2"
                         >
                             <span className="text-lg font-extrabold tracking-tight md:text-xl">
                                 {whereToStart.ctaLabel}
@@ -379,6 +436,55 @@ export default function Home({ data, donationLabel, resolvedEvents }: HomeProps)
                                 <ArrowIcon className="h-5 w-5" />
                             </span>
                         </Link>
+                    </div>
+                </div>
+            </section>
+
+            <section className="bg-hvblue py-14 text-white md:py-20">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
+                        <div>
+                            <p className="text-sm font-bold uppercase tracking-widest text-hvorange-50">
+                                Join the community
+                            </p>
+                            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white md:text-5xl">
+                                {membership.heading}
+                            </h2>
+                            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/90 md:text-lg">
+                                {membership.body}
+                            </p>
+                            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                                <Link
+                                    href={membership.pageUrl}
+                                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-6 py-3 font-bold text-white transition hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                >
+                                    View membership options
+                                    <ArrowIcon className="h-4 w-4" />
+                                </Link>
+                                <a
+                                    href={membership.formUrl}
+                                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/70 px-6 py-3 font-bold text-white transition hover:bg-white hover:text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                >
+                                    Download membership form
+                                    <ArrowIcon className="h-4 w-4" />
+                                </a>
+                            </div>
+                        </div>
+                        <dl className="grid gap-4 sm:grid-cols-3">
+                            {membership.fees.map((fee) => (
+                                <div
+                                    key={fee.label}
+                                    className="rounded-3xl bg-white p-6 text-hvblue"
+                                >
+                                    <dd className="text-4xl font-extrabold tracking-tight">
+                                        {fee.price}
+                                    </dd>
+                                    <dt className="mt-2 text-sm font-bold leading-snug text-slate-700">
+                                        {fee.label}
+                                    </dt>
+                                </div>
+                            ))}
+                        </dl>
                     </div>
                 </div>
             </section>
@@ -397,7 +503,7 @@ export default function Home({ data, donationLabel, resolvedEvents }: HomeProps)
                         </h2>
                         <span
                             aria-hidden="true"
-                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
+                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
                         />
                     </div>
 
@@ -430,9 +536,11 @@ export default function Home({ data, donationLabel, resolvedEvents }: HomeProps)
                                         {block.heading}
                                     </h3>
                                     <div className="mt-3 space-y-3 text-base leading-relaxed text-slate-700">
-                                        {toParagraphs(block.body).map((p, j) => (
-                                            <p key={j}>{p}</p>
-                                        ))}
+                                        {toParagraphs(block.body).map(
+                                            (p, j) => (
+                                                <p key={j}>{p}</p>
+                                            )
+                                        )}
                                     </div>
                                 </div>
                             </article>
@@ -479,13 +587,29 @@ export default function Home({ data, donationLabel, resolvedEvents }: HomeProps)
 
                         {/* Donation CTA — blue button on orange (white text ✓) */}
                         <div className="lg:justify-self-end">
-                            <Link
-                                href="/membership"
-                                className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl bg-hvblue px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange md:text-lg lg:w-auto"
+                            <form
+                                action={PAYPAL_CGI_URL}
+                                method="post"
+                                target="_top"
                             >
-                                <HeartIcon className="h-5 w-5" />
-                                {donationLabel}
-                            </Link>
+                                <input
+                                    type="hidden"
+                                    name="cmd"
+                                    value="_s-xclick"
+                                />
+                                <input
+                                    type="hidden"
+                                    name="hosted_button_id"
+                                    value={donateButtonId}
+                                />
+                                <button
+                                    type="submit"
+                                    className="inline-flex min-h-[52px] w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-hvblue px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange md:text-lg lg:w-auto"
+                                >
+                                    <HeartIcon className="h-5 w-5" />
+                                    {donationLabel}
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -505,7 +629,7 @@ export default function Home({ data, donationLabel, resolvedEvents }: HomeProps)
                         </h2>
                         <span
                             aria-hidden="true"
-                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
+                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
                         />
                         <p className="mt-6 text-base leading-relaxed text-slate-700 md:text-lg">
                             {events.intro}
@@ -546,7 +670,7 @@ export default function Home({ data, donationLabel, resolvedEvents }: HomeProps)
                             >
                                 <span
                                     aria-hidden="true"
-                                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-hvblue text-white transition duration-150 group-hover:bg-hvorange-600"
+                                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-hvblue text-white transition duration-150 group-hover:bg-hvorange-800"
                                 >
                                     <CalendarIcon className="h-6 w-6" />
                                 </span>
@@ -555,7 +679,9 @@ export default function Home({ data, donationLabel, resolvedEvents }: HomeProps)
                                         {event.title}
                                     </h3>
                                     <div className="mt-2 text-base leading-relaxed text-slate-700 [&_a]:text-hvorange-700 [&_a]:underline [&_a:hover]:text-hvorange-800">
-                                        <DocumentRenderer document={event.description} />
+                                        <DocumentRenderer
+                                            document={event.description}
+                                        />
                                     </div>
                                 </div>
                             </article>
@@ -574,11 +700,11 @@ export default function Home({ data, donationLabel, resolvedEvents }: HomeProps)
                 />
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-hvorange-600/15 blur-3xl"
+                    className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-hvorange-700/15 blur-3xl"
                 />
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
                 />
 
                 <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
@@ -587,13 +713,14 @@ export default function Home({ data, donationLabel, resolvedEvents }: HomeProps)
                         <span className="text-hvorange">give back.</span>
                     </h2>
                     <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-white/90">
-                        Become part of a community that understands. Your support
-                        helps every Alabama family find their way forward.
+                        Become part of a community that understands. Your
+                        support helps every Alabama family find their way
+                        forward.
                     </p>
                     <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
                         <Link
                             href="/membership"
-                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                         >
                             <HeartIcon className="h-5 w-5" />
                             {donationLabel}

@@ -12,12 +12,17 @@ test('renders fixed navigation and connected global settings', async ({
 
     await page.goto('/')
 
-    const navigation = page.getByRole('navigation', {
+    const header = page.getByRole('banner')
+    const mainContent = page.locator('#main-content')
+    const footer = page.getByRole('contentinfo')
+    const navigation = header.getByRole('navigation', {
         name: 'Main navigation',
     })
     await navigation.getByRole('button', { name: 'About' }).click()
     for (const name of ['Who We Are', 'Board Members', 'Staff', 'Contact']) {
-        await expect(navigation.getByRole('link', { name })).toBeVisible()
+        await expect(
+            navigation.getByRole('link', { name, exact: true })
+        ).toBeVisible()
     }
 
     await navigation.getByRole('button', { name: 'Programs' }).click()
@@ -28,64 +33,78 @@ test('renders fixed navigation and connected global settings', async ({
         "O.U.R. Children's Safety Project",
         'DHH Committee Members',
     ]) {
-        await expect(navigation.getByRole('link', { name })).toBeVisible()
+        await expect(
+            navigation.getByRole('link', { name, exact: true })
+        ).toBeVisible()
     }
 
     await expect(page).toHaveTitle(/Alabama Hands & Voices/)
+    const facebookPageLink =
+        'a[href="https://www.facebook.com/alabamahandsandvoices/"]'
+    await expect(header.locator(facebookPageLink)).toHaveCount(1)
+    await expect(footer.locator(facebookPageLink)).toHaveCount(1)
+    await expect
+        .poll(() => mainContent.locator(facebookPageLink).count())
+        .toBeGreaterThanOrEqual(1)
     await expect(
-        page.locator(
-            'a[href="https://www.facebook.com/alabamahandsandvoices/"]'
-        )
-    ).toHaveCount(2)
-    await expect(page.getByText('alabamahinfo@gmail.com')).toBeVisible()
-    await expect(page.getByText('205-677-3136')).toBeVisible()
-    await expect(
-        page.getByText('P.O. Box 130627, Birmingham, AL 35213')
+        footer.getByText('alabamahinfo@gmail.com', { exact: true })
     ).toBeVisible()
     await expect(
-        page.getByText(
-            `© ${new Date().getFullYear()} Alabama Hands & Voices. All rights reserved.`
+        footer.getByText('205-677-3136', { exact: true })
+    ).toBeVisible()
+    await expect(
+        footer.getByText('P.O. Box 130627, Birmingham, AL 35213', {
+            exact: true,
+        })
+    ).toBeVisible()
+    await expect(
+        footer.getByText(
+            `© ${new Date().getFullYear()} Alabama Hands & Voices. All rights reserved.`,
+            { exact: true }
         )
     ).toBeVisible()
 
-    const footer = page.getByRole('contentinfo')
     const footerNavigation = footer.getByRole('navigation', {
         name: 'Footer navigation',
     })
     for (const group of ['About', 'Programs', 'Site']) {
         await expect(
-            footerNavigation.getByRole('heading', { name: group })
+            footerNavigation.getByRole('heading', {
+                name: group,
+                exact: true,
+            })
         ).toBeVisible()
     }
 
-    const donationForms = page.locator(
-        'form[action="https://www.paypal.com/cgi-bin/webscr"]'
-    )
-    await expect(donationForms).toHaveCount(1)
-    expect(
-        await donationForms
-            .locator('input[name="hosted_button_id"]')
-            .evaluateAll((inputs) =>
-                inputs.map((input) => (input as HTMLInputElement).value)
-            )
-    ).toEqual(['R99Y9497TS2SW'])
+    const paypalForm = 'form[action="https://www.paypal.com/cgi-bin/webscr"]'
+    const footerDonationForms = footer.locator(paypalForm)
+    await expect(footerDonationForms).toHaveCount(1)
     await expect(
-        footer.getByRole('button', { name: 'Donate Now' })
+        footerDonationForms.locator('input[name="hosted_button_id"]')
+    ).toHaveValue('R99Y9497TS2SW')
+
+    const mainDonationForms = mainContent.locator(paypalForm)
+    await expect
+        .poll(() => mainDonationForms.count())
+        .toBeGreaterThanOrEqual(1)
+    await expect(
+        mainDonationForms
+            .first()
+            .locator('input[name="hosted_button_id"]')
+    ).toHaveValue('R99Y9497TS2SW')
+    await expect(
+        mainDonationForms
+            .first()
+            .getByRole('button', { name: 'Donate', exact: true })
+    ).toBeVisible()
+    await expect(
+        footer.getByRole('button', { name: 'Donate Now', exact: true })
     ).toBeVisible()
 })
 
 test('renders membership signup, payment tiers, donation, and success handoff', async ({
     page,
 }) => {
-    await page.route('**/__forms.html', async (route) => {
-        if (route.request().method() === 'POST') {
-            await route.fulfill({ status: 200, body: 'ok' })
-            return
-        }
-
-        await route.continue()
-    })
-
     await page.goto('/membership/choose-membership')
 
     const signupSection = page.locator('#membership-form')
@@ -120,6 +139,15 @@ test('renders membership signup, payment tiers, donation, and success handoff', 
     await expect(donationForms.locator('input[name="cmd"]')).toHaveValue(
         '_donations'
     )
+
+    await page.route('**/__forms.html', async (route) => {
+        if (route.request().method() === 'POST') {
+            await route.fulfill({ status: 200, body: 'ok' })
+            return
+        }
+
+        await route.continue()
+    })
 
     await signupForm.getByRole('button', { name: 'Submit' }).click()
     const handoff = signupForm.getByRole('link', {

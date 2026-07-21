@@ -1,46 +1,114 @@
 introCopy: >-
-  We have compiled resources to help families of children who are deaf or hard
-  of hearing navigate each stage of their journey.
+    We have compiled resources to help families of children who are deaf or hard
+    of hearing navigate each stage of their journey.
 resourceCategories:
-  - title: Confirmed Hearing Loss
-    resources:
-      - name: Guide By Your Side
-        url: /programs/gbys
-      - name: Educational Advocacy (ASTra)
-        url: /programs/astra
-  - title: Children Ages 0-3
-    resources:
-      - name: "Testing Baby's Hearing (Parent Road Map)"
-        url: /assets/documents/Road_map.pdf
-      - name: Alabama Newborn Screening Program
-        url: https://www.alabamapublichealth.gov/newbornscreening/newborn-hearing-screening.html
-      - name: "Parent's Guide to D/HH Early Intervention (English)"
-        url: https://www.handsandvoices.org/resources/pubs/Final_8-30-2017.pdf
-      - name: "Parent's Guide to D/HH Early Intervention (Spanish)"
-        url: https://www.handsandvoices.org/resources/pubs/jci-parentsguide-spanish.pdf
-      - name: Alabama Early Intervention System
-        url: https://rehab.alabama.gov/nevertooearlyal/
-      - name: Alabama Hearing Loss Options
-        url: https://www.alhearinglossoptions.org/
-      - name: List of Resources and Providers (Ages 0-3)
-        url: /assets/documents/evaluation.pdf
-  - title: Children Ages 3+
-    resources:
-      - name: Alabama Parent Education Center
-        url: http://alabamaparentcenter.com/web/
-      - name: Alabama Department of Special Education Services
-        url: https://www.alabamaachieves.org/special-education/
-      - name: Alabama Vocational Rehabilitation Services
-        url: https://www.rehab.alabama.gov/services/vr/vr
-      - name: Deaf Education Guidelines
-        url: https://deafedguidelines.org/
-      - name: Alabama Hands & Voices Communication Plan
-        url: /assets/documents/communicationPlan.pdf
-      - name: Alabama Hands & Voices Spanish Communication Plan
-        url: /assets/documents/communicationPlan.pdf
-      - name: List of Resources and Providers (Ages 3+)
-        url: /assets/documents/nasdse-3rd-ed-7-11-2019-final.pdf
-      - name: Cheryl Johnson discussion of Educational Service Guidelines
-        url: https://www.youtube.com/watch?v=toZKXzZ20UA
-ehdiSidebarBody: "EHDI-PALS is a directory of audiology services for children aged 0-5, searchable by state."
+    - title: General Resources
+      resources:
+          - name: Alabama Association of the Deaf (ASL)
+            url: https://deafalabama.org/home/
+          - name: Alabama Chapter of AG Bell
+            url: http://www.agbell.org/Connect/Alabama-Chapter-Ag-Bell
+          - name: Alabama Dept. of Rehabilitation Services / Early Intervention
+            url: https://www.rehab.alabama.gov/services/ei
+          - name: Alabama Disabilities Advocacy Program
+            url: http://adap.ua.edu/
+          - name: Alabama EHDI / ADPH Newborn Hearing Screening
+            url: https://www.alabamapublichealth.gov/newbornscreening/newborn-hearing-screening.html
+          - name: Alabama Institute for Deaf and Blind
+            url: https://www.aidb.org/
+          - name: Alabama Parent Education Center
+            url: http://www.alabamaparentcenter.com
+          - name: Alabama Registry of Interpreters for the Deaf
+            url: http://www.alrid.org/
+          - name: Woolley Institute (WISE)
+            url: https://www.wise4al.org/contact-us/
+          - name: ALSDE Special Education Services
+            url: https://www.alsde.edu/sec/ses/pages/home.aspx
+          - name: Children's of Alabama HEAR Center
+            url: https://www.childrensal.org/hear-center
+          - name: Children's Rehabilitation Services
+            url: https://www.rehab.alabama.gov/services/crs
+          - name: Gallaudet University (ASL info)
+            url: http://www3.gallaudet.edu/clerc-center/info-to-go/asl.html
+          - name: Hands & Voices (national)
+            url: http://www.handsandvoices.org/index.htm
+          - name: East Alabama ENT
+            url: https://www.eaent.com/
+          - name: Huntsville Hospital (pediatric audiology)
+            url: http://www.hhwomenandchildren.org/pediatric-audiology
+          - name: National Cued Speech Association
+            url: http://www.cuedspeech.org/
+          - name: National Association of the Deaf
+            url: https://www.nad.org/
+          - name: 'Hands and Wrists: Learning ASL'
+            url: https://www.wristbandexpress.com/content/hands-and-wrists-learning-american-sign-language
+          - name: What is a cochlear implant?
+            url: http://www.acialliance.org/page/CochlearImplant
+          - name: What is a hearing aid?
+            url: https://www.nidcd.nih.gov/health/hearing-aids
+          - name: Deaf Learning Program Shelby County
+            url: https://www.facebook.com/deaflearningprogram/
+          - name: CMV Information for Parents
+            url: https://www.nationalcmv.org/overview
+          - name: NCHAM
+            url: http://www.infanthearing.org/states/
+          - name: Univ. of South Alabama Speech and Hearing Center
+            url: https://www.southalabama.edu/colleges/alliedhealth/speechandhearing/clinic.html
+          - name: All for Children (Auburn)
+            url: https://all-forchildren.com/
+          - name: Hearing Professionals of Alabama (Auburn)
+            url: https://www.hpoal.com/Resources
+          - name: Auburn University Speech and Hearing Clinic
+            url: https://cla.auburn.edu/speechandhearingclinic/
+          - name: NASDSE Educational Service Guidelines
+            url: /assets/documents/nasdse-3rd-ed-7-11-2019-final.pdf
+          - name: Communication Options (Beginnings NC)
+            url: https://ncbegin.org/reference-chart/
+          - name: Alabama Options for Services for D/HH Children
+            url: https://www.alhearinglossoptions.org/
+    - title: Confirmed Hearing Loss
+      resources:
+          - name: Guide By Your Side
+            url: /programs/gbys
+          - name: Educational Advocacy (ASTra)
+            url: /programs/astra
+    - title: Children Ages 0-3
+      resources:
+          - name: "Testing Baby's Hearing (Parent Road Map)"
+            url: /assets/documents/Road_map.pdf
+          - name: Alabama Newborn Screening Program
+            url: https://www.alabamapublichealth.gov/newbornscreening/newborn-hearing-screening.html
+          - name: "Parent's Guide to D/HH Early Intervention (English)"
+            url: https://www.handsandvoices.org/resources/pubs/Final_8-30-2017.pdf
+          - name: "Parent's Guide to D/HH Early Intervention (Spanish)"
+            url: https://www.handsandvoices.org/resources/pubs/jci-parentsguide-spanish.pdf
+          - name: Alabama Early Intervention System
+            url: https://rehab.alabama.gov/nevertooearlyal/
+          - name: Alabama Hearing Loss Options
+            url: https://www.alhearinglossoptions.org/
+          - name: List of Resources and Providers (Ages 0-3)
+            url: /assets/documents/providers-0-3.pdf
+    - title: Children Ages 3+
+      resources:
+          - name: Alabama Parent Education Center
+            url: http://alabamaparentcenter.com/web/
+          - name: Alabama Department of Special Education Services
+            url: https://www.alabamaachieves.org/special-education/
+          - name: Alabama Vocational Rehabilitation Services
+            url: https://www.rehab.alabama.gov/services/vr/vr
+          - name: Deaf Education Guidelines
+            url: https://deafedguidelines.org/
+          - name: Alabama Hands & Voices Communication Plan
+            url: /assets/documents/communicationPlan.pdf
+          - name: Alabama Hands & Voices Spanish Communication Plan
+            url: /assets/documents/communicationPlan-es.docx
+          - name: List of Resources and Providers (Ages 3+)
+            url: /assets/documents/providers-3-plus.pdf
+          - name: Cheryl Johnson discussion of Educational Service Guidelines
+            url: https://www.youtube.com/watch?v=toZKXzZ20UA
+ehdiSidebarBody: >-
+    The EHDI-PALS directory has information about audiology services for children
+    from birth to age five. Facilities report pediatric equipment and expertise,
+    licensed audiologists, available languages, payment options, and appointment
+    availability.
 ehdiSidebarUrl: http://www.ehdi-pals.org/

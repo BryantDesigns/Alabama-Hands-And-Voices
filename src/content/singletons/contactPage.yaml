@@ -1,7 +1,10 @@
 heading: Contact Us
 body: >-
-  We are here to support you. Whether you have questions about our programs,
-  need resources, or want to connect with other families, please reach out.
+    We are here to support you. Whether you have questions about our programs,
+    need resources, or want to connect with other families, please reach out.
 email: alabamahinfo@gmail.com
-phone: "205-677-3136"
+phone: '205-677-3136'
+mailingAddress: P.O. Box 130627, Birmingham, AL 35213
+facebookGroupUrl: https://www.facebook.com/groups/alabamahandsandvoices/
+surveyUrl: https://www.surveymonkey.com/r/FZ2ZDVN
 image: /images/contactUs.jpg

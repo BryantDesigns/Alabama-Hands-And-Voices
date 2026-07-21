@@ -113,6 +113,12 @@ const TIER_LABELS = {
     organization: 'Organization',
 } as const
 
+const TIER_PRICES = {
+    parent: '$25/year',
+    professional: '$40/year',
+    organization: '$50/year',
+} as const
+
 // Benefits listed on tier cards
 const TIER_BENEFITS = {
     parent: [
@@ -133,7 +139,8 @@ const TIER_BENEFITS = {
 } as const
 
 export default function Membership({ membership, choose }: MembershipProps) {
-    const { heroText, documentDownloadUrl, scholarshipNote } = membership
+    const { heroHeading, heroText, documentDownloadUrl, scholarshipNote } =
+        membership
     const { membershipOptions } = choose
 
     const tiers = [
@@ -178,7 +185,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                 {/* Left-edge bar — structural brand signature */}
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
                 />
 
                 <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">
@@ -186,7 +193,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                     <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
                         <span
                             aria-hidden="true"
-                            className="h-2 w-2 rounded-sm bg-hvorange-600"
+                            className="h-2 w-2 rounded-sm bg-hvorange-700"
                         />
                         Membership
                     </p>
@@ -194,11 +201,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                     <div className="mt-6 grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
                         <div>
                             <h1 className="text-5xl font-extrabold leading-[1.05] tracking-tight text-white md:text-7xl">
-                                Join the
-                                <br />
-                                <span className="text-hvorange">movement</span>
-                                <br />
-                                for families.
+                                {heroHeading}
                             </h1>
                             <p className="mt-7 max-w-xl text-lg font-medium leading-relaxed text-white/90 md:text-xl">
                                 {heroText}
@@ -207,7 +210,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                                 <a
                                     href={documentDownloadUrl}
                                     download
-                                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                 >
                                     <DownloadIcon className="h-5 w-5" />
                                     Download Membership Form
@@ -229,7 +232,8 @@ export default function Membership({ membership, choose }: MembershipProps) {
                                     3
                                 </p>
                                 <p className="mt-1 text-sm font-bold text-hvblue/90">
-                                    membership categories for families, professionals &amp; orgs
+                                    membership categories for families,
+                                    professionals &amp; orgs
                                 </p>
                             </div>
                             <div className="rounded-3xl bg-white/10 p-5 ring-1 ring-white/20">
@@ -268,17 +272,21 @@ export default function Membership({ membership, choose }: MembershipProps) {
                             </h2>
                             <span
                                 aria-hidden="true"
-                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
+                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
                             />
                             <div className="mt-6 space-y-4 text-base leading-relaxed text-slate-700 md:text-lg">
                                 <p>
-                                    Alabama Hands &amp; Voices membership connects you to a statewide
-                                    network of families, professionals, and advocates committed to deaf
-                                    and hard-of-hearing children — and to the programs that serve them.
+                                    Alabama Hands &amp; Voices membership
+                                    connects you to a statewide network of
+                                    families, professionals, and advocates
+                                    committed to deaf and hard-of-hearing
+                                    children — and to the programs that serve
+                                    them.
                                 </p>
                                 <p>
-                                    Your membership fuels real impact: retreats, resources, and outreach
-                                    that reach families across all of Alabama.
+                                    Your membership fuels real impact: retreats,
+                                    resources, and outreach that reach families
+                                    across all of Alabama.
                                 </p>
                             </div>
                         </div>
@@ -317,7 +325,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                 />
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
                 />
 
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -331,7 +339,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                         </h2>
                         <span
                             aria-hidden="true"
-                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
+                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
                         />
                     </div>
 
@@ -376,6 +384,9 @@ export default function Membership({ membership, choose }: MembershipProps) {
                                     </h3>
                                     <p className="mt-2 text-sm font-medium text-slate-600">
                                         {tier.subtitle}
+                                    </p>
+                                    <p className="mt-4 text-3xl font-extrabold tracking-tight text-hvblue">
+                                        {TIER_PRICES[tier.key]}
                                     </p>
 
                                     <span
@@ -431,8 +442,9 @@ export default function Membership({ membership, choose }: MembershipProps) {
                                 className="mt-5 block h-1.5 w-20 rounded-full bg-hvblue"
                             />
                             <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-hvblue/90 md:text-lg">
-                                Print or complete digitally — then send it in. We&apos;ll welcome you
-                                to the community personally.
+                                Print or complete digitally — then send it in.
+                                We&apos;ll welcome you to the community
+                                personally.
                             </p>
                         </div>
 
@@ -498,11 +510,12 @@ export default function Membership({ membership, choose }: MembershipProps) {
                             </h3>
                             <span
                                 aria-hidden="true"
-                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
+                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
                             />
                             <p className="mt-6 text-base leading-relaxed text-slate-700 md:text-lg">
-                                Our mission is to make sure no family walks the journey alone —
-                                regardless of financial circumstances. If cost is a concern, reach out.
+                                Our mission is to make sure no family walks the
+                                journey alone — regardless of financial
+                                circumstances. If cost is a concern, reach out.
                                 We&apos;re here to find a path forward together.
                             </p>
                         </div>
@@ -520,11 +533,11 @@ export default function Membership({ membership, choose }: MembershipProps) {
                 />
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-hvorange-600/15 blur-3xl"
+                    className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-hvorange-700/15 blur-3xl"
                 />
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
                 />
 
                 <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
@@ -533,14 +546,15 @@ export default function Membership({ membership, choose }: MembershipProps) {
                         <span className="text-hvorange">community?</span>
                     </h2>
                     <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-white/90">
-                        Download the membership form, fill it out, and become part of a statewide
-                        movement dedicated to Alabama families of deaf and hard-of-hearing children.
+                        Download the membership form, fill it out, and become
+                        part of a statewide movement dedicated to Alabama
+                        families of deaf and hard-of-hearing children.
                     </p>
                     <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
                         <a
                             href={documentDownloadUrl}
                             download
-                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                         >
                             <HeartIcon className="h-5 w-5" />
                             Join now — download the form

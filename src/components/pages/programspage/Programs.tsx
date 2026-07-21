@@ -152,10 +152,10 @@ function ProgramCard({
     }
 
     const accentBarClasses: Record<BentoVariant, string> = {
-        white: 'bg-hvorange-600',
-        blue: 'bg-hvorange-600',
+        white: 'bg-hvorange-700',
+        blue: 'bg-hvorange-700',
         orange: 'bg-hvblue',
-        photo: 'bg-hvorange-600',
+        photo: 'bg-hvorange-700',
     }
 
     return (
@@ -167,12 +167,12 @@ function ProgramCard({
                 aria-hidden="true"
                 className={`absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-xl text-sm font-extrabold ${
                     variant === 'white'
-                        ? 'bg-slate-100 text-slate-400'
+                        ? 'bg-slate-100 text-slate-600'
                         : variant === 'blue'
-                          ? 'bg-white/10 text-white/60'
+                          ? 'bg-white/10 text-white/80'
                           : variant === 'orange'
-                            ? 'bg-hvblue/10 text-hvblue/60'
-                            : 'bg-white/10 text-white/60'
+                            ? 'bg-hvblue/10 text-hvblue'
+                            : 'bg-white/10 text-white/80'
                 }`}
             >
                 {String(index + 1).padStart(2, '0')}
@@ -241,7 +241,9 @@ function ProgramCard({
             </p>
 
             {/* Detail */}
-            <p className={`mt-2 flex-1 text-base leading-relaxed ${bodyClasses[variant]}`}>
+            <p
+                className={`mt-2 flex-1 text-base leading-relaxed ${bodyClasses[variant]}`}
+            >
                 {truncateDetail(program.detail)}
             </p>
 
@@ -304,7 +306,7 @@ export default function Programs({ programs }: ProgramsProps) {
                 />
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
                 />
 
                 <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">
@@ -312,14 +314,13 @@ export default function Programs({ programs }: ProgramsProps) {
                         <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
                             <span
                                 aria-hidden="true"
-                                className="h-2 w-2 rounded-sm bg-hvorange-600"
+                                className="h-2 w-2 rounded-sm bg-hvorange-700"
                             />
                             Alabama Hands &amp; Voices
                         </p>
 
                         <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight text-white md:text-7xl">
-                            Our{' '}
-                            <span className="text-hvorange">Programs</span>
+                            Our <span className="text-hvorange">Programs</span>
                         </h1>
 
                         <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">
@@ -331,7 +332,7 @@ export default function Programs({ programs }: ProgramsProps) {
                         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                             <Link
                                 href="/programs/gbys"
-                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                             >
                                 <HeartIcon className="h-5 w-5" />
                                 Find a Parent Guide
@@ -371,10 +372,7 @@ export default function Programs({ programs }: ProgramsProps) {
             {/* ============================================================ */}
             {/* BENTO GRID — mixed-surface program cards */}
             {/* ============================================================ */}
-            <section
-                id="programs-grid"
-                className="bg-slate-50 py-14 md:py-20"
-            >
+            <section id="programs-grid" className="bg-slate-50 py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-2xl">
                         <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
@@ -387,7 +385,7 @@ export default function Programs({ programs }: ProgramsProps) {
                         </h2>
                         <span
                             aria-hidden="true"
-                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
+                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
                         />
                     </div>
 
@@ -431,10 +429,10 @@ export default function Programs({ programs }: ProgramsProps) {
                             />
                             <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-hvblue/90 md:text-lg">
                                 Alabama Hands &amp; Voices connects families at
-                                every stage — from the first day of diagnosis
-                                to the school years and beyond. Our programs
-                                are free, family-centered, and run by people
-                                who have lived this experience.
+                                every stage — from the first day of diagnosis to
+                                the school years and beyond. Our programs are
+                                free, family-centered, and run by people who
+                                have lived this experience.
                             </p>
                         </div>
 
@@ -466,11 +464,11 @@ export default function Programs({ programs }: ProgramsProps) {
                 />
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-hvorange-600/15 blur-3xl"
+                    className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-hvorange-700/15 blur-3xl"
                 />
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
                 />
 
                 <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
@@ -482,15 +480,15 @@ export default function Programs({ programs }: ProgramsProps) {
                         <span className="text-hvorange">Parent Guide.</span>
                     </h2>
                     <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/90">
-                        Our Guide By Your Side program pairs your family with
-                        a parent who has been there. No cost, no commitment —
-                        just one family helping another find their way forward.
+                        Our Guide By Your Side program pairs your family with a
+                        parent who has been there. No cost, no commitment — just
+                        one family helping another find their way forward.
                     </p>
 
                     <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
                         <Link
                             href="/programs/gbys"
-                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                         >
                             <HeartIcon className="h-5 w-5" />
                             Find a Parent Guide

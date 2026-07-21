@@ -10,6 +10,7 @@ export default async function Page() {
     const faqs = (data.faqEntries ?? []).map((e) => ({
         question: e.question,
         answer: e.answer,
+        resourceLinks: e.resourceLinks,
     }))
     return (
         <Faq

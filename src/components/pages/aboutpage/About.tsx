@@ -99,8 +99,16 @@ function UsersIcon({ className = '' }: { className?: string }) {
 // ── Component ────────────────────────────────────────────────────────────────
 
 export default function About({ about, board, staff }: AboutProps) {
-    const { whoWeAreBody, whyWeAreHereBody, membershipCtaText, membershipFormUrl, images } =
-        about
+    const {
+        whoWeAreBody,
+        whoWeAreQuote,
+        whoWeAreQuoteAttribution,
+        whyWeAreHereBody,
+        values,
+        membershipCtaText,
+        membershipFormUrl,
+        images,
+    } = about
 
     const staffGroups = groupByCategory(staff)
 
@@ -122,7 +130,7 @@ export default function About({ about, board, staff }: AboutProps) {
                 {/* Left-edge bar */}
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
                 />
 
                 <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">
@@ -130,7 +138,7 @@ export default function About({ about, board, staff }: AboutProps) {
                         <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
                             <span
                                 aria-hidden="true"
-                                className="h-2 w-2 rounded-sm bg-hvorange-600"
+                                className="h-2 w-2 rounded-sm bg-hvorange-700"
                             />
                             Our Story
                         </p>
@@ -142,15 +150,15 @@ export default function About({ about, board, staff }: AboutProps) {
                         </h1>
 
                         <p className="mt-7 max-w-xl text-lg font-medium leading-relaxed text-white/90 md:text-xl">
-                            A parent-driven, non-profit community walking beside every
-                            Alabama family with a deaf or hard-of-hearing child — from
-                            first diagnosis to full potential.
+                            A parent-driven, non-profit community walking beside
+                            every Alabama family with a deaf or hard-of-hearing
+                            child — from first diagnosis to full potential.
                         </p>
 
                         <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
                             <Link
                                 href="/membership"
-                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-600 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                             >
                                 <HeartIcon className="h-5 w-5" />
                                 Join Our Community
@@ -183,7 +191,7 @@ export default function About({ about, board, staff }: AboutProps) {
                             </h2>
                             <span
                                 aria-hidden="true"
-                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
+                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
                             />
                             <div className="mt-6 space-y-5 text-base leading-relaxed text-slate-700 md:text-lg">
                                 {toParagraphs(whoWeAreBody).map((p, i) => (
@@ -212,12 +220,20 @@ export default function About({ about, board, staff }: AboutProps) {
                                     {/* Orange badge */}
                                     <span
                                         aria-hidden="true"
-                                        className="absolute right-4 top-4 h-12 w-12 rounded-2xl bg-hvorange-600"
+                                        className="absolute right-4 top-4 h-12 w-12 rounded-2xl bg-hvorange-700"
                                     />
                                 </div>
                             </div>
                         )}
                     </div>
+                    <figure className="mx-auto mt-12 max-w-4xl rounded-3xl bg-slate-50 p-7 ring-1 ring-slate-200 md:p-10">
+                        <blockquote className="text-xl font-bold leading-relaxed text-hvblue md:text-2xl">
+                            &ldquo;{whoWeAreQuote}&rdquo;
+                        </blockquote>
+                        <figcaption className="mt-5 text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                            {whoWeAreQuoteAttribution}
+                        </figcaption>
+                    </figure>
                 </div>
             </section>
 
@@ -276,6 +292,23 @@ export default function About({ about, board, staff }: AboutProps) {
                             </div>
                         </div>
                     </div>
+                    <ul
+                        className="mt-10 grid gap-4 md:grid-cols-2"
+                        aria-label="Our shared values"
+                    >
+                        {values.map((item) => (
+                            <li
+                                key={item.value}
+                                className="flex items-start gap-3 rounded-2xl bg-hvblue p-5 font-bold leading-relaxed text-white"
+                            >
+                                <span
+                                    aria-hidden="true"
+                                    className="mt-1 h-3 w-3 shrink-0 rounded-sm bg-hvorange"
+                                />
+                                {item.value}
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </section>
 
@@ -294,7 +327,7 @@ export default function About({ about, board, staff }: AboutProps) {
                             </h2>
                             <span
                                 aria-hidden="true"
-                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
+                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
                             />
                         </div>
 
@@ -303,7 +336,9 @@ export default function About({ about, board, staff }: AboutProps) {
                                 <div
                                     key={i}
                                     className={`group relative overflow-hidden rounded-3xl shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-xl ${
-                                        i === 0 ? 'sm:col-span-2 lg:col-span-1' : ''
+                                        i === 0
+                                            ? 'sm:col-span-2 lg:col-span-1'
+                                            : ''
                                     }`}
                                 >
                                     <div className="relative aspect-4/3 overflow-hidden">
@@ -346,7 +381,7 @@ export default function About({ about, board, staff }: AboutProps) {
                 />
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
                 />
 
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -356,14 +391,15 @@ export default function About({ about, board, staff }: AboutProps) {
                                 Leadership
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white md:text-5xl">
-                                Board <span className="text-hvorange">Members</span>
+                                Board{' '}
+                                <span className="text-hvorange">Members</span>
                             </h2>
                             <span
                                 aria-hidden="true"
-                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
+                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
                             />
                         </div>
-                        <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white/70">
+                        <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white/80">
                             <UsersIcon className="h-5 w-5" />
                             {board.length} members
                         </div>
@@ -377,19 +413,18 @@ export default function About({ about, board, staff }: AboutProps) {
                             <li key={member.name}>
                                 <article className="group flex flex-col items-center rounded-3xl bg-white/10 p-6 text-center ring-1 ring-white/20 transition duration-200 hover:bg-white/15 hover:ring-white/40">
                                     <div className="overflow-hidden rounded-full ring-2 ring-hvorange-600 ring-offset-2 ring-offset-hvblue transition duration-200 group-hover:ring-hvorange-400">
-                                        <img
+                                        <Image
                                             src={member.imageUrl}
                                             alt={member.name}
                                             width={80}
                                             height={80}
-                                            loading="lazy"
                                             className="h-20 w-20 rounded-full object-cover"
                                         />
                                     </div>
                                     <h3 className="mt-4 text-base font-bold tracking-tight text-white">
                                         {member.name}
                                     </h3>
-                                    <p className="mt-1 text-sm leading-snug text-white/70">
+                                    <p className="mt-1 text-sm leading-snug text-white/80">
                                         {member.role}
                                     </p>
                                 </article>
@@ -409,56 +444,60 @@ export default function About({ about, board, staff }: AboutProps) {
                             Our Team
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
-                            Staff <span className="text-hvorange-700">Members</span>
+                            Staff{' '}
+                            <span className="text-hvorange-700">Members</span>
                         </h2>
                         <span
                             aria-hidden="true"
-                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
+                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
                         />
                     </div>
 
                     <div className="mt-12 space-y-14">
-                        {Array.from(staffGroups.entries()).map(([category, members]) => (
-                            <div key={category}>
-                                {/* Category label as a pill */}
-                                <div className="mb-6 flex items-center gap-4">
-                                    <span className="rounded-xl bg-hvblue px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-white">
-                                        {category}
-                                    </span>
-                                    <span
-                                        aria-hidden="true"
-                                        className="h-px flex-1 bg-slate-200"
-                                    />
+                        {Array.from(staffGroups.entries()).map(
+                            ([category, members]) => (
+                                <div key={category}>
+                                    {/* Category label as a pill */}
+                                    <div className="mb-6 flex items-center gap-4">
+                                        <span className="rounded-xl bg-hvblue px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-white">
+                                            {category}
+                                        </span>
+                                        <span
+                                            aria-hidden="true"
+                                            className="h-px flex-1 bg-slate-200"
+                                        />
+                                    </div>
+                                    <ul
+                                        role="list"
+                                        className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+                                    >
+                                        {members.map((member) => (
+                                            <li key={member.name}>
+                                                <article className="group flex flex-col items-center rounded-3xl bg-white p-6 text-center shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+                                                    <div className="overflow-hidden rounded-full ring-2 ring-slate-200 ring-offset-2 transition duration-200 group-hover:ring-hvorange-600">
+                                                        <Image
+                                                            src={
+                                                                member.imageUrl
+                                                            }
+                                                            alt={member.name}
+                                                            width={72}
+                                                            height={72}
+                                                            className="h-[72px] w-[72px] rounded-full object-cover"
+                                                        />
+                                                    </div>
+                                                    <h4 className="mt-4 text-base font-bold tracking-tight text-hvblue">
+                                                        {member.name}
+                                                    </h4>
+                                                    <p className="mt-1 text-sm leading-snug text-slate-600">
+                                                        {member.role}
+                                                    </p>
+                                                </article>
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
-                                <ul
-                                    role="list"
-                                    className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-                                >
-                                    {members.map((member) => (
-                                        <li key={member.name}>
-                                            <article className="group flex flex-col items-center rounded-3xl bg-white p-6 text-center shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
-                                                <div className="overflow-hidden rounded-full ring-2 ring-slate-200 ring-offset-2 transition duration-200 group-hover:ring-hvorange-600">
-                                                    <img
-                                                        src={member.imageUrl}
-                                                        alt={member.name}
-                                                        width={72}
-                                                        height={72}
-                                                        loading="lazy"
-                                                        className="h-[72px] w-[72px] rounded-full object-cover"
-                                                    />
-                                                </div>
-                                                <h4 className="mt-4 text-base font-bold tracking-tight text-hvblue">
-                                                    {member.name}
-                                                </h4>
-                                                <p className="mt-1 text-sm leading-snug text-slate-600">
-                                                    {member.role}
-                                                </p>
-                                            </article>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
+                            )
+                        )}
                     </div>
                 </div>
             </section>
@@ -517,6 +556,13 @@ export default function About({ about, board, staff }: AboutProps) {
                                     <ArrowIcon className="h-5 w-5" />
                                 </a>
                             )}
+                            <Link
+                                href="/about/contact"
+                                className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl border-2 border-hvblue/60 px-8 py-3.5 text-base font-bold text-hvblue transition duration-150 hover:border-hvblue hover:bg-hvblue/10 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange lg:w-auto"
+                            >
+                                Contact Us
+                                <ArrowIcon className="h-5 w-5" />
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -85,6 +85,10 @@ export default function Footer({
                                 Parent-driven support for families of children
                                 who are deaf or hard of hearing.
                             </p>
+                            <p className="mt-4 text-sm font-bold leading-relaxed text-white">
+                                &ldquo;What works for your child is what makes
+                                the choice right.&rdquo; &trade;
+                            </p>
                         </div>
 
                         {/* Column 2 — Navigation */}
