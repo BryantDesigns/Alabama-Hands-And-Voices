@@ -21,7 +21,7 @@ const AstraForm = () => {
                     onSubmit={(event) =>
                         submitNetlifyForm(event, setStatus, setError)
                     }
-                    className="mx-auto max-w-5xl border border-gray-900/5 bg-white shadow-sm sm:rounded-xl"
+                    className="mx-auto max-w-3xl rounded-3xl bg-white p-6 ring-1 ring-slate-200 md:p-8"
                 >
                     {/* Netlify required fields */}
                     <input type="hidden" name="form-name" value="astra" />
@@ -36,13 +36,13 @@ const AstraForm = () => {
                         </label>
                     </p>
 
-                    <div className="px-4 py-6 sm:p-8">
+                    <div className="space-y-4">
                         <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             {/* Parent/Guardian Name */}
                             <div className="sm:col-span-3">
                                 <label
                                     htmlFor="inputName"
-                                    className="block text-sm font-medium text-gray-900"
+                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
                                 >
                                     Parent/Guardian Name:
                                 </label>
@@ -52,7 +52,7 @@ const AstraForm = () => {
                                         name="name"
                                         type="text"
                                         required
-                                        className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                     />
                                 </div>
                             </div>
@@ -60,7 +60,7 @@ const AstraForm = () => {
                             <div className="sm:col-span-3">
                                 <label
                                     htmlFor="inputSecondary"
-                                    className="block text-sm font-medium text-gray-900"
+                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
                                 >
                                     Secondary Parent/Guardian Name:
                                 </label>
@@ -69,7 +69,7 @@ const AstraForm = () => {
                                         id="inputSecondary"
                                         name="secondary-parent"
                                         type="text"
-                                        className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                     />
                                 </div>
                             </div>
@@ -77,7 +77,7 @@ const AstraForm = () => {
                             <div className="sm:col-span-6">
                                 <label
                                     htmlFor="inputTel"
-                                    className="block text-sm font-medium text-gray-900"
+                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
                                 >
                                     Phone Number:
                                 </label>
@@ -87,7 +87,7 @@ const AstraForm = () => {
                                         name="phone_number"
                                         type="tel"
                                         required
-                                        className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                     />
                                 </div>
                             </div>
@@ -95,7 +95,7 @@ const AstraForm = () => {
                             <div className="sm:col-span-6">
                                 <label
                                     htmlFor="inputEmail"
-                                    className="block text-sm font-medium text-gray-900"
+                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
                                 >
                                     Email:
                                 </label>
@@ -105,7 +105,7 @@ const AstraForm = () => {
                                         name="email"
                                         type="email"
                                         required
-                                        className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                     />
                                 </div>
                                 <small className="text-sm text-gray-500">
@@ -116,7 +116,7 @@ const AstraForm = () => {
                             <div className="sm:col-span-2">
                                 <label
                                     htmlFor="inputStudentName"
-                                    className="block text-sm font-medium text-gray-900"
+                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
                                 >
                                     Student Name:
                                 </label>
@@ -127,7 +127,7 @@ const AstraForm = () => {
                                         type="text"
                                         placeholder="Enter student name"
                                         required
-                                        className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                     />
                                 </div>
                             </div>
@@ -135,7 +135,7 @@ const AstraForm = () => {
                             <div className="sm:col-span-2">
                                 <label
                                     htmlFor="inputAge"
-                                    className="block text-sm font-medium text-gray-900"
+                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
                                 >
                                     Student&apos;s Age:
                                 </label>
@@ -145,7 +145,7 @@ const AstraForm = () => {
                                         name="student_age"
                                         type="text"
                                         placeholder="Enter student age"
-                                        className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                     />
                                 </div>
                             </div>
@@ -153,7 +153,7 @@ const AstraForm = () => {
                             <div className="sm:col-span-2">
                                 <label
                                     htmlFor="inputGrade"
-                                    className="block text-sm font-medium text-gray-900"
+                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
                                 >
                                     Student&apos;s Grade:
                                 </label>
@@ -163,7 +163,7 @@ const AstraForm = () => {
                                         name="student_grade"
                                         type="text"
                                         placeholder="Enter student grade"
-                                        className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                     />
                                 </div>
                             </div>
@@ -171,7 +171,7 @@ const AstraForm = () => {
                             <div className="sm:col-span-3">
                                 <label
                                     htmlFor="inputSchoolDistrict"
-                                    className="block text-sm font-medium text-gray-900"
+                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
                                 >
                                     School District:
                                 </label>
@@ -181,7 +181,7 @@ const AstraForm = () => {
                                         name="school_district"
                                         type="text"
                                         placeholder="School District"
-                                        className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                     />
                                 </div>
                             </div>
@@ -189,7 +189,7 @@ const AstraForm = () => {
                             <div className="sm:col-span-3">
                                 <label
                                     htmlFor="inputSchool"
-                                    className="block text-sm font-medium text-gray-900"
+                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
                                 >
                                     School:
                                 </label>
@@ -199,7 +199,7 @@ const AstraForm = () => {
                                         name="school"
                                         type="text"
                                         placeholder="School"
-                                        className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                     />
                                 </div>
                             </div>
@@ -207,7 +207,7 @@ const AstraForm = () => {
                             <div className="sm:col-span-6">
                                 <label
                                     htmlFor="inputCaseManagerName"
-                                    className="block text-sm font-medium text-gray-900"
+                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
                                 >
                                     Case Manager Name:
                                 </label>
@@ -216,7 +216,7 @@ const AstraForm = () => {
                                         id="inputCaseManagerName"
                                         name="case_manager_name"
                                         type="text"
-                                        className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                     />
                                 </div>
                             </div>
@@ -229,7 +229,7 @@ const AstraForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="communication_mode_iep"
-                                            className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                             type="checkbox"
                                             id="iepCheck"
                                         />
@@ -243,7 +243,7 @@ const AstraForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="communication_mode_504"
-                                            className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                             type="checkbox"
                                             id="plan504Check"
                                         />
@@ -257,7 +257,7 @@ const AstraForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="communication_mode_evaluation"
-                                            className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                             type="checkbox"
                                             id="evaluationCheck"
                                         />
@@ -271,7 +271,7 @@ const AstraForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="communication_mode_other"
-                                            className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                             type="checkbox"
                                             id="otherStatusCheck"
                                         />
@@ -293,7 +293,7 @@ const AstraForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="communication_mode_asl"
-                                            className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                             type="checkbox"
                                             id="aslCheck"
                                         />
@@ -307,7 +307,7 @@ const AstraForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="communication_mode_listening"
-                                            className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                             type="checkbox"
                                             id="listeningCheck"
                                         />
@@ -321,7 +321,7 @@ const AstraForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="communication_mode_fingerspelling"
-                                            className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                             type="checkbox"
                                             id="fingerspellingCheck"
                                         />
@@ -335,7 +335,7 @@ const AstraForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="communication_mode_cuedSpeech"
-                                            className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                             type="checkbox"
                                             id="cuedSpeechCheck"
                                         />
@@ -349,7 +349,7 @@ const AstraForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="communication_mode_combination"
-                                            className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                             type="checkbox"
                                             id="combinationCheck"
                                         />
@@ -363,7 +363,7 @@ const AstraForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="communication_mode_other_primary"
-                                            className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                             type="checkbox"
                                             id="otherPrimaryCheck"
                                         />
@@ -380,7 +380,7 @@ const AstraForm = () => {
                             <div className="col-span-full">
                                 <label
                                     htmlFor="inputParentQuestions"
-                                    className="block text-sm font-medium text-gray-900"
+                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
                                 >
                                     Please summarize in a few sentences the concerns that you have
                                     that have led you to seeking an ASTra advocate for support.
@@ -390,7 +390,7 @@ const AstraForm = () => {
                                         name="parent_questions"
                                         id="inputParentQuestions"
                                         rows={3}
-                                        className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                     />
                                 </div>
                                 <small className="text-sm text-gray-500">
@@ -404,7 +404,7 @@ const AstraForm = () => {
                     </div>
 
                     {/* Footer (Submit Button) */}
-                    <div className="flex items-center justify-end gap-x-6 border-t border-gray-900/10 px-4 py-4 sm:px-8">
+                    <div className="mt-8 flex flex-col items-center gap-2">
                         <button
                             type="button"
                             className="text-sm font-semibold text-gray-900"

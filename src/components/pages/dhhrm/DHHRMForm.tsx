@@ -21,7 +21,7 @@ const DHHRMForm = () => {
                     onSubmit={(event) =>
                         submitNetlifyForm(event, setStatus, setError)
                     }
-                    className="mx-auto max-w-5xl border border-gray-900/5 bg-white shadow-sm sm:rounded-xl"
+                    className="mx-auto max-w-3xl rounded-3xl bg-white p-6 ring-1 ring-slate-200 md:p-8"
                 >
                     {/* Netlify required fields */}
                     <input type="hidden" name="form-name" value="dhhrm" />
@@ -36,13 +36,13 @@ const DHHRMForm = () => {
                         </label>
                     </p>
 
-                    <div className="px-4 py-6 sm:p-8">
+                    <div className="space-y-4">
                         <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             {/* Name */}
                             <div className="sm:col-span-2">
                                 <label
                                     htmlFor="inputName"
-                                    className="block text-sm font-medium text-gray-900"
+                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
                                 >
                                     Name:
                                 </label>
@@ -52,7 +52,7 @@ const DHHRMForm = () => {
                                         name="name"
                                         type="text"
                                         required
-                                        className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                     />
                                 </div>
                             </div>
@@ -60,7 +60,7 @@ const DHHRMForm = () => {
                             <div className="sm:col-span-2">
                                 <label
                                     htmlFor="inputTel"
-                                    className="block text-sm font-medium text-gray-900"
+                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
                                 >
                                     Phone Number:
                                 </label>
@@ -70,7 +70,7 @@ const DHHRMForm = () => {
                                         name="phone"
                                         type="tel"
                                         required
-                                        className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                     />
                                 </div>
                             </div>
@@ -78,7 +78,7 @@ const DHHRMForm = () => {
                             <div className="sm:col-span-2">
                                 <label
                                     htmlFor="inputEmail"
-                                    className="block text-sm font-medium text-gray-900"
+                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
                                 >
                                     Email:
                                 </label>
@@ -88,7 +88,7 @@ const DHHRMForm = () => {
                                         name="email"
                                         type="email"
                                         required
-                                        className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                     />
                                 </div>
                                 <small className="text-sm text-gray-500">
@@ -99,7 +99,7 @@ const DHHRMForm = () => {
                             <div className="sm:col-span-3">
                                 <label
                                     htmlFor="childs-name"
-                                    className="block text-sm font-medium text-gray-900"
+                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
                                 >
                                     Child&apos;s Name:
                                 </label>
@@ -109,7 +109,7 @@ const DHHRMForm = () => {
                                         name="childs-name"
                                         type="text"
                                         required
-                                        className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                     />
                                 </div>
                             </div>
@@ -117,7 +117,7 @@ const DHHRMForm = () => {
                             <div className="sm:col-span-3">
                                 <label
                                     htmlFor="childs-dob"
-                                    className="block text-sm font-medium text-gray-900"
+                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
                                 >
                                     Child&apos;s DOB:
                                 </label>
@@ -127,7 +127,7 @@ const DHHRMForm = () => {
                                         name="childs-dob"
                                         type="date"
                                         required
-                                        className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                     />
                                 </div>
                             </div>
@@ -140,7 +140,7 @@ const DHHRMForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="communication-mode-asl"
-                                            className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                             type="checkbox"
                                             id="aslCheck"
                                         />
@@ -154,7 +154,7 @@ const DHHRMForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="communication-mode-listening"
-                                            className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                             type="checkbox"
                                             id="listeningCheck"
                                         />
@@ -168,7 +168,7 @@ const DHHRMForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="communication-mode-fingerspelling"
-                                            className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                             type="checkbox"
                                             id="fingerspellingCheck"
                                         />
@@ -182,7 +182,7 @@ const DHHRMForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="communication-mode-cuedSpeech"
-                                            className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                             type="checkbox"
                                             id="cuedSpeechCheck"
                                         />
@@ -196,7 +196,7 @@ const DHHRMForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="communication-mode-combination"
-                                            className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                             type="checkbox"
                                             id="combinationCheck"
                                         />
@@ -210,7 +210,7 @@ const DHHRMForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="communication-mode-other"
-                                            className="h-4 w-4 border-gray-300 text-hvorange-600 focus:ring-hvblue-500"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                             type="checkbox"
                                             id="otherCheck"
                                         />
@@ -227,7 +227,7 @@ const DHHRMForm = () => {
                             <div className="col-span-full">
                                 <label
                                     htmlFor="inputParentQuestions"
-                                    className="block text-sm font-medium text-gray-900"
+                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
                                 >
                                     Please summarize any concerns or information that would be helpful to a D/HH Committee Member:
                                 </label>
@@ -236,7 +236,7 @@ const DHHRMForm = () => {
                                         name="parent-questions"
                                         id="inputParentQuestions"
                                         rows={3}
-                                        className="block w-full rounded-lg bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-hvblue-500 sm:text-sm"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                     />
                                 </div>
                                 <small className="text-sm text-gray-500">
@@ -250,7 +250,7 @@ const DHHRMForm = () => {
                     </div>
 
                     {/* Footer (Submit Button) */}
-                    <div className="flex items-center justify-end gap-x-6 border-t border-gray-900/10 px-4 py-4 sm:px-8">
+                    <div className="mt-8 flex flex-col items-center gap-2">
                         <button
                             type="button"
                             className="text-sm font-semibold text-gray-900"

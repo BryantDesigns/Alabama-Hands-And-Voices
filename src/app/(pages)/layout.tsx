@@ -1,7 +1,8 @@
 import Footer from '@/components/layout/Footer'
-import OverlappingLogoHeader from '@/components/ui/examples/OverlappingLogoHeader'
+import Header from '@/components/layout/Header'
 import { getNavigation, getSiteSettings } from '@/lib/keystatic/pages'
 import { SITE_URL } from '@/lib/seo'
+import HeaderBackup from '@/components/layout/HeaderBackup'
 
 export default async function PagesLayout({
     children,
@@ -32,14 +33,12 @@ export default async function PagesLayout({
             >
                 Skip to main content
             </a>
-            <OverlappingLogoHeader
-                navigation={navigation}
-                facebookUrl={settings.facebookUrl}
-            />
+            <HeaderBackup />
+            <Header />
             <div id="main-content" tabIndex={-1}>
                 {children}
             </div>
-            <Footer settings={settings} />
+            <Footer />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{

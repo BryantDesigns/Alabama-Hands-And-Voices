@@ -1,112 +1,131 @@
-import PayPalDonation from '@/components/common/PayPalDonation'
-import Image from 'next/image'
 import Link from 'next/link'
-import type { SiteSettings } from '@/types/cms'
 
-interface FooterProps {
-    settings: SiteSettings
-}
+const navLinks = [
+    { label: 'Home', href: '/' },
+    { label: 'About', href: '/about' },
+    { label: 'Membership', href: '/membership' },
+    { label: 'Programs', href: '/programs' },
+    { label: 'Resources', href: '/resources' },
+]
 
-export default function Footer({ settings }: FooterProps) {
-    const telephoneHref = `tel:${settings.phone.replace(/[^\d+]/g, '')}`
+export default function Footer() {
+    const currentYear = new Date().getFullYear()
 
     return (
-        <footer className="bg-white text-black">
-            {/* Donation Section */}
-            <div className="border-t-4 border-hvorange bg-hvblue py-6 text-white">
-                <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-12">
-                    <h2 className="text-lg font-semibold">
-                        Want to donate to our mission?
-                    </h2>
-                    <PayPalDonation label={settings.donationButtonLabel} />
-                </div>
-            </div>
+        <footer className="bg-hvblue text-white">
+            {/* ── Top accent: bold orange stripe ── */}
+            <div className="h-1 w-full bg-hvorange-600" />
 
-            {/* Main Footer Content */}
-            <div className="container mx-auto px-6 py-16 lg:px-8">
-                <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
-                    {/* Logo Section */}
-                    <div className="flex justify-center lg:justify-start">
-                        <Image
-                            src="/images/hvlogo.svg"
-                            width={160}
-                            height={150}
-                            alt={`${settings.siteName} logo`}
-                        />
-                    </div>
+            {/* ── Main footer body ── */}
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="py-14 md:py-20">
+                    {/* ── Grid: org info + nav + CTA ── */}
+                    <div className="grid gap-10 lg:grid-cols-3 lg:gap-16">
 
-                    {/* Navigation Links */}
-                    <div className="text-center lg:text-left">
-                        <h2 className="text-lg font-semibold uppercase">
-                            Pages
-                        </h2>
-                        <hr className="mx-auto my-4 w-12 border-2 border-hvorange lg:mx-0" />
-                        <ul className="space-y-2">
-                            {[
-                                { name: 'Home', href: '/' },
-                                { name: 'About', href: '/about' },
-                                { name: 'Resources', href: '/resources' },
-                                { name: 'Contact', href: '/about/contact' },
-                            ].map((link) => (
-                                <li key={link.name}>
-                                    <Link
-                                        href={link.href}
-                                        className="text-gray-700 transition-colors hover:text-hvorange"
-                                    >
-                                        {link.name}
-                                    </Link>
-                                </li>
-                            ))}
-                            {/* External Link */}
-                            <li>
+                        {/* Column 1 — Org identity */}
+                        <div className="lg:col-span-1">
+                            {/* Eyebrow label */}
+                            <p className="mb-3 text-sm font-bold uppercase tracking-widest text-hvorange-600">
+                                Alabama
+                            </p>
+                            <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-white md:text-4xl">
+                                Hands &amp; Voices
+                            </h2>
+                            <div
+                                aria-hidden="true"
+                                className="mt-4 h-[3px] w-12 rounded-full bg-hvorange-600"
+                            />
+                            <p className="mt-5 text-base leading-relaxed text-white/80">
+                                Parent-driven support for families of children
+                                who are deaf or hard of hearing.
+                            </p>
+                        </div>
+
+                        {/* Column 2 — Navigation */}
+                        <div>
+                            <h3 className="mb-5 text-xs font-bold uppercase tracking-widest text-white/50">
+                                Navigate
+                            </h3>
+                            <ul className="space-y-1" role="list">
+                                {navLinks.map((link) => (
+                                    <li key={link.href}>
+                                        <Link
+                                            href={link.href}
+                                            className="group inline-flex min-h-[44px] items-center gap-2 text-base font-semibold text-white/80 transition-colors duration-150 hover:text-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                        >
+                                            {/* Geometric bullet — grows on hover */}
+                                            <span
+                                                aria-hidden="true"
+                                                className="h-1.5 w-1.5 shrink-0 rounded-sm bg-hvorange-600 transition-transform duration-150 group-hover:scale-125"
+                                            />
+                                            {link.label}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Column 3 — Contact + CTA */}
+                        <div>
+                            <h3 className="mb-5 text-xs font-bold uppercase tracking-widest text-white/50">
+                                Connect
+                            </h3>
+
+                            {/* Contact */}
+                            <div className="mb-8">
+                                <p className="mb-1 text-xs font-bold uppercase tracking-wide text-white/50">
+                                    Email
+                                </p>
                                 <a
-                                    href="/assets/documents/Road_map.pdf"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-gray-700 transition-colors hover:text-hvorange"
+                                    href="mailto:info@alhandsandvoices.org"
+                                    className="text-base font-semibold text-white underline-offset-4 hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                 >
-                                    Parent Road Map
+                                    info@alhandsandvoices.org
                                 </a>
-                            </li>
-                        </ul>
-                    </div>
+                            </div>
 
-                    {/* Contact Information */}
-                    <div className="text-center lg:text-left">
-                        <h2 className="text-lg font-semibold uppercase">
-                            Contact
-                        </h2>
-                        <hr className="mx-auto my-4 w-12 border-2 border-hvorange lg:mx-0" />
-                        <p>
-                            <i className="fas fa-home mr-2"></i>{' '}
-                            {settings.address}
-                        </p>
-                        <p>
-                            <i className="fas fa-envelope mr-2"></i>{' '}
-                            <a
-                                href={`mailto:${settings.contactEmail}`}
-                                className="transition-colors hover:text-hvorange"
+                            {/* Donate CTA — white-on-dark per v3 system */}
+                            <Link
+                                href="/membership"
+                                className="inline-flex min-h-[52px] items-center gap-2 rounded-xl bg-hvorange-600 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                             >
-                                {settings.contactEmail}
-                            </a>
-                        </p>
-                        <p>
-                            <i className="fas fa-phone mr-2"></i>{' '}
-                            <a
-                                href={telephoneHref}
-                                className="transition-colors hover:text-hvorange"
-                            >
-                                {settings.phone}
-                            </a>
-                        </p>
+                                <svg
+                                    aria-hidden="true"
+                                    className="h-4 w-4 shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth={2.5}
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"
+                                    />
+                                </svg>
+                                Donate Now
+                            </Link>
+
+                            <p className="mt-3 text-xs text-white/50">
+                                Your gift supports Alabama families
+                                directly.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            {/* Copyright Section */}
-            <div className="bg-secondary py-4 text-center text-sm text-gray-800">
-                {settings.footerCopyright} | Designed by{' '}
-                <span>Bryant Designs</span>
+            {/* ── Copyright bar ── */}
+            <div className="border-t border-white/10">
+                <div className="mx-auto flex max-w-7xl flex-col items-start gap-2 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+                    <p className="text-xs text-white/40">
+                        &copy; {currentYear} Alabama Hands &amp; Voices. All
+                        rights reserved.
+                    </p>
+                    <p className="text-xs text-white/40">
+                        A nonprofit organization serving Alabama families.
+                    </p>
+                </div>
             </div>
         </footer>
     )
