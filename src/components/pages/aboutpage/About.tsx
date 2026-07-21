@@ -130,7 +130,7 @@ export default function About({ about, board, staff }: AboutProps) {
                 {/* Left-edge bar */}
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
                 />
 
                 <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">
@@ -138,7 +138,7 @@ export default function About({ about, board, staff }: AboutProps) {
                         <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
                             <span
                                 aria-hidden="true"
-                                className="h-2 w-2 rounded-sm bg-hvorange-700"
+                                className="h-2 w-2 rounded-sm bg-hvorange-600"
                             />
                             Our Story
                         </p>
@@ -183,7 +183,7 @@ export default function About({ about, board, staff }: AboutProps) {
                     <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
                         {/* Copy */}
                         <div>
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                                 Who We Are
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -191,7 +191,7 @@ export default function About({ about, board, staff }: AboutProps) {
                             </h2>
                             <span
                                 aria-hidden="true"
-                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
+                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                             />
                             <div className="mt-6 space-y-5 text-base leading-relaxed text-slate-700 md:text-lg">
                                 {toParagraphs(whoWeAreBody).map((p, i) => (
@@ -220,7 +220,7 @@ export default function About({ about, board, staff }: AboutProps) {
                                     {/* Orange badge */}
                                     <span
                                         aria-hidden="true"
-                                        className="absolute right-4 top-4 h-12 w-12 rounded-2xl bg-hvorange-700"
+                                        className="absolute right-4 top-4 h-12 w-12 rounded-2xl bg-hvorange-600"
                                     />
                                 </div>
                             </div>
@@ -230,7 +230,7 @@ export default function About({ about, board, staff }: AboutProps) {
                         <blockquote className="text-xl font-bold leading-relaxed text-hvblue md:text-2xl">
                             &ldquo;{whoWeAreQuote}&rdquo;
                         </blockquote>
-                        <figcaption className="mt-5 text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                        <figcaption className="mt-5 text-sm font-bold uppercase tracking-widest text-hvblue">
                             {whoWeAreQuoteAttribution}
                         </figcaption>
                     </figure>
@@ -319,7 +319,7 @@ export default function About({ about, board, staff }: AboutProps) {
                 <section className="bg-white py-14 md:py-20">
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="max-w-2xl">
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                                 Our Family
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -327,7 +327,7 @@ export default function About({ about, board, staff }: AboutProps) {
                             </h2>
                             <span
                                 aria-hidden="true"
-                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
+                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                             />
                         </div>
 
@@ -381,7 +381,7 @@ export default function About({ about, board, staff }: AboutProps) {
                 />
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
                 />
 
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -396,7 +396,7 @@ export default function About({ about, board, staff }: AboutProps) {
                             </h2>
                             <span
                                 aria-hidden="true"
-                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
+                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                             />
                         </div>
                         <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white/80">
@@ -440,16 +440,16 @@ export default function About({ about, board, staff }: AboutProps) {
             <section className="bg-slate-50 py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                             Our Team
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
                             Staff{' '}
-                            <span className="text-hvorange-700">Members</span>
+                            <span className="text-hvorange-600">Members</span>
                         </h2>
                         <span
                             aria-hidden="true"
-                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
+                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                         />
                     </div>
 

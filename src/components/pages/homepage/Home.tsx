@@ -148,7 +148,7 @@ export default function Home({
                 {/* Structural left-edge bar echoing the header */}
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
                 />
 
                 <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 md:py-24 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:px-8 lg:py-28">
@@ -157,7 +157,7 @@ export default function Home({
                         <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
                             <span
                                 aria-hidden="true"
-                                className="h-2 w-2 rounded-sm bg-hvorange-700"
+                                className="h-2 w-2 rounded-sm bg-hvorange-600"
                             />
                             Alabama Hands &amp; Voices
                         </p>
@@ -210,7 +210,7 @@ export default function Home({
                             {/* Geometric corner tab */}
                             <span
                                 aria-hidden="true"
-                                className="absolute -right-3 -top-3 h-12 w-12 rounded-2xl bg-hvorange-700"
+                                className="absolute -right-3 -top-3 h-12 w-12 rounded-2xl bg-hvorange-600"
                             />
                         </div>
                     </div>
@@ -224,7 +224,7 @@ export default function Home({
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
                         <div>
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                                 Who we are
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -232,7 +232,7 @@ export default function Home({
                             </h2>
                             <span
                                 aria-hidden="true"
-                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
+                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                             />
                             <div className="mt-6 space-y-5 text-base leading-relaxed text-slate-700 md:text-lg">
                                 {toParagraphs(intro.body).map((p, i) => (
@@ -323,7 +323,7 @@ export default function Home({
                         </h2>
                         <span
                             aria-hidden="true"
-                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
+                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                         />
                         <div className="mt-6 space-y-4 text-base leading-relaxed text-white/90 md:text-lg">
                             {toParagraphs(whereToStart.body).map((p, i) => (
@@ -371,7 +371,7 @@ export default function Home({
                             <figcaption className="mt-6 flex items-center gap-3">
                                 <span
                                     aria-hidden="true"
-                                    className="h-1 w-8 rounded-full bg-hvorange-700"
+                                    className="h-1 w-8 rounded-full bg-hvorange-600"
                                 />
                                 <span className="text-sm font-bold text-slate-700">
                                     {whereToStart.quoteAuthors}
@@ -495,7 +495,7 @@ export default function Home({
             <section className="bg-slate-50 py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                             How we help
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -503,7 +503,7 @@ export default function Home({
                         </h2>
                         <span
                             aria-hidden="true"
-                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
+                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                         />
                     </div>
 
@@ -621,7 +621,7 @@ export default function Home({
             <section className="bg-white py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                             Gather with us
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -629,7 +629,7 @@ export default function Home({
                         </h2>
                         <span
                             aria-hidden="true"
-                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
+                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                         />
                         <p className="mt-6 text-base leading-relaxed text-slate-700 md:text-lg">
                             {events.intro}
@@ -700,11 +700,11 @@ export default function Home({
                 />
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-hvorange-700/15 blur-3xl"
+                    className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-hvorange-600/15 blur-3xl"
                 />
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
                 />
 
                 <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">

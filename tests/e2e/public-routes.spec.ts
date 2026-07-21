@@ -80,25 +80,17 @@ test('desktop navigation and footer expose fixed destinations', async ({
     }
 
     const footer = page.getByRole('contentinfo')
-    const footerNavigation = footer.getByRole('navigation', {
-        name: 'Footer navigation',
-    })
-    for (const group of ['About', 'Programs', 'Site']) {
+    for (const group of ['Explore', 'Get involved', 'Connect']) {
         await expect(
-            footerNavigation.getByRole('heading', { name: group })
+            footer.getByRole('heading', { name: group })
         ).toBeVisible()
     }
+    // Compact footer carries top-level destinations; sub-pages are reached
+    // through the header dropdowns asserted above.
     for (const href of [
         '/',
         '/about',
-        '/about/board',
-        '/about/staff',
-        '/about/contact',
         '/programs',
-        '/programs/gbys',
-        '/programs/astra',
-        '/programs/safety',
-        '/programs/dhh-committee',
         '/resources',
         '/membership',
         '/membership/choose-membership',
@@ -171,7 +163,8 @@ test('membership controls and GBYS tabs are keyboard reachable', async ({
     page,
 }) => {
     await page.goto('/membership')
-    const onlineMembershipLink = page.getByRole('link', {
+    // The footer carries a same-named link; scope to the page content.
+    const onlineMembershipLink = page.locator('#main-content').getByRole('link', {
         name: 'Join & Pay Online',
     })
     await expect(onlineMembershipLink).toHaveAttribute(

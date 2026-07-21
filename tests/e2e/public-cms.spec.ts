@@ -64,12 +64,9 @@ test('renders fixed navigation and connected global settings', async ({
         )
     ).toBeVisible()
 
-    const footerNavigation = footer.getByRole('navigation', {
-        name: 'Footer navigation',
-    })
-    for (const group of ['About', 'Programs', 'Site']) {
+    for (const group of ['Explore', 'Get involved', 'Connect']) {
         await expect(
-            footerNavigation.getByRole('heading', {
+            footer.getByRole('heading', {
                 name: group,
                 exact: true,
             })

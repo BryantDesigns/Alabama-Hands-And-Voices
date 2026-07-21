@@ -69,7 +69,7 @@ const categoryBentoStyles = [
     {
         // Category 1: white ring card
         wrapper: 'bg-white ring-1 ring-slate-200 text-hvblue',
-        eyebrow: 'text-hvorange-700',
+        eyebrow: 'text-hvblue',
         heading: 'text-hvblue',
         linkBase:
             'text-hvblue hover:bg-slate-50 focus-visible:ring-hvorange-600',
@@ -176,7 +176,7 @@ export default function Resources({ data, videos }: ResourcesProps) {
                 {/* Left structural bar */}
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
                 />
 
                 <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-8">
@@ -186,7 +186,7 @@ export default function Resources({ data, videos }: ResourcesProps) {
                             <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
                                 <span
                                     aria-hidden="true"
-                                    className="h-2 w-2 rounded-sm bg-hvorange-700"
+                                    className="h-2 w-2 rounded-sm bg-hvorange-600"
                                 />
                                 Family Resources
                             </p>
@@ -201,7 +201,7 @@ export default function Resources({ data, videos }: ResourcesProps) {
 
                             <span
                                 aria-hidden="true"
-                                className="mt-6 block h-1.5 w-20 rounded-full bg-hvorange-700"
+                                className="mt-6 block h-1.5 w-20 rounded-full bg-hvorange-600"
                             />
 
                             <p className="mt-6 max-w-xl text-lg font-medium leading-relaxed text-white/90">
@@ -239,7 +239,7 @@ export default function Resources({ data, videos }: ResourcesProps) {
             <section className="bg-white py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                             Watch and learn
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -247,7 +247,7 @@ export default function Resources({ data, videos }: ResourcesProps) {
                         </h2>
                         <span
                             aria-hidden="true"
-                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
+                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                         />
                     </div>
                     <div className="mt-10">
@@ -266,18 +266,18 @@ export default function Resources({ data, videos }: ResourcesProps) {
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     {/* Section header */}
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                             Browse by stage
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
                             Resources by{' '}
-                            <span className="text-hvorange-700">
+                            <span className="text-hvorange-600">
                                 Life Stage
                             </span>
                         </h2>
                         <span
                             aria-hidden="true"
-                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
+                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                         />
                     </div>
 
@@ -416,12 +416,12 @@ export default function Resources({ data, videos }: ResourcesProps) {
                 />
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-hvorange-700/15 blur-3xl"
+                    className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-hvorange-600/15 blur-3xl"
                 />
                 {/* Left structural bar */}
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
                 />
 
                 <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">

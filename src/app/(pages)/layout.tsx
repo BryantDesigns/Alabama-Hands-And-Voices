@@ -39,7 +39,7 @@ export default async function PagesLayout({
             <div id="main-content" tabIndex={-1}>
                 {children}
             </div>
-            <Footer navigation={navigation} settings={settings} />
+            <Footer settings={settings} />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{

@@ -124,7 +124,7 @@ function ProgramCard({
     }
 
     const eyebrowClasses: Record<BentoVariant, string> = {
-        white: 'text-hvorange-700',
+        white: 'text-hvblue',
         blue: 'text-hvorange-50',
         orange: 'text-hvblue',
         photo: 'text-hvorange-50',
@@ -152,10 +152,10 @@ function ProgramCard({
     }
 
     const accentBarClasses: Record<BentoVariant, string> = {
-        white: 'bg-hvorange-700',
-        blue: 'bg-hvorange-700',
+        white: 'bg-hvorange-600',
+        blue: 'bg-hvorange-600',
         orange: 'bg-hvblue',
-        photo: 'bg-hvorange-700',
+        photo: 'bg-hvorange-600',
     }
 
     return (
@@ -306,7 +306,7 @@ export default function Programs({ programs }: ProgramsProps) {
                 />
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
                 />
 
                 <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">
@@ -314,7 +314,7 @@ export default function Programs({ programs }: ProgramsProps) {
                         <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
                             <span
                                 aria-hidden="true"
-                                className="h-2 w-2 rounded-sm bg-hvorange-700"
+                                className="h-2 w-2 rounded-sm bg-hvorange-600"
                             />
                             Alabama Hands &amp; Voices
                         </p>
@@ -375,7 +375,7 @@ export default function Programs({ programs }: ProgramsProps) {
             <section id="programs-grid" className="bg-slate-50 py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                             All four programs
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -385,7 +385,7 @@ export default function Programs({ programs }: ProgramsProps) {
                         </h2>
                         <span
                             aria-hidden="true"
-                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
+                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                         />
                     </div>
 
@@ -464,11 +464,11 @@ export default function Programs({ programs }: ProgramsProps) {
                 />
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-hvorange-700/15 blur-3xl"
+                    className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-hvorange-600/15 blur-3xl"
                 />
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
                 />
 
                 <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">

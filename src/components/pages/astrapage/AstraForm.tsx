@@ -14,7 +14,7 @@ const AstraForm = () => {
             netlify-honeypot="bot-field"
             onSubmit={(event) => submitNetlifyForm(event, setStatus, setError)}
             aria-label="Request ASTra support"
-            className="mx-auto max-w-3xl rounded-3xl bg-white p-6 ring-1 ring-slate-200 md:p-8"
+            className="rounded-3xl bg-white p-6 ring-1 ring-slate-200 md:p-8"
         >
             {/* Netlify required fields */}
             <input type="hidden" name="form-name" value="astra" />

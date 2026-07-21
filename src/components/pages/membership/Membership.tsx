@@ -185,7 +185,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                 {/* Left-edge bar — structural brand signature */}
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
                 />
 
                 <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">
@@ -193,7 +193,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                     <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
                         <span
                             aria-hidden="true"
-                            className="h-2 w-2 rounded-sm bg-hvorange-700"
+                            className="h-2 w-2 rounded-sm bg-hvorange-600"
                         />
                         Membership
                     </p>
@@ -264,7 +264,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
                         <div>
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                                 Why join us
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -272,7 +272,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                             </h2>
                             <span
                                 aria-hidden="true"
-                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
+                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                             />
                             <div className="mt-6 space-y-4 text-base leading-relaxed text-slate-700 md:text-lg">
                                 <p>
@@ -325,7 +325,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                 />
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
                 />
 
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -339,7 +339,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                         </h2>
                         <span
                             aria-hidden="true"
-                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
+                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                         />
                     </div>
 
@@ -376,7 +376,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
 
                                 {/* Card body */}
                                 <div className="flex flex-1 flex-col p-6 md:p-7">
-                                    <p className="text-xs font-bold uppercase tracking-widest text-hvorange-700">
+                                    <p className="text-xs font-bold uppercase tracking-widest text-hvblue">
                                         For
                                     </p>
                                     <h3 className="mt-1.5 text-xl font-extrabold tracking-tight text-hvblue md:text-2xl">
@@ -401,7 +401,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                                                 key={benefit}
                                                 className="flex items-start gap-2 text-sm text-slate-700"
                                             >
-                                                <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-hvorange-700" />
+                                                <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-hvorange-600" />
                                                 {benefit}
                                             </li>
                                         ))}
@@ -476,7 +476,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                                     <InfoIcon className="h-6 w-6" />
                                 </span>
                                 <div>
-                                    <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                                    <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                                         Scholarships available
                                     </p>
                                     <h2 className="mt-1.5 text-2xl font-extrabold tracking-tight text-hvblue md:text-3xl">
@@ -502,7 +502,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
 
                         {/* Reinforcement copy */}
                         <div>
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                                 Every family welcome
                             </p>
                             <h3 className="mt-3 text-2xl font-extrabold tracking-tight text-hvblue md:text-3xl">
@@ -510,7 +510,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                             </h3>
                             <span
                                 aria-hidden="true"
-                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
+                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                             />
                             <p className="mt-6 text-base leading-relaxed text-slate-700 md:text-lg">
                                 Our mission is to make sure no family walks the
@@ -533,11 +533,11 @@ export default function Membership({ membership, choose }: MembershipProps) {
                 />
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-hvorange-700/15 blur-3xl"
+                    className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-hvorange-600/15 blur-3xl"
                 />
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
                 />
 
                 <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">

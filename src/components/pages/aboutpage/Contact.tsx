@@ -106,7 +106,7 @@ export default function Contact({ contact }: ContactProps) {
                 {/* Left-edge orange bar */}
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-700"
+                    className="absolute inset-y-0 left-0 w-1.5 bg-hvorange-600"
                 />
 
                 <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">
@@ -114,7 +114,7 @@ export default function Contact({ contact }: ContactProps) {
                         <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
                             <span
                                 aria-hidden="true"
-                                className="h-2 w-2 rounded-sm bg-hvorange-700"
+                                className="h-2 w-2 rounded-sm bg-hvorange-600"
                             />
                             Get in Touch
                         </p>
@@ -185,7 +185,7 @@ export default function Contact({ contact }: ContactProps) {
                                     {/* Orange corner badge */}
                                     <span
                                         aria-hidden="true"
-                                        className="absolute right-4 top-4 h-12 w-12 rounded-2xl bg-hvorange-700"
+                                        className="absolute right-4 top-4 h-12 w-12 rounded-2xl bg-hvorange-600"
                                     />
                                 </div>
                             </div>
@@ -193,25 +193,25 @@ export default function Contact({ contact }: ContactProps) {
 
                         {/* Info cards */}
                         <div>
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                                 Contact Information
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
                                 We&rsquo;re here.{' '}
-                                <span className="text-hvorange-700">
+                                <span className="text-hvorange-600">
                                     Reach out.
                                 </span>
                             </h2>
                             <span
                                 aria-hidden="true"
-                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-700"
+                                className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                             />
 
                             <div className="mt-8 grid gap-4 sm:grid-cols-2">
                                 {/* Email card */}
                                 {email && (
                                     <div className="rounded-3xl bg-hvblue p-6 text-white ring-1 ring-hvblue">
-                                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-hvorange-700">
+                                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-hvorange-600">
                                             <EnvelopeIcon className="h-6 w-6 text-white" />
                                         </div>
                                         <p className="mt-4 text-xs font-bold uppercase tracking-widest text-white/80">

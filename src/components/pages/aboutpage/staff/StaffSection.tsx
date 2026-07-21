@@ -59,7 +59,7 @@ export default function StaffSection({ members }: StaffSectionProps) {
             <div className="bg-slate-50 py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                             Our Team
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">

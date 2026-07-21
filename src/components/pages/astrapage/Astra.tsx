@@ -207,7 +207,7 @@ export default function Astra({ astra }: AstraProps) {
                 <section className="bg-slate-50 py-14 md:py-20">
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="max-w-2xl">
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                                 How ASTra helps
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -261,7 +261,7 @@ export default function Astra({ astra }: AstraProps) {
                             {/* Resources — white card */}
                             {resourceLinks && resourceLinks.length > 0 && (
                                 <div className="rounded-3xl bg-white p-6 ring-1 ring-slate-200 md:p-8">
-                                    <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                                    <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                                         Helpful resources
                                     </p>
                                     <h3 className="mt-2 text-xl font-extrabold tracking-tight text-hvblue md:text-2xl">
@@ -363,8 +363,8 @@ export default function Astra({ astra }: AstraProps) {
             {/* ============================================================ */}
             <section className="bg-white py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-3xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                    <div className="mx-auto max-w-3xl text-center">
+                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                             Request Support
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -372,16 +372,16 @@ export default function Astra({ astra }: AstraProps) {
                         </h2>
                         <span
                             aria-hidden="true"
-                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
+                            className="mx-auto mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                         />
-                        <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
+                        <p className="mx-auto mt-6 max-w-xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
                             Fill out the form below and an ASTra advocate will
                             reach out to connect with your family. All
                             information is kept confidential.
                         </p>
                     </div>
 
-                    <div className="mt-10 mx-auto max-w-3xl">
+                    <div className="mx-auto mt-10 max-w-4xl">
                         <AstraForm />
                     </div>
                 </div>

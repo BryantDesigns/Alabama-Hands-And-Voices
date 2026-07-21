@@ -139,7 +139,7 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     {/* Section header */}
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                             Who can join
                         </p>
                         <h2
@@ -188,7 +188,7 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
 
                                     {/* Card body */}
                                     <div className="flex flex-1 flex-col p-6 md:p-8">
-                                        <p className="text-xs font-bold uppercase tracking-widest text-hvorange-700">
+                                        <p className="text-xs font-bold uppercase tracking-widest text-hvblue">
                                             Membership type
                                         </p>
                                         <h3 className="mt-2 text-xl font-bold tracking-tight text-hvblue md:text-2xl">
@@ -258,8 +258,8 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
             {/* ============================================================ */}
             <section id="membership-form" className="bg-white py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-3xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                    <div className="mx-auto max-w-3xl text-center">
+                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                             Registration
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -267,9 +267,9 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
                         </h2>
                         <span
                             aria-hidden="true"
-                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
+                            className="mx-auto mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                         />
-                        <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
+                        <p className="mx-auto mt-6 max-w-xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
                             Fill out the form below to join Alabama Hands &amp; Voices.
                             All fields marked with{' '}
                             <span aria-hidden="true" className="font-bold text-red-700">
@@ -279,7 +279,7 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
                         </p>
                     </div>
 
-                    <div className="mx-auto mt-10 max-w-3xl">
+                    <div className="mx-auto mt-10 max-w-4xl">
                         <MembershipForm />
                     </div>
                 </div>

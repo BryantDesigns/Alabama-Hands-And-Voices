@@ -1,26 +1,17 @@
 import Link from 'next/link'
 import { PAYPAL_CGI_URL, donateButtonId } from '@/lib/membership'
-import type { NavigationContent, SiteSettings } from '@/types/cms'
+import type { SiteSettings } from '@/types/cms'
 
-const aboutLinks = (nav: NavigationContent) => [
-    { ...nav.about.whoWeAre, href: '/about' },
-    { ...nav.about.boardMembers, href: '/about/board' },
-    { ...nav.about.staff, href: '/about/staff' },
-    { ...nav.about.contact, href: '/about/contact' },
-]
-
-const programLinks = (nav: NavigationContent) => [
-    { ...nav.programs.gbys, href: '/programs/gbys' },
-    { ...nav.programs.astra, href: '/programs/astra' },
-    { ...nav.programs.safety, href: '/programs/safety' },
-    { ...nav.programs.dhhCommittee, href: '/programs/dhh-committee' },
-]
-
-const siteLinks = [
+const exploreLinks = [
     { title: 'Home', href: '/' },
+    { title: 'About Us', href: '/about' },
+    { title: 'Programs', href: '/programs' },
     { title: 'Resources', href: '/resources' },
+]
+
+const involvedLinks = [
     { title: 'Membership', href: '/membership' },
-    { title: 'Choose Membership', href: '/membership/choose-membership' },
+    { title: 'Join & Pay Online', href: '/membership/choose-membership' },
     { title: 'FAQ', href: '/faq' },
 ]
 
@@ -28,7 +19,7 @@ function FooterLink({ href, title }: { href: string; title: string }) {
     return (
         <Link
             href={href}
-            className="group inline-flex min-h-[44px] items-center gap-2 text-base font-semibold text-white/80 transition-colors duration-150 hover:text-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+            className="group inline-flex min-h-[40px] items-center gap-2 text-sm font-semibold text-white/80 transition-colors duration-150 hover:text-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
         >
             <span
                 aria-hidden="true"
@@ -39,140 +30,117 @@ function FooterLink({ href, title }: { href: string; title: string }) {
     )
 }
 
-export default function Footer({
-    navigation,
-    settings,
-}: {
-    navigation: NavigationContent
-    settings: SiteSettings
-}) {
+export default function Footer({ settings }: { settings: SiteSettings }) {
     const currentYear = new Date().getFullYear()
-    const navGroups = [
-        { title: 'About', links: aboutLinks(navigation) },
-        {
-            title: 'Programs',
-            links: [
-                { title: 'All Programs', href: '/programs' },
-                ...programLinks(navigation),
-            ],
-        },
-        { title: 'Site', links: siteLinks },
-    ]
 
     return (
         <footer className="bg-hvblue text-white">
             {/* ── Top accent: bold orange stripe ── */}
             <div className="h-1 w-full bg-hvorange-600" />
 
-            {/* ── Main footer body ── */}
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="py-14 md:py-20">
-                    {/* ── Grid: org info + nav + CTA ── */}
-                    <div className="grid gap-10 lg:grid-cols-3 lg:gap-16">
+                <div className="py-12 md:py-16">
+                    <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_0.9fr_1.2fr] lg:gap-12">
                         {/* Column 1 — Org identity */}
-                        <div className="lg:col-span-1">
-                            <p className="mb-3 text-sm font-bold uppercase tracking-widest text-hvorange-400">
+                        <div>
+                            <p className="mb-2 text-sm font-bold uppercase tracking-widest text-hvorange-400">
                                 Alabama
                             </p>
-                            <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-white md:text-4xl">
+                            <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-white md:text-3xl">
                                 Hands &amp; Voices
                             </h2>
                             <div
                                 aria-hidden="true"
                                 className="mt-4 h-[3px] w-12 rounded-full bg-hvorange-600"
                             />
-                            <p className="mt-5 text-base leading-relaxed text-white/80">
+                            <p className="mt-4 text-sm leading-relaxed text-white/80">
                                 Parent-driven support for families of children
                                 who are deaf or hard of hearing.
                             </p>
-                            <p className="mt-4 text-sm font-bold leading-relaxed text-white">
+                            <p className="mt-3 text-sm font-semibold leading-relaxed text-white">
                                 &ldquo;What works for your child is what makes
                                 the choice right.&rdquo; &trade;
                             </p>
                         </div>
 
-                        {/* Column 2 — Navigation */}
+                        {/* Column 2 — Explore */}
                         <nav aria-label="Footer navigation">
-                            <h3 className="mb-5 text-xs font-bold uppercase tracking-widest text-white/70">
-                                Navigate
+                            <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-white/70">
+                                Explore
                             </h3>
-                            <div className="flex flex-col gap-6">
-                                {navGroups.map((group) => (
-                                    <section key={group.title}>
-                                        <h4 className="mb-1 text-sm font-bold text-white">
-                                            {group.title}
-                                        </h4>
-                                        <ul className="space-y-1" role="list">
-                                            {group.links.map((link) => (
-                                                <li key={link.href}>
-                                                    <FooterLink
-                                                        href={link.href}
-                                                        title={link.title}
-                                                    />
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </section>
+                            <ul role="list">
+                                {exploreLinks.map((link) => (
+                                    <li key={link.href}>
+                                        <FooterLink
+                                            href={link.href}
+                                            title={link.title}
+                                        />
+                                    </li>
                                 ))}
-                            </div>
+                            </ul>
                         </nav>
 
-                        {/* Column 3 — Contact + CTA */}
+                        {/* Column 3 — Get involved */}
+                        <nav aria-label="Get involved">
+                            <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-white/70">
+                                Get involved
+                            </h3>
+                            <ul role="list">
+                                {involvedLinks.map((link) => (
+                                    <li key={link.href}>
+                                        <FooterLink
+                                            href={link.href}
+                                            title={link.title}
+                                        />
+                                    </li>
+                                ))}
+                            </ul>
+                        </nav>
+
+                        {/* Column 4 — Connect + Donate */}
                         <div>
-                            <h3 className="mb-5 text-xs font-bold uppercase tracking-widest text-white/70">
+                            <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-white/70">
                                 Connect
                             </h3>
-
-                            <div className="mb-8 flex flex-col gap-5">
-                                <div>
-                                    <p className="mb-1 text-xs font-bold uppercase tracking-wide text-white/70">
-                                        Email
-                                    </p>
+                            <ul className="space-y-1.5 text-sm" role="list">
+                                <li>
                                     <a
                                         href={`mailto:${settings.contactEmail}`}
-                                        className="text-base font-semibold text-white underline-offset-4 hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                        className="font-semibold text-white underline-offset-4 hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                     >
                                         {settings.contactEmail}
                                     </a>
-                                </div>
-                                <div>
-                                    <p className="mb-1 text-xs font-bold uppercase tracking-wide text-white/70">
-                                        Phone
-                                    </p>
+                                </li>
+                                <li>
                                     <a
                                         href={`tel:${settings.phone}`}
-                                        className="text-base font-semibold text-white underline-offset-4 hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                        className="font-semibold text-white underline-offset-4 hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                     >
                                         {settings.phone}
                                     </a>
-                                </div>
-                                <div>
-                                    <p className="mb-1 text-xs font-bold uppercase tracking-wide text-white/70">
-                                        Address
-                                    </p>
-                                    <address className="text-base font-semibold not-italic text-white">
+                                </li>
+                                <li>
+                                    <address className="not-italic text-white/80">
                                         {settings.address}
                                     </address>
-                                </div>
-                                <div>
-                                    <p className="mb-1 text-xs font-bold uppercase tracking-wide text-white/70">
-                                        Social
-                                    </p>
+                                </li>
+                                <li>
                                     <a
                                         href={settings.facebookUrl}
                                         target="_blank"
                                         rel="noopener"
-                                        className="text-base font-semibold text-white underline-offset-4 hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                        className="font-semibold text-white underline-offset-4 hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                     >
                                         Facebook
                                     </a>
-                                </div>
-                            </div>
+                                </li>
+                            </ul>
 
                             <form
                                 action={PAYPAL_CGI_URL}
                                 method="post"
                                 target="_top"
+                                className="mt-5"
                             >
                                 <input
                                     type="hidden"
@@ -186,7 +154,7 @@ export default function Footer({
                                 />
                                 <button
                                     type="submit"
-                                    className="inline-flex min-h-[52px] cursor-pointer items-center gap-2 rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="inline-flex min-h-[44px] cursor-pointer items-center gap-2 rounded-xl bg-hvorange-700 px-6 py-2.5 text-sm font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                 >
                                     <svg
                                         aria-hidden="true"
@@ -205,8 +173,7 @@ export default function Footer({
                                     Donate Now
                                 </button>
                             </form>
-
-                            <p className="mt-3 text-xs text-white/70">
+                            <p className="mt-2 text-xs text-white/70">
                                 Your gift supports Alabama families directly.
                             </p>
                         </div>

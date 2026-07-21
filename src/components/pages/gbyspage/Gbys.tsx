@@ -170,7 +170,7 @@ export default function Gbys({ gbys }: GbysProps) {
                 <section className="bg-slate-50 py-14 md:py-20">
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="max-w-2xl">
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                                 What we offer
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -193,7 +193,7 @@ export default function Gbys({ gbys }: GbysProps) {
                                         key={index}
                                         className="flex items-start gap-3"
                                     >
-                                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-hvorange-700">
+                                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-hvorange-600">
                                             <CheckIcon className="h-3 w-3 text-white" />
                                         </span>
                                         <span className="text-sm font-medium leading-relaxed text-white/90">
@@ -246,7 +246,7 @@ export default function Gbys({ gbys }: GbysProps) {
             >
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                             Downloads
                         </p>
                         <h2
@@ -288,8 +288,8 @@ export default function Gbys({ gbys }: GbysProps) {
 
             <section className="bg-white py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-3xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                    <div className="mx-auto max-w-3xl text-center">
+                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                             Get Connected
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -297,16 +297,11 @@ export default function Gbys({ gbys }: GbysProps) {
                         </h2>
                         <span
                             aria-hidden="true"
-                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
+                            className="mx-auto mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                         />
-                        <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
-                            Fill out the form below and a GBYS coordinator will
-                            match you with a Parent Guide. All information is
-                            kept confidential.
-                        </p>
                     </div>
 
-                    <div className="mt-10 max-w-3xl">
+                    <div className="mx-auto mt-10 max-w-4xl">
                         <GBYSForm />
                     </div>
                 </div>

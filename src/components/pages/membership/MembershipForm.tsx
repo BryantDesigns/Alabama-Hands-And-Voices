@@ -27,7 +27,7 @@ const MembershipForm = () => {
                     onSubmit={(event) =>
                         submitNetlifyForm(event, setStatus, setError)
                     }
-                    className="mx-auto max-w-3xl rounded-3xl bg-white p-6 ring-1 ring-slate-200 md:p-8"
+                    className="rounded-3xl bg-white p-6 ring-1 ring-slate-200 md:p-8"
                 >
                     {/* Netlify required fields */}
                     <input type="hidden" name="form-name" value="membership" />

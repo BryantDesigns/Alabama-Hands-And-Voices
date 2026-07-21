@@ -133,7 +133,7 @@ export default function DhhCommittee({ dhh, videos }: DhhCommitteeProps) {
                 <section className="bg-slate-50 py-14 md:py-20">
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="max-w-2xl">
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                                 Making a difference
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -226,8 +226,8 @@ export default function DhhCommittee({ dhh, videos }: DhhCommitteeProps) {
             {/* ================================================================ */}
             <section id="dhh-connect-form" className="bg-white py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-3xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvorange-700">
+                    <div className="mx-auto max-w-3xl text-center">
+                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
                             Connect with us
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -235,16 +235,16 @@ export default function DhhCommittee({ dhh, videos }: DhhCommitteeProps) {
                         </h2>
                         <span
                             aria-hidden="true"
-                            className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
+                            className="mx-auto mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                         />
-                        <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
+                        <p className="mx-auto mt-6 max-w-xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
                             Fill out the form below and a D/HH Committee member
                             will reach out to connect with your family. All
                             information is kept confidential.
                         </p>
                     </div>
 
-                    <div className="mx-auto mt-10 max-w-3xl">
+                    <div className="mx-auto mt-10 max-w-4xl">
                         <DHHRMForm />
                     </div>
                 </div>
