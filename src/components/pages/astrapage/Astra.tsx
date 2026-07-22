@@ -1,19 +1,11 @@
 import Image from 'next/image'
 import AstraForm from '@/components/pages/astrapage/AstraForm'
+import RichText from '@/components/RichText'
 import type { getAstraPageContent } from '@/lib/keystatic/pages'
 import { documentLinkProps } from '@/utils/documentLinks'
 
 interface AstraProps {
     astra: NonNullable<Awaited<ReturnType<typeof getAstraPageContent>>>
-}
-
-// ── Helpers ───────────────────────────────────────────────────────────────────
-
-function toParagraphs(text: string): string[] {
-    return text
-        .split(/\n\s*\n/)
-        .map((p) => p.trim())
-        .filter(Boolean)
 }
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
@@ -122,10 +114,6 @@ export default function Astra({ astra }: AstraProps) {
         trainingCtaHref,
     } = astra
 
-    const paragraphs = programDescription
-        ? toParagraphs(programDescription)
-        : []
-
     return (
         <main className="bg-white text-hvblue">
             {/* ============================================================ */}
@@ -173,13 +161,10 @@ export default function Astra({ astra }: AstraProps) {
                                 Advocate Support Training &amp; Resources
                             </p>
 
-                            {paragraphs.length > 0 && (
-                                <div className="mt-6 max-w-xl space-y-4 text-base font-medium leading-relaxed text-white/90 md:text-lg">
-                                    {paragraphs.map((p, i) => (
-                                        <p key={i}>{p}</p>
-                                    ))}
-                                </div>
-                            )}
+                            <RichText
+                                document={programDescription}
+                                className="mt-6 max-w-xl text-base font-medium leading-relaxed text-white/90 md:text-lg [&_a]:text-white [&_a:hover]:text-hvorange-50"
+                            />
                         </div>
 
                         {/* ASTra logo badge */}

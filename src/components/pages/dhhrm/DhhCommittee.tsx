@@ -1,20 +1,12 @@
 import DHHRMForm from '@/components/pages/dhhrm/DHHRMForm'
 import VideoPlayer from '@/components/pages/dhhrm/VideoPlayer'
+import RichText from '@/components/RichText'
 import type { VideoContent } from '@/types/cms'
 import type { getDhhCommitteePageContent } from '@/lib/keystatic/pages'
 
 interface DhhCommitteeProps {
     dhh: NonNullable<Awaited<ReturnType<typeof getDhhCommitteePageContent>>>
     videos: VideoContent[]
-}
-
-// ── Helpers ───────────────────────────────────────────────────────────────────
-
-function toParagraphs(text: string): string[] {
-    return text
-        .split(/\n\s*\n/)
-        .map((p) => p.trim())
-        .filter(Boolean)
 }
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
@@ -59,8 +51,6 @@ function CheckIcon({ className = '' }: { className?: string }) {
 
 export default function DhhCommittee({ dhh, videos }: DhhCommitteeProps) {
     const { description, benefits, videoSectionHeading } = dhh
-
-    const paragraphs = description ? toParagraphs(description) : []
 
     return (
         <main className="bg-white text-hvblue">
@@ -108,13 +98,10 @@ export default function DhhCommittee({ dhh, videos }: DhhCommitteeProps) {
                         Deaf &amp; Hard of Hearing Role Models &amp; Mentors
                     </p>
 
-                    {paragraphs.length > 0 && (
-                        <div className="mt-6 max-w-xl space-y-4 text-base font-medium leading-relaxed text-white/90 md:text-lg">
-                            {paragraphs.map((p, i) => (
-                                <p key={i}>{p}</p>
-                            ))}
-                        </div>
-                    )}
+                    <RichText
+                        document={description}
+                        className="mt-6 max-w-xl text-base font-medium leading-relaxed text-white/90 md:text-lg [&_a]:text-white [&_a:hover]:text-hvorange-50"
+                    />
 
                     <a
                         href="#dhh-connect-form"

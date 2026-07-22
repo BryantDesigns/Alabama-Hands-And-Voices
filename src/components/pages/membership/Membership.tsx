@@ -3,6 +3,7 @@ import type {
     getMembershipPageContent,
     getChooseMembershipPageContent,
 } from '@/lib/keystatic/pages'
+import RichText from '@/components/RichText'
 import { documentLinkProps } from '@/utils/documentLinks'
 
 type MembershipData = NonNullable<
@@ -489,9 +490,10 @@ export default function Membership({ membership, choose }: MembershipProps) {
                                 aria-hidden="true"
                                 className="my-5 block h-px bg-slate-200"
                             />
-                            <p className="text-base leading-relaxed text-slate-700 md:text-lg">
-                                {scholarshipNote}
-                            </p>
+                            <RichText
+                                document={scholarshipNote}
+                                className="text-base leading-relaxed text-slate-700 md:text-lg [&_a]:text-hvblue [&_a:hover]:text-hvorange-800"
+                            />
                             <a
                                 href="/membership/choose-membership#membership-form"
                                 className="mt-6 inline-flex min-h-[44px] items-center gap-2 rounded-xl border-2 border-hvblue px-6 py-3 text-base font-bold text-hvblue transition duration-150 hover:bg-hvblue hover:text-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import RichText from '@/components/RichText'
 import type { getAboutPageContent } from '@/lib/keystatic/pages'
 import { documentLinkProps } from '@/utils/documentLinks'
 
@@ -194,11 +195,10 @@ export default function About({ about, board, staff }: AboutProps) {
                                 aria-hidden="true"
                                 className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                             />
-                            <div className="mt-6 space-y-5 text-base leading-relaxed text-slate-700 md:text-lg">
-                                {toParagraphs(whoWeAreBody).map((p, i) => (
-                                    <p key={i}>{p}</p>
-                                ))}
-                            </div>
+                            <RichText
+                                document={whoWeAreBody}
+                                className="mt-6 space-y-5 text-base leading-relaxed text-slate-700 md:text-lg [&_a]:text-hvorange-700 [&_a:hover]:text-hvorange-800"
+                            />
                         </div>
 
                         {/* Image with geometric offset block */}
@@ -286,11 +286,10 @@ export default function About({ about, board, staff }: AboutProps) {
                                 aria-hidden="true"
                                 className="mt-5 block h-1.5 w-20 rounded-full bg-hvblue"
                             />
-                            <div className="mt-6 max-w-xl space-y-5 text-base font-medium leading-relaxed text-hvblue/90 md:text-lg">
-                                {toParagraphs(whyWeAreHereBody).map((p, i) => (
-                                    <p key={i}>{p}</p>
-                                ))}
-                            </div>
+                            <RichText
+                                document={whyWeAreHereBody}
+                                className="mt-6 max-w-xl space-y-5 text-base font-medium leading-relaxed text-hvblue/90 md:text-lg [&_a]:text-hvblue [&_a:hover]:text-hvorange-800"
+                            />
                         </div>
                     </div>
                     <ul

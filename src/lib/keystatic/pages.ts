@@ -9,7 +9,20 @@ import type {
 // Import these functions in server components and route files only.
 
 export async function getHomePageContent() {
-    return reader.singletons.homePage.read()
+    const page = await reader.singletons.homePage.read()
+
+    if (!page) return null
+
+    const [introBody, missionBody] = await Promise.all([
+        page.intro.body(),
+        page.mission.body(),
+    ])
+
+    return {
+        ...page,
+        intro: { ...page.intro, body: introBody },
+        mission: { ...page.mission, body: missionBody },
+    }
 }
 
 export async function getSiteSettings() {
@@ -104,7 +117,16 @@ export async function getNavigation() {
 }
 
 export async function getAboutPageContent() {
-    return reader.singletons.aboutPage.read()
+    const page = await reader.singletons.aboutPage.read()
+
+    if (!page) return null
+
+    const [whoWeAreBody, whyWeAreHereBody] = await Promise.all([
+        page.whoWeAreBody(),
+        page.whyWeAreHereBody(),
+    ])
+
+    return { ...page, whoWeAreBody, whyWeAreHereBody }
 }
 
 export async function getContactPageContent() {
@@ -112,7 +134,11 @@ export async function getContactPageContent() {
 }
 
 export async function getMembershipPageContent() {
-    return reader.singletons.membershipPage.read()
+    const page = await reader.singletons.membershipPage.read()
+
+    if (!page) return null
+
+    return { ...page, scholarshipNote: await page.scholarshipNote() }
 }
 
 export async function getChooseMembershipPageContent() {
@@ -120,19 +146,35 @@ export async function getChooseMembershipPageContent() {
 }
 
 export async function getAstraPageContent() {
-    return reader.singletons.astraPage.read()
+    const page = await reader.singletons.astraPage.read()
+
+    if (!page) return null
+
+    return { ...page, programDescription: await page.programDescription() }
 }
 
 export async function getGbysPageContent() {
-    return reader.singletons.gbysPage.read()
+    const page = await reader.singletons.gbysPage.read()
+
+    if (!page) return null
+
+    return { ...page, programIntro: await page.programIntro() }
 }
 
 export async function getSafetyPageContent() {
-    return reader.singletons.safetyPage.read()
+    const page = await reader.singletons.safetyPage.read()
+
+    if (!page) return null
+
+    return { ...page, introCopy: await page.introCopy() }
 }
 
 export async function getDhhCommitteePageContent() {
-    return reader.singletons.dhhCommitteePage.read()
+    const page = await reader.singletons.dhhCommitteePage.read()
+
+    if (!page) return null
+
+    return { ...page, description: await page.description() }
 }
 
 export async function getResourcesPageContent() {
@@ -140,7 +182,18 @@ export async function getResourcesPageContent() {
 }
 
 export async function getFaqPageContent() {
-    return reader.singletons.faqPage.read()
+    const page = await reader.singletons.faqPage.read()
+
+    if (!page) return null
+
+    const faqEntries = await Promise.all(
+        page.faqEntries.map(async (entry) => ({
+            ...entry,
+            answer: await entry.answer(),
+        }))
+    )
+
+    return { ...page, faqEntries }
 }
 
 function requireText(value: string | null, field: string) {

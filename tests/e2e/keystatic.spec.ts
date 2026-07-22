@@ -104,3 +104,43 @@ test('keeps safe global settings editable', async ({ page }) => {
         })
     ).toBeVisible()
 })
+
+test('shows the scoped rich-text toolbar for FAQ answers', async ({ page }) => {
+    await page.goto('/keystatic/singleton/faqPage')
+
+    const faqEntries = page.getByRole('grid', {
+        name: 'FAQ Entries',
+        exact: true,
+    })
+    await faqEntries
+        .getByRole('row', {
+            name: 'My child was referred for additional hearing tests after the newborn screening. What does this mean?',
+            exact: true,
+        })
+        .click()
+
+    const editItemDialog = page.getByRole('dialog', {
+        name: 'Edit item',
+        exact: true,
+    })
+
+    await expect(
+        editItemDialog.getByRole('checkbox', { name: 'Bold', exact: true })
+    ).toBeVisible()
+    await expect(
+        editItemDialog.getByRole('checkbox', { name: 'Italic', exact: true })
+    ).toBeVisible()
+    await expect(
+        editItemDialog.getByRole('radio', {
+            name: 'Bullet List',
+            exact: true,
+        })
+    ).toBeVisible()
+    await expect(
+        editItemDialog.getByRole('radio', {
+            name: 'Numbered List',
+            exact: true,
+        })
+    ).toBeVisible()
+    // Keystatic's nameless link button is covered by the document schema scope.
+})

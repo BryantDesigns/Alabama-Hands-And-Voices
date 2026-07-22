@@ -1,4 +1,5 @@
 import FaqAccordion from './FaqAccordion'
+import type { DocumentElement } from '@keystatic/core'
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
 
@@ -28,7 +29,7 @@ interface FaqProps {
     introCopy: string
     faqs: {
         question: string
-        answer: string
+        answer: DocumentElement[]
         resourceLinks: readonly { label: string; url: string }[]
     }[]
 }

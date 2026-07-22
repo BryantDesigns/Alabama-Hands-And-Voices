@@ -196,6 +196,73 @@ test('renders DHH videos in configured order', async ({ page }) => {
     ])
 })
 
+test('preserves every migrated rich-text value', async ({ page }) => {
+    const pageContent = [
+        {
+            route: '/',
+            phrases: [
+                'We provide unbiased information, resources, and support',
+                'Our outreach, parent-professional collaboration, and advocacy',
+            ],
+        },
+        {
+            route: '/about',
+            phrases: [
+                'including ASL and other visual-language signers',
+                'Hands & Voices does not promote specific communication choices',
+            ],
+        },
+        {
+            route: '/programs/gbys',
+            phrases: ['trained Parent Guides who have walked a similar path'],
+        },
+        {
+            route: '/programs/astra',
+            phrases: ['help families navigate the educational system'],
+        },
+        {
+            route: '/programs/dhh-committee',
+            phrases: ['serve as role models and mentors'],
+        },
+        {
+            route: '/programs/safety',
+            phrases: ['protect children who are deaf or hard of hearing'],
+        },
+        {
+            route: '/membership',
+            phrases: ['families who need financial assistance'],
+        },
+    ]
+
+    for (const { route, phrases } of pageContent) {
+        await page.goto(route, { waitUntil: 'domcontentloaded' })
+        const mainContent = page.locator('#main-content')
+
+        for (const phrase of phrases) {
+            await expect(mainContent).toContainText(phrase)
+        }
+    }
+
+    await page.goto('/faq', { waitUntil: 'domcontentloaded' })
+    const faqPhrases = [
+        'Follow-up testing is routine',
+        'Download our Pathways guide',
+        'Technology decisions are personal',
+        'There is no single right answer',
+        'Your child\'s team may include audiologists',
+    ]
+    const faqButtons = page.locator('button[aria-controls^="faq-v3-panel-"]')
+
+    await expect(faqButtons).toHaveCount(faqPhrases.length)
+    for (let index = 0; index < faqPhrases.length; index += 1) {
+        const button = faqButtons.nth(index)
+        await button.click()
+        await expect(
+            page.locator(`#faq-v3-panel-${index}`)
+        ).toContainText(faqPhrases[index])
+    }
+})
+
 test('filters inactive videos and sorts active videos by placement', () => {
     const videos = selectActiveVideos(
         [

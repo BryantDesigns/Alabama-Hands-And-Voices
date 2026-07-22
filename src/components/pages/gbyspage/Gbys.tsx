@@ -1,17 +1,11 @@
 import Image from 'next/image'
 import GBYSForm from '@/components/pages/gbyspage/GBYSForm'
+import RichText from '@/components/RichText'
 import type { getGbysPageContent } from '@/lib/keystatic/pages'
 import { documentLinkProps } from '@/utils/documentLinks'
 
 interface GbysProps {
     gbys: NonNullable<Awaited<ReturnType<typeof getGbysPageContent>>>
-}
-
-function toParagraphs(text: string): string[] {
-    return text
-        .split(/\n\s*\n/)
-        .map((paragraph) => paragraph.trim())
-        .filter(Boolean)
 }
 
 function ArrowIcon({ className = '' }: { className?: string }) {
@@ -96,8 +90,6 @@ export default function Gbys({ gbys }: GbysProps) {
         flyerEnglishUrl,
         flyerSpanishUrl,
     } = gbys
-    const paragraphs = programIntro ? toParagraphs(programIntro) : []
-
     return (
         <main className="bg-white text-hvblue">
             <section className="relative isolate overflow-hidden bg-hvblue text-white">
@@ -141,13 +133,10 @@ export default function Gbys({ gbys }: GbysProps) {
                                 A parent guide, right by your side
                             </p>
 
-                            {paragraphs.length > 0 && (
-                                <div className="mt-6 max-w-xl space-y-4 text-base font-medium leading-relaxed text-white/90 md:text-lg">
-                                    {paragraphs.map((paragraph, index) => (
-                                        <p key={index}>{paragraph}</p>
-                                    ))}
-                                </div>
-                            )}
+                            <RichText
+                                document={programIntro}
+                                className="mt-6 max-w-xl text-base font-medium leading-relaxed text-white/90 md:text-lg [&_a]:text-white [&_a:hover]:text-hvorange-50"
+                            />
                         </div>
 
                         <div className="hidden lg:block">

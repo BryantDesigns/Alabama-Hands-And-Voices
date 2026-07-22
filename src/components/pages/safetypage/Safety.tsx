@@ -1,12 +1,6 @@
 import Image from 'next/image'
+import RichText from '@/components/RichText'
 import type { getSafetyPageContent } from '@/lib/keystatic/pages'
-
-function toParagraphs(text: string): string[] {
-    return text
-        .split(/\n\s*\n/)
-        .map((paragraph) => paragraph.trim())
-        .filter(Boolean)
-}
 
 function ArrowIcon({ className = '' }: { className?: string }) {
     return (
@@ -60,8 +54,6 @@ export default function Safety({
         familyRetreatsBody,
         familyRetreatsLink,
     } = safety
-    const introParagraphs = introCopy ? toParagraphs(introCopy) : []
-
     return (
         <main className="bg-white text-hvblue">
             <section className="relative isolate overflow-hidden bg-hvblue text-white">
@@ -137,13 +129,10 @@ export default function Safety({
                                 className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                             />
 
-                            {introParagraphs.length > 0 && (
-                                <div className="mt-6 flex max-w-3xl flex-col gap-4 text-base font-medium leading-relaxed text-slate-700 md:text-lg">
-                                    {introParagraphs.map((paragraph, index) => (
-                                        <p key={index}>{paragraph}</p>
-                                    ))}
-                                </div>
-                            )}
+                            <RichText
+                                document={introCopy}
+                                className="mt-6 max-w-3xl text-base font-medium leading-relaxed text-slate-700 md:text-lg [&_a]:text-hvorange-700 [&_a:hover]:text-hvorange-800"
+                            />
                         </div>
 
                         <a

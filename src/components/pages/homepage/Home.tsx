@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { DocumentRenderer } from '@keystatic/core/renderer'
 import type { DocumentElement } from '@keystatic/core'
+import RichText from '@/components/RichText'
 import type { getHomePageContent } from '@/lib/keystatic/pages'
 import { PAYPAL_CGI_URL, donateButtonId } from '@/lib/membership'
 import { documentLinkProps } from '@/utils/documentLinks'
@@ -235,11 +235,10 @@ export default function Home({
                                 aria-hidden="true"
                                 className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                             />
-                            <div className="mt-6 space-y-5 text-base leading-relaxed text-slate-700 md:text-lg">
-                                {toParagraphs(intro.body).map((p, i) => (
-                                    <p key={i}>{p}</p>
-                                ))}
-                            </div>
+                            <RichText
+                                document={intro.body}
+                                className="mt-6 space-y-5 text-base leading-relaxed text-slate-700 md:text-lg [&_a]:text-hvorange-700 [&_a:hover]:text-hvorange-800"
+                            />
                             <Link
                                 href="/about"
                                 className="mt-8 inline-flex items-center gap-2 text-base font-bold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
@@ -283,13 +282,10 @@ export default function Home({
                             aria-hidden="true"
                             className="mt-5 block h-1.5 w-20 rounded-full bg-hvblue"
                         />
-                        <div className="mt-6 space-y-4 text-base font-medium leading-relaxed text-hvblue md:text-lg">
-                            {toParagraphs(mission.body).map(
-                                (paragraph, index) => (
-                                    <p key={index}>{paragraph}</p>
-                                )
-                            )}
-                        </div>
+                        <RichText
+                            document={mission.body}
+                            className="mt-6 text-base font-medium leading-relaxed text-hvblue md:text-lg [&_a]:text-hvblue [&_a:hover]:text-white"
+                        />
                     </div>
                 </div>
             </section>
@@ -673,31 +669,10 @@ export default function Home({
                                     <h3 className="text-xl font-bold tracking-tight text-hvblue md:text-2xl">
                                         {event.title}
                                     </h3>
-                                    <div className="mt-2 text-base leading-relaxed text-slate-700 [&_a]:text-hvorange-700 [&_a]:underline [&_a:hover]:text-hvorange-800">
-                                        <DocumentRenderer
-                                            document={event.description}
-                                            renderers={{
-                                                inline: {
-                                                    link: ({
-                                                        href,
-                                                        children,
-                                                    }) => (
-                                                        <a
-                                                            href={href}
-                                                            {...documentLinkProps(
-                                                                href,
-                                                                {
-                                                                    externalNewTab: true,
-                                                                }
-                                                            )}
-                                                        >
-                                                            {children}
-                                                        </a>
-                                                    ),
-                                                },
-                                            }}
-                                        />
-                                    </div>
+                                    <RichText
+                                        document={event.description}
+                                        className="mt-2 text-base leading-relaxed text-slate-700 [&_a]:text-hvorange-700 [&_a:hover]:text-hvorange-800"
+                                    />
                                 </div>
                             </article>
                         ))}

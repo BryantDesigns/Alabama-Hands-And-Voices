@@ -1,22 +1,17 @@
 'use client'
 
 import { useState } from 'react'
+import type { DocumentElement } from '@keystatic/core'
+import RichText from '@/components/RichText'
 import { documentLinkProps } from '@/utils/documentLinks'
 
 interface Faq {
     question: string
-    answer: string
+    answer: DocumentElement[]
     resourceLinks: readonly {
         label: string
         url: string
     }[]
-}
-
-function toParagraphs(text: string): string[] {
-    return text
-        .split(/\n\s*\n/)
-        .map((p) => p.trim())
-        .filter(Boolean)
 }
 
 function ChevronDownIcon({ className = '' }: { className?: string }) {
@@ -103,11 +98,10 @@ export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
                                 aria-hidden="true"
                                 className="mb-4 h-px w-full bg-white/20"
                             />
-                            <div className="space-y-4 text-base font-medium leading-relaxed text-white/90 md:text-lg">
-                                {toParagraphs(faq.answer).map((para, i) => (
-                                    <p key={i}>{para}</p>
-                                ))}
-                            </div>
+                            <RichText
+                                document={faq.answer}
+                                className="text-base font-medium leading-relaxed text-white/90 md:text-lg [&_a]:text-white [&_a:hover]:text-hvorange-50"
+                            />
                             {faq.resourceLinks.length > 0 && (
                                 <ul className="mt-5 grid gap-2 sm:grid-cols-2">
                                     {faq.resourceLinks.map((resource) => (

@@ -2,31 +2,10 @@ heroQuote: '"What works for your child is what makes the choice right." ™'
 heroLogoImage: /images/hvlogo.svg
 intro:
     heading: What is Alabama Hands & Voices?
-    body: >-
-        Alabama Hands & Voices is a parent-driven, non-profit organization that
-        supports families with children who are deaf or hard of hearing. We are
-        parents who understand the journey you are on. We provide unbiased
-        information, resources, and support — regardless of communication method or
-        technology choice.
-
-
-        Whether your child uses hearing aids, cochlear implants, sign language,
-        spoken language, or a combination, we are here for you.
     image: /images/aboutUsWhoWeAre1.jpg
     imageAlt: Hands & Voices family gathering
 mission:
     heading: Our Mission
-    body: >-
-        Hands & Voices is dedicated to supporting families with children who are
-        deaf or hard of hearing without bias around communication modes or
-        methodology.
-
-
-        We are a parent-driven, non-profit organization providing families with the
-        resources, networks, and information they need to improve communication
-        access and educational outcomes for their children. Our outreach,
-        parent-professional collaboration, and advocacy help children who are deaf
-        or hard of hearing reach their highest potential.
 whereToStart:
     heading: Where to start
     subheading: First, take a deep breath

@@ -75,6 +75,20 @@ test('document links follow the sitewide behavior policy', async ({ page }) => {
                 hasDownload: true,
             })
         }
+
+        for (const link of links.filter(
+            ({ href }) =>
+                /^https?:\/\//i.test(href) &&
+                !/\.(?:pdf|docx?)([?#]|$)/i.test(href)
+        )) {
+            expect(link, `${route}: ${link.href}`).toMatchObject({
+                target: '_blank',
+                hasDownload: false,
+            })
+            expect(link.rel?.split(/\s+/), `${route}: ${link.href}`).toContain(
+                'noopener'
+            )
+        }
     }
 })
 

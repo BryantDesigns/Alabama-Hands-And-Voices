@@ -2,6 +2,15 @@ import { config, fields, singleton, collection } from '@keystatic/core'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
+const richTextScope = {
+    formatting: {
+        inlineMarks: { bold: true, italic: true },
+        listTypes: { unordered: true, ordered: true },
+        softBreaks: true,
+    },
+    links: true,
+} as const
+
 export default config({
   storage: isProduction ? { kind: 'cloud' } : { kind: 'local' },
   cloud: {
@@ -89,7 +98,7 @@ export default config({
         intro: fields.object(
           {
             heading: fields.text({ label: 'Heading' }),
-            body: fields.text({ label: 'Body', multiline: true }),
+            body: fields.document({ label: 'Body', ...richTextScope }),
             image: fields.text({ label: 'Image Path' }),
             imageAlt: fields.text({ label: 'Image Alt Text' }),
           },
@@ -98,7 +107,7 @@ export default config({
         mission: fields.object(
           {
             heading: fields.text({ label: 'Heading' }),
-            body: fields.text({ label: 'Body', multiline: true }),
+            body: fields.document({ label: 'Body', ...richTextScope }),
           },
           { label: 'Mission Section' }
         ),
@@ -189,8 +198,7 @@ export default config({
                 title: fields.text({ label: 'Title' }),
                 description: fields.document({
                   label: 'Description',
-                  formatting: true,
-                  links: true,
+                  ...richTextScope,
                 }),
               }),
               {
@@ -209,18 +217,18 @@ export default config({
       path: 'src/content/singletons/aboutPage',
       format: { data: 'yaml' },
       schema: {
-        whoWeAreBody: fields.text({
+        whoWeAreBody: fields.document({
           label: 'Who We Are Body',
-          multiline: true,
+          ...richTextScope,
         }),
         whoWeAreQuote: fields.text({
           label: 'Who We Are Quote',
           multiline: true,
         }),
         whoWeAreQuoteAttribution: fields.text({ label: 'Quote Attribution' }),
-        whyWeAreHereBody: fields.text({
+        whyWeAreHereBody: fields.document({
           label: 'Why We Are Here Body',
-          multiline: true,
+          ...richTextScope,
         }),
         values: fields.array(
           fields.object({
@@ -273,9 +281,9 @@ export default config({
         heroHeading: fields.text({ label: 'Hero Heading' }),
         heroText: fields.text({ label: 'Hero Text', multiline: true }),
         documentDownloadUrl: fields.text({ label: 'Document Download URL' }),
-        scholarshipNote: fields.text({
+        scholarshipNote: fields.document({
           label: 'Scholarship Note',
-          multiline: true,
+          ...richTextScope,
         }),
       },
     }),
@@ -301,9 +309,9 @@ export default config({
       path: 'src/content/singletons/astraPage',
       format: { data: 'yaml' },
       schema: {
-        programDescription: fields.text({
+        programDescription: fields.document({
           label: 'Program Description',
-          multiline: true,
+          ...richTextScope,
         }),
         questions: fields.array(
           fields.object({
@@ -334,7 +342,10 @@ export default config({
       path: 'src/content/singletons/gbysPage',
       format: { data: 'yaml' },
       schema: {
-        programIntro: fields.text({ label: 'Program Intro', multiline: true }),
+        programIntro: fields.document({
+          label: 'Program Intro',
+          ...richTextScope,
+        }),
         services: fields.array(
           fields.object({
             service: fields.text({ label: 'Service' }),
@@ -358,7 +369,7 @@ export default config({
       path: 'src/content/singletons/safetyPage',
       format: { data: 'yaml' },
       schema: {
-        introCopy: fields.text({ label: 'Intro Copy', multiline: true }),
+        introCopy: fields.document({ label: 'Intro Copy', ...richTextScope }),
         actionCards: fields.array(
           fields.object({
             title: fields.text({ label: 'Title' }),
@@ -385,7 +396,10 @@ export default config({
       path: 'src/content/singletons/dhhCommitteePage',
       format: { data: 'yaml' },
       schema: {
-        description: fields.text({ label: 'Description', multiline: true }),
+        description: fields.document({
+          label: 'Description',
+          ...richTextScope,
+        }),
         benefits: fields.array(
           fields.object({
             benefit: fields.text({ label: 'Benefit' }),
@@ -442,7 +456,7 @@ export default config({
         faqEntries: fields.array(
           fields.object({
             question: fields.text({ label: 'Question' }),
-            answer: fields.text({ label: 'Answer', multiline: true }),
+            answer: fields.document({ label: 'Answer', ...richTextScope }),
             resourceLinks: fields.array(
               fields.object({
                 label: fields.text({ label: 'Label' }),
