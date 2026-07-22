@@ -136,6 +136,8 @@ export default function Header({
                     : 'shadow-none'
             }`}
         >
+            <div className="h-1 w-full bg-hvblue" />
+
                 {/* Structural left-edge accent — geometric marker */}
                 <div
                     aria-hidden="true"
