@@ -50,7 +50,13 @@ function CheckIcon({ className = '' }: { className?: string }) {
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export default function DhhCommittee({ dhh, videos }: DhhCommitteeProps) {
-    const { description, benefits, videoSectionHeading } = dhh
+    const {
+        heroTagline,
+        committeeCardBody,
+        description,
+        benefits,
+        videoSectionHeading,
+    } = dhh
 
     return (
         <main className="bg-white text-hvblue">
@@ -95,7 +101,7 @@ export default function DhhCommittee({ dhh, videos }: DhhCommitteeProps) {
                     </h1>
 
                     <p className="mt-3 text-lg font-bold uppercase tracking-widest text-hvorange-50/80">
-                        Deaf &amp; Hard of Hearing Role Models &amp; Mentors
+                        {heroTagline}
                     </p>
 
                     <RichText
@@ -140,10 +146,7 @@ export default function DhhCommittee({ dhh, videos }: DhhCommitteeProps) {
                                     Our committee
                                 </p>
                                 <p className="mt-4 text-base font-medium leading-relaxed text-white/90">
-                                    D/HH Committee Members are deaf and hard of
-                                    hearing adults who give back by serving as
-                                    role models and mentors to the next
-                                    generation of children and families.
+                                    {committeeCardBody}
                                 </p>
                                 <span
                                     aria-hidden="true"

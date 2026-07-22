@@ -6,6 +6,7 @@ export interface SiteSettings {
     facebookUrl: string
     donationButtonLabel: string
     footerCopyright: string
+    footerTagline: string
 }
 
 export interface NavigationItemContent {

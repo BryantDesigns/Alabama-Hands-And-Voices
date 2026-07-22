@@ -153,6 +153,40 @@ test('keeps safe global settings editable', async ({ page }) => {
             exact: true,
         })
     ).toBeVisible()
+    await expect(
+        page.getByRole('textbox', { name: 'Footer Tagline', exact: true })
+    ).toBeVisible()
+})
+
+test('shows the v3 marketing copy fields in page editors', async ({ page }) => {
+    const pageFields = [
+        {
+            singleton: 'gbysPage',
+            fields: ['Hero Tagline'],
+        },
+        {
+            singleton: 'astraPage',
+            fields: ['Hero Tagline'],
+        },
+        {
+            singleton: 'dhhCommitteePage',
+            fields: ['Hero Tagline', 'Committee Card Body'],
+        },
+        {
+            singleton: 'safetyPage',
+            fields: ['Hero Tagline'],
+        },
+    ]
+
+    for (const { singleton, fields } of pageFields) {
+        await page.goto(`/keystatic/singleton/${singleton}`)
+
+        for (const field of fields) {
+            await expect(
+                page.getByRole('textbox', { name: field, exact: true })
+            ).toBeVisible()
+        }
+    }
 })
 
 test('shows the scoped rich-text toolbar for FAQ answers', async ({ page }) => {

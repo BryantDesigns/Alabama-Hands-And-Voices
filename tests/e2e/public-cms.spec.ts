@@ -232,6 +232,53 @@ test('renders active events in configured order with metadata and CTA', async ({
     await expect(registrationLink).toHaveAttribute('rel', /noopener/)
 })
 
+test('renders the seeded v3 marketing copy from CMS', async ({ page }) => {
+    const pageCopy = [
+        {
+            route: '/programs/gbys',
+            values: ['A parent guide, right by your side'],
+        },
+        {
+            route: '/programs/astra',
+            values: ['Advocate Support Training & Resources'],
+        },
+        {
+            route: '/programs/dhh-committee',
+            values: [
+                'Deaf & Hard of Hearing Role Models & Mentors',
+                'D/HH Committee Members are deaf and hard of hearing adults who give back by serving as role models and mentors to the next generation of children and families.',
+            ],
+        },
+        {
+            route: '/programs/safety',
+            values: [
+                'Helping families protect children who are deaf or hard of hearing.',
+            ],
+        },
+    ]
+
+    for (const { route, values } of pageCopy) {
+        await page.goto(route, { waitUntil: 'domcontentloaded' })
+        const mainContent = page.locator('#main-content')
+
+        for (const value of values) {
+            await expect(
+                mainContent.getByText(value, { exact: true })
+            ).toBeVisible()
+        }
+    }
+
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
+    await expect(
+        page
+            .getByRole('contentinfo')
+            .getByText(
+                '“What works for your child is what makes the choice right.” ™',
+                { exact: true }
+            )
+    ).toBeVisible()
+})
+
 test('preserves every migrated rich-text value', async ({ page }) => {
     const pageContent = [
         {

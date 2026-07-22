@@ -84,6 +84,7 @@ function DownloadIcon({ className = '' }: { className?: string }) {
 
 export default function Gbys({ gbys }: GbysProps) {
     const {
+        heroTagline,
         programIntro,
         services,
         enrollmentNote,
@@ -130,7 +131,7 @@ export default function Gbys({ gbys }: GbysProps) {
                             </h1>
 
                             <p className="mt-3 text-lg font-bold uppercase tracking-widest text-hvorange-50/80">
-                                A parent guide, right by your side
+                                {heroTagline}
                             </p>
 
                             <RichText

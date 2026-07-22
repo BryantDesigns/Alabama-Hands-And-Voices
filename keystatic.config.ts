@@ -58,6 +58,10 @@ export default config({
           label: 'Footer Copyright',
           validation: { isRequired: true, length: { max: 120 } },
         }),
+        footerTagline: fields.text({
+          label: 'Footer Tagline',
+          validation: { isRequired: true },
+        }),
       },
     }),
 
@@ -296,6 +300,10 @@ export default config({
       path: 'src/content/singletons/astraPage',
       format: { data: 'yaml' },
       schema: {
+        heroTagline: fields.text({
+          label: 'Hero Tagline',
+          validation: { isRequired: true },
+        }),
         programDescription: fields.document({
           label: 'Program Description',
           ...richTextScope,
@@ -329,6 +337,10 @@ export default config({
       path: 'src/content/singletons/gbysPage',
       format: { data: 'yaml' },
       schema: {
+        heroTagline: fields.text({
+          label: 'Hero Tagline',
+          validation: { isRequired: true },
+        }),
         programIntro: fields.document({
           label: 'Program Intro',
           ...richTextScope,
@@ -356,6 +368,10 @@ export default config({
       path: 'src/content/singletons/safetyPage',
       format: { data: 'yaml' },
       schema: {
+        heroTagline: fields.text({
+          label: 'Hero Tagline',
+          validation: { isRequired: true },
+        }),
         introCopy: fields.document({ label: 'Intro Copy', ...richTextScope }),
         actionCards: fields.array(
           fields.object({
@@ -383,6 +399,14 @@ export default config({
       path: 'src/content/singletons/dhhCommitteePage',
       format: { data: 'yaml' },
       schema: {
+        heroTagline: fields.text({
+          label: 'Hero Tagline',
+          validation: { isRequired: true },
+        }),
+        committeeCardBody: fields.text({
+          label: 'Committee Card Body',
+          validation: { isRequired: true },
+        }),
         description: fields.document({
           label: 'Description',
           ...richTextScope,

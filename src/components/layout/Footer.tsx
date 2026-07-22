@@ -57,8 +57,7 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
                                 who are deaf or hard of hearing.
                             </p>
                             <p className="mt-3 text-sm font-semibold leading-relaxed text-white">
-                                &ldquo;What works for your child is what makes
-                                the choice right.&rdquo; &trade;
+                                &ldquo;{settings.footerTagline}&rdquo; &trade;
                             </p>
                         </div>
 

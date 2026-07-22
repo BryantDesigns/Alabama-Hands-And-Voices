@@ -107,6 +107,7 @@ function AcademicCapIcon({ className = '' }: { className?: string }) {
 
 export default function Astra({ astra }: AstraProps) {
     const {
+        heroTagline,
         programDescription,
         questions,
         resourceLinks,
@@ -158,7 +159,7 @@ export default function Astra({ astra }: AstraProps) {
                             </h1>
 
                             <p className="mt-3 text-lg font-bold uppercase tracking-widest text-hvorange-50/80">
-                                Advocate Support Training &amp; Resources
+                                {heroTagline}
                             </p>
 
                             <RichText

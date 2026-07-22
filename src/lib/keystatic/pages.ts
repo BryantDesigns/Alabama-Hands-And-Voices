@@ -54,6 +54,10 @@ export async function getSiteSettings() {
             settings.footerCopyright,
             'Site Settings > Footer Copyright'
         ),
+        footerTagline: requireText(
+            settings.footerTagline,
+            'Site Settings > Footer Tagline'
+        ),
     }
 
     try {

@@ -48,6 +48,7 @@ export default function Safety({
     >
 }) {
     const {
+        heroTagline,
         introCopy,
         actionCards,
         familyRetreatsHeading,
@@ -92,8 +93,7 @@ export default function Safety({
                             </h1>
 
                             <p className="mt-5 max-w-2xl text-lg font-medium leading-relaxed text-white/80 md:text-xl">
-                                Helping families protect children who are deaf
-                                or hard of hearing.
+                                {heroTagline}
                             </p>
                         </div>
 
