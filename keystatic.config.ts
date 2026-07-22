@@ -193,19 +193,6 @@ export default config({
             heading: fields.text({ label: 'Heading' }),
             intro: fields.text({ label: 'Intro', multiline: true }),
             backgroundImage: fields.text({ label: 'Background Image Path' }),
-            events: fields.array(
-              fields.object({
-                title: fields.text({ label: 'Title' }),
-                description: fields.document({
-                  label: 'Description',
-                  ...richTextScope,
-                }),
-              }),
-              {
-                label: 'Events',
-                itemLabel: (props) => props.fields.title.value || 'Event',
-              }
-            ),
           },
           { label: 'Events Section' }
         ),
@@ -478,6 +465,54 @@ export default config({
   },
 
   collections: {
+    events: collection({
+      label: 'Events',
+      path: 'src/content/events/*',
+      slugField: 'title',
+      format: { data: 'yaml' },
+      schema: {
+        title: fields.slug({
+          name: {
+            label: 'Title',
+            validation: { isRequired: true, length: { max: 120 } },
+          },
+        }),
+        dateText: fields.text({
+          label: 'Date / schedule',
+          description:
+            'Shown on the card, e.g. "Every first Tuesday" or "March 14, 2027". Leave blank to hide.',
+        }),
+        location: fields.text({
+          label: 'Location',
+          description:
+            'e.g. "Virtual (Zoom)" or a venue. Leave blank to hide.',
+        }),
+        description: fields.document({
+          label: 'Description',
+          ...richTextScope,
+        }),
+        linkLabel: fields.text({
+          label: 'Button label',
+          description:
+            'Optional call-to-action button text, e.g. "Register".',
+        }),
+        linkUrl: fields.text({
+          label: 'Button URL',
+          description:
+            'Where the button goes. Required if a button label is set.',
+        }),
+        active: fields.checkbox({
+          label: 'Show on site',
+          defaultValue: true,
+        }),
+        sortOrder: fields.integer({
+          label: 'Sort Order',
+          defaultValue: 99,
+          validation: { isRequired: true, min: 0 },
+        }),
+      },
+    }),
+
     boardMembers: collection({
       label: 'Board Members',
       path: 'src/content/boardMembers/*',

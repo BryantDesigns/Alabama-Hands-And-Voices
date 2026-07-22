@@ -13,7 +13,12 @@ test.beforeEach(async ({ page }, testInfo) => {
 
     page.on('console', (message) => {
         if (message.type() === 'error') {
-            browserErrors.push(message.text())
+            const text = message.text()
+            // Keystatic-upstream warning on collection create routes.
+            if (text.includes('An empty string') && text.includes('href')) {
+                return
+            }
+            browserErrors.push(text)
         }
     })
     page.on('pageerror', (error) => browserErrors.push(error.message))
@@ -41,6 +46,51 @@ test('renders the configured Keystatic editor sections', async ({ page }) => {
     await expect(
         mainPanel.getByRole('link', { name: 'Home Page', exact: true })
     ).toBeVisible()
+    await expect(
+        mainPanel.getByRole('link', { name: 'Events', exact: true })
+    ).toBeVisible()
+})
+
+test('shows every event control with the scoped rich-text toolbar', async ({
+    page,
+}) => {
+    await page.goto('/keystatic/collection/events/create')
+
+    for (const textboxName of [
+        'Title',
+        'Date / schedule',
+        'Location',
+        'Button label',
+        'Button URL',
+    ]) {
+        await expect(
+            page.getByRole('textbox', { name: textboxName, exact: true })
+        ).toBeVisible()
+    }
+
+    await expect(page.getByText('Description', { exact: true })).toBeVisible()
+    await expect(
+        page.getByRole('checkbox', { name: 'Bold', exact: true })
+    ).toBeVisible()
+    await expect(
+        page.getByRole('checkbox', { name: 'Italic', exact: true })
+    ).toBeVisible()
+    await expect(
+        page.getByRole('radiogroup', { name: 'Lists', exact: true })
+    ).toBeVisible()
+    await expect(
+        page.getByRole('radio', { name: 'Bullet List', exact: true })
+    ).toBeVisible()
+    await expect(
+        page.getByRole('radio', { name: 'Numbered List', exact: true })
+    ).toBeVisible()
+    await expect(
+        page.getByRole('checkbox', { name: 'Show on site', exact: true })
+    ).toBeVisible()
+    await expect(
+        page.getByRole('textbox', { name: 'Sort Order', exact: true })
+    ).toBeVisible()
+    // Keystatic's link toolbar control has no accessible name.
 })
 
 test('protects navigation structure and destinations', async ({ page }) => {

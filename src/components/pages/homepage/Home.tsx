@@ -1,23 +1,17 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import type { DocumentElement } from '@keystatic/core'
 import RichText from '@/components/RichText'
+import type { EventContent } from '@/lib/events'
 import type { getHomePageContent } from '@/lib/keystatic/pages'
 import { PAYPAL_CGI_URL, donateButtonId } from '@/lib/membership'
 import { documentLinkProps } from '@/utils/documentLinks'
 
 type HomeData = NonNullable<Awaited<ReturnType<typeof getHomePageContent>>>
 
-// Resolved event with description already awaited from the document reader
-interface ResolvedEvent {
-    title: string
-    description: DocumentElement[]
-}
-
 interface HomeProps {
     data: HomeData
     donationLabel: string
-    resolvedEvents: ResolvedEvent[]
+    events: EventContent[]
 }
 
 // Split a Keystatic `body` field (paragraphs separated by blank lines)
@@ -117,7 +111,7 @@ function QuoteMark({ className = '' }: { className?: string }) {
 export default function Home({
     data,
     donationLabel,
-    resolvedEvents,
+    events: eventItems,
 }: HomeProps) {
     const {
         heroQuote,
@@ -627,56 +621,100 @@ export default function Home({
                         </p>
                     </div>
 
-                    {/* Bento: tall photo card + stacked event cards */}
-                    <div className="mt-10 grid gap-6 lg:grid-cols-3 lg:gap-8">
-                        {/* Photo feature card spanning full height on lg */}
-                        <div className="relative min-h-[18rem] overflow-hidden rounded-3xl shadow-sm ring-1 ring-slate-200 lg:row-span-3 lg:min-h-full">
-                            <Image
-                                src={events.backgroundImage}
-                                alt="Families gathering at an Alabama Hands & Voices event"
-                                fill
-                                sizes="(max-width: 1024px) 100vw, 33vw"
-                                className="object-cover"
-                            />
-                            <div
-                                aria-hidden="true"
-                                className="absolute inset-0 bg-linear-to-t from-hvblue/80 via-hvblue/10 to-transparent"
-                            />
-                            <div className="absolute inset-x-0 bottom-0 p-6">
-                                <p className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white ring-1 ring-white/30 backdrop-blur">
-                                    <CalendarIcon className="h-4 w-4" />
-                                    Year-round
-                                </p>
-                                <p className="mt-3 text-xl font-extrabold tracking-tight text-white">
-                                    Always something happening
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Event cards */}
-                        {resolvedEvents.map((event, i) => (
-                            <article
-                                key={i}
-                                className="group flex gap-5 rounded-3xl bg-slate-50 p-6 ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:bg-white hover:shadow-lg lg:col-span-2"
-                            >
-                                <span
+                    {eventItems.length > 0 && (
+                        /* Bento: tall photo card + stacked event cards */
+                        <div
+                            className="mt-10 grid gap-6 lg:grid-cols-3 lg:gap-8"
+                            data-testid="events-grid"
+                        >
+                            {/* Photo feature card spanning full height on lg */}
+                            <div className="relative min-h-[18rem] overflow-hidden rounded-3xl shadow-sm ring-1 ring-slate-200 lg:row-span-3 lg:min-h-full">
+                                <Image
+                                    src={events.backgroundImage}
+                                    alt="Families gathering at an Alabama Hands & Voices event"
+                                    fill
+                                    sizes="(max-width: 1024px) 100vw, 33vw"
+                                    className="object-cover"
+                                />
+                                <div
                                     aria-hidden="true"
-                                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-hvblue text-white transition duration-150 group-hover:bg-hvorange-800"
-                                >
-                                    <CalendarIcon className="h-6 w-6" />
-                                </span>
-                                <div>
-                                    <h3 className="text-xl font-bold tracking-tight text-hvblue md:text-2xl">
-                                        {event.title}
-                                    </h3>
-                                    <RichText
-                                        document={event.description}
-                                        className="mt-2 text-base leading-relaxed text-slate-700 [&_a]:text-hvorange-700 [&_a:hover]:text-hvorange-800"
-                                    />
+                                    className="absolute inset-0 bg-linear-to-t from-hvblue/80 via-hvblue/10 to-transparent"
+                                />
+                                <div className="absolute inset-x-0 bottom-0 p-6">
+                                    <p className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white ring-1 ring-white/30 backdrop-blur">
+                                        <CalendarIcon className="h-4 w-4" />
+                                        Year-round
+                                    </p>
+                                    <p className="mt-3 text-xl font-extrabold tracking-tight text-white">
+                                        Always something happening
+                                    </p>
                                 </div>
-                            </article>
-                        ))}
-                    </div>
+                            </div>
+
+                            {/* Event cards */}
+                            {eventItems.map((event) => (
+                                <article
+                                    key={event.id}
+                                    className="group flex gap-5 rounded-3xl bg-slate-50 p-6 ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:bg-white hover:shadow-lg lg:col-span-2"
+                                >
+                                    <span
+                                        aria-hidden="true"
+                                        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-hvblue text-white transition duration-150 group-hover:bg-hvorange-800"
+                                    >
+                                        <CalendarIcon className="h-6 w-6" />
+                                    </span>
+                                    <div>
+                                        <h3 className="text-xl font-bold tracking-tight text-hvblue md:text-2xl">
+                                            {event.title}
+                                        </h3>
+                                        {(event.dateText || event.location) && (
+                                            <dl className="mt-3 grid gap-2 text-sm text-slate-600 sm:grid-cols-2">
+                                                {event.dateText && (
+                                                    <div>
+                                                        <dt className="text-xs font-bold uppercase tracking-widest text-hvblue">
+                                                            Date / schedule
+                                                        </dt>
+                                                        <dd className="mt-0.5">
+                                                            {event.dateText}
+                                                        </dd>
+                                                    </div>
+                                                )}
+                                                {event.location && (
+                                                    <div>
+                                                        <dt className="text-xs font-bold uppercase tracking-widest text-hvblue">
+                                                            Location
+                                                        </dt>
+                                                        <dd className="mt-0.5">
+                                                            {event.location}
+                                                        </dd>
+                                                    </div>
+                                                )}
+                                            </dl>
+                                        )}
+                                        <RichText
+                                            document={event.description}
+                                            className="mt-3 text-base leading-relaxed text-slate-700 [&_a]:text-hvorange-700 [&_a:hover]:text-hvorange-800"
+                                        />
+                                        {event.linkLabel && event.linkUrl && (
+                                            <a
+                                                href={event.linkUrl}
+                                                {...documentLinkProps(
+                                                    event.linkUrl,
+                                                    {
+                                                        externalNewTab: true,
+                                                    }
+                                                )}
+                                                className="mt-5 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-5 py-2.5 text-sm font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                            >
+                                                {event.linkLabel}
+                                                <ArrowIcon className="h-4 w-4" />
+                                            </a>
+                                        )}
+                                    </div>
+                                </article>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </section>
 

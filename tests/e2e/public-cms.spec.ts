@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test'
+import type { DocumentElement } from '@keystatic/core'
 import { membershipTiers, PAYPAL_CGI_URL } from '../../src/lib/membership'
+import { selectActiveEvents } from '../../src/lib/events'
 import { selectActiveVideos } from '../../src/lib/videos'
 
 test('renders fixed navigation and connected global settings', async ({
@@ -196,6 +198,40 @@ test('renders DHH videos in configured order', async ({ page }) => {
     ])
 })
 
+test('renders active events in configured order with metadata and CTA', async ({
+    page,
+}) => {
+    await page.goto('/')
+
+    const eventsSection = page.locator('section').filter({
+        has: page.getByRole('heading', { name: 'Events', exact: true }),
+    })
+    await expect(eventsSection.locator('article h3')).toHaveText([
+        'Monthly Virtual Gatherings',
+        'Educational Advocacy (ASTra) Training',
+        'More Events',
+    ])
+    await expect(
+        eventsSection.getByText('Date / schedule', { exact: true })
+    ).toBeVisible()
+    await expect(eventsSection.getByText('Monthly', { exact: true })).toBeVisible()
+    await expect(
+        eventsSection.getByText('Location', { exact: true })
+    ).toBeVisible()
+    await expect(eventsSection.getByText('Virtual', { exact: true })).toBeVisible()
+
+    const registrationLink = eventsSection.getByRole('link', {
+        name: 'Register online',
+        exact: true,
+    })
+    await expect(registrationLink).toHaveAttribute(
+        'href',
+        'https://docs.google.com/forms/d/e/1FAIpQLScXNEkBud-9NM0IeTzfw-kysGDHsr8YABGHNtFE_NDPVlw_HA/viewform'
+    )
+    await expect(registrationLink).toHaveAttribute('target', '_blank')
+    await expect(registrationLink).toHaveAttribute('rel', /noopener/)
+})
+
 test('preserves every migrated rich-text value', async ({ page }) => {
     const pageContent = [
         {
@@ -307,4 +343,61 @@ test('filters inactive videos and sorts active videos by placement', () => {
     )
 
     expect(videos.map((video) => video.id)).toEqual(['first', 'later'])
+})
+
+test('filters inactive events, sorts active events, and handles no active events', () => {
+    const description: DocumentElement[] = []
+    const events = selectActiveEvents([
+        {
+            id: 'later',
+            title: 'Later',
+            dateText: '',
+            location: '',
+            description,
+            linkLabel: '',
+            linkUrl: '',
+            sortOrder: 2,
+            active: true,
+        },
+        {
+            id: 'inactive',
+            title: 'Inactive',
+            dateText: '',
+            location: '',
+            description,
+            linkLabel: '',
+            linkUrl: '',
+            sortOrder: 0,
+            active: false,
+        },
+        {
+            id: 'first',
+            title: 'First',
+            dateText: 'Monthly',
+            location: 'Virtual',
+            description,
+            linkLabel: 'Register',
+            linkUrl: 'https://example.com/register',
+            sortOrder: 1,
+            active: true,
+        },
+    ])
+
+    expect(events.map((event) => event.id)).toEqual(['first', 'later'])
+    expect(
+        selectActiveEvents([
+            {
+                id: 'inactive',
+                title: 'Inactive',
+                dateText: '',
+                location: '',
+                description,
+                linkLabel: '',
+                linkUrl: '',
+                sortOrder: 1,
+                active: false,
+            },
+        ])
+    ).toEqual([])
+    expect(selectActiveEvents([])).toEqual([])
 })
