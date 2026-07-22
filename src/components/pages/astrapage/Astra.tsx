@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import AstraForm from '@/components/pages/astrapage/AstraForm'
 import type { getAstraPageContent } from '@/lib/keystatic/pages'
+import { documentLinkProps } from '@/utils/documentLinks'
 
 interface AstraProps {
     astra: NonNullable<Awaited<ReturnType<typeof getAstraPageContent>>>
@@ -281,8 +282,12 @@ export default function Astra({ astra }: AstraProps) {
                                             <li key={i}>
                                                 <a
                                                     href={link.url}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
+                                                    {...documentLinkProps(
+                                                        link.url,
+                                                        {
+                                                            externalNewTab: true,
+                                                        }
+                                                    )}
                                                     className="group flex items-center gap-4 rounded-2xl p-3 transition hover:bg-slate-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
                                                 >
                                                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-hvblue/10 text-hvblue transition group-hover:bg-hvblue group-hover:text-white">

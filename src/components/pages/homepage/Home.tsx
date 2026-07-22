@@ -4,6 +4,7 @@ import { DocumentRenderer } from '@keystatic/core/renderer'
 import type { DocumentElement } from '@keystatic/core'
 import type { getHomePageContent } from '@/lib/keystatic/pages'
 import { PAYPAL_CGI_URL, donateButtonId } from '@/lib/membership'
+import { documentLinkProps } from '@/utils/documentLinks'
 
 type HomeData = NonNullable<Awaited<ReturnType<typeof getHomePageContent>>>
 
@@ -334,31 +335,20 @@ export default function Home({
                             className="mt-7 flex flex-wrap gap-3"
                             aria-label="Where to start resources"
                         >
-                            {whereToStart.resourceLinks.map((resource) => {
-                                const isNewTab =
-                                    resource.url.startsWith('http') ||
-                                    resource.url.includes('/assets/') ||
-                                    resource.url.endsWith('.pdf')
-                                return (
-                                    <li key={resource.url}>
-                                        <a
-                                            href={resource.url}
-                                            target={
-                                                isNewTab ? '_blank' : undefined
-                                            }
-                                            rel={
-                                                isNewTab
-                                                    ? 'noopener noreferrer'
-                                                    : undefined
-                                            }
-                                            className="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-hvblue transition hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
-                                        >
-                                            {resource.label}
-                                            <ArrowIcon className="h-4 w-4" />
-                                        </a>
-                                    </li>
-                                )
-                            })}
+                            {whereToStart.resourceLinks.map((resource) => (
+                                <li key={resource.url}>
+                                    <a
+                                        href={resource.url}
+                                        {...documentLinkProps(resource.url, {
+                                            externalNewTab: true,
+                                        })}
+                                        className="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-hvblue transition hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    >
+                                        {resource.label}
+                                        <ArrowIcon className="h-4 w-4" />
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
@@ -467,6 +457,7 @@ export default function Home({
                                 </Link>
                                 <a
                                     href={membership.formUrl}
+                                    {...documentLinkProps(membership.formUrl)}
                                     className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/70 px-6 py-3 font-bold text-white transition hover:bg-white hover:text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                 >
                                     Download membership form
@@ -685,6 +676,26 @@ export default function Home({
                                     <div className="mt-2 text-base leading-relaxed text-slate-700 [&_a]:text-hvorange-700 [&_a]:underline [&_a:hover]:text-hvorange-800">
                                         <DocumentRenderer
                                             document={event.description}
+                                            renderers={{
+                                                inline: {
+                                                    link: ({
+                                                        href,
+                                                        children,
+                                                    }) => (
+                                                        <a
+                                                            href={href}
+                                                            {...documentLinkProps(
+                                                                href,
+                                                                {
+                                                                    externalNewTab: true,
+                                                                }
+                                                            )}
+                                                        >
+                                                            {children}
+                                                        </a>
+                                                    ),
+                                                },
+                                            }}
                                         />
                                     </div>
                                 </div>

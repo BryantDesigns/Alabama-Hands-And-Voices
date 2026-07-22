@@ -41,6 +41,43 @@ for (const route of canonicalPublicRoutes) {
     })
 }
 
+test('document links follow the sitewide behavior policy', async ({ page }) => {
+    for (const route of canonicalPublicRoutes) {
+        await page.goto(route, { waitUntil: 'domcontentloaded' })
+        const links = await page.locator('a[href]').evaluateAll((anchors) =>
+            anchors.map((anchor) => ({
+                href: anchor.getAttribute('href') ?? '',
+                target: anchor.getAttribute('target'),
+                rel: anchor.getAttribute('rel'),
+                hasDownload: anchor.hasAttribute('download'),
+            }))
+        )
+
+        for (const link of links.filter(({ href }) =>
+            /\.pdf([?#]|$)/i.test(href)
+        )) {
+            expect(link, `${route}: ${link.href}`).toMatchObject({
+                target: '_blank',
+                hasDownload: false,
+            })
+            expect(link.rel?.split(/\s+/), `${route}: ${link.href}`).toContain(
+                'noopener'
+            )
+        }
+
+        for (const link of links.filter(
+            ({ href }) =>
+                !/\.pdf([?#]|$)/i.test(href) &&
+                /\.docx?([?#]|$)/i.test(href)
+        )) {
+            expect(link, `${route}: ${link.href}`).toMatchObject({
+                target: null,
+                hasDownload: true,
+            })
+        }
+    }
+})
+
 test('/programs/dhh redirects to the canonical DHH page', async ({ page }) => {
     const response = await page.goto('/programs/dhh', {
         waitUntil: 'domcontentloaded',

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { getAboutPageContent } from '@/lib/keystatic/pages'
+import { documentLinkProps } from '@/utils/documentLinks'
 
 type AboutData = NonNullable<Awaited<ReturnType<typeof getAboutPageContent>>>
 
@@ -548,8 +549,7 @@ export default function About({ about, board, staff }: AboutProps) {
                             {membershipFormUrl && (
                                 <a
                                     href={membershipFormUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    {...documentLinkProps(membershipFormUrl)}
                                     className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl border-2 border-hvblue/60 px-8 py-3.5 text-base font-bold text-hvblue transition duration-150 hover:border-hvblue hover:bg-hvblue/10 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange lg:w-auto"
                                 >
                                     Download Form

@@ -2,6 +2,11 @@ import Link from 'next/link'
 import type { getResourcesPageContent } from '@/lib/keystatic/pages'
 import type { VideoContent } from '@/types/cms'
 import VideoPlayer from '@/components/pages/dhhrm/VideoPlayer'
+import {
+    documentLinkProps,
+    isDownloadOnlyDocument,
+    isViewableDocument,
+} from '@/utils/documentLinks'
 
 type ResourcesData = NonNullable<
     Awaited<ReturnType<typeof getResourcesPageContent>>
@@ -117,10 +122,10 @@ function ResourceLink({
     linkDot,
     externalIcon,
 }: ResourceLinkProps) {
+    const isDownloadOnly = isDownloadOnlyDocument(url)
     const isNewTab =
-        url.startsWith('http') ||
-        url.includes('/assets/') ||
-        /\.(pdf|doc|docx)$/i.test(url)
+        !isDownloadOnly &&
+        (url.startsWith('http') || isViewableDocument(url))
 
     const linkClasses = `group flex min-h-[44px] items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition duration-150 cursor-pointer focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 ${linkBase}`
 
@@ -128,8 +133,7 @@ function ResourceLink({
         return (
             <a
                 href={url}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...documentLinkProps(url, { externalNewTab: true })}
                 className={linkClasses}
             >
                 <span
@@ -141,6 +145,23 @@ function ResourceLink({
                 <ExternalLinkIcon
                     className={`h-3.5 w-3.5 shrink-0 transition duration-150 ${externalIcon}`}
                 />
+            </a>
+        )
+    }
+
+    if (isDownloadOnly) {
+        return (
+            <a
+                href={url}
+                {...documentLinkProps(url, { externalNewTab: true })}
+                className={linkClasses}
+            >
+                <span
+                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg transition duration-150 ${linkDot}`}
+                >
+                    <ArrowIcon className="h-3.5 w-3.5" />
+                </span>
+                <span className="flex-1 leading-snug">{name}</span>
             </a>
         )
     }

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { documentLinkProps } from '@/utils/documentLinks'
 
 interface Faq {
     question: string
@@ -109,32 +110,22 @@ export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
                             </div>
                             {faq.resourceLinks.length > 0 && (
                                 <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-                                    {faq.resourceLinks.map((resource) => {
-                                        const isNewTab =
-                                            resource.url.startsWith('http') ||
-                                            resource.url.includes('/assets/') ||
-                                            resource.url.endsWith('.pdf')
-                                        return (
-                                            <li key={resource.url}>
-                                                <a
-                                                    href={resource.url}
-                                                    target={
-                                                        isNewTab
-                                                            ? '_blank'
-                                                            : undefined
+                                    {faq.resourceLinks.map((resource) => (
+                                        <li key={resource.url}>
+                                            <a
+                                                href={resource.url}
+                                                {...documentLinkProps(
+                                                    resource.url,
+                                                    {
+                                                        externalNewTab: true,
                                                     }
-                                                    rel={
-                                                        isNewTab
-                                                            ? 'noopener noreferrer'
-                                                            : undefined
-                                                    }
-                                                    className="inline-flex min-h-[44px] w-full items-center rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-hvblue transition hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
-                                                >
-                                                    {resource.label}
-                                                </a>
-                                            </li>
-                                        )
-                                    })}
+                                                )}
+                                                className="inline-flex min-h-[44px] w-full items-center rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-hvblue transition hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                            >
+                                                {resource.label}
+                                            </a>
+                                        </li>
+                                    ))}
                                 </ul>
                             )}
                         </dd>

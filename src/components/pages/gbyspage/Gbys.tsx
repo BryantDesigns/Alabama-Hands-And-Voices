@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import GBYSForm from '@/components/pages/gbyspage/GBYSForm'
 import type { getGbysPageContent } from '@/lib/keystatic/pages'
+import { documentLinkProps } from '@/utils/documentLinks'
 
 interface GbysProps {
     gbys: NonNullable<Awaited<ReturnType<typeof getGbysPageContent>>>
@@ -264,9 +265,7 @@ export default function Gbys({ gbys }: GbysProps) {
                     <div className="mt-10 grid max-w-3xl gap-4 sm:grid-cols-2">
                         <a
                             href={flyerEnglishUrl}
-                            download
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            {...documentLinkProps(flyerEnglishUrl)}
                             className="group flex min-h-[88px] items-center justify-between gap-4 rounded-2xl bg-hvorange-700 px-6 py-5 text-white transition hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2"
                         >
                             <span className="text-base font-bold">
@@ -276,9 +275,7 @@ export default function Gbys({ gbys }: GbysProps) {
                         </a>
                         <a
                             href={flyerSpanishUrl}
-                            download
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            {...documentLinkProps(flyerSpanishUrl)}
                             className="group flex min-h-[88px] items-center justify-between gap-4 rounded-2xl bg-hvorange-700 px-6 py-5 text-white transition hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2"
                         >
                             <span className="text-base font-bold">
