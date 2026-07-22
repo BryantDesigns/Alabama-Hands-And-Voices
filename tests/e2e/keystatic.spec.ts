@@ -189,6 +189,39 @@ test('shows the v3 marketing copy fields in page editors', async ({ page }) => {
     }
 })
 
+test('guides editors for image paths, external URLs, and staff categories', async ({
+    page,
+}) => {
+    await page.goto('/keystatic/singleton/contactPage')
+
+    for (const field of ['Facebook Group URL', 'Survey URL']) {
+        await expect(
+            page.getByRole('textbox', { name: field, exact: true })
+        ).toBeVisible()
+    }
+    await expect(
+        page.getByText('Path under /images/, e.g. /images/family.jpg', {
+            exact: true,
+        })
+    ).toBeVisible()
+
+    await page.goto('/keystatic/singleton/resourcesPage')
+    await expect(
+        page.getByRole('textbox', {
+            name: 'EHDI Sidebar URL',
+            exact: true,
+        })
+    ).toBeVisible()
+
+    await page.goto('/keystatic/collection/staffMembers/item/amber-roberts')
+    await expect(
+        page.getByRole('button', {
+            name: 'Parent Guide Category',
+            exact: true,
+        })
+    ).toBeVisible()
+})
+
 test('shows the scoped rich-text toolbar for FAQ answers', async ({ page }) => {
     await page.goto('/keystatic/singleton/faqPage')
 
