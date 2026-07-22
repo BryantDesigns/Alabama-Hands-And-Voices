@@ -35,10 +35,9 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
 
     return (
         <footer className="bg-hvblue text-white">
-            {/* ── Top accent: bold orange stripe ── */}
-            <div className="h-1 w-full bg-hvorange-600" />
-
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                {/* ── Top accent divider ── */}
+                <div className="border-t border-white/15" />
                 <div className="py-12 md:py-16">
                     <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_0.9fr_1.2fr] lg:gap-12">
                         {/* Column 1 — Org identity */}

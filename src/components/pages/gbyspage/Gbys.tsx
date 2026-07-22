@@ -265,6 +265,8 @@ export default function Gbys({ gbys }: GbysProps) {
                         <a
                             href={flyerEnglishUrl}
                             download
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="group flex min-h-[88px] items-center justify-between gap-4 rounded-2xl bg-hvorange-700 px-6 py-5 text-white transition hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2"
                         >
                             <span className="text-base font-bold">
@@ -275,6 +277,8 @@ export default function Gbys({ gbys }: GbysProps) {
                         <a
                             href={flyerSpanishUrl}
                             download
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="group flex min-h-[88px] items-center justify-between gap-4 rounded-2xl bg-hvorange-700 px-6 py-5 text-white transition hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2"
                         >
                             <span className="text-base font-bold">

@@ -334,27 +334,31 @@ export default function Home({
                             className="mt-7 flex flex-wrap gap-3"
                             aria-label="Where to start resources"
                         >
-                            {whereToStart.resourceLinks.map((resource) => (
-                                <li key={resource.url}>
-                                    <a
-                                        href={resource.url}
-                                        target={
-                                            resource.url.startsWith('http')
-                                                ? '_blank'
-                                                : undefined
-                                        }
-                                        rel={
-                                            resource.url.startsWith('http')
-                                                ? 'noopener noreferrer'
-                                                : undefined
-                                        }
-                                        className="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-hvblue transition hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
-                                    >
-                                        {resource.label}
-                                        <ArrowIcon className="h-4 w-4" />
-                                    </a>
-                                </li>
-                            ))}
+                            {whereToStart.resourceLinks.map((resource) => {
+                                const isNewTab =
+                                    resource.url.startsWith('http') ||
+                                    resource.url.includes('/assets/') ||
+                                    resource.url.endsWith('.pdf')
+                                return (
+                                    <li key={resource.url}>
+                                        <a
+                                            href={resource.url}
+                                            target={
+                                                isNewTab ? '_blank' : undefined
+                                            }
+                                            rel={
+                                                isNewTab
+                                                    ? 'noopener noreferrer'
+                                                    : undefined
+                                            }
+                                            className="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-hvblue transition hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                        >
+                                            {resource.label}
+                                            <ArrowIcon className="h-4 w-4" />
+                                        </a>
+                                    </li>
+                                )
+                            })}
                         </ul>
                     </div>
 
@@ -693,7 +697,7 @@ export default function Home({
             {/* ============================================================ */}
             {/* FINAL CTA BAND — bold hvblue block before footer */}
             {/* ============================================================ */}
-            <section className="relative isolate overflow-hidden bg-hvblue py-16 text-white md:py-24">
+            <section className="relative isolate overflow-hidden bg-hvblue pt-16 pb-12 text-white md:pt-20 md:pb-14">
                 <div
                     aria-hidden="true"
                     className="pointer-events-none absolute -left-16 -top-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvorange/15"

@@ -117,11 +117,14 @@ function ResourceLink({
     linkDot,
     externalIcon,
 }: ResourceLinkProps) {
-    const isExternal = url.startsWith('http')
+    const isNewTab =
+        url.startsWith('http') ||
+        url.includes('/assets/') ||
+        /\.(pdf|doc|docx)$/i.test(url)
 
     const linkClasses = `group flex min-h-[44px] items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition duration-150 cursor-pointer focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 ${linkBase}`
 
-    if (isExternal) {
+    if (isNewTab) {
         return (
             <a
                 href={url}

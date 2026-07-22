@@ -110,19 +110,21 @@ export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
                             {faq.resourceLinks.length > 0 && (
                                 <ul className="mt-5 grid gap-2 sm:grid-cols-2">
                                     {faq.resourceLinks.map((resource) => {
-                                        const isExternal =
-                                            resource.url.startsWith('http')
+                                        const isNewTab =
+                                            resource.url.startsWith('http') ||
+                                            resource.url.includes('/assets/') ||
+                                            resource.url.endsWith('.pdf')
                                         return (
                                             <li key={resource.url}>
                                                 <a
                                                     href={resource.url}
                                                     target={
-                                                        isExternal
+                                                        isNewTab
                                                             ? '_blank'
                                                             : undefined
                                                     }
                                                     rel={
-                                                        isExternal
+                                                        isNewTab
                                                             ? 'noopener noreferrer'
                                                             : undefined
                                                     }

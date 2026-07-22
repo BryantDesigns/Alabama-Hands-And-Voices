@@ -129,17 +129,13 @@ export default function Header({
     )
 
     return (
-        <>
-            {/* ── Top accent bar: bold hvblue stripe ── */}
-            <div className="h-1 w-full bg-hvblue" />
-
-            <header
-                className={`sticky top-1 z-40 bg-white transition-all duration-200 ${
-                    scrolled
-                        ? 'shadow-[0_2px_16px_rgba(20,27,75,0.12)]'
-                        : 'shadow-none'
-                }`}
-            >
+        <header
+            className={`sticky top-0 z-40 bg-white transition-all duration-200 ${
+                scrolled
+                    ? 'shadow-[0_2px_16px_rgba(20,27,75,0.12)]'
+                    : 'shadow-none'
+            }`}
+        >
                 {/* Structural left-edge accent — geometric marker */}
                 <div
                     aria-hidden="true"
@@ -349,7 +345,6 @@ export default function Header({
 
                 {/* Bottom border — structural separator */}
                 <div className="h-[2px] w-full bg-slate-100" />
-            </header>
 
             {/* ── Mobile menu panel ── */}
             {menuOpen && (
@@ -520,6 +515,6 @@ export default function Header({
                     </nav>
                 </div>
             )}
-        </>
+        </header>
     )
 }

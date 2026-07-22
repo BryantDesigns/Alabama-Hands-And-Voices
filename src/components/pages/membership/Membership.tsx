@@ -210,6 +210,8 @@ export default function Membership({ membership, choose }: MembershipProps) {
                                 <a
                                     href={documentDownloadUrl}
                                     download
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
                                 >
                                     <DownloadIcon className="h-5 w-5" />
@@ -453,6 +455,8 @@ export default function Membership({ membership, choose }: MembershipProps) {
                             <a
                                 href={documentDownloadUrl}
                                 download
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl bg-hvblue px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange md:text-lg lg:w-auto"
                             >
                                 <DownloadIcon className="h-5 w-5" />
