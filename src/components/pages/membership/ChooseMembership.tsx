@@ -4,7 +4,9 @@ import type { getChooseMembershipPageContent } from '@/lib/keystatic/pages'
 import { membershipTiers, PAYPAL_CGI_URL } from '@/lib/membership'
 
 interface ChooseMembershipProps {
-    choose: NonNullable<Awaited<ReturnType<typeof getChooseMembershipPageContent>>>
+    choose: NonNullable<
+        Awaited<ReturnType<typeof getChooseMembershipPageContent>>
+    >
 }
 
 // ── Fixed tier titles (must match MembershipV2's TIER_LABELS) ────────────────
@@ -55,11 +57,7 @@ function CheckIcon({ className = '' }: { className?: string }) {
 
 // ── Input helpers ─────────────────────────────────────────────────────────────
 
-
-
 // ── Membership level options ───────────────────────────────────────────────────
-
-
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
@@ -82,7 +80,7 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
                 {/* Decorative geometric shapes */}
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-16 -top-16 h-72 w-72 rotate-12 rounded-[3rem] bg-hvorange/10"
+                    className="pointer-events-none absolute -top-16 -right-16 h-72 w-72 rotate-12 rounded-[3rem] bg-hvorange/10"
                 />
                 <div
                     aria-hidden="true"
@@ -92,12 +90,12 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl">
                         {/* Eyebrow */}
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvorange-300">
+                        <p className="text-sm font-bold tracking-widest text-hvorange-300 uppercase">
                             Membership Registration
                         </p>
 
                         {/* Bold display h1 */}
-                        <h1 className="mt-4 text-5xl font-extrabold leading-[1.05] tracking-tight text-white md:text-7xl">
+                        <h1 className="mt-4 text-5xl leading-[1.05] font-extrabold tracking-tight text-white md:text-7xl">
                             Become a member.
                         </h1>
 
@@ -106,24 +104,24 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
                             className="mt-6 block h-1.5 w-20 rounded-full bg-hvorange-600"
                         />
 
-                        <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-white/90 md:text-lg">
-                            Choose the membership type that fits you, then complete the
-                            registration form below. Scholarships and fee waivers are
-                            available for every family.
+                        <p className="mt-6 max-w-xl text-base leading-relaxed font-medium text-white/90 md:text-lg">
+                            Choose the membership type that fits you, then
+                            complete the registration form below. Scholarships
+                            and fee waivers are available for every family.
                         </p>
 
                         {/* CTAs */}
                         <div className="mt-9 flex flex-wrap items-center gap-4">
                             <a
                                 href="#membership-tiers"
-                                className="inline-flex min-h-[52px] items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="inline-flex min-h-[52px] items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                             >
                                 See membership types
                                 <ArrowIcon className="h-5 w-5" />
                             </a>
                             <a
                                 href="/membership"
-                                className="inline-flex min-h-[52px] items-center gap-2 rounded-xl border-2 border-white/60 px-8 py-4 text-base font-bold text-white transition duration-150 hover:border-white hover:bg-white/10 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="inline-flex min-h-[52px] items-center gap-2 rounded-xl border-2 border-white/60 px-8 py-4 text-base font-bold text-white transition duration-150 hover:border-white hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                             >
                                 Back to membership overview
                             </a>
@@ -135,17 +133,20 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
             {/* ============================================================ */}
             {/* MEMBERSHIP TYPES — bento-style option cards */}
             {/* ============================================================ */}
-            <section id="membership-tiers" className="bg-slate-50 py-14 md:py-20">
+            <section
+                id="membership-tiers"
+                className="bg-slate-50 py-14 md:py-20"
+            >
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     {/* Section header */}
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                        <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                             Who can join
                         </p>
                         <h2
                             id="membership-tiers-heading"
                             tabIndex={-1}
-                            className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-4 md:text-5xl"
+                            className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-4 focus-visible:outline-hidden md:text-5xl"
                         >
                             Membership for every part of the community.
                         </h2>
@@ -153,9 +154,10 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
                             aria-hidden="true"
                             className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                         />
-                        <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
-                            Whether you&rsquo;re a parent, a professional, or an organization,
-                            there&rsquo;s a membership level that fits. Review the options below.
+                        <p className="mt-6 max-w-xl text-base leading-relaxed font-medium text-slate-700 md:text-lg">
+                            Whether you&rsquo;re a parent, a professional, or an
+                            organization, there&rsquo;s a membership level that
+                            fits. Review the options below.
                         </p>
                     </div>
 
@@ -180,7 +182,7 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
                                         {/* Number badge — bold v3 style */}
                                         <span
                                             aria-hidden="true"
-                                            className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-xl bg-hvblue text-sm font-extrabold text-white shadow-md"
+                                            className="absolute top-4 left-4 flex h-10 w-10 items-center justify-center rounded-xl bg-hvblue text-sm font-extrabold text-white shadow-md"
                                         >
                                             {String(i + 1).padStart(2, '0')}
                                         </span>
@@ -188,7 +190,7 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
 
                                     {/* Card body */}
                                     <div className="flex flex-1 flex-col p-6 md:p-8">
-                                        <p className="text-xs font-bold uppercase tracking-widest text-hvblue">
+                                        <p className="text-xs font-bold tracking-widest text-hvblue uppercase">
                                             Membership type
                                         </p>
                                         <h3 className="mt-2 text-xl font-bold tracking-tight text-hvblue md:text-2xl">
@@ -198,7 +200,7 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
                                             aria-hidden="true"
                                             className="mt-3 block h-1 w-10 rounded-full bg-hvorange-600"
                                         />
-                                        <p className="mt-3 text-base font-medium leading-relaxed text-slate-600">
+                                        <p className="mt-3 text-base leading-relaxed font-medium text-slate-600">
                                             {tier.subtitle}
                                         </p>
                                         <p className="mt-5 text-2xl font-extrabold tracking-tight text-hvblue">
@@ -222,7 +224,7 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
                                             />
                                             <button
                                                 type="submit"
-                                                className="inline-flex min-h-[48px] w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-6 py-3 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2"
+                                                className="inline-flex min-h-[48px] w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-6 py-3 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                             >
                                                 Pay with PayPal
                                                 <ArrowIcon className="h-5 w-5" />
@@ -240,13 +242,17 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
                             <CheckIcon className="h-5 w-5 text-white" />
                         </span>
                         <div>
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                            <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                                 Scholarships available
                             </p>
-                            <p className="mt-1 text-base font-medium leading-relaxed text-hvblue/90">
-                                No family should be left behind due to cost. Select the{' '}
-                                <strong>$0 — Request scholarship / fee waiver</strong> option
-                                in the form below and we will work with you.
+                            <p className="mt-1 text-base leading-relaxed font-medium text-hvblue/90">
+                                No family should be left behind due to cost.
+                                Select the{' '}
+                                <strong>
+                                    $0 — Request scholarship / fee waiver
+                                </strong>{' '}
+                                option in the form below and we will work with
+                                you.
                             </p>
                         </div>
                     </div>
@@ -259,7 +265,7 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
             <section id="membership-form" className="bg-white py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-3xl text-center">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                        <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                             Registration
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -269,13 +275,17 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
                             aria-hidden="true"
                             className="mx-auto mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                         />
-                        <p className="mx-auto mt-6 max-w-xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
-                            Fill out the form below to join Alabama Hands &amp; Voices.
-                            All fields marked with{' '}
-                            <span aria-hidden="true" className="font-bold text-red-700">
+                        <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed font-medium text-slate-700 md:text-lg">
+                            Fill out the form below to join Alabama Hands &amp;
+                            Voices. All fields marked with{' '}
+                            <span
+                                aria-hidden="true"
+                                className="font-bold text-red-700"
+                            >
                                 *
                             </span>{' '}
-                            <span className="sr-only">an asterisk</span> are required.
+                            <span className="sr-only">an asterisk</span> are
+                            required.
                         </p>
                     </div>
 
@@ -294,11 +304,11 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
             >
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvorange/15"
+                    className="pointer-events-none absolute -top-16 -right-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvorange/15"
                 />
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvorange-300">
+                        <p className="text-sm font-bold tracking-widest text-hvorange-300 uppercase">
                             Give today
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white md:text-5xl">
@@ -308,10 +318,10 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
                             aria-hidden="true"
                             className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                         />
-                        <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-white/90 md:text-lg">
+                        <p className="mt-6 max-w-xl text-base leading-relaxed font-medium text-white/90 md:text-lg">
                             Your donation helps Alabama families of deaf and
-                            hard-of-hearing children find support, information, and
-                            connection when they need it most.
+                            hard-of-hearing children find support, information,
+                            and connection when they need it most.
                         </p>
                         <form
                             action={PAYPAL_CGI_URL}
@@ -319,7 +329,11 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
                             target="_top"
                             className="mt-8"
                         >
-                            <input type="hidden" name="cmd" value="_donations" />
+                            <input
+                                type="hidden"
+                                name="cmd"
+                                value="_donations"
+                            />
                             <input
                                 type="hidden"
                                 name="business"
@@ -339,7 +353,7 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
                             />
                             <button
                                 type="submit"
-                                className="inline-flex min-h-[52px] cursor-pointer items-center justify-center rounded-xl bg-hvorange-700 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="inline-flex min-h-[52px] cursor-pointer items-center justify-center rounded-xl bg-hvorange-700 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                             >
                                 Donate
                             </button>

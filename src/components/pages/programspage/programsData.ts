@@ -55,7 +55,7 @@ export function buildProgramSummaries(
     gbys: Gbys,
     astra: Astra,
     safety: Safety,
-    dhh: Dhh,
+    dhh: Dhh
 ): ProgramSummary[] {
     const gbysPoints =
         gbys?.services

@@ -7,10 +7,7 @@ interface RichTextProps {
     className?: string
 }
 
-export default function RichText({
-    document,
-    className = '',
-}: RichTextProps) {
+export default function RichText({ document, className = '' }: RichTextProps) {
     return (
         <div
             className={`space-y-4 [&_a]:font-bold [&_a]:underline ${className}`}

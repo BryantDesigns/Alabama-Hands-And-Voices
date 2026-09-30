@@ -23,7 +23,7 @@ export default function StaffSection({ members }: StaffSectionProps) {
             <div className="relative isolate overflow-hidden bg-hvblue text-white">
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-24 -top-24 h-[30rem] w-[30rem] rotate-12 rounded-[3rem] bg-hvorange/15"
+                    className="pointer-events-none absolute -top-24 -right-24 h-[30rem] w-[30rem] rotate-12 rounded-[3rem] bg-hvorange/15"
                 />
                 <div
                     aria-hidden="true"
@@ -36,17 +36,17 @@ export default function StaffSection({ members }: StaffSectionProps) {
 
                 <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">
                     <div className="max-w-3xl">
-                        <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
+                        <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold tracking-widest text-hvorange-50 uppercase ring-1 ring-white/20">
                             <span
                                 aria-hidden="true"
                                 className="h-2 w-2 rounded-sm bg-hvorange-600"
                             />
                             About Us
                         </p>
-                        <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight text-white md:text-7xl">
+                        <h1 className="mt-6 text-5xl leading-[1.05] font-extrabold tracking-tight text-white md:text-7xl">
                             Program Staff
                         </h1>
-                        <p className="mt-7 max-w-2xl text-lg font-medium leading-relaxed text-white/90 md:text-xl">
+                        <p className="mt-7 max-w-2xl text-lg leading-relaxed font-medium text-white/90 md:text-xl">
                             Alabama Hands &amp; Voices staff are all experienced
                             parents of deaf or hard of hearing children, or
                             professionals in the deaf/hard of hearing community.
@@ -59,7 +59,7 @@ export default function StaffSection({ members }: StaffSectionProps) {
             <div className="bg-slate-50 py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                        <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                             Our Team
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -74,16 +74,13 @@ export default function StaffSection({ members }: StaffSectionProps) {
                     <div className="mt-12 flex flex-col gap-14">
                         {Object.entries(groupedStaff).map(
                             ([category, categoryMembers]) => (
-                                <section
-                                    key={category}
-                                    aria-label={category}
-                                >
+                                <section key={category} aria-label={category}>
                                     <div className="flex items-center gap-4">
                                         <span
                                             aria-hidden="true"
                                             className="h-8 w-1.5 shrink-0 rounded-full bg-hvorange-600"
                                         />
-                                        <h3 className="text-sm font-extrabold uppercase tracking-widest text-hvblue">
+                                        <h3 className="text-sm font-extrabold tracking-widest text-hvblue uppercase">
                                             {category}
                                         </h3>
                                     </div>

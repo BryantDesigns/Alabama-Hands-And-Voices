@@ -30,10 +30,9 @@ function collectBrowserErrors(page: Page) {
 }
 
 for (const route of canonicalPublicRoutes) {
-    test(`${route} renders a canonical public page`, async (
-        { page },
-        testInfo
-    ) => {
+    test(`${route} renders a canonical public page`, async ({
+        page,
+    }, testInfo) => {
         const browserErrors = collectBrowserErrors(page)
         const response = await page.goto(route, {
             waitUntil: 'domcontentloaded',
@@ -82,8 +81,7 @@ test('document links follow the sitewide behavior policy', async ({ page }) => {
 
         for (const link of links.filter(
             ({ href }) =>
-                !/\.pdf([?#]|$)/i.test(href) &&
-                /\.docx?([?#]|$)/i.test(href)
+                !/\.pdf([?#]|$)/i.test(href) && /\.docx?([?#]|$)/i.test(href)
         )) {
             expect(link, `${route}: ${link.href}`).toMatchObject({
                 target: null,
@@ -147,9 +145,7 @@ test('desktop navigation and footer expose fixed destinations', async ({
 
     const footer = page.getByRole('contentinfo')
     for (const group of ['Explore', 'Get involved', 'Connect']) {
-        await expect(
-            footer.getByRole('heading', { name: group })
-        ).toBeVisible()
+        await expect(footer.getByRole('heading', { name: group })).toBeVisible()
     }
     // Compact footer carries top-level destinations; sub-pages are reached
     // through the header dropdowns asserted above.
@@ -222,7 +218,9 @@ test('FAQ accordion exposes and hides its answer', async ({ page }) => {
     await expect(question).toHaveAttribute('aria-expanded', 'false')
     await question.click()
     await expect(question).toHaveAttribute('aria-expanded', 'true')
-    await expect(question.locator('xpath=../following-sibling::dd')).toBeVisible()
+    await expect(
+        question.locator('xpath=../following-sibling::dd')
+    ).toBeVisible()
 })
 
 test('membership controls and GBYS tabs are keyboard reachable', async ({
@@ -230,9 +228,11 @@ test('membership controls and GBYS tabs are keyboard reachable', async ({
 }) => {
     await page.goto('/membership')
     // The footer carries a same-named link; scope to the page content.
-    const onlineMembershipLink = page.locator('#main-content').getByRole('link', {
-        name: 'Join & Pay Online',
-    })
+    const onlineMembershipLink = page
+        .locator('#main-content')
+        .getByRole('link', {
+            name: 'Join & Pay Online',
+        })
     await expect(onlineMembershipLink).toHaveAttribute(
         'href',
         '/membership/choose-membership'

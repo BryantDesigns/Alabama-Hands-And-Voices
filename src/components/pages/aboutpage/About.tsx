@@ -123,7 +123,7 @@ export default function About({ about, board, staff }: AboutProps) {
                 {/* Geometric accents */}
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-24 -top-24 h-[30rem] w-[30rem] rotate-12 rounded-[3rem] bg-hvorange/15"
+                    className="pointer-events-none absolute -top-24 -right-24 h-[30rem] w-[30rem] rotate-12 rounded-[3rem] bg-hvorange/15"
                 />
                 <div
                     aria-hidden="true"
@@ -137,7 +137,7 @@ export default function About({ about, board, staff }: AboutProps) {
 
                 <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">
                     <div className="max-w-3xl">
-                        <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
+                        <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold tracking-widest text-hvorange-50 uppercase ring-1 ring-white/20">
                             <span
                                 aria-hidden="true"
                                 className="h-2 w-2 rounded-sm bg-hvorange-600"
@@ -145,13 +145,13 @@ export default function About({ about, board, staff }: AboutProps) {
                             Our Story
                         </p>
 
-                        <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight text-white md:text-7xl">
+                        <h1 className="mt-6 text-5xl leading-[1.05] font-extrabold tracking-tight text-white md:text-7xl">
                             Who We
                             <br />
                             <span className="text-hvorange">Are.</span>
                         </h1>
 
-                        <p className="mt-7 max-w-xl text-lg font-medium leading-relaxed text-white/90 md:text-xl">
+                        <p className="mt-7 max-w-xl text-lg leading-relaxed font-medium text-white/90 md:text-xl">
                             A parent-driven, non-profit community walking beside
                             every Alabama family with a deaf or hard-of-hearing
                             child — from first diagnosis to full potential.
@@ -160,14 +160,14 @@ export default function About({ about, board, staff }: AboutProps) {
                         <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
                             <Link
                                 href="/membership"
-                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                             >
                                 <HeartIcon className="h-5 w-5" />
                                 Join Our Community
                             </Link>
                             <a
                                 href="#board"
-                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/60 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/60 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                             >
                                 Meet the Team
                                 <ArrowIcon className="h-5 w-5" />
@@ -185,7 +185,7 @@ export default function About({ about, board, staff }: AboutProps) {
                     <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
                         {/* Copy */}
                         <div>
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                            <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                                 Who We Are
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -221,17 +221,17 @@ export default function About({ about, board, staff }: AboutProps) {
                                     {/* Orange badge */}
                                     <span
                                         aria-hidden="true"
-                                        className="absolute right-4 top-4 h-12 w-12 rounded-2xl bg-hvorange-600"
+                                        className="absolute top-4 right-4 h-12 w-12 rounded-2xl bg-hvorange-600"
                                     />
                                 </div>
                             </div>
                         )}
                     </div>
                     <figure className="mx-auto mt-12 max-w-4xl rounded-3xl bg-slate-50 p-7 ring-1 ring-slate-200 md:p-10">
-                        <blockquote className="text-xl font-bold leading-relaxed text-hvblue md:text-2xl">
+                        <blockquote className="text-xl leading-relaxed font-bold text-hvblue md:text-2xl">
                             &ldquo;{whoWeAreQuote}&rdquo;
                         </blockquote>
-                        <figcaption className="mt-5 text-sm font-bold uppercase tracking-widest text-hvblue">
+                        <figcaption className="mt-5 text-sm font-bold tracking-widest text-hvblue uppercase">
                             {whoWeAreQuoteAttribution}
                         </figcaption>
                     </figure>
@@ -245,7 +245,7 @@ export default function About({ about, board, staff }: AboutProps) {
                 {/* Geometric accents on orange */}
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvblue/10"
+                    className="pointer-events-none absolute -top-16 -right-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvblue/10"
                 />
                 <div
                     aria-hidden="true"
@@ -259,7 +259,7 @@ export default function About({ about, board, staff }: AboutProps) {
                             <div className="relative order-2 lg:order-1">
                                 <div
                                     aria-hidden="true"
-                                    className="absolute -bottom-5 -right-5 hidden h-full w-full rounded-3xl bg-hvblue/30 lg:block"
+                                    className="absolute -right-5 -bottom-5 hidden h-full w-full rounded-3xl bg-hvblue/30 lg:block"
                                 />
                                 <div className="relative overflow-hidden rounded-3xl shadow-xl">
                                     <Image
@@ -276,7 +276,7 @@ export default function About({ about, board, staff }: AboutProps) {
 
                         {/* Copy */}
                         <div className="order-1 lg:order-2">
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                            <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                                 Why We&rsquo;re Here
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -288,7 +288,7 @@ export default function About({ about, board, staff }: AboutProps) {
                             />
                             <RichText
                                 document={whyWeAreHereBody}
-                                className="mt-6 max-w-xl space-y-5 text-base font-medium leading-relaxed text-hvblue/90 md:text-lg [&_a]:text-hvblue [&_a:hover]:text-hvorange-800"
+                                className="mt-6 max-w-xl space-y-5 text-base leading-relaxed font-medium text-hvblue/90 md:text-lg [&_a]:text-hvblue [&_a:hover]:text-hvorange-800"
                             />
                         </div>
                     </div>
@@ -299,7 +299,7 @@ export default function About({ about, board, staff }: AboutProps) {
                         {values.map((item) => (
                             <li
                                 key={item.value}
-                                className="flex items-start gap-3 rounded-2xl bg-hvblue p-5 font-bold leading-relaxed text-white"
+                                className="flex items-start gap-3 rounded-2xl bg-hvblue p-5 leading-relaxed font-bold text-white"
                             >
                                 <span
                                     aria-hidden="true"
@@ -319,7 +319,7 @@ export default function About({ about, board, staff }: AboutProps) {
                 <section className="bg-white py-14 md:py-20">
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="max-w-2xl">
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                            <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                                 Our Family
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -377,7 +377,7 @@ export default function About({ about, board, staff }: AboutProps) {
             >
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -left-16 -top-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvorange/15"
+                    className="pointer-events-none absolute -top-16 -left-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvorange/15"
                 />
                 <div
                     aria-hidden="true"
@@ -387,7 +387,7 @@ export default function About({ about, board, staff }: AboutProps) {
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                         <div>
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvorange-50">
+                            <p className="text-sm font-bold tracking-widest text-hvorange-50 uppercase">
                                 Leadership
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white md:text-5xl">
@@ -399,7 +399,7 @@ export default function About({ about, board, staff }: AboutProps) {
                                 className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                             />
                         </div>
-                        <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white/80">
+                        <div className="flex items-center gap-2 text-sm font-bold tracking-widest text-white/80 uppercase">
                             <UsersIcon className="h-5 w-5" />
                             {board.length} members
                         </div>
@@ -440,7 +440,7 @@ export default function About({ about, board, staff }: AboutProps) {
             <section className="bg-slate-50 py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                        <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                             Our Team
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -459,7 +459,7 @@ export default function About({ about, board, staff }: AboutProps) {
                                 <div key={category}>
                                     {/* Category label as a pill */}
                                     <div className="mb-6 flex items-center gap-4">
-                                        <span className="rounded-xl bg-hvblue px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-white">
+                                        <span className="rounded-xl bg-hvblue px-4 py-1.5 text-sm font-bold tracking-widest text-white uppercase">
                                             {category}
                                         </span>
                                         <span
@@ -508,7 +508,7 @@ export default function About({ about, board, staff }: AboutProps) {
             <section className="relative isolate overflow-hidden bg-hvorange py-14 text-hvblue md:py-20">
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvblue/10"
+                    className="pointer-events-none absolute -top-16 -right-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvblue/10"
                 />
                 <div
                     aria-hidden="true"
@@ -518,7 +518,7 @@ export default function About({ about, board, staff }: AboutProps) {
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="grid items-center gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:gap-12">
                         <div>
-                            <p className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-hvblue">
+                            <p className="inline-flex items-center gap-2 text-sm font-bold tracking-widest text-hvblue uppercase">
                                 <HeartIcon className="h-5 w-5" />
                                 Join Us
                             </p>
@@ -529,7 +529,7 @@ export default function About({ about, board, staff }: AboutProps) {
                                 aria-hidden="true"
                                 className="mt-5 block h-1.5 w-20 rounded-full bg-hvblue"
                             />
-                            <div className="mt-6 max-w-xl space-y-4 text-base font-medium leading-relaxed text-hvblue/90 md:text-lg">
+                            <div className="mt-6 max-w-xl space-y-4 text-base leading-relaxed font-medium text-hvblue/90 md:text-lg">
                                 {toParagraphs(membershipCtaText).map((p, i) => (
                                     <p key={i}>{p}</p>
                                 ))}
@@ -540,7 +540,7 @@ export default function About({ about, board, staff }: AboutProps) {
                         <div className="flex flex-col gap-4 lg:justify-self-end">
                             <Link
                                 href="/membership"
-                                className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl bg-hvblue px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange lg:w-auto"
+                                className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl bg-hvblue px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange focus-visible:outline-hidden lg:w-auto"
                             >
                                 <HeartIcon className="h-5 w-5" />
                                 Join Now
@@ -549,7 +549,7 @@ export default function About({ about, board, staff }: AboutProps) {
                                 <a
                                     href={membershipFormUrl}
                                     {...documentLinkProps(membershipFormUrl)}
-                                    className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl border-2 border-hvblue/60 px-8 py-3.5 text-base font-bold text-hvblue transition duration-150 hover:border-hvblue hover:bg-hvblue/10 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange lg:w-auto"
+                                    className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl border-2 border-hvblue/60 px-8 py-3.5 text-base font-bold text-hvblue transition duration-150 hover:border-hvblue hover:bg-hvblue/10 focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange focus-visible:outline-hidden lg:w-auto"
                                 >
                                     Download Form
                                     <ArrowIcon className="h-5 w-5" />
@@ -557,7 +557,7 @@ export default function About({ about, board, staff }: AboutProps) {
                             )}
                             <Link
                                 href="/about/contact"
-                                className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl border-2 border-hvblue/60 px-8 py-3.5 text-base font-bold text-hvblue transition duration-150 hover:border-hvblue hover:bg-hvblue/10 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange lg:w-auto"
+                                className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl border-2 border-hvblue/60 px-8 py-3.5 text-base font-bold text-hvblue transition duration-150 hover:border-hvblue hover:bg-hvblue/10 focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange focus-visible:outline-hidden lg:w-auto"
                             >
                                 Contact Us
                                 <ArrowIcon className="h-5 w-5" />

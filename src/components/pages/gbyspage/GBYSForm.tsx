@@ -114,13 +114,13 @@ export default function GBYSForm() {
 
     return (
         <div>
-            <p className="mb-6 text-base font-medium leading-relaxed text-slate-700 md:text-lg">
+            <p className="mb-6 text-base leading-relaxed font-medium text-slate-700 md:text-lg">
                 {activeTab === 'personal'
                     ? 'To be connected with a Parent Guide, please fill out the form below. To become an Alabama Hands & Voices member, visit the '
                     : 'Professionals may use this form to refer a family to the GBYS program. Please provide your contact details and the family’s information below. Visit the '}
                 <a
                     href="/membership"
-                    className="font-bold text-hvorange-700 underline-offset-4 hover:text-hvorange-800 hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2"
+                    className="font-bold text-hvorange-700 underline-offset-4 hover:text-hvorange-800 hover:underline focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                 >
                     membership page
                 </a>
@@ -153,7 +153,7 @@ export default function GBYSForm() {
                         }
                     }}
                     className={[
-                        'flex-1 cursor-pointer rounded-xl px-5 py-2.5 text-sm font-bold uppercase tracking-widest transition-all duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2',
+                        'flex-1 cursor-pointer rounded-xl px-5 py-2.5 text-sm font-bold tracking-widest uppercase transition-all duration-150 focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 focus-visible:outline-hidden',
                         activeTab === 'personal'
                             ? 'border-b-[3px] border-hvorange-700 bg-white text-hvblue shadow-sm'
                             : 'text-slate-600 hover:bg-slate-50 hover:text-hvblue',
@@ -181,7 +181,7 @@ export default function GBYSForm() {
                         }
                     }}
                     className={[
-                        'flex-1 cursor-pointer rounded-xl px-5 py-2.5 text-sm font-bold uppercase tracking-widest transition-all duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2',
+                        'flex-1 cursor-pointer rounded-xl px-5 py-2.5 text-sm font-bold tracking-widest uppercase transition-all duration-150 focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 focus-visible:outline-hidden',
                         activeTab === 'professional'
                             ? 'border-b-[3px] border-hvorange-700 bg-white text-hvblue shadow-sm'
                             : 'text-slate-600 hover:bg-slate-50 hover:text-hvblue',
@@ -550,7 +550,7 @@ export default function GBYSForm() {
                     <div className="mt-8 flex justify-end">
                         <button
                             type="submit"
-                            className="inline-flex min-h-[44px] cursor-pointer items-center rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2"
+                            className="inline-flex min-h-[44px] cursor-pointer items-center rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                         >
                             Connect with a Parent Guide
                         </button>
@@ -922,7 +922,7 @@ export default function GBYSForm() {
                     <div className="mt-8 flex justify-end">
                         <button
                             type="submit"
-                            className="inline-flex min-h-[44px] cursor-pointer items-center rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2"
+                            className="inline-flex min-h-[44px] cursor-pointer items-center rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                         >
                             Submit referral
                         </button>

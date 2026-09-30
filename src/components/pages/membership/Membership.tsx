@@ -178,7 +178,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                 {/* Geometric accent shapes */}
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-20 -top-20 h-[28rem] w-[28rem] rotate-12 rounded-[3rem] bg-hvorange/15"
+                    className="pointer-events-none absolute -top-20 -right-20 h-[28rem] w-[28rem] rotate-12 rounded-[3rem] bg-hvorange/15"
                 />
                 <div
                     aria-hidden="true"
@@ -192,7 +192,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
 
                 <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">
                     {/* Eyebrow chip */}
-                    <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
+                    <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold tracking-widest text-hvorange-50 uppercase ring-1 ring-white/20">
                         <span
                             aria-hidden="true"
                             className="h-2 w-2 rounded-sm bg-hvorange-600"
@@ -202,24 +202,24 @@ export default function Membership({ membership, choose }: MembershipProps) {
 
                     <div className="mt-6 grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
                         <div>
-                            <h1 className="text-5xl font-extrabold leading-[1.05] tracking-tight text-white md:text-7xl">
+                            <h1 className="text-5xl leading-[1.05] font-extrabold tracking-tight text-white md:text-7xl">
                                 {heroHeading}
                             </h1>
-                            <p className="mt-7 max-w-xl text-lg font-medium leading-relaxed text-white/90 md:text-xl">
+                            <p className="mt-7 max-w-xl text-lg leading-relaxed font-medium text-white/90 md:text-xl">
                                 {heroText}
                             </p>
                             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
                                 <a
                                     href={documentDownloadUrl}
                                     {...documentLinkProps(documentDownloadUrl)}
-                                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                                 >
                                     <DownloadIcon className="h-5 w-5" />
                                     Download Membership Form
                                 </a>
                                 <a
                                     href="/membership/choose-membership"
-                                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/70 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/70 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                                 >
                                     Join &amp; Pay Online
                                     <ArrowIcon className="h-5 w-5" />
@@ -266,7 +266,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
                         <div>
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                            <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                                 Why join us
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -323,7 +323,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
             >
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvorange/10"
+                    className="pointer-events-none absolute -top-16 -right-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvorange/10"
                 />
                 <div
                     aria-hidden="true"
@@ -333,7 +333,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     {/* Header */}
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvorange-50">
+                        <p className="text-sm font-bold tracking-widest text-hvorange-50 uppercase">
                             Choose your membership
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white md:text-5xl">
@@ -365,7 +365,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                                     {/* Geometric numbered badge */}
                                     <span
                                         aria-hidden="true"
-                                        className="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-xl bg-hvblue text-base font-extrabold text-white shadow-lg"
+                                        className="absolute top-4 left-4 flex h-11 w-11 items-center justify-center rounded-xl bg-hvblue text-base font-extrabold text-white shadow-lg"
                                     >
                                         {String(i + 1).padStart(2, '0')}
                                     </span>
@@ -378,7 +378,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
 
                                 {/* Card body */}
                                 <div className="flex flex-1 flex-col p-6 md:p-7">
-                                    <p className="text-xs font-bold uppercase tracking-widest text-hvblue">
+                                    <p className="text-xs font-bold tracking-widest text-hvblue uppercase">
                                         For
                                     </p>
                                     <h3 className="mt-1.5 text-xl font-extrabold tracking-tight text-hvblue md:text-2xl">
@@ -422,7 +422,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                 {/* Geometric accent */}
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvblue/10"
+                    className="pointer-events-none absolute -top-16 -right-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvblue/10"
                 />
                 <div
                     aria-hidden="true"
@@ -432,7 +432,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="grid items-center gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:gap-12">
                         <div>
-                            <p className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-hvblue">
+                            <p className="inline-flex items-center gap-2 text-sm font-bold tracking-widest text-hvblue uppercase">
                                 <DownloadIcon className="h-5 w-5" />
                                 Ready to join?
                             </p>
@@ -443,7 +443,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                                 aria-hidden="true"
                                 className="mt-5 block h-1.5 w-20 rounded-full bg-hvblue"
                             />
-                            <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-hvblue/90 md:text-lg">
+                            <p className="mt-6 max-w-xl text-base leading-relaxed font-medium text-hvblue/90 md:text-lg">
                                 Print or complete digitally — then send it in.
                                 We&apos;ll welcome you to the community
                                 personally.
@@ -455,7 +455,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                             <a
                                 href={documentDownloadUrl}
                                 {...documentLinkProps(documentDownloadUrl)}
-                                className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl bg-hvblue px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange md:text-lg lg:w-auto"
+                                className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl bg-hvblue px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange focus-visible:outline-hidden md:text-lg lg:w-auto"
                             >
                                 <DownloadIcon className="h-5 w-5" />
                                 Download Membership Form
@@ -478,7 +478,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                                     <InfoIcon className="h-6 w-6" />
                                 </span>
                                 <div>
-                                    <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                                    <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                                         Scholarships available
                                     </p>
                                     <h2 className="mt-1.5 text-2xl font-extrabold tracking-tight text-hvblue md:text-3xl">
@@ -496,7 +496,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
                             />
                             <a
                                 href="/membership/choose-membership#membership-form"
-                                className="mt-6 inline-flex min-h-[44px] items-center gap-2 rounded-xl border-2 border-hvblue px-6 py-3 text-base font-bold text-hvblue transition duration-150 hover:bg-hvblue hover:text-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="mt-6 inline-flex min-h-[44px] items-center gap-2 rounded-xl border-2 border-hvblue px-6 py-3 text-base font-bold text-hvblue transition duration-150 hover:bg-hvblue hover:text-white focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                             >
                                 Contact us about scholarships
                                 <ArrowIcon className="h-4 w-4" />
@@ -505,7 +505,7 @@ export default function Membership({ membership, choose }: MembershipProps) {
 
                         {/* Reinforcement copy */}
                         <div>
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                            <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                                 Every family welcome
                             </p>
                             <h3 className="mt-3 text-2xl font-extrabold tracking-tight text-hvblue md:text-3xl">
@@ -532,11 +532,11 @@ export default function Membership({ membership, choose }: MembershipProps) {
             <section className="relative isolate overflow-hidden bg-hvblue py-16 text-white md:py-24">
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -left-16 -top-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvorange/15"
+                    className="pointer-events-none absolute -top-16 -left-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvorange/15"
                 />
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-hvorange-600/15 blur-3xl"
+                    className="pointer-events-none absolute -right-16 -bottom-24 h-80 w-80 rounded-full bg-hvorange-600/15 blur-3xl"
                 />
                 <div
                     aria-hidden="true"
@@ -557,14 +557,14 @@ export default function Membership({ membership, choose }: MembershipProps) {
                         <a
                             href={documentDownloadUrl}
                             {...documentLinkProps(documentDownloadUrl)}
-                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                         >
                             <HeartIcon className="h-5 w-5" />
                             Join now — download the form
                         </a>
                         <a
                             href="/membership/choose-membership#membership-form"
-                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                         >
                             Questions? Contact us
                             <ArrowIcon className="h-5 w-5" />

@@ -15,7 +15,8 @@ const MembershipForm = () => {
     return (
         <section>
             <p className="text-center text-lg font-medium text-slate-700">
-                To become an Alabama Hands & Voices member, please fill out the form below.
+                To become an Alabama Hands & Voices member, please fill out the
+                form below.
             </p>
 
             <div className="mt-6">
@@ -48,7 +49,7 @@ const MembershipForm = () => {
                             <div className="sm:col-span-3">
                                 <label
                                     htmlFor="inputName"
-                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
+                                    className="block text-xs font-bold tracking-widest text-hvblue uppercase"
                                 >
                                     Parent/Guardian Name:
                                 </label>
@@ -57,7 +58,7 @@ const MembershipForm = () => {
                                         id="inputName"
                                         name="name"
                                         type="text"
-                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                     />
                                 </div>
                             </div>
@@ -65,7 +66,7 @@ const MembershipForm = () => {
                             <div className="sm:col-span-3">
                                 <label
                                     htmlFor="inputSecondaryName"
-                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
+                                    className="block text-xs font-bold tracking-widest text-hvblue uppercase"
                                 >
                                     Secondary Parent/Guardian Name:
                                 </label>
@@ -74,7 +75,7 @@ const MembershipForm = () => {
                                         id="inputSecondaryName"
                                         name="secondary-name"
                                         type="text"
-                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                     />
                                 </div>
                             </div>
@@ -82,7 +83,7 @@ const MembershipForm = () => {
                             <div className="sm:col-span-3">
                                 <label
                                     htmlFor="inputTel"
-                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
+                                    className="block text-xs font-bold tracking-widest text-hvblue uppercase"
                                 >
                                     Phone Number:
                                 </label>
@@ -91,7 +92,7 @@ const MembershipForm = () => {
                                         id="inputTel"
                                         name="phone"
                                         type="tel"
-                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                     />
                                 </div>
                             </div>
@@ -99,7 +100,7 @@ const MembershipForm = () => {
                             <div className="sm:col-span-3">
                                 <label
                                     htmlFor="inputEmail"
-                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
+                                    className="block text-xs font-bold tracking-widest text-hvblue uppercase"
                                 >
                                     Email:
                                 </label>
@@ -108,18 +109,19 @@ const MembershipForm = () => {
                                         id="inputEmail"
                                         name="email"
                                         type="email"
-                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                     />
                                 </div>
                                 <small className="text-sm text-slate-500">
-                                    We&apos;ll never share your email with anyone else.
+                                    We&apos;ll never share your email with
+                                    anyone else.
                                 </small>
                             </div>
                             {/* Home Address */}
                             <div className="sm:col-span-2 sm:col-start-1">
                                 <label
                                     htmlFor="inputAddress"
-                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
+                                    className="block text-xs font-bold tracking-widest text-hvblue uppercase"
                                 >
                                     Home Address:
                                 </label>
@@ -129,7 +131,7 @@ const MembershipForm = () => {
                                         name="address"
                                         type="text"
                                         placeholder="1234 Main St"
-                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                     />
                                 </div>
                             </div>
@@ -137,7 +139,7 @@ const MembershipForm = () => {
                             <div className="sm:col-span-2">
                                 <label
                                     htmlFor="inputCity"
-                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
+                                    className="block text-xs font-bold tracking-widest text-hvblue uppercase"
                                 >
                                     City:
                                 </label>
@@ -146,7 +148,7 @@ const MembershipForm = () => {
                                         id="inputCity"
                                         name="city"
                                         type="text"
-                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                     />
                                 </div>
                             </div>
@@ -154,7 +156,7 @@ const MembershipForm = () => {
                             <div className="sm:col-span-2">
                                 <label
                                     htmlFor="inputZip"
-                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
+                                    className="block text-xs font-bold tracking-widest text-hvblue uppercase"
                                 >
                                     Zip:
                                 </label>
@@ -163,7 +165,7 @@ const MembershipForm = () => {
                                         id="inputZip"
                                         name="zip"
                                         type="text"
-                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                     />
                                 </div>
                             </div>
@@ -171,7 +173,7 @@ const MembershipForm = () => {
                             <div className="sm:col-span-6">
                                 <label
                                     htmlFor="inputSchoolDist"
-                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
+                                    className="block text-xs font-bold tracking-widest text-hvblue uppercase"
                                 >
                                     School Dist./BOCES:
                                 </label>
@@ -181,7 +183,7 @@ const MembershipForm = () => {
                                         name="school-dist"
                                         type="text"
                                         placeholder="School District"
-                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                     />
                                 </div>
                             </div>
@@ -189,7 +191,7 @@ const MembershipForm = () => {
                             <div className="col-span-full">
                                 <label
                                     htmlFor="inputTextArea"
-                                    className="block text-xs font-bold uppercase tracking-widest text-hvblue"
+                                    className="block text-xs font-bold tracking-widest text-hvblue uppercase"
                                 >
                                     Children (deaf/hh & siblings, ages):
                                 </label>
@@ -198,7 +200,7 @@ const MembershipForm = () => {
                                         name="children-info"
                                         id="inputTextArea"
                                         rows={3}
-                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                        className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                     />
                                 </div>
                             </div>
@@ -211,7 +213,7 @@ const MembershipForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="checkbox-one-parent"
-                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                             type="checkbox"
                                             id="parentCheck"
                                         />
@@ -225,7 +227,7 @@ const MembershipForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="checkbox-two-professional"
-                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                             type="checkbox"
                                             id="professionalCheck"
                                         />
@@ -239,7 +241,7 @@ const MembershipForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="checkbox-three-org"
-                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                             type="checkbox"
                                             id="organizationCheck"
                                         />
@@ -253,7 +255,7 @@ const MembershipForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="checkbox-four-other"
-                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                             type="checkbox"
                                             id="otherCheck"
                                         />
@@ -275,7 +277,7 @@ const MembershipForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="membership-25"
-                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                             type="checkbox"
                                             id="twentyFiveCheck"
                                         />
@@ -289,7 +291,7 @@ const MembershipForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="membership-40"
-                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                             type="checkbox"
                                             id="fortyCheck"
                                         />
@@ -303,7 +305,7 @@ const MembershipForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="membership-50"
-                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                             type="checkbox"
                                             id="fiftyCheck"
                                         />
@@ -317,7 +319,7 @@ const MembershipForm = () => {
                                     <div className="flex items-center">
                                         <input
                                             name="membership-donate"
-                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                             type="checkbox"
                                             id="addDonateCheck"
                                         />
@@ -325,13 +327,15 @@ const MembershipForm = () => {
                                             htmlFor="addDonateCheck"
                                             className="ml-2 text-sm text-slate-700"
                                         >
-                                            Additional Donation to Chapter to Help Cover Scholarships/Fee Waivers and Chapter Expenses (on next page)
+                                            Additional Donation to Chapter to
+                                            Help Cover Scholarships/Fee Waivers
+                                            and Chapter Expenses (on next page)
                                         </label>
                                     </div>
                                     <div className="flex items-center">
                                         <input
                                             name="membership-0"
-                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                            className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                             type="checkbox"
                                             id="zeroCheck"
                                         />
@@ -351,7 +355,7 @@ const MembershipForm = () => {
                     <div className="mt-8 flex flex-col items-center gap-3">
                         <button
                             type="submit"
-                            className="inline-flex min-h-[48px] cursor-pointer items-center justify-center rounded-xl bg-hvorange-700 px-8 py-3 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-70"
+                            className="inline-flex min-h-[48px] cursor-pointer items-center justify-center rounded-xl bg-hvorange-700 px-8 py-3 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:cursor-wait disabled:opacity-70"
                             disabled={status === 'pending'}
                         >
                             {status === 'pending' ? 'Submitting…' : 'Submit'}
@@ -360,20 +364,18 @@ const MembershipForm = () => {
 
                     {/* Status Messages */}
                     {status === 'ok' && (
-                        <div
-                            className="mt-6"
-                            role="status"
-                            aria-live="polite"
-                        >
+                        <div className="mt-6" role="status" aria-live="polite">
                             <div className="rounded-2xl bg-green-50 p-5 ring-1 ring-green-200">
                                 <p className="font-bold text-green-800">
-                                    Your membership form was submitted successfully.
+                                    Your membership form was submitted
+                                    successfully.
                                 </p>
                                 <a
                                     href="#membership-tiers"
-                                    className="mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-hvorange-700 px-6 py-3 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2"
+                                    className="mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-hvorange-700 px-6 py-3 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                 >
-                                    Thanks — now choose your membership tier below
+                                    Thanks — now choose your membership tier
+                                    below
                                 </a>
                             </div>
                         </div>

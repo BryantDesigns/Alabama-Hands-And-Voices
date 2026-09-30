@@ -27,7 +27,7 @@ export default function StaffCard({ staff }: StaffCardProps) {
                 <p className="mt-2 text-sm leading-snug text-slate-600">
                     {staff.role}
                 </p>
-                <p className="mt-3 text-xs font-bold uppercase leading-snug tracking-widest text-slate-600">
+                <p className="mt-3 text-xs leading-snug font-bold tracking-widest text-slate-600 uppercase">
                     {staff.category}
                 </p>
             </article>

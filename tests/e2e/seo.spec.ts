@@ -41,9 +41,10 @@ for (const path of canonicalPaths) {
             'content',
             new RegExp(`${SITE_URL}/opengraph-image`)
         )
-        await expect(
-            page.locator('meta[name="twitter:card"]')
-        ).toHaveAttribute('content', 'summary_large_image')
+        await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute(
+            'content',
+            'summary_large_image'
+        )
     })
 }
 
@@ -78,8 +79,9 @@ test('home page exposes nonprofit Organization structured data', async ({
 }) => {
     await page.goto('/')
     const data = JSON.parse(
-        (await page.locator('script[type="application/ld+json"]').textContent()) ??
-            '{}'
+        (await page
+            .locator('script[type="application/ld+json"]')
+            .textContent()) ?? '{}'
     )
 
     expect(data).toMatchObject({
@@ -95,9 +97,7 @@ test('home page exposes nonprofit Organization structured data', async ({
     ])
 })
 
-test('generated Open Graph image is a 1200 by 630 PNG', async ({
-    request,
-}) => {
+test('generated Open Graph image is a 1200 by 630 PNG', async ({ request }) => {
     const response = await request.get('/opengraph-image')
     const image = await response.body()
 

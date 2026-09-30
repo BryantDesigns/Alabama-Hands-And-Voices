@@ -16,54 +16,52 @@ const logoData = `data:image/png;base64,${readFileSync(
 
 export default function OpenGraphImage() {
     return new ImageResponse(
-        (
+        <div
+            style={{
+                alignItems: 'center',
+                background: '#141B4B',
+                color: 'white',
+                display: 'flex',
+                height: '100%',
+                justifyContent: 'center',
+                padding: '64px',
+                width: '100%',
+            }}
+        >
             <div
                 style={{
                     alignItems: 'center',
-                    background: '#141B4B',
-                    color: 'white',
                     display: 'flex',
-                    height: '100%',
-                    justifyContent: 'center',
-                    padding: '64px',
-                    width: '100%',
+                    flexDirection: 'column',
+                    gap: '38px',
+                    textAlign: 'center',
                 }}
             >
+                <img
+                    src={logoData}
+                    alt=""
+                    width={616}
+                    height={200}
+                    style={{
+                        background: 'white',
+                        borderRadius: '28px',
+                        objectFit: 'contain',
+                        padding: '22px 34px',
+                    }}
+                />
                 <div
                     style={{
-                        alignItems: 'center',
+                        color: '#FF985B',
                         display: 'flex',
-                        flexDirection: 'column',
-                        gap: '38px',
-                        textAlign: 'center',
+                        fontSize: '38px',
+                        fontWeight: 700,
+                        letterSpacing: '0.04em',
                     }}
                 >
-                    <img
-                        src={logoData}
-                        alt=""
-                        width={616}
-                        height={200}
-                        style={{
-                            background: 'white',
-                            borderRadius: '28px',
-                            objectFit: 'contain',
-                            padding: '22px 34px',
-                        }}
-                    />
-                    <div
-                        style={{
-                            color: '#FF985B',
-                            display: 'flex',
-                            fontSize: '38px',
-                            fontWeight: 700,
-                            letterSpacing: '0.04em',
-                        }}
-                    >
-                        SUPPORT. EDUCATION. ADVOCACY.
-                    </div>
+                    SUPPORT. EDUCATION. ADVOCACY.
                 </div>
             </div>
-        ),
+        </div>,
         size
     )
 }

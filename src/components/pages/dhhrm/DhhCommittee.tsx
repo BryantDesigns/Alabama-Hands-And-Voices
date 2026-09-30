@@ -72,7 +72,7 @@ export default function DhhCommittee({
                 {/* Geometric accents */}
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-24 -top-24 h-[30rem] w-[30rem] rotate-12 rounded-[3rem] bg-hvorange/15"
+                    className="pointer-events-none absolute -top-24 -right-24 h-[30rem] w-[30rem] rotate-12 rounded-[3rem] bg-hvorange/15"
                 />
                 <div
                     aria-hidden="true"
@@ -85,7 +85,7 @@ export default function DhhCommittee({
                 />
 
                 <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-8">
-                    <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
+                    <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold tracking-widest text-hvorange-50 uppercase ring-1 ring-white/20">
                         <span
                             aria-hidden="true"
                             className="h-2 w-2 rounded-sm bg-hvorange-600"
@@ -93,7 +93,7 @@ export default function DhhCommittee({
                         Alabama Hands &amp; Voices Program
                     </p>
 
-                    <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight text-white md:text-7xl">
+                    <h1 className="mt-6 text-5xl leading-[1.05] font-extrabold tracking-tight text-white md:text-7xl">
                         D/HH
                         <br />
                         Committee
@@ -105,18 +105,18 @@ export default function DhhCommittee({
                         </span>
                     </h1>
 
-                    <p className="mt-3 text-lg font-bold uppercase tracking-widest text-hvorange-50/80">
+                    <p className="mt-3 text-lg font-bold tracking-widest text-hvorange-50/80 uppercase">
                         {heroTagline}
                     </p>
 
                     <RichText
                         document={description}
-                        className="mt-6 max-w-xl text-base font-medium leading-relaxed text-white/90 md:text-lg [&_a]:text-white [&_a:hover]:text-hvorange-50"
+                        className="mt-6 max-w-xl text-base leading-relaxed font-medium text-white/90 md:text-lg [&_a]:text-white [&_a:hover]:text-hvorange-50"
                     />
 
                     <a
                         href="#dhh-connect-form"
-                        className="mt-8 inline-flex min-h-[52px] items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                        className="mt-8 inline-flex min-h-[52px] items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                     >
                         Connect with a member
                         <ArrowIcon className="h-5 w-5" />
@@ -131,7 +131,7 @@ export default function DhhCommittee({
                 <section className="bg-slate-50 py-14 md:py-20">
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="max-w-2xl">
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                            <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                                 Making a difference
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -147,10 +147,10 @@ export default function DhhCommittee({
                         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                             {/* First card — hvblue feature */}
                             <div className="rounded-3xl bg-hvblue p-6 text-white sm:col-span-2 md:p-8 lg:col-span-1">
-                                <p className="text-sm font-bold uppercase tracking-widest text-hvorange-50/80">
+                                <p className="text-sm font-bold tracking-widest text-hvorange-50/80 uppercase">
                                     Our committee
                                 </p>
-                                <p className="mt-4 text-base font-medium leading-relaxed text-white/90">
+                                <p className="mt-4 text-base leading-relaxed font-medium text-white/90">
                                     {committeeCardBody}
                                 </p>
                                 <span
@@ -168,7 +168,7 @@ export default function DhhCommittee({
                                     <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-hvorange-600/90">
                                         <CheckIcon className="h-4 w-4 text-white" />
                                     </span>
-                                    <p className="text-base font-medium leading-relaxed text-slate-700">
+                                    <p className="text-base leading-relaxed font-medium text-slate-700">
                                         {item.benefit}
                                     </p>
                                 </div>
@@ -184,7 +184,7 @@ export default function DhhCommittee({
             <section className="relative isolate overflow-hidden bg-hvorange py-14 text-hvblue md:py-20">
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvblue/10"
+                    className="pointer-events-none absolute -top-16 -right-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvblue/10"
                 />
                 <div
                     aria-hidden="true"
@@ -193,7 +193,7 @@ export default function DhhCommittee({
 
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                        <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                             Inspiring stories
                         </p>
                         {videoSectionHeading && (
@@ -205,7 +205,7 @@ export default function DhhCommittee({
                             aria-hidden="true"
                             className="mt-5 block h-1.5 w-20 rounded-full bg-hvblue"
                         />
-                        <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-hvblue/90 md:text-lg">
+                        <p className="mt-6 max-w-xl text-base leading-relaxed font-medium text-hvblue/90 md:text-lg">
                             Hear from D/HH adults who inspire families and
                             children across Alabama with their lived experience.
                         </p>
@@ -222,7 +222,7 @@ export default function DhhCommittee({
             <section id="dhh-connect-form" className="bg-white py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-3xl text-center">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                        <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                             Connect with us
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -232,7 +232,7 @@ export default function DhhCommittee({
                             aria-hidden="true"
                             className="mx-auto mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                         />
-                        <p className="mx-auto mt-6 max-w-xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
+                        <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed font-medium text-slate-700 md:text-lg">
                             Fill out the form below and a D/HH Committee member
                             will reach out to connect with your family. All
                             information is kept confidential.

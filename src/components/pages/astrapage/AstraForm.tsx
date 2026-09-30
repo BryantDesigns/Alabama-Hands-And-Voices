@@ -15,7 +15,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                     <div className="sm:col-span-3">
                         <label
                             htmlFor="inputName"
-                            className="block text-xs font-bold uppercase tracking-widest text-hvblue"
+                            className="block text-xs font-bold tracking-widest text-hvblue uppercase"
                         >
                             Parent/Guardian Name:
                         </label>
@@ -25,7 +25,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                                 name="name"
                                 type="text"
                                 required
-                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                             />
                         </div>
                     </div>
@@ -33,7 +33,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                     <div className="sm:col-span-3">
                         <label
                             htmlFor="inputSecondary"
-                            className="block text-xs font-bold uppercase tracking-widest text-hvblue"
+                            className="block text-xs font-bold tracking-widest text-hvblue uppercase"
                         >
                             Secondary Parent/Guardian Name:
                         </label>
@@ -42,7 +42,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                                 id="inputSecondary"
                                 name="secondary-parent"
                                 type="text"
-                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                             />
                         </div>
                     </div>
@@ -50,7 +50,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                     <div className="sm:col-span-6">
                         <label
                             htmlFor="inputTel"
-                            className="block text-xs font-bold uppercase tracking-widest text-hvblue"
+                            className="block text-xs font-bold tracking-widest text-hvblue uppercase"
                         >
                             Phone Number:
                         </label>
@@ -60,7 +60,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                                 name="phone_number"
                                 type="tel"
                                 required
-                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                             />
                         </div>
                     </div>
@@ -68,7 +68,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                     <div className="sm:col-span-6">
                         <label
                             htmlFor="inputEmail"
-                            className="block text-xs font-bold uppercase tracking-widest text-hvblue"
+                            className="block text-xs font-bold tracking-widest text-hvblue uppercase"
                         >
                             Email:
                         </label>
@@ -78,7 +78,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                                 name="email"
                                 type="email"
                                 required
-                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                             />
                         </div>
                         <small className="mt-1.5 block text-sm text-slate-600">
@@ -89,7 +89,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                     <div className="sm:col-span-2">
                         <label
                             htmlFor="inputStudentName"
-                            className="block text-xs font-bold uppercase tracking-widest text-hvblue"
+                            className="block text-xs font-bold tracking-widest text-hvblue uppercase"
                         >
                             Student Name:
                         </label>
@@ -100,7 +100,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                                 type="text"
                                 placeholder="Enter student name"
                                 required
-                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                             />
                         </div>
                     </div>
@@ -108,7 +108,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                     <div className="sm:col-span-2">
                         <label
                             htmlFor="inputAge"
-                            className="block text-xs font-bold uppercase tracking-widest text-hvblue"
+                            className="block text-xs font-bold tracking-widest text-hvblue uppercase"
                         >
                             Student&apos;s Age:
                         </label>
@@ -118,7 +118,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                                 name="student_age"
                                 type="text"
                                 placeholder="Enter student age"
-                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                             />
                         </div>
                     </div>
@@ -126,7 +126,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                     <div className="sm:col-span-2">
                         <label
                             htmlFor="inputGrade"
-                            className="block text-xs font-bold uppercase tracking-widest text-hvblue"
+                            className="block text-xs font-bold tracking-widest text-hvblue uppercase"
                         >
                             Student&apos;s Grade:
                         </label>
@@ -136,7 +136,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                                 name="student_grade"
                                 type="text"
                                 placeholder="Enter student grade"
-                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                             />
                         </div>
                     </div>
@@ -144,7 +144,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                     <div className="sm:col-span-3">
                         <label
                             htmlFor="inputSchoolDistrict"
-                            className="block text-xs font-bold uppercase tracking-widest text-hvblue"
+                            className="block text-xs font-bold tracking-widest text-hvblue uppercase"
                         >
                             School District:
                         </label>
@@ -154,7 +154,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                                 name="school_district"
                                 type="text"
                                 placeholder="School District"
-                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                             />
                         </div>
                     </div>
@@ -162,7 +162,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                     <div className="sm:col-span-3">
                         <label
                             htmlFor="inputSchool"
-                            className="block text-xs font-bold uppercase tracking-widest text-hvblue"
+                            className="block text-xs font-bold tracking-widest text-hvblue uppercase"
                         >
                             School:
                         </label>
@@ -172,7 +172,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                                 name="school"
                                 type="text"
                                 placeholder="School"
-                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                             />
                         </div>
                     </div>
@@ -180,7 +180,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                     <div className="sm:col-span-6">
                         <label
                             htmlFor="inputCaseManagerName"
-                            className="block text-xs font-bold uppercase tracking-widest text-hvblue"
+                            className="block text-xs font-bold tracking-widest text-hvblue uppercase"
                         >
                             Case Manager Name:
                         </label>
@@ -189,20 +189,20 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                                 id="inputCaseManagerName"
                                 name="case_manager_name"
                                 type="text"
-                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                             />
                         </div>
                     </div>
                     {/* IEP/504 Status */}
                     <div className="col-span-full">
-                        <label className="block border-b-2 border-slate-200 pb-2 text-sm font-bold uppercase tracking-widest text-hvblue">
+                        <label className="block border-b-2 border-slate-200 pb-2 text-sm font-bold tracking-widest text-hvblue uppercase">
                             Does your child have an IEP or a 504:
                         </label>
                         <div className="space-y-2">
                             <div className="flex min-h-[44px] items-center rounded-lg px-3 py-2 transition hover:bg-slate-50">
                                 <input
                                     name="communication_mode_iep"
-                                    className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                    className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                     type="checkbox"
                                     id="iepCheck"
                                 />
@@ -216,7 +216,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                             <div className="flex min-h-[44px] items-center rounded-lg px-3 py-2 transition hover:bg-slate-50">
                                 <input
                                     name="communication_mode_504"
-                                    className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                    className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                     type="checkbox"
                                     id="plan504Check"
                                 />
@@ -230,7 +230,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                             <div className="flex min-h-[44px] items-center rounded-lg px-3 py-2 transition hover:bg-slate-50">
                                 <input
                                     name="communication_mode_evaluation"
-                                    className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                    className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                     type="checkbox"
                                     id="evaluationCheck"
                                 />
@@ -244,7 +244,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                             <div className="flex min-h-[44px] items-center rounded-lg px-3 py-2 transition hover:bg-slate-50">
                                 <input
                                     name="communication_mode_other"
-                                    className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                    className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                     type="checkbox"
                                     id="otherStatusCheck"
                                 />
@@ -259,7 +259,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                     </div>
                     {/* Communication modes */}
                     <div className="col-span-full">
-                        <label className="block border-b-2 border-slate-200 pb-2 text-sm font-bold uppercase tracking-widest text-hvblue">
+                        <label className="block border-b-2 border-slate-200 pb-2 text-sm font-bold tracking-widest text-hvblue uppercase">
                             What is your child/families primary Mode of
                             Communication or Language:
                         </label>
@@ -267,7 +267,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                             <div className="flex min-h-[44px] items-center rounded-lg px-3 py-2 transition hover:bg-slate-50">
                                 <input
                                     name="communication_mode_asl"
-                                    className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                    className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                     type="checkbox"
                                     id="aslCheck"
                                 />
@@ -281,7 +281,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                             <div className="flex min-h-[44px] items-center rounded-lg px-3 py-2 transition hover:bg-slate-50">
                                 <input
                                     name="communication_mode_listening"
-                                    className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                    className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                     type="checkbox"
                                     id="listeningCheck"
                                 />
@@ -295,7 +295,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                             <div className="flex min-h-[44px] items-center rounded-lg px-3 py-2 transition hover:bg-slate-50">
                                 <input
                                     name="communication_mode_fingerspelling"
-                                    className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                    className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                     type="checkbox"
                                     id="fingerspellingCheck"
                                 />
@@ -309,7 +309,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                             <div className="flex min-h-[44px] items-center rounded-lg px-3 py-2 transition hover:bg-slate-50">
                                 <input
                                     name="communication_mode_cuedSpeech"
-                                    className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                    className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                     type="checkbox"
                                     id="cuedSpeechCheck"
                                 />
@@ -323,7 +323,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                             <div className="flex min-h-[44px] items-center rounded-lg px-3 py-2 transition hover:bg-slate-50">
                                 <input
                                     name="communication_mode_combination"
-                                    className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                    className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                     type="checkbox"
                                     id="combinationCheck"
                                 />
@@ -337,7 +337,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                             <div className="flex min-h-[44px] items-center rounded-lg px-3 py-2 transition hover:bg-slate-50">
                                 <input
                                     name="communication_mode_other_primary"
-                                    className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                    className="h-4 w-4 shrink-0 rounded border-2 border-slate-300 text-hvorange-600 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                     type="checkbox"
                                     id="otherPrimaryCheck"
                                 />
@@ -354,7 +354,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                     <div className="col-span-full">
                         <label
                             htmlFor="inputParentQuestions"
-                            className="block text-xs font-bold uppercase tracking-widest text-hvblue"
+                            className="block text-xs font-bold tracking-widest text-hvblue uppercase"
                         >
                             Please summarize in a few sentences the concerns
                             that you have that have led you to seeking an ASTra
@@ -365,7 +365,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
                                 name="parent_questions"
                                 id="inputParentQuestions"
                                 rows={3}
-                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                             />
                         </div>
                         <small className="mt-1.5 block text-sm text-slate-600">
@@ -382,7 +382,7 @@ const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
 
             {/* Footer (Submit Button) */}
             <div className="mt-8 flex flex-col items-center gap-2">
-                <SubmitButton className="inline-flex min-h-[44px] cursor-pointer items-center rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-70">
+                <SubmitButton className="inline-flex min-h-[44px] cursor-pointer items-center rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:cursor-wait disabled:opacity-70">
                     Submit
                 </SubmitButton>
             </div>

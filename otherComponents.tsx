@@ -7,15 +7,15 @@ function OtherComponents() {
             <div className="relative isolate overflow-hidden bg-linear-to-b from-hvblue-100/20 pt-14">
                 <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-hvblue-600/10 ring-1 ring-hvblue-50 sm:-mr-80 lg:-mr-96"
+                    className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl ring-1 shadow-hvblue-600/10 ring-hvblue-50 sm:-mr-80 lg:-mr-96"
                 />
                 <div className="mx-auto max-w-7xl px-6 py-16 sm:py-12 lg:px-8">
                     <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
-                        <h3 className="max-w-2xl text-balance text-3xl font-semibold tracking-tight text-hvorange sm:text-4xl lg:col-span-2 xl:col-auto">
+                        <h3 className="max-w-2xl text-3xl font-semibold tracking-tight text-balance text-hvorange sm:text-4xl lg:col-span-2 xl:col-auto">
                             WHO WE ARE
                         </h3>
                         <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
-                            <p className="text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
+                            <p className="text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
                                 We are parents of kids who are deaf or hard of
                                 hearing (to whatever degree). We are parents of
                                 ASL and other visual language signers, kids who
@@ -26,7 +26,7 @@ function OtherComponents() {
                                 have common interests connected through the
                                 community of deafness.
                             </p>
-                            <p className="mt-4 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
+                            <p className="mt-4 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
                                 Hands & Voices is a safe place to explore
                                 options, get unemotional support, learn from one
                                 another and share what we have in common. We

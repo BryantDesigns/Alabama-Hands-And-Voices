@@ -125,7 +125,7 @@ export default function Astra({ astra, contactEmail }: AstraProps) {
                 {/* Geometric accents */}
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-24 -top-24 h-[30rem] w-[30rem] rotate-12 rounded-[3rem] bg-hvorange/15"
+                    className="pointer-events-none absolute -top-24 -right-24 h-[30rem] w-[30rem] rotate-12 rounded-[3rem] bg-hvorange/15"
                 />
                 <div
                     aria-hidden="true"
@@ -141,7 +141,7 @@ export default function Astra({ astra, contactEmail }: AstraProps) {
                     <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto] lg:gap-16">
                         {/* Text */}
                         <div>
-                            <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
+                            <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold tracking-widest text-hvorange-50 uppercase ring-1 ring-white/20">
                                 <span
                                     aria-hidden="true"
                                     className="h-2 w-2 rounded-sm bg-hvorange-600"
@@ -149,7 +149,7 @@ export default function Astra({ astra, contactEmail }: AstraProps) {
                                 Alabama Hands &amp; Voices Program
                             </p>
 
-                            <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight text-white md:text-7xl">
+                            <h1 className="mt-6 text-5xl leading-[1.05] font-extrabold tracking-tight text-white md:text-7xl">
                                 ASTra
                                 <span
                                     aria-hidden="true"
@@ -159,13 +159,13 @@ export default function Astra({ astra, contactEmail }: AstraProps) {
                                 </span>
                             </h1>
 
-                            <p className="mt-3 text-lg font-bold uppercase tracking-widest text-hvorange-50/80">
+                            <p className="mt-3 text-lg font-bold tracking-widest text-hvorange-50/80 uppercase">
                                 {heroTagline}
                             </p>
 
                             <RichText
                                 document={programDescription}
-                                className="mt-6 max-w-xl text-base font-medium leading-relaxed text-white/90 md:text-lg [&_a]:text-white [&_a:hover]:text-hvorange-50"
+                                className="mt-6 max-w-xl text-base leading-relaxed font-medium text-white/90 md:text-lg [&_a]:text-white [&_a:hover]:text-hvorange-50"
                             />
                         </div>
 
@@ -195,7 +195,7 @@ export default function Astra({ astra, contactEmail }: AstraProps) {
                 <section className="bg-slate-50 py-14 md:py-20">
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="max-w-2xl">
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                            <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                                 How ASTra helps
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -213,7 +213,7 @@ export default function Astra({ astra, contactEmail }: AstraProps) {
                             {/* Questions — hvblue card */}
                             {questions && questions.length > 0 && (
                                 <div className="rounded-3xl bg-hvblue p-6 text-white md:p-8">
-                                    <p className="text-sm font-bold uppercase tracking-widest text-hvorange-50/80">
+                                    <p className="text-sm font-bold tracking-widest text-hvorange-50/80 uppercase">
                                         Could this help your family?
                                     </p>
                                     <h3 className="mt-2 text-xl font-extrabold tracking-tight text-white md:text-2xl">
@@ -249,7 +249,7 @@ export default function Astra({ astra, contactEmail }: AstraProps) {
                             {/* Resources — white card */}
                             {resourceLinks && resourceLinks.length > 0 && (
                                 <div className="rounded-3xl bg-white p-6 ring-1 ring-slate-200 md:p-8">
-                                    <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                                    <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                                         Helpful resources
                                     </p>
                                     <h3 className="mt-2 text-xl font-extrabold tracking-tight text-hvblue md:text-2xl">
@@ -275,7 +275,7 @@ export default function Astra({ astra, contactEmail }: AstraProps) {
                                                             externalNewTab: true,
                                                         }
                                                     )}
-                                                    className="group flex items-center gap-4 rounded-2xl p-3 transition hover:bg-slate-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                                    className="group flex items-center gap-4 rounded-2xl p-3 transition hover:bg-slate-50 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                                 >
                                                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-hvblue/10 text-hvblue transition group-hover:bg-hvblue group-hover:text-white">
                                                         <DocumentIcon className="h-5 w-5" />
@@ -302,7 +302,7 @@ export default function Astra({ astra, contactEmail }: AstraProps) {
                 <section className="relative isolate overflow-hidden bg-hvorange py-14 text-hvblue md:py-20">
                     <div
                         aria-hidden="true"
-                        className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvblue/10"
+                        className="pointer-events-none absolute -top-16 -right-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvblue/10"
                     />
                     <div
                         aria-hidden="true"
@@ -312,7 +312,7 @@ export default function Astra({ astra, contactEmail }: AstraProps) {
                     <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="grid items-center gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:gap-12">
                             <div>
-                                <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                                <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                                     Advocate Training
                                 </p>
                                 <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -322,7 +322,7 @@ export default function Astra({ astra, contactEmail }: AstraProps) {
                                     aria-hidden="true"
                                     className="mt-5 block h-1.5 w-20 rounded-full bg-hvblue"
                                 />
-                                <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-hvblue/90 md:text-lg">
+                                <p className="mt-6 max-w-xl text-base leading-relaxed font-medium text-hvblue/90 md:text-lg">
                                     Trained advocates make the ASTra program
                                     possible. If you have experience navigating
                                     the school system with a deaf or
@@ -339,7 +339,7 @@ export default function Astra({ astra, contactEmail }: AstraProps) {
                                     href={trainingCtaHref}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl bg-hvblue px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange"
+                                    className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl bg-hvblue px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange focus-visible:outline-hidden"
                                 >
                                     {trainingCtaLabel}
                                     <ArrowIcon className="h-5 w-5" />
@@ -356,7 +356,7 @@ export default function Astra({ astra, contactEmail }: AstraProps) {
             <section className="bg-white py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-3xl text-center">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                        <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                             Request Support
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -366,7 +366,7 @@ export default function Astra({ astra, contactEmail }: AstraProps) {
                             aria-hidden="true"
                             className="mx-auto mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                         />
-                        <p className="mx-auto mt-6 max-w-xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
+                        <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed font-medium text-slate-700 md:text-lg">
                             Fill out the form below and an ASTra advocate will
                             reach out to connect with your family. All
                             information is kept confidential.

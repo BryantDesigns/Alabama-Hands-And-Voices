@@ -16,7 +16,7 @@ export default function BoardSection({ members }: BoardSectionProps) {
             <div className="relative isolate overflow-hidden bg-hvblue text-white">
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-24 -top-24 h-[30rem] w-[30rem] rotate-12 rounded-[3rem] bg-hvorange/15"
+                    className="pointer-events-none absolute -top-24 -right-24 h-[30rem] w-[30rem] rotate-12 rounded-[3rem] bg-hvorange/15"
                 />
                 <div
                     aria-hidden="true"
@@ -29,35 +29,36 @@ export default function BoardSection({ members }: BoardSectionProps) {
 
                 <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">
                     <div className="max-w-4xl">
-                        <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
+                        <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold tracking-widest text-hvorange-50 uppercase ring-1 ring-white/20">
                             <span
                                 aria-hidden="true"
                                 className="h-2 w-2 rounded-sm bg-hvorange-600"
                             />
                             About Us
                         </p>
-                        <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight text-white md:text-7xl">
+                        <h1 className="mt-6 text-5xl leading-[1.05] font-extrabold tracking-tight text-white md:text-7xl">
                             Board of Directors
                         </h1>
-                        <p className="mt-7 max-w-3xl text-lg font-medium leading-relaxed text-white/90 md:text-xl">
+                        <p className="mt-7 max-w-3xl text-lg leading-relaxed font-medium text-white/90 md:text-xl">
                             The Alabama Hands &amp; Voices Board of Directors
-                            oversees the programs, staff, and fundraising efforts
-                            of our nonprofit in support of families raising
-                            children who are deaf or hard of hearing. The Board
-                            comprises parents, professionals, and Deaf/Hard of
-                            Hearing adults who represent a diverse community. The
-                            President of every Hands &amp; Voices Chapter Board must
-                            be a parent of a child who is deaf or hard of hearing.
-                            We are always looking to develop parent leaders,
-                            whether serving on the board, as Parent Guides, or on
-                            committees locally and statewide.
+                            oversees the programs, staff, and fundraising
+                            efforts of our nonprofit in support of families
+                            raising children who are deaf or hard of hearing.
+                            The Board comprises parents, professionals, and
+                            Deaf/Hard of Hearing adults who represent a diverse
+                            community. The President of every Hands &amp; Voices
+                            Chapter Board must be a parent of a child who is
+                            deaf or hard of hearing. We are always looking to
+                            develop parent leaders, whether serving on the
+                            board, as Parent Guides, or on committees locally
+                            and statewide.
                         </p>
                         <p className="mt-6 max-w-3xl text-base leading-relaxed text-white/80 md:text-lg">
                             For more information about board positions, please
                             contact the Executive Director at{' '}
                             <a
                                 href="mailto:alabamahinfo@gmail.com"
-                                className="font-bold text-white underline decoration-hvorange-400 decoration-2 underline-offset-4 transition hover:text-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="font-bold text-white underline decoration-hvorange-400 decoration-2 underline-offset-4 transition hover:text-hvorange-50 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                             >
                                 alabamahinfo@gmail.com
                             </a>
@@ -69,7 +70,7 @@ export default function BoardSection({ members }: BoardSectionProps) {
             <div className="bg-white py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                        <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                             Leadership
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -101,7 +102,7 @@ export default function BoardSection({ members }: BoardSectionProps) {
                                     <h3 className="mt-5 text-lg font-extrabold tracking-tight text-hvblue">
                                         {member.name}
                                     </h3>
-                                    <p className="mt-2 text-xs font-bold uppercase leading-snug tracking-widest text-slate-600">
+                                    <p className="mt-2 text-xs leading-snug font-bold tracking-widest text-slate-600 uppercase">
                                         {member.role}
                                     </p>
                                 </article>

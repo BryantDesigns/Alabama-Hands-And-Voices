@@ -1,12 +1,12 @@
-import { defineConfig } from "eslint/config";
-import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
-import nextTypescript from "eslint-config-next/typescript";
+import { defineConfig } from 'eslint/config'
+import nextCoreWebVitals from 'eslint-config-next/core-web-vitals'
+import nextTypescript from 'eslint-config-next/typescript'
 
 export default defineConfig([
     {
-        ignores: ["ref.js"],
+        ignores: ['ref.js'],
     },
     {
         extends: [...nextCoreWebVitals, ...nextTypescript],
     },
-]);
+])

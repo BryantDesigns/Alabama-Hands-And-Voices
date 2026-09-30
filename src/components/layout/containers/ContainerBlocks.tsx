@@ -15,7 +15,6 @@ export function ConstrainedContainerWithPadding({
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">{children}</div>
     )
 }
-  
 
 export function FluidBreakpointContainer({
     children,
@@ -24,7 +23,6 @@ export function FluidBreakpointContainer({
 }) {
     return <div className="container mx-auto sm:px-6 lg:px-8">{children}</div>
 }
-  
 
 export function PaddedFluidContainer({
     children,
@@ -35,7 +33,6 @@ export function PaddedFluidContainer({
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">{children}</div>
     )
 }
-  
 
 export function CenteredContentWrapper({
     children,
@@ -48,4 +45,3 @@ export function CenteredContentWrapper({
         </div>
     )
 }
-  

@@ -85,9 +85,8 @@ function Section({
         </div>
     )
 }
-  
 
- function InputWithLabel() {
+function InputWithLabel() {
     return (
         <div>
             <label
@@ -109,7 +108,7 @@ function Section({
     )
 }
 
- function InputWithLabelAndHelpText() {
+function InputWithLabelAndHelpText() {
     return (
         <div>
             <label
@@ -135,7 +134,7 @@ function Section({
     )
 }
 
- function InputWithError() {
+function InputWithError() {
     return (
         <div>
             <label
@@ -146,14 +145,14 @@ function Section({
             </label>
             <div className="mt-2 grid grid-cols-1">
                 <input
-                   value="adamwathan"
+                    value="adamwathan"
                     id="email"
                     name="email"
                     type="email"
                     placeholder="you@example.com"
                     aria-invalid="true"
                     aria-describedby="email-error"
-                    className="col-start-1 row-start-1 block w-full rounded-md bg-white py-1.5 pl-3 pr-10 text-base text-red-900 outline outline-1 -outline-offset-1 outline-red-300 placeholder:text-red-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-red-600 sm:pr-9 sm:text-sm/6"
+                    className="col-start-1 row-start-1 block w-full rounded-md bg-white py-1.5 pr-10 pl-3 text-base text-red-900 outline outline-1 -outline-offset-1 outline-red-300 placeholder:text-red-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-red-600 sm:pr-9 sm:text-sm/6"
                 />
                 <ExclamationCircleIcon
                     aria-hidden="true"
@@ -167,7 +166,7 @@ function Section({
     )
 }
 
- function InputDisabled() {
+function InputDisabled() {
     return (
         <div>
             <label
@@ -178,7 +177,7 @@ function Section({
             </label>
             <div className="mt-2">
                 <input
-                   value="you@example.com"
+                    value="you@example.com"
                     id="email"
                     name="email"
                     type="email"
@@ -191,7 +190,7 @@ function Section({
     )
 }
 
- function InputHiddenLabel() {
+function InputHiddenLabel() {
     return (
         <div>
             <input
@@ -206,7 +205,7 @@ function Section({
     )
 }
 
- function InputWithCornerHint() {
+function InputWithCornerHint() {
     return (
         <div>
             <div className="flex justify-between">
@@ -234,8 +233,7 @@ function Section({
     )
 }
 
-
- function InputWithLeadingIcon() {
+function InputWithLeadingIcon() {
     return (
         <div>
             <label
@@ -250,7 +248,7 @@ function Section({
                     name="email"
                     type="email"
                     placeholder="you@example.com"
-                    className="col-start-1 row-start-1 block w-full rounded-md bg-white py-1.5 pl-10 pr-3 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:pl-9 sm:text-sm/6"
+                    className="col-start-1 row-start-1 block w-full rounded-md bg-white py-1.5 pr-3 pl-10 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:pl-9 sm:text-sm/6"
                 />
                 <EnvelopeIcon
                     aria-hidden="true"
@@ -261,7 +259,7 @@ function Section({
     )
 }
 
- function InputWithTrailingIcon() {
+function InputWithTrailingIcon() {
     return (
         <div>
             <label
@@ -276,7 +274,7 @@ function Section({
                     name="account-number"
                     type="text"
                     placeholder="000-00-0000"
-                    className="col-start-1 row-start-1 block w-full rounded-md bg-white py-1.5 pl-3 pr-10 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:pr-9 sm:text-sm/6"
+                    className="col-start-1 row-start-1 block w-full rounded-md bg-white py-1.5 pr-10 pl-3 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:pr-9 sm:text-sm/6"
                 />
                 <QuestionMarkCircleIcon
                     aria-hidden="true"
@@ -287,7 +285,7 @@ function Section({
     )
 }
 
- function InputWithAddon() {
+function InputWithAddon() {
     return (
         <div>
             <label
@@ -312,7 +310,7 @@ function Section({
     )
 }
 
- function InputWithInlineAddon() {
+function InputWithInlineAddon() {
     return (
         <div>
             <label
@@ -323,7 +321,7 @@ function Section({
             </label>
             <div className="mt-2">
                 <div className="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
-                    <div className="shrink-0 select-none text-base text-gray-500 sm:text-sm/6">
+                    <div className="shrink-0 text-base text-gray-500 select-none sm:text-sm/6">
                         https://
                     </div>
                     <input
@@ -331,7 +329,7 @@ function Section({
                         name="company-website"
                         type="text"
                         placeholder="www.example.com"
-                        className="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
+                        className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
                     />
                 </div>
             </div>
@@ -339,7 +337,7 @@ function Section({
     )
 }
 
- function InputWithLeadingAndTrailingAddon() {
+function InputWithLeadingAndTrailingAddon() {
     return (
         <div>
             <label
@@ -350,7 +348,7 @@ function Section({
             </label>
             <div className="mt-2">
                 <div className="flex items-center rounded-md bg-white px-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
-                    <div className="shrink-0 select-none text-base text-gray-500 sm:text-sm/6">
+                    <div className="shrink-0 text-base text-gray-500 select-none sm:text-sm/6">
                         $
                     </div>
                     <input
@@ -359,11 +357,11 @@ function Section({
                         type="text"
                         placeholder="0.00"
                         aria-describedby="price-currency"
-                        className="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
+                        className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
                     />
                     <div
                         id="price-currency"
-                        className="shrink-0 select-none text-base text-gray-500 sm:text-sm/6"
+                        className="shrink-0 text-base text-gray-500 select-none sm:text-sm/6"
                     >
                         USD
                     </div>
@@ -373,8 +371,7 @@ function Section({
     )
 }
 
-
- function InputWithLeadingDropdown() {
+function InputWithLeadingDropdown() {
     return (
         <div>
             <label
@@ -391,7 +388,7 @@ function Section({
                             name="country"
                             autoComplete="country"
                             aria-label="Country"
-                            className="col-start-1 row-start-1 w-full appearance-none rounded-md py-1.5 pl-3 pr-7 text-base text-gray-500 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                            className="col-start-1 row-start-1 w-full appearance-none rounded-md py-1.5 pr-7 pl-3 text-base text-gray-500 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                         >
                             <option>US</option>
                             <option>CA</option>
@@ -407,7 +404,7 @@ function Section({
                         name="phone-number"
                         type="text"
                         placeholder="123-456-7890"
-                        className="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
+                        className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
                     />
                 </div>
             </div>
@@ -415,7 +412,7 @@ function Section({
     )
 }
 
- function InputWithInlineLeadingAddonAndTrailingDropdown() {
+function InputWithInlineLeadingAddonAndTrailingDropdown() {
     return (
         <div>
             <label
@@ -426,7 +423,7 @@ function Section({
             </label>
             <div className="mt-2">
                 <div className="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
-                    <div className="shrink-0 select-none text-base text-gray-500 sm:text-sm/6">
+                    <div className="shrink-0 text-base text-gray-500 select-none sm:text-sm/6">
                         $
                     </div>
                     <input
@@ -434,14 +431,14 @@ function Section({
                         name="price"
                         type="text"
                         placeholder="0.00"
-                        className="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
+                        className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
                     />
                     <div className="grid shrink-0 grid-cols-1 focus-within:relative">
                         <select
                             id="currency"
                             name="currency"
                             aria-label="Currency"
-                            className="col-start-1 row-start-1 w-full appearance-none rounded-md py-1.5 pl-3 pr-7 text-base text-gray-500 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                            className="col-start-1 row-start-1 w-full appearance-none rounded-md py-1.5 pr-7 pl-3 text-base text-gray-500 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                         >
                             <option>USD</option>
                             <option>CAD</option>
@@ -458,7 +455,7 @@ function Section({
     )
 }
 
- function InputWithLeadingIconAndTrailingButton() {
+function InputWithLeadingIconAndTrailingButton() {
     return (
         <div>
             <label
@@ -474,7 +471,7 @@ function Section({
                         name="query"
                         type="text"
                         placeholder="John Smith"
-                        className="col-start-1 row-start-1 block w-full rounded-l-md bg-white py-1.5 pl-10 pr-3 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:pl-9 sm:text-sm/6"
+                        className="col-start-1 row-start-1 block w-full rounded-l-md bg-white py-1.5 pr-3 pl-10 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:pl-9 sm:text-sm/6"
                     />
                     <UsersIcon
                         aria-hidden="true"
@@ -496,7 +493,7 @@ function Section({
     )
 }
 
- function InputGroupSharedBorders() {
+function InputGroupSharedBorders() {
     return (
         <div>
             <fieldset>
@@ -514,7 +511,7 @@ function Section({
                             className="block w-full rounded-t-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:relative focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                         />
                     </div>
-                    <div className="-mr-px -mt-px">
+                    <div className="-mt-px -mr-px">
                         <input
                             id="card-expiration-date"
                             name="card-expiration-date"
@@ -547,7 +544,7 @@ function Section({
                             name="country"
                             autoComplete="country-name"
                             aria-label="Country"
-                            className="col-start-1 row-start-1 w-full appearance-none rounded-t-md bg-white py-1.5 pl-3 pr-8 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                            className="col-start-1 row-start-1 w-full appearance-none rounded-t-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                         >
                             <option>United States</option>
                             <option>Canada</option>
@@ -575,9 +572,9 @@ function Section({
     )
 }
 
- function InputWithInsetLabel() {
+function InputWithInsetLabel() {
     return (
-        <div className="rounded-md bg-white px-3 pb-1.5 pt-2.5 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
+        <div className="rounded-md bg-white px-3 pt-2.5 pb-1.5 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
             <label
                 htmlFor="name"
                 className="block text-xs font-medium text-gray-900"
@@ -595,7 +592,7 @@ function Section({
     )
 }
 
- function InputGroupInsetLabelSharedBorders() {
+function InputGroupInsetLabelSharedBorders() {
     return (
         <div className="relative">
             <label
@@ -615,7 +612,7 @@ function Section({
     )
 }
 
- function InputWithFloatingLabel() {
+function InputWithFloatingLabel() {
     return (
         <div>
             <label
@@ -637,7 +634,7 @@ function Section({
     )
 }
 
- function InputPill() {
+function InputPill() {
     return (
         <div>
             <label

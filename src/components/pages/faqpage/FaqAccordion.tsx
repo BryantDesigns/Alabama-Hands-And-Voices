@@ -62,11 +62,11 @@ export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
                                 aria-expanded={isOpen}
                                 aria-controls={panelId}
                                 onClick={() => handleToggle(index)}
-                                className={`group flex w-full cursor-pointer items-center justify-between gap-6 px-6 py-5 text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 min-h-[44px] ${
+                                className={`group flex min-h-[44px] w-full cursor-pointer items-center justify-between gap-6 px-6 py-5 text-left focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden ${
                                     isOpen ? 'text-white' : 'text-hvblue'
                                 }`}
                             >
-                                <span className="text-base font-extrabold leading-snug tracking-tight md:text-lg">
+                                <span className="text-base leading-snug font-extrabold tracking-tight md:text-lg">
                                     {faq.question}
                                 </span>
                                 <span
@@ -100,7 +100,7 @@ export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
                             />
                             <RichText
                                 document={faq.answer}
-                                className="text-base font-medium leading-relaxed text-white/90 md:text-lg [&_a]:text-white [&_a:hover]:text-hvorange-50"
+                                className="text-base leading-relaxed font-medium text-white/90 md:text-lg [&_a]:text-white [&_a:hover]:text-hvorange-50"
                             />
                             {faq.resourceLinks.length > 0 && (
                                 <ul className="mt-5 grid gap-2 sm:grid-cols-2">
@@ -114,7 +114,7 @@ export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
                                                         externalNewTab: true,
                                                     }
                                                 )}
-                                                className="inline-flex min-h-[44px] w-full items-center rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-hvblue transition hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                                className="inline-flex min-h-[44px] w-full items-center rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-hvblue transition hover:bg-hvorange-50 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                                             >
                                                 {resource.label}
                                             </a>

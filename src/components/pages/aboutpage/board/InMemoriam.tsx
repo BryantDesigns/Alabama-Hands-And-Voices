@@ -6,7 +6,7 @@ export default function InMemoriam() {
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
                     <div>
-                        <p className="text-sm font-bold uppercase tracking-widest text-slate-600">
+                        <p className="text-sm font-bold tracking-widest text-slate-600 uppercase">
                             In Memoriam
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">

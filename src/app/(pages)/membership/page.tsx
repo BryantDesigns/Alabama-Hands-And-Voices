@@ -1,4 +1,7 @@
-import { getMembershipPageContent, getChooseMembershipPageContent } from '@/lib/keystatic/pages'
+import {
+    getMembershipPageContent,
+    getChooseMembershipPageContent,
+} from '@/lib/keystatic/pages'
 import { createPageMetadata } from '@/lib/seo'
 import Membership from '@/components/pages/membership/Membership'
 

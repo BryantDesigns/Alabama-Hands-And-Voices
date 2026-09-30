@@ -165,7 +165,7 @@ function ProgramCard({
             {/* Geometric corner decoration */}
             <span
                 aria-hidden="true"
-                className={`absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-xl text-sm font-extrabold ${
+                className={`absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-xl text-sm font-extrabold ${
                     variant === 'white'
                         ? 'bg-slate-100 text-slate-600'
                         : variant === 'blue'
@@ -219,7 +219,7 @@ function ProgramCard({
 
             {/* Eyebrow */}
             <p
-                className={`text-sm font-bold uppercase tracking-widest ${eyebrowClasses[variant]}`}
+                className={`text-sm font-bold tracking-widest uppercase ${eyebrowClasses[variant]}`}
             >
                 Program {String(index + 1).padStart(2, '0')}
             </p>
@@ -273,7 +273,7 @@ function ProgramCard({
             {/* CTA */}
             <Link
                 href={program.href}
-                className={`mt-6 inline-flex items-center gap-2 self-start rounded-xl px-5 py-2.5 text-sm font-bold transition duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 ${linkClasses[variant]} ${
+                className={`mt-6 inline-flex items-center gap-2 self-start rounded-xl px-5 py-2.5 text-sm font-bold transition duration-150 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden ${linkClasses[variant]} ${
                     variant === 'blue'
                         ? 'focus-visible:ring-white focus-visible:ring-offset-hvblue'
                         : variant === 'orange'
@@ -298,7 +298,7 @@ export default function Programs({ programs }: ProgramsProps) {
                 {/* Geometric accents */}
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-20 -top-20 h-[24rem] w-[24rem] rotate-12 rounded-[3rem] bg-hvorange/10"
+                    className="pointer-events-none absolute -top-20 -right-20 h-[24rem] w-[24rem] rotate-12 rounded-[3rem] bg-hvorange/10"
                 />
                 <div
                     aria-hidden="true"
@@ -311,7 +311,7 @@ export default function Programs({ programs }: ProgramsProps) {
 
                 <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">
                     <div className="mx-auto max-w-3xl text-center">
-                        <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
+                        <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold tracking-widest text-hvorange-50 uppercase ring-1 ring-white/20">
                             <span
                                 aria-hidden="true"
                                 className="h-2 w-2 rounded-sm bg-hvorange-600"
@@ -319,7 +319,7 @@ export default function Programs({ programs }: ProgramsProps) {
                             Alabama Hands &amp; Voices
                         </p>
 
-                        <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight text-white md:text-7xl">
+                        <h1 className="mt-6 text-5xl leading-[1.05] font-extrabold tracking-tight text-white md:text-7xl">
                             Our <span className="text-hvorange">Programs</span>
                         </h1>
 
@@ -332,14 +332,14 @@ export default function Programs({ programs }: ProgramsProps) {
                         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                             <Link
                                 href="/programs/gbys"
-                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                             >
                                 <HeartIcon className="h-5 w-5" />
                                 Find a Parent Guide
                             </Link>
                             <a
                                 href="#programs-grid"
-                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/70 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/70 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                             >
                                 Explore all programs
                                 <ArrowIcon className="h-5 w-5" />
@@ -357,7 +357,7 @@ export default function Programs({ programs }: ProgramsProps) {
                     <dl className="grid grid-cols-2 gap-6 md:grid-cols-4">
                         {programs.map((p, i) => (
                             <div key={p.key} className="text-center">
-                                <dt className="text-sm font-bold uppercase tracking-widest text-slate-500">
+                                <dt className="text-sm font-bold tracking-widest text-slate-500 uppercase">
                                     Program {String(i + 1).padStart(2, '0')}
                                 </dt>
                                 <dd className="mt-1 text-base font-extrabold tracking-tight text-hvblue md:text-lg">
@@ -375,7 +375,7 @@ export default function Programs({ programs }: ProgramsProps) {
             <section id="programs-grid" className="bg-slate-50 py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                        <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                             All four programs
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -407,7 +407,7 @@ export default function Programs({ programs }: ProgramsProps) {
             <section className="relative isolate overflow-hidden bg-hvorange py-14 text-hvblue md:py-20">
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvblue/10"
+                    className="pointer-events-none absolute -top-16 -right-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvblue/10"
                 />
                 <div
                     aria-hidden="true"
@@ -417,7 +417,7 @@ export default function Programs({ programs }: ProgramsProps) {
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
                         <div>
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                            <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                                 Real families, real support
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -427,7 +427,7 @@ export default function Programs({ programs }: ProgramsProps) {
                                 aria-hidden="true"
                                 className="mt-5 block h-1.5 w-20 rounded-full bg-hvblue"
                             />
-                            <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-hvblue/90 md:text-lg">
+                            <p className="mt-6 max-w-xl text-base leading-relaxed font-medium text-hvblue/90 md:text-lg">
                                 Alabama Hands &amp; Voices connects families at
                                 every stage — from the first day of diagnosis to
                                 the school years and beyond. Our programs are
@@ -460,11 +460,11 @@ export default function Programs({ programs }: ProgramsProps) {
             <section className="relative isolate overflow-hidden bg-hvblue py-16 text-white md:py-24">
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -left-16 -top-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvorange/15"
+                    className="pointer-events-none absolute -top-16 -left-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvorange/15"
                 />
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-hvorange-600/15 blur-3xl"
+                    className="pointer-events-none absolute -right-16 -bottom-24 h-80 w-80 rounded-full bg-hvorange-600/15 blur-3xl"
                 />
                 <div
                     aria-hidden="true"
@@ -472,7 +472,7 @@ export default function Programs({ programs }: ProgramsProps) {
                 />
 
                 <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-                    <p className="text-sm font-bold uppercase tracking-widest text-hvorange-50">
+                    <p className="text-sm font-bold tracking-widest text-hvorange-50 uppercase">
                         Not sure where to start?
                     </p>
                     <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-white md:text-5xl">
@@ -488,14 +488,14 @@ export default function Programs({ programs }: ProgramsProps) {
                     <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
                         <Link
                             href="/programs/gbys"
-                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                         >
                             <HeartIcon className="h-5 w-5" />
                             Find a Parent Guide
                         </Link>
                         <Link
                             href="/membership"
-                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                         >
                             Join the community
                             <ArrowIcon className="h-5 w-5" />

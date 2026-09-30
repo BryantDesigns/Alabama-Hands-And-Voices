@@ -124,8 +124,7 @@ function ResourceLink({
 }: ResourceLinkProps) {
     const isDownloadOnly = isDownloadOnlyDocument(url)
     const isNewTab =
-        !isDownloadOnly &&
-        (url.startsWith('http') || isViewableDocument(url))
+        !isDownloadOnly && (url.startsWith('http') || isViewableDocument(url))
 
     const linkClasses = `group flex min-h-[44px] items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition duration-150 cursor-pointer focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 ${linkBase}`
 
@@ -191,7 +190,7 @@ export default function Resources({ data, videos }: ResourcesProps) {
                 {/* Geometric atmosphere */}
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-20 -top-20 h-[22rem] w-[22rem] rotate-12 rounded-[3rem] bg-hvorange/15"
+                    className="pointer-events-none absolute -top-20 -right-20 h-[22rem] w-[22rem] rotate-12 rounded-[3rem] bg-hvorange/15"
                 />
                 <div
                     aria-hidden="true"
@@ -207,7 +206,7 @@ export default function Resources({ data, videos }: ResourcesProps) {
                     <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
                         <div>
                             {/* Eyebrow pill */}
-                            <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
+                            <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold tracking-widest text-hvorange-50 uppercase ring-1 ring-white/20">
                                 <span
                                     aria-hidden="true"
                                     className="h-2 w-2 rounded-sm bg-hvorange-600"
@@ -215,7 +214,7 @@ export default function Resources({ data, videos }: ResourcesProps) {
                                 Family Resources
                             </p>
 
-                            <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight text-white md:text-7xl">
+                            <h1 className="mt-6 text-5xl leading-[1.05] font-extrabold tracking-tight text-white md:text-7xl">
                                 Find what{' '}
                                 <span className="text-hvorange">
                                     your family
@@ -228,7 +227,7 @@ export default function Resources({ data, videos }: ResourcesProps) {
                                 className="mt-6 block h-1.5 w-20 rounded-full bg-hvorange-600"
                             />
 
-                            <p className="mt-6 max-w-xl text-lg font-medium leading-relaxed text-white/90">
+                            <p className="mt-6 max-w-xl text-lg leading-relaxed font-medium text-white/90">
                                 {introCopy}
                             </p>
                         </div>
@@ -236,7 +235,7 @@ export default function Resources({ data, videos }: ResourcesProps) {
                         {/* Resource count bento mini-block */}
                         <div className="flex flex-col gap-4 sm:flex-row lg:flex-col">
                             <div className="flex flex-1 flex-col justify-between rounded-3xl bg-hvorange p-6 text-hvblue">
-                                <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                                <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                                     Categories
                                 </p>
                                 <p className="mt-2 text-5xl font-extrabold tracking-tight text-hvblue">
@@ -244,7 +243,7 @@ export default function Resources({ data, videos }: ResourcesProps) {
                                 </p>
                             </div>
                             <div className="flex flex-1 flex-col justify-between rounded-3xl bg-white/10 p-6 text-white ring-1 ring-white/20">
-                                <p className="text-sm font-bold uppercase tracking-widest text-white/80">
+                                <p className="text-sm font-bold tracking-widest text-white/80 uppercase">
                                     Total resources
                                 </p>
                                 <p className="mt-2 text-5xl font-extrabold tracking-tight text-white">
@@ -263,7 +262,7 @@ export default function Resources({ data, videos }: ResourcesProps) {
             <section className="bg-white py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                        <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                             Watch and learn
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -290,7 +289,7 @@ export default function Resources({ data, videos }: ResourcesProps) {
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     {/* Section header */}
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                        <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                             Browse by stage
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -321,7 +320,7 @@ export default function Resources({ data, videos }: ResourcesProps) {
                                     <header className="mb-5 flex items-start justify-between gap-4">
                                         <div>
                                             <p
-                                                className={`text-xs font-bold uppercase tracking-widest ${style.eyebrow}`}
+                                                className={`text-xs font-bold tracking-widest uppercase ${style.eyebrow}`}
                                             >
                                                 Stage {idx + 1}
                                             </p>
@@ -376,7 +375,7 @@ export default function Resources({ data, videos }: ResourcesProps) {
                 {/* Geometric blue accents on the orange field */}
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvblue/10"
+                    className="pointer-events-none absolute -top-16 -right-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvblue/10"
                 />
                 <div
                     aria-hidden="true"
@@ -386,7 +385,7 @@ export default function Resources({ data, videos }: ResourcesProps) {
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="grid items-center gap-8 lg:grid-cols-[1.4fr_0.6fr] lg:gap-12">
                         <div>
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                            <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                                 Featured directory
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -398,7 +397,7 @@ export default function Resources({ data, videos }: ResourcesProps) {
                                 aria-hidden="true"
                                 className="mt-5 block h-1.5 w-20 rounded-full bg-hvblue"
                             />
-                            <p className="mt-6 max-w-lg text-base font-medium leading-relaxed text-hvblue/90 md:text-lg">
+                            <p className="mt-6 max-w-lg text-base leading-relaxed font-medium text-hvblue/90 md:text-lg">
                                 {ehdiSidebarBody}
                             </p>
                         </div>
@@ -406,7 +405,7 @@ export default function Resources({ data, videos }: ResourcesProps) {
                         {/* CTA block */}
                         <div className="lg:justify-self-end">
                             <div className="rounded-3xl bg-hvblue p-6 md:p-8">
-                                <p className="text-sm font-bold uppercase tracking-widest text-white/80">
+                                <p className="text-sm font-bold tracking-widest text-white/80 uppercase">
                                     Free &amp; searchable
                                 </p>
                                 <p className="mt-2 text-2xl font-extrabold text-white">
@@ -418,7 +417,7 @@ export default function Resources({ data, videos }: ResourcesProps) {
                                     href={ehdiSidebarUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                                 >
                                     Search EHDI-PALS
                                     <ExternalLinkIcon className="h-4 w-4" />
@@ -436,11 +435,11 @@ export default function Resources({ data, videos }: ResourcesProps) {
                 {/* Geometric accents */}
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -left-16 -top-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvorange/15"
+                    className="pointer-events-none absolute -top-16 -left-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvorange/15"
                 />
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-hvorange-600/15 blur-3xl"
+                    className="pointer-events-none absolute -right-16 -bottom-24 h-80 w-80 rounded-full bg-hvorange-600/15 blur-3xl"
                 />
                 {/* Left structural bar */}
                 <div
@@ -464,14 +463,14 @@ export default function Resources({ data, videos }: ResourcesProps) {
                     <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
                         <Link
                             href="/programs"
-                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                         >
                             <HeartIcon className="h-5 w-5" />
                             Get Parent Guide Support
                         </Link>
                         <Link
                             href="/membership"
-                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/60 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/60 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                         >
                             Join the community
                             <ArrowIcon className="h-5 w-5" />

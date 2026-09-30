@@ -17,7 +17,7 @@ export default function PublicStatusPage({
     return (
         <main className="flex min-h-[70vh] items-center bg-gray-50 px-6 py-24">
             <div className="mx-auto max-w-2xl text-center">
-                <p className="font-semibold uppercase tracking-wide text-hvorange">
+                <p className="font-semibold tracking-wide text-hvorange uppercase">
                     {eyebrow}
                 </p>
                 <h1 className="mt-3 font-kaushan text-4xl font-bold text-hvblue sm:text-5xl">

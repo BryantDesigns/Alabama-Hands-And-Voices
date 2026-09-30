@@ -83,13 +83,9 @@ test('renders fixed navigation and connected global settings', async ({
     ).toHaveValue('R99Y9497TS2SW')
 
     const mainDonationForms = mainContent.locator(paypalForm)
-    await expect
-        .poll(() => mainDonationForms.count())
-        .toBeGreaterThanOrEqual(1)
+    await expect.poll(() => mainDonationForms.count()).toBeGreaterThanOrEqual(1)
     await expect(
-        mainDonationForms
-            .first()
-            .locator('input[name="hosted_button_id"]')
+        mainDonationForms.first().locator('input[name="hosted_button_id"]')
     ).toHaveValue('R99Y9497TS2SW')
     await expect(
         mainDonationForms
@@ -214,11 +210,15 @@ test('renders active events in configured order with metadata and CTA', async ({
     await expect(
         eventsSection.getByText('Date / schedule', { exact: true })
     ).toBeVisible()
-    await expect(eventsSection.getByText('Monthly', { exact: true })).toBeVisible()
+    await expect(
+        eventsSection.getByText('Monthly', { exact: true })
+    ).toBeVisible()
     await expect(
         eventsSection.getByText('Location', { exact: true })
     ).toBeVisible()
-    await expect(eventsSection.getByText('Virtual', { exact: true })).toBeVisible()
+    await expect(
+        eventsSection.getByText('Virtual', { exact: true })
+    ).toBeVisible()
 
     const registrationLink = eventsSection.getByRole('link', {
         name: 'Register online',
@@ -332,7 +332,7 @@ test('preserves every migrated rich-text value', async ({ page }) => {
         'Download our Pathways guide',
         'Technology decisions are personal',
         'There is no single right answer',
-        'Your child\'s team may include audiologists',
+        "Your child's team may include audiologists",
     ]
     const faqButtons = page.locator('button[aria-controls^="faq-v3-panel-"]')
 
@@ -340,9 +340,9 @@ test('preserves every migrated rich-text value', async ({ page }) => {
     for (let index = 0; index < faqPhrases.length; index += 1) {
         const button = faqButtons.nth(index)
         await button.click()
-        await expect(
-            page.locator(`#faq-v3-panel-${index}`)
-        ).toContainText(faqPhrases[index])
+        await expect(page.locator(`#faq-v3-panel-${index}`)).toContainText(
+            faqPhrases[index]
+        )
     }
 })
 

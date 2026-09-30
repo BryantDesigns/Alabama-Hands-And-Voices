@@ -134,7 +134,7 @@ export default function Home({
                 {/* Geometric atmosphere: hard orange wedge + soft glow */}
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-24 -top-24 h-[28rem] w-[28rem] rotate-12 rounded-[3rem] bg-hvorange/15"
+                    className="pointer-events-none absolute -top-24 -right-24 h-[28rem] w-[28rem] rotate-12 rounded-[3rem] bg-hvorange/15"
                 />
                 <div
                     aria-hidden="true"
@@ -149,7 +149,7 @@ export default function Home({
                 <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 md:py-24 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:px-8 lg:py-28">
                     {/* Copy */}
                     <div>
-                        <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-hvorange-50 ring-1 ring-white/20">
+                        <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold tracking-widest text-hvorange-50 uppercase ring-1 ring-white/20">
                             <span
                                 aria-hidden="true"
                                 className="h-2 w-2 rounded-sm bg-hvorange-600"
@@ -157,7 +157,7 @@ export default function Home({
                             Alabama Hands &amp; Voices
                         </p>
 
-                        <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight text-white md:text-7xl">
+                        <h1 className="mt-6 text-5xl leading-[1.05] font-extrabold tracking-tight text-white md:text-7xl">
                             You are not
                             <br />
                             on this journey
@@ -166,7 +166,7 @@ export default function Home({
                         </h1>
 
                         {/* Hero quote — load-bearing brand line from props */}
-                        <p className="mt-7 max-w-xl text-lg font-medium leading-relaxed text-white/90 md:text-xl">
+                        <p className="mt-7 max-w-xl text-lg leading-relaxed font-medium text-white/90 md:text-xl">
                             <span className="sr-only">Our promise: </span>
                             {heroQuote}
                         </p>
@@ -175,14 +175,14 @@ export default function Home({
                         <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
                             <Link
                                 href="/membership"
-                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                             >
                                 <HeartIcon className="h-5 w-5" />
                                 {donationLabel}
                             </Link>
                             <Link
                                 href="/programs"
-                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/70 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/70 px-7 py-3.5 text-base font-bold text-white transition duration-150 hover:bg-white hover:text-hvblue focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                             >
                                 Get Support
                                 <ArrowIcon className="h-5 w-5" />
@@ -205,7 +205,7 @@ export default function Home({
                             {/* Geometric corner tab */}
                             <span
                                 aria-hidden="true"
-                                className="absolute -right-3 -top-3 h-12 w-12 rounded-2xl bg-hvorange-600"
+                                className="absolute -top-3 -right-3 h-12 w-12 rounded-2xl bg-hvorange-600"
                             />
                         </div>
                     </div>
@@ -219,7 +219,7 @@ export default function Home({
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
                         <div>
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                            <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                                 Who we are
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -235,7 +235,7 @@ export default function Home({
                             />
                             <Link
                                 href="/about"
-                                className="mt-8 inline-flex items-center gap-2 text-base font-bold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                className="mt-8 inline-flex items-center gap-2 text-base font-bold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                             >
                                 Read our full story
                                 <ArrowIcon className="h-4 w-4" />
@@ -266,7 +266,7 @@ export default function Home({
             <section className="bg-hvorange py-14 text-hvblue md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-4xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                        <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                             Why we are here
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -278,7 +278,7 @@ export default function Home({
                         />
                         <RichText
                             document={mission.body}
-                            className="mt-6 text-base font-medium leading-relaxed text-hvblue md:text-lg [&_a]:text-hvblue [&_a:hover]:text-white"
+                            className="mt-6 text-base leading-relaxed font-medium text-hvblue md:text-lg [&_a]:text-hvblue [&_a:hover]:text-white"
                         />
                     </div>
                 </div>
@@ -306,7 +306,7 @@ export default function Home({
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     {/* Header row */}
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvorange-50">
+                        <p className="text-sm font-bold tracking-widest text-hvorange-50 uppercase">
                             {whereToStart.subheading}
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white md:text-5xl">
@@ -332,7 +332,7 @@ export default function Home({
                                         {...documentLinkProps(resource.url, {
                                             externalNewTab: true,
                                         })}
-                                        className="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-hvblue transition hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                        className="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-hvblue transition hover:bg-hvorange-50 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                                     >
                                         {resource.label}
                                         <ArrowIcon className="h-4 w-4" />
@@ -348,7 +348,7 @@ export default function Home({
                         <figure className="col-span-2 row-span-2 flex flex-col justify-between rounded-3xl bg-white p-6 text-hvblue shadow-xl md:col-span-2 md:row-span-2 md:p-8">
                             <div>
                                 <QuoteMark className="h-9 w-9 text-hvorange-600" />
-                                <blockquote className="mt-4 text-xl font-bold leading-snug tracking-tight text-hvblue md:text-2xl">
+                                <blockquote className="mt-4 text-xl leading-snug font-bold tracking-tight text-hvblue md:text-2xl">
                                     {whereToStart.quoteText}
                                 </blockquote>
                             </div>
@@ -391,7 +391,7 @@ export default function Home({
                                                 {stat.number}
                                             </span>
                                             <span
-                                                className={`mt-1 block text-sm font-bold leading-tight ${
+                                                className={`mt-1 block text-sm leading-tight font-bold ${
                                                     orange
                                                         ? 'text-hvblue/90'
                                                         : 'text-white/90'
@@ -408,7 +408,7 @@ export default function Home({
                         {/* CTA tile — fills remaining bento cell, links to programs */}
                         <Link
                             href={whereToStart.ctaHref}
-                            className="group col-span-2 flex items-center justify-between gap-4 rounded-3xl bg-hvorange-700 p-6 text-left text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue md:col-span-2"
+                            className="group col-span-2 flex items-center justify-between gap-4 rounded-3xl bg-hvorange-700 p-6 text-left text-white transition duration-150 hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden md:col-span-2"
                         >
                             <span className="text-lg font-extrabold tracking-tight md:text-xl">
                                 {whereToStart.ctaLabel}
@@ -428,7 +428,7 @@ export default function Home({
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
                         <div>
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvorange-50">
+                            <p className="text-sm font-bold tracking-widest text-hvorange-50 uppercase">
                                 Join the community
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white md:text-5xl">
@@ -440,7 +440,7 @@ export default function Home({
                             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                                 <Link
                                     href={membership.pageUrl}
-                                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-6 py-3 font-bold text-white transition hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-6 py-3 font-bold text-white transition hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                                 >
                                     View membership options
                                     <ArrowIcon className="h-4 w-4" />
@@ -448,7 +448,7 @@ export default function Home({
                                 <a
                                     href={membership.formUrl}
                                     {...documentLinkProps(membership.formUrl)}
-                                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/70 px-6 py-3 font-bold text-white transition hover:bg-white hover:text-hvblue focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border-2 border-white/70 px-6 py-3 font-bold text-white transition hover:bg-white hover:text-hvblue focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                                 >
                                     Download membership form
                                     <ArrowIcon className="h-4 w-4" />
@@ -464,7 +464,7 @@ export default function Home({
                                     <dd className="text-4xl font-extrabold tracking-tight">
                                         {fee.price}
                                     </dd>
-                                    <dt className="mt-2 text-sm font-bold leading-snug text-slate-700">
+                                    <dt className="mt-2 text-sm leading-snug font-bold text-slate-700">
                                         {fee.label}
                                     </dt>
                                 </div>
@@ -480,7 +480,7 @@ export default function Home({
             <section className="bg-slate-50 py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                        <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                             How we help
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -510,7 +510,7 @@ export default function Home({
                                     {/* Numbered geometric badge */}
                                     <span
                                         aria-hidden="true"
-                                        className="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-xl bg-hvorange text-base font-extrabold text-hvblue shadow-lg"
+                                        className="absolute top-4 left-4 flex h-11 w-11 items-center justify-center rounded-xl bg-hvorange text-base font-extrabold text-hvblue shadow-lg"
                                     >
                                         {`0${i + 1}`}
                                     </span>
@@ -542,7 +542,7 @@ export default function Home({
                 {/* Geometric blue accents on the orange field */}
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvblue/10"
+                    className="pointer-events-none absolute -top-16 -right-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvblue/10"
                 />
                 <div
                     aria-hidden="true"
@@ -552,7 +552,7 @@ export default function Home({
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="grid items-center gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:gap-12">
                         <div>
-                            <p className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-hvblue">
+                            <p className="inline-flex items-center gap-2 text-sm font-bold tracking-widest text-hvblue uppercase">
                                 <SupportIcon className="h-5 w-5" />
                                 Give today
                             </p>
@@ -563,7 +563,7 @@ export default function Home({
                                 aria-hidden="true"
                                 className="mt-5 block h-1.5 w-20 rounded-full bg-hvblue"
                             />
-                            <div className="mt-6 max-w-2xl space-y-4 text-base font-medium leading-relaxed text-hvblue/90 md:text-lg">
+                            <div className="mt-6 max-w-2xl space-y-4 text-base leading-relaxed font-medium text-hvblue/90 md:text-lg">
                                 {toParagraphs(support.body).map((p, i) => (
                                     <p key={i}>{p}</p>
                                 ))}
@@ -589,7 +589,7 @@ export default function Home({
                                 />
                                 <button
                                     type="submit"
-                                    className="inline-flex min-h-[52px] w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-hvblue px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange md:text-lg lg:w-auto"
+                                    className="inline-flex min-h-[52px] w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-hvblue px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvblue-400 focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2 focus-visible:ring-offset-hvorange focus-visible:outline-hidden md:text-lg lg:w-auto"
                                 >
                                     <HeartIcon className="h-5 w-5" />
                                     {donationLabel}
@@ -606,7 +606,7 @@ export default function Home({
             <section className="bg-white py-14 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-2xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                        <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                             Gather with us
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -641,7 +641,7 @@ export default function Home({
                                     className="absolute inset-0 bg-linear-to-t from-hvblue/80 via-hvblue/10 to-transparent"
                                 />
                                 <div className="absolute inset-x-0 bottom-0 p-6">
-                                    <p className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white ring-1 ring-white/30 backdrop-blur">
+                                    <p className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-bold tracking-widest text-white uppercase ring-1 ring-white/30 backdrop-blur">
                                         <CalendarIcon className="h-4 w-4" />
                                         Year-round
                                     </p>
@@ -671,7 +671,7 @@ export default function Home({
                                             <dl className="mt-3 grid gap-2 text-sm text-slate-600 sm:grid-cols-2">
                                                 {event.dateText && (
                                                     <div>
-                                                        <dt className="text-xs font-bold uppercase tracking-widest text-hvblue">
+                                                        <dt className="text-xs font-bold tracking-widest text-hvblue uppercase">
                                                             Date / schedule
                                                         </dt>
                                                         <dd className="mt-0.5">
@@ -681,7 +681,7 @@ export default function Home({
                                                 )}
                                                 {event.location && (
                                                     <div>
-                                                        <dt className="text-xs font-bold uppercase tracking-widest text-hvblue">
+                                                        <dt className="text-xs font-bold tracking-widest text-hvblue uppercase">
                                                             Location
                                                         </dt>
                                                         <dd className="mt-0.5">
@@ -704,7 +704,7 @@ export default function Home({
                                                         externalNewTab: true,
                                                     }
                                                 )}
-                                                className="mt-5 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-5 py-2.5 text-sm font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2"
+                                                className="mt-5 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-5 py-2.5 text-sm font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                             >
                                                 {event.linkLabel}
                                                 <ArrowIcon className="h-4 w-4" />
@@ -724,11 +724,11 @@ export default function Home({
             <section className="relative isolate overflow-hidden bg-hvblue pt-16 pb-12 text-white md:pt-20 md:pb-14">
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -left-16 -top-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvorange/15"
+                    className="pointer-events-none absolute -top-16 -left-16 h-64 w-64 rotate-12 rounded-[3rem] bg-hvorange/15"
                 />
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-hvorange-600/15 blur-3xl"
+                    className="pointer-events-none absolute -right-16 -bottom-24 h-80 w-80 rounded-full bg-hvorange-600/15 blur-3xl"
                 />
                 <div
                     aria-hidden="true"
@@ -748,14 +748,14 @@ export default function Home({
                     <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
                         <Link
                             href="/membership"
-                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-hvorange-700 px-8 py-4 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                         >
                             <HeartIcon className="h-5 w-5" />
                             {donationLabel}
                         </Link>
                         <Link
                             href="/programs"
-                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-hvblue transition duration-150 hover:bg-hvorange-50 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                         >
                             Explore programs
                             <ArrowIcon className="h-5 w-5" />

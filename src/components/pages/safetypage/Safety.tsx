@@ -43,9 +43,7 @@ function ShieldIcon({ className = '' }: { className?: string }) {
 export default function Safety({
     safety,
 }: {
-    safety: NonNullable<
-        Awaited<ReturnType<typeof getSafetyPageContent>>
-    >
+    safety: NonNullable<Awaited<ReturnType<typeof getSafetyPageContent>>>
 }) {
     const {
         heroTagline,
@@ -60,7 +58,7 @@ export default function Safety({
             <section className="relative isolate overflow-hidden bg-hvblue text-white">
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-24 -top-24 h-[30rem] w-[30rem] rotate-12 rounded-[3rem] bg-hvorange-400/15"
+                    className="pointer-events-none absolute -top-24 -right-24 h-[30rem] w-[30rem] rotate-12 rounded-[3rem] bg-hvorange-400/15"
                 />
                 <div
                     aria-hidden="true"
@@ -74,7 +72,7 @@ export default function Safety({
                 <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-8">
                     <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto] lg:gap-16">
                         <div>
-                            <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-widest text-white/80 ring-1 ring-white/20">
+                            <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold tracking-widest text-white/80 uppercase ring-1 ring-white/20">
                                 <span
                                     aria-hidden="true"
                                     className="h-2 w-2 rounded-sm bg-hvorange-400"
@@ -82,7 +80,7 @@ export default function Safety({
                                 Programs
                             </p>
 
-                            <h1 className="mt-6 max-w-4xl text-5xl font-extrabold leading-[1.05] tracking-tight text-white md:text-7xl">
+                            <h1 className="mt-6 max-w-4xl text-5xl leading-[1.05] font-extrabold tracking-tight text-white md:text-7xl">
                                 O.U.R. Children&apos;s Safety Project
                                 <span
                                     aria-hidden="true"
@@ -92,7 +90,7 @@ export default function Safety({
                                 </span>
                             </h1>
 
-                            <p className="mt-5 max-w-2xl text-lg font-medium leading-relaxed text-white/80 md:text-xl">
+                            <p className="mt-5 max-w-2xl text-lg leading-relaxed font-medium text-white/80 md:text-xl">
                                 {heroTagline}
                             </p>
                         </div>
@@ -118,7 +116,7 @@ export default function Safety({
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.8fr)] lg:items-start lg:gap-16">
                         <div>
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                            <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                                 Child safety starts with awareness
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -131,7 +129,7 @@ export default function Safety({
 
                             <RichText
                                 document={introCopy}
-                                className="mt-6 max-w-3xl text-base font-medium leading-relaxed text-slate-700 md:text-lg [&_a]:text-hvorange-700 [&_a:hover]:text-hvorange-800"
+                                className="mt-6 max-w-3xl text-base leading-relaxed font-medium text-slate-700 md:text-lg [&_a]:text-hvorange-700 [&_a:hover]:text-hvorange-800"
                             />
                         </div>
 
@@ -139,12 +137,12 @@ export default function Safety({
                             href="https://handsandvoices.org/resources/OUR/index.htm"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group rounded-3xl bg-hvorange-700 p-7 text-white shadow-sm transition hover:-translate-y-1 hover:bg-hvorange-800 hover:shadow-lg focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-4 md:p-8"
+                            className="group rounded-3xl bg-hvorange-700 p-7 text-white shadow-sm transition hover:-translate-y-1 hover:bg-hvorange-800 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-4 focus-visible:outline-hidden md:p-8"
                         >
                             <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15 ring-1 ring-white/20">
                                 <ShieldIcon className="h-8 w-8" />
                             </span>
-                            <span className="mt-8 block text-sm font-bold uppercase tracking-widest text-white">
+                            <span className="mt-8 block text-sm font-bold tracking-widest text-white uppercase">
                                 Start here
                             </span>
                             <span className="mt-2 block text-2xl font-extrabold tracking-tight md:text-3xl">
@@ -167,7 +165,7 @@ export default function Safety({
                 <section className="bg-slate-50 py-14 md:py-20">
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="max-w-3xl">
-                            <p className="text-sm font-bold uppercase tracking-widest text-hvblue">
+                            <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
                                 Take action
                             </p>
                             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
@@ -194,7 +192,7 @@ export default function Safety({
                                     <h3 className="mt-8 text-xl font-extrabold tracking-tight text-hvblue md:text-2xl">
                                         {card.title}
                                     </h3>
-                                    <p className="mt-4 text-base font-medium leading-relaxed text-slate-700">
+                                    <p className="mt-4 text-base leading-relaxed font-medium text-slate-700">
                                         {card.description}
                                     </p>
                                 </article>
@@ -207,7 +205,7 @@ export default function Safety({
             <section className="relative isolate overflow-hidden bg-hvblue py-14 text-white md:py-20">
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rotate-12 rounded-[3rem] bg-hvorange-400/15"
+                    className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rotate-12 rounded-[3rem] bg-hvorange-400/15"
                 />
                 <div
                     aria-hidden="true"
@@ -216,7 +214,7 @@ export default function Safety({
 
                 <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-4xl">
-                        <p className="text-sm font-bold uppercase tracking-widest text-hvorange-400">
+                        <p className="text-sm font-bold tracking-widest text-hvorange-400 uppercase">
                             Connect in person
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white md:text-5xl">
@@ -226,11 +224,11 @@ export default function Safety({
                             aria-hidden="true"
                             className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-400"
                         />
-                        <p className="mt-6 text-base font-medium leading-relaxed text-white/80 md:text-lg">
+                        <p className="mt-6 text-base leading-relaxed font-medium text-white/80 md:text-lg">
                             {familyRetreatsBody}{' '}
                             <a
                                 href={familyRetreatsLink}
-                                className="group inline-flex items-center gap-1.5 font-bold text-white underline decoration-hvorange-400 decoration-2 underline-offset-4 transition hover:text-hvorange-50 focus-visible:rounded-xs focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-400 focus-visible:ring-offset-4 focus-visible:ring-offset-hvblue"
+                                className="group inline-flex items-center gap-1.5 font-bold text-white underline decoration-hvorange-400 decoration-2 underline-offset-4 transition hover:text-hvorange-50 focus-visible:rounded-xs focus-visible:ring-2 focus-visible:ring-hvorange-400 focus-visible:ring-offset-4 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                             >
                                 Guide By Your Side Program
                                 <ArrowIcon className="h-4 w-4 transition group-hover:translate-x-1" />

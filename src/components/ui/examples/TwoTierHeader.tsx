@@ -20,9 +20,7 @@ import {
     SquaresPlusIcon,
     XMarkIcon,
 } from '@heroicons/react/24/outline'
-import {
-    ChevronDownIcon,
-} from '@heroicons/react/20/solid'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import Logo from '@/components/ui/Logo'
 import Link from 'next/link'
 
@@ -37,7 +35,7 @@ const about = [
         name: 'Board Members',
         href: '/about/board',
         description:
-            'Meet the dedicated individuals on our board who guide our organization\'s efforts and impact.',
+            "Meet the dedicated individuals on our board who guide our organization's efforts and impact.",
     },
     {
         name: 'Staff',
@@ -49,7 +47,7 @@ const about = [
         name: 'Contact',
         href: '/about/contact',
         description:
-            'Reach out to us with any questions, inquiries, or feedback. We\'re here to help!',
+            "Reach out to us with any questions, inquiries, or feedback. We're here to help!",
     },
 ]
 
@@ -154,7 +152,7 @@ export default function TwoTierHeader() {
 
                             <PopoverPanel
                                 transition
-                                className="absolute -left-8 top-full z-10 mt-3 w-96 rounded-3xl bg-white p-4 shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-leave:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+                                className="absolute top-full -left-8 z-10 mt-3 w-96 rounded-3xl bg-white p-4 shadow-lg ring-1 ring-gray-900/5 transition data-closed:opacity-0 data-enter:duration-200 data-leave:duration-150 data-[closed]:translate-y-1 data-[enter]:ease-out data-[leave]:ease-in"
                             >
                                 {about.map((item) => (
                                     <div
@@ -188,7 +186,7 @@ export default function TwoTierHeader() {
 
                             <PopoverPanel
                                 transition
-                                className="absolute inset-x-0 top-full z-10 bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-leave:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+                                className="absolute inset-x-0 top-full z-10 bg-white shadow-lg ring-1 ring-gray-900/5 transition data-closed:opacity-0 data-enter:duration-200 data-leave:duration-150 data-[closed]:-translate-y-1 data-[enter]:ease-out data-[leave]:ease-in"
                             >
                                 <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 px-6 py-10 lg:grid-cols-4 lg:px-8 xl:gap-x-8">
                                     {programs.map((item) => (
@@ -275,7 +273,7 @@ export default function TwoTierHeader() {
                                 <Disclosure as="div" className="-mx-3">
                                     {({ open }) => (
                                         <>
-                                            <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold text-gray-900 hover:bg-gray-50">
+                                            <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base font-semibold text-gray-900 hover:bg-gray-50">
                                                 About Us
                                                 <ChevronDownIcon
                                                     aria-hidden="true"
@@ -290,7 +288,7 @@ export default function TwoTierHeader() {
                                                         key={item.name}
                                                         as="a"
                                                         href={item.href}
-                                                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold text-gray-900 hover:bg-gray-50"
+                                                        className="block rounded-lg py-2 pr-3 pl-6 text-sm font-semibold text-gray-900 hover:bg-gray-50"
                                                     >
                                                         {item.name}
                                                     </DisclosureButton>
@@ -304,7 +302,7 @@ export default function TwoTierHeader() {
                                 <Disclosure as="div" className="-mx-3">
                                     {({ open }) => (
                                         <>
-                                            <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold text-gray-900 hover:bg-gray-50">
+                                            <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base font-semibold text-gray-900 hover:bg-gray-50">
                                                 Programs
                                                 <ChevronDownIcon
                                                     aria-hidden="true"
@@ -319,7 +317,7 @@ export default function TwoTierHeader() {
                                                         key={item.name}
                                                         as="a"
                                                         href={item.href}
-                                                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold text-gray-900 hover:bg-gray-50"
+                                                        className="block rounded-lg py-2 pr-3 pl-6 text-sm font-semibold text-gray-900 hover:bg-gray-50"
                                                     >
                                                         {item.name}
                                                     </DisclosureButton>

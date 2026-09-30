@@ -131,7 +131,7 @@ export function NetlifyForm({
                         email us at{' '}
                         <a
                             href={`mailto:${contactEmail}`}
-                            className="underline underline-offset-2 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-red-800 focus-visible:ring-offset-2"
+                            className="underline underline-offset-2 focus-visible:ring-2 focus-visible:ring-red-800 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                         >
                             {contactEmail}
                         </a>

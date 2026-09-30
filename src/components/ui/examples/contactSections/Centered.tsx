@@ -16,7 +16,7 @@ export default function Example() {
                 />
             </div>
             <div className="mx-auto max-w-2xl text-center">
-                <h2 className="text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+                <h2 className="text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl">
                     Contact sales
                 </h2>
                 <p className="mt-2 text-lg/8 text-gray-600">
@@ -113,7 +113,7 @@ export default function Example() {
                                         name="country"
                                         autoComplete="country"
                                         aria-label="Country"
-                                        className="col-start-1 row-start-1 w-full appearance-none rounded-md py-2 pl-3.5 pr-7 text-base text-gray-500 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                                        className="col-start-1 row-start-1 w-full appearance-none rounded-md py-2 pr-7 pl-3.5 text-base text-gray-500 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                                     >
                                         <option>US</option>
                                         <option>CA</option>
@@ -129,7 +129,7 @@ export default function Example() {
                                     name="phone-number"
                                     type="text"
                                     placeholder="123-456-7890"
-                                    className="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
+                                    className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
                                 />
                             </div>
                         </div>
@@ -153,7 +153,7 @@ export default function Example() {
                     </div>
                     <div className="flex gap-x-4 sm:col-span-2">
                         <div className="flex h-6 items-center">
-                            <div className="group relative inline-flex w-8 shrink-0 rounded-full bg-gray-200 p-px outline-offset-2 outline-indigo-600 inset-ring inset-ring-gray-900/5 transition-colors duration-200 ease-in-out has-[:checked]:bg-indigo-600 has-focus-visible:outline has-focus-visible:outline-2">
+                            <div className="group relative inline-flex w-8 shrink-0 rounded-full bg-gray-200 p-px inset-ring inset-ring-gray-900/5 outline-offset-2 outline-indigo-600 transition-colors duration-200 ease-in-out has-focus-visible:outline has-focus-visible:outline-2 has-[:checked]:bg-indigo-600">
                                 <span className="size-4 rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition-transform duration-200 ease-in-out group-has-[:checked]:translate-x-3.5" />
                                 <input
                                     id="agree-to-policies"
@@ -171,7 +171,7 @@ export default function Example() {
                             By selecting this, you agree to our{' '}
                             <a
                                 href="#"
-                                className="whitespace-nowrap font-semibold text-indigo-600"
+                                className="font-semibold whitespace-nowrap text-indigo-600"
                             >
                                 privacy policy
                             </a>

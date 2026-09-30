@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 
 export const SITE_NAME = 'Alabama Hands & Voices'
-export const SITE_URL =
-    'https://alabama-hands-and-voices-redesign.netlify.app'
+export const SITE_URL = 'https://alabama-hands-and-voices-redesign.netlify.app'
 
 export const pageMetadata = {
     '/': {

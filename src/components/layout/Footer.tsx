@@ -19,7 +19,7 @@ function FooterLink({ href, title }: { href: string; title: string }) {
     return (
         <Link
             href={href}
-            className="group inline-flex min-h-[40px] items-center gap-2 text-sm font-semibold text-white/80 transition-colors duration-150 hover:text-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+            className="group inline-flex min-h-[40px] items-center gap-2 text-sm font-semibold text-white/80 transition-colors duration-150 hover:text-white focus-visible:ring-2 focus-visible:ring-hvorange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
         >
             <span
                 aria-hidden="true"
@@ -42,10 +42,10 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
                     <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_0.9fr_1.2fr] lg:gap-12">
                         {/* Column 1 — Org identity */}
                         <div>
-                            <p className="mb-2 text-sm font-bold uppercase tracking-widest text-hvorange-400">
+                            <p className="mb-2 text-sm font-bold tracking-widest text-hvorange-400 uppercase">
                                 Alabama
                             </p>
-                            <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-white md:text-3xl">
+                            <h2 className="text-2xl leading-tight font-extrabold tracking-tight text-white md:text-3xl">
                                 Hands &amp; Voices
                             </h2>
                             <div
@@ -56,14 +56,14 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
                                 Parent-driven support for families of children
                                 who are deaf or hard of hearing.
                             </p>
-                            <p className="mt-3 text-sm font-semibold leading-relaxed text-white">
+                            <p className="mt-3 text-sm leading-relaxed font-semibold text-white">
                                 &ldquo;{settings.footerTagline}&rdquo; &trade;
                             </p>
                         </div>
 
                         {/* Column 2 — Explore */}
                         <nav aria-label="Footer navigation">
-                            <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-white/70">
+                            <h3 className="mb-3 text-xs font-bold tracking-widest text-white/70 uppercase">
                                 Explore
                             </h3>
                             <ul role="list">
@@ -80,7 +80,7 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
 
                         {/* Column 3 — Get involved */}
                         <nav aria-label="Get involved">
-                            <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-white/70">
+                            <h3 className="mb-3 text-xs font-bold tracking-widest text-white/70 uppercase">
                                 Get involved
                             </h3>
                             <ul role="list">
@@ -97,14 +97,14 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
 
                         {/* Column 4 — Connect + Donate */}
                         <div>
-                            <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-white/70">
+                            <h3 className="mb-3 text-xs font-bold tracking-widest text-white/70 uppercase">
                                 Connect
                             </h3>
                             <ul className="space-y-1.5 text-sm" role="list">
                                 <li>
                                     <a
                                         href={`mailto:${settings.contactEmail}`}
-                                        className="font-semibold text-white underline-offset-4 hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                        className="font-semibold text-white underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-hvorange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                                     >
                                         {settings.contactEmail}
                                     </a>
@@ -112,13 +112,13 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
                                 <li>
                                     <a
                                         href={`tel:${settings.phone}`}
-                                        className="font-semibold text-white underline-offset-4 hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                        className="font-semibold text-white underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-hvorange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                                     >
                                         {settings.phone}
                                     </a>
                                 </li>
                                 <li>
-                                    <address className="not-italic text-white/80">
+                                    <address className="text-white/80 not-italic">
                                         {settings.address}
                                     </address>
                                 </li>
@@ -127,7 +127,7 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
                                         href={settings.facebookUrl}
                                         target="_blank"
                                         rel="noopener"
-                                        className="font-semibold text-white underline-offset-4 hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                        className="font-semibold text-white underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-hvorange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                                     >
                                         Facebook
                                     </a>
@@ -152,7 +152,7 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
                                 />
                                 <button
                                     type="submit"
-                                    className="inline-flex min-h-[44px] cursor-pointer items-center gap-2 rounded-xl bg-hvorange-700 px-6 py-2.5 text-sm font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue"
+                                    className="inline-flex min-h-[44px] cursor-pointer items-center gap-2 rounded-xl bg-hvorange-700 px-6 py-2.5 text-sm font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-hvblue focus-visible:outline-hidden"
                                 >
                                     <svg
                                         aria-hidden="true"

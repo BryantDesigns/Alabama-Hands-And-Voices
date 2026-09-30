@@ -28,7 +28,7 @@ export default async function PagesLayout({
         <>
             <a
                 href="#main-content"
-                className="sr-only z-50 rounded-md bg-white px-4 py-3 font-semibold text-hvblue focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+                className="sr-only z-50 rounded-md bg-white px-4 py-3 font-semibold text-hvblue focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
             >
                 Skip to main content
             </a>
