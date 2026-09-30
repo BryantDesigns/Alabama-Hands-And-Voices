@@ -1,0 +1,15 @@
+# Netlify reads the detection form at deploy time; it must not change.
+public/__forms.html
+
+# Keystatic writes the content files itself.
+src/content/
+
+# Written by npm, Next.js and agent tooling.
+package.json
+package-lock.json
+skills-lock.json
+tsconfig.json
+.claude/
+
+# Plans are kept as written.
+tailwind-v4-migration-plan.md
