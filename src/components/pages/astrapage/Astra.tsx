@@ -6,6 +6,7 @@ import { documentLinkProps } from '@/utils/documentLinks'
 
 interface AstraProps {
     astra: NonNullable<Awaited<ReturnType<typeof getAstraPageContent>>>
+    contactEmail: string
 }
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
@@ -105,7 +106,7 @@ function AcademicCapIcon({ className = '' }: { className?: string }) {
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
-export default function Astra({ astra }: AstraProps) {
+export default function Astra({ astra, contactEmail }: AstraProps) {
     const {
         heroTagline,
         programDescription,
@@ -373,7 +374,7 @@ export default function Astra({ astra }: AstraProps) {
                     </div>
 
                     <div className="mx-auto mt-10 max-w-4xl">
-                        <AstraForm />
+                        <AstraForm contactEmail={contactEmail} />
                     </div>
                 </div>
             </section>

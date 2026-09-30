@@ -1,30 +1,14 @@
-'use client'
-import { useState } from 'react'
-import { submitNetlifyForm } from '@/utils/submitNetlifyForm'
+import { NetlifyForm, SubmitButton } from '@/components/forms/NetlifyForm'
 
-const AstraForm = () => {
-    const [status, setStatus] = useState<string | null>(null)
-    const [error, setError] = useState<string | null>(null)
-
+const AstraForm = ({ contactEmail }: { contactEmail: string }) => {
     return (
-        <form
-            method="POST"
+        <NetlifyForm
             name="astra"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-            onSubmit={(event) => submitNetlifyForm(event, setStatus, setError)}
+            successMessage="Thank you! Your ASTra support request was sent. We'll be in touch."
+            contactEmail={contactEmail}
             aria-label="Request ASTra support"
             className="rounded-3xl bg-white p-6 ring-1 ring-slate-200 md:p-8"
         >
-            {/* Netlify required fields */}
-            <input type="hidden" name="form-name" value="astra" />
-            <p className="hidden">
-                <label>
-                    Don&apos;t fill this out if you&apos;re human:
-                    <input name="bot-field" tabIndex={-1} autoComplete="off" />
-                </label>
-            </p>
-
             <div className="space-y-4">
                 <div className="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-6">
                     {/* Parent/Guardian Name */}
@@ -398,40 +382,11 @@ const AstraForm = () => {
 
             {/* Footer (Submit Button) */}
             <div className="mt-8 flex flex-col items-center gap-2">
-                <button
-                    type="button"
-                    className="cursor-pointer rounded-xl px-4 py-3 text-sm font-bold text-slate-700 transition hover:bg-slate-100 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvblue focus-visible:ring-offset-2"
-                >
-                    Cancel
-                </button>
-                <button
-                    type="submit"
-                    className="inline-flex min-h-[44px] cursor-pointer items-center rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2"
-                >
+                <SubmitButton className="inline-flex min-h-[44px] cursor-pointer items-center rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition hover:bg-hvorange-800 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-70">
                     Submit
-                </button>
+                </SubmitButton>
             </div>
-
-            {/* Status Messages */}
-            {status && (
-                <div className="mt-6" role="status" aria-live="polite">
-                    <div className="rounded-xl bg-green-50 p-4 ring-1 ring-green-200">
-                        <div className="text-sm font-medium text-green-800">
-                            {status}
-                        </div>
-                    </div>
-                </div>
-            )}
-            {error && (
-                <div className="mt-6" role="alert" aria-live="assertive">
-                    <div className="rounded-xl bg-red-50 p-4 ring-1 ring-red-200">
-                        <div className="text-sm font-medium text-red-800">
-                            {error}
-                        </div>
-                    </div>
-                </div>
-            )}
-        </form>
+        </NetlifyForm>
     )
 }
 
