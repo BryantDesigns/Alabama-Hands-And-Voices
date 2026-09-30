@@ -224,6 +224,7 @@ test('membership controls and GBYS tabs are keyboard reachable', async ({
     )
 
     await page.goto('/membership/choose-membership')
+    await expect(page.locator('[data-route-loading]')).toHaveCount(0)
     const membershipForm = page.locator('#membership-form')
     const memberName = membershipForm.getByLabel('Parent/Guardian Name:', {
         exact: true,
@@ -250,6 +251,7 @@ test('membership controls and GBYS tabs are keyboard reachable', async ({
     ).toBeFocused()
 
     await page.goto('/programs/gbys')
+    await expect(page.locator('[data-route-loading]')).toHaveCount(0)
     const personalTab = page.getByRole('tab', { name: 'Personal' })
     const professionalTab = page.getByRole('tab', {
         name: 'Professional Referral',
