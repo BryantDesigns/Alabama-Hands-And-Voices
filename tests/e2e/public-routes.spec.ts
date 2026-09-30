@@ -1,11 +1,26 @@
-import { expect, test, type Page } from '@playwright/test'
+import { expect, test, type ConsoleMessage, type Page } from '@playwright/test'
 import { canonicalPublicRoutes } from './public-routes'
+
+// Firefox logs the YouTube embed's rejected third-party cookies as console
+// errors. They come from YouTube's iframe, not from this site's code.
+function isYouTubeCookieRejection(message: ConsoleMessage) {
+    const messageText = message.text()
+
+    return (
+        messageText.includes(
+            'has been rejected because it is in a cross-site context'
+        ) &&
+        `${messageText} ${message.location().url}`.includes(
+            'https://www.youtube.com/'
+        )
+    )
+}
 
 function collectBrowserErrors(page: Page) {
     const errors: string[] = []
 
     page.on('console', (message) => {
-        if (message.type() === 'error') {
+        if (message.type() === 'error' && !isYouTubeCookieRejection(message)) {
             errors.push(message.text())
         }
     })
