@@ -34,205 +34,184 @@ async function gotoLoadedRoute(page: Page, route: string) {
     await expect(page.locator('[data-route-loading]')).toHaveCount(0)
 }
 
-test.describe('ASTra live form', () => {
-    const successMessage =
-        "Thank you! Your ASTra support request was sent. We'll be in touch."
+// One answer a visitor gives: typed into the field labelled `label` and sent
+// in the form submission as `fieldName`.
+interface Answer {
+    label: string
+    fieldName: string
+    value: string
+}
 
-    function astraForm(page: Page) {
-        return page.getByRole('form', { name: 'Request ASTra support' })
+interface LiveForm {
+    title: string
+    route: string
+    accessibleName: string
+    formName: string
+    successMessage: string
+    requiredAnswers: Answer[]
+}
+
+const liveForms: LiveForm[] = [
+    {
+        title: 'ASTra live form',
+        route: '/programs/astra',
+        accessibleName: 'Request ASTra support',
+        formName: 'astra',
+        successMessage:
+            "Thank you! Your ASTra support request was sent. We'll be in touch.",
+        requiredAnswers: [
+            {
+                label: 'Parent/Guardian Name:',
+                fieldName: 'name',
+                value: 'Pat Example',
+            },
+            {
+                label: 'Phone Number:',
+                fieldName: 'phone_number',
+                value: '205-555-0100',
+            },
+            { label: 'Email:', fieldName: 'email', value: 'pat@example.com' },
+            {
+                label: 'Student Name:',
+                fieldName: 'student_name',
+                value: 'Sam Example',
+            },
+        ],
+    },
+    {
+        title: 'D/HH Committee live form',
+        route: '/programs/dhh-committee',
+        accessibleName: 'Connect with a D/HH Committee member',
+        formName: 'dhhrm',
+        successMessage:
+            'Thank you! Your request was sent. A D/HH Committee member will be in touch.',
+        requiredAnswers: [
+            { label: 'Name:', fieldName: 'name', value: 'Pat Example' },
+            {
+                label: 'Phone Number:',
+                fieldName: 'phone',
+                value: '205-555-0100',
+            },
+            { label: 'Email:', fieldName: 'email', value: 'pat@example.com' },
+            {
+                label: "Child's Name:",
+                fieldName: 'childs-name',
+                value: 'Sam Example',
+            },
+            {
+                label: "Child's DOB:",
+                fieldName: 'childs-dob',
+                value: '2020-05-01',
+            },
+        ],
+    },
+]
+
+function answerField(form: Locator, answer: Answer) {
+    return form.getByLabel(answer.label, { exact: true })
+}
+
+async function fillAnswers(form: Locator, answers: Answer[]) {
+    for (const answer of answers) {
+        await answerField(form, answer).fill(answer.value)
     }
+}
 
-    async function fillRequiredFields(form: Locator) {
-        await form
-            .getByLabel('Parent/Guardian Name:', { exact: true })
-            .fill('Pat Example')
-        await form.getByLabel('Phone Number:').fill('205-555-0100')
-        await form.getByLabel('Email:').fill('pat@example.com')
-        await form.getByLabel('Student Name:').fill('Sam Example')
-    }
+for (const liveForm of liveForms) {
+    test.describe(liveForm.title, () => {
+        function locateForm(page: Page) {
+            return page.getByRole('form', { name: liveForm.accessibleName })
+        }
 
-    test('a successful form submission thanks the visitor and resets the form', async ({
-        page,
-    }) => {
-        const endpoint = await fakeDetectionFormEndpoint(page)
-        await gotoLoadedRoute(page, '/programs/astra')
-        const form = astraForm(page)
-        const statusRegion = form.getByRole('status')
-        const alertRegion = form.getByRole('alert')
-        // Live regions announce reliably only when mounted before they change.
-        await expect(statusRegion).toBeEmpty()
-        await expect(alertRegion).toBeEmpty()
+        test('a successful form submission thanks the visitor and resets the form', async ({
+            page,
+        }) => {
+            const endpoint = await fakeDetectionFormEndpoint(page)
+            await gotoLoadedRoute(page, liveForm.route)
+            const form = locateForm(page)
+            const statusRegion = form.getByRole('status')
+            const alertRegion = form.getByRole('alert')
+            // Live regions announce reliably only when mounted before they change.
+            await expect(statusRegion).toBeEmpty()
+            await expect(alertRegion).toBeEmpty()
 
-        await fillRequiredFields(form)
-        await form.getByRole('button', { name: 'Submit' }).click()
+            await fillAnswers(form, liveForm.requiredAnswers)
+            await form.getByRole('button', { name: 'Submit' }).click()
 
-        await expect(statusRegion).toHaveText(successMessage)
-        await expect(alertRegion).toBeEmpty()
-        expect(endpoint.submissions).toHaveLength(1)
-        const [submission] = endpoint.submissions
-        expect(submission.get('form-name')).toBe('astra')
-        expect(submission.get('student_name')).toBe('Sam Example')
-        expect(submission.get('bot-field')).toBe('')
-        await expect(form.getByLabel('Student Name:')).toHaveValue('')
-        await expect(form.getByLabel('Email:')).toHaveValue('')
-    })
-
-    test('a failed form submission keeps the answers and offers the contact email', async ({
-        page,
-    }) => {
-        const endpoint = await fakeDetectionFormEndpoint(page)
-        endpoint.responseStatus = 500
-        await gotoLoadedRoute(page, '/programs/astra')
-        const form = astraForm(page)
-        const alertRegion = form.getByRole('alert')
-        const submitButton = form.getByRole('button', { name: 'Submit' })
-
-        await fillRequiredFields(form)
-        await submitButton.click()
-
-        await expect(alertRegion).toHaveText(
-            `Sorry, your form didn't send. Please try again, or email us at ${CONTACT_EMAIL}.`
-        )
-        await expect(
-            alertRegion.getByRole('link', { name: CONTACT_EMAIL })
-        ).toHaveAttribute('href', `mailto:${CONTACT_EMAIL}`)
-        await expect(form.getByRole('status')).toBeEmpty()
-        await expect(form.getByLabel('Student Name:')).toHaveValue(
-            'Sam Example'
-        )
-        await expect(form.getByLabel('Email:')).toHaveValue('pat@example.com')
-        await expect(submitButton).toBeEnabled()
-
-        endpoint.responseStatus = 200
-        await submitButton.click()
-
-        await expect(form.getByRole('status')).toHaveText(successMessage)
-        await expect(alertRegion).toBeEmpty()
-        expect(endpoint.submissions).toHaveLength(2)
-    })
-
-    test('a double-clicked submit sends one form submission', async ({
-        page,
-    }) => {
-        const endpoint = await fakeDetectionFormEndpoint(page)
-        let releaseResponses = () => {}
-        endpoint.responseGate = new Promise((resolve) => {
-            releaseResponses = resolve
+            await expect(statusRegion).toHaveText(liveForm.successMessage)
+            await expect(alertRegion).toBeEmpty()
+            expect(endpoint.submissions).toHaveLength(1)
+            const [submission] = endpoint.submissions
+            expect(submission.get('form-name')).toBe(liveForm.formName)
+            expect(submission.get('bot-field')).toBe('')
+            for (const answer of liveForm.requiredAnswers) {
+                expect(submission.get(answer.fieldName)).toBe(answer.value)
+                await expect(answerField(form, answer)).toHaveValue('')
+            }
         })
-        await gotoLoadedRoute(page, '/programs/astra')
-        const form = astraForm(page)
 
-        await fillRequiredFields(form)
-        await form.getByRole('button', { name: 'Submit' }).dblclick()
+        test('a failed form submission keeps the answers and offers the contact email', async ({
+            page,
+        }) => {
+            const endpoint = await fakeDetectionFormEndpoint(page)
+            endpoint.responseStatus = 500
+            await gotoLoadedRoute(page, liveForm.route)
+            const form = locateForm(page)
+            const alertRegion = form.getByRole('alert')
+            const submitButton = form.getByRole('button', { name: 'Submit' })
 
-        await expect(
-            form.getByRole('button', { name: 'Sending…' })
-        ).toBeDisabled()
-        releaseResponses()
-        await expect(form.getByRole('status')).toHaveText(successMessage)
-        await expect(form.getByRole('button', { name: 'Submit' })).toBeEnabled()
-        expect(endpoint.submissions).toHaveLength(1)
-    })
-})
+            await fillAnswers(form, liveForm.requiredAnswers)
+            await submitButton.click()
 
-test.describe('D/HH Committee live form', () => {
-    const successMessage =
-        'Thank you! Your request was sent. A D/HH Committee member will be in touch.'
+            await expect(alertRegion).toHaveText(
+                `Sorry, your form didn't send. Please try again, or email us at ${CONTACT_EMAIL}.`
+            )
+            await expect(
+                alertRegion.getByRole('link', { name: CONTACT_EMAIL })
+            ).toHaveAttribute('href', `mailto:${CONTACT_EMAIL}`)
+            await expect(form.getByRole('status')).toBeEmpty()
+            for (const answer of liveForm.requiredAnswers) {
+                await expect(answerField(form, answer)).toHaveValue(
+                    answer.value
+                )
+            }
+            await expect(submitButton).toBeEnabled()
 
-    function dhhCommitteeForm(page: Page) {
-        return page.getByRole('form', {
-            name: 'Connect with a D/HH Committee member',
+            endpoint.responseStatus = 200
+            await submitButton.click()
+
+            await expect(form.getByRole('status')).toHaveText(
+                liveForm.successMessage
+            )
+            await expect(alertRegion).toBeEmpty()
+            expect(endpoint.submissions).toHaveLength(2)
         })
-    }
 
-    async function fillRequiredFields(form: Locator) {
-        await form.getByLabel('Name:', { exact: true }).fill('Pat Example')
-        await form.getByLabel('Phone Number:').fill('205-555-0100')
-        await form.getByLabel('Email:').fill('pat@example.com')
-        await form.getByLabel("Child's Name:").fill('Sam Example')
-        await form.getByLabel("Child's DOB:").fill('2020-05-01')
-    }
+        test('a double-clicked submit sends one form submission', async ({
+            page,
+        }) => {
+            const endpoint = await fakeDetectionFormEndpoint(page)
+            let releaseResponses = () => {}
+            endpoint.responseGate = new Promise((resolve) => {
+                releaseResponses = resolve
+            })
+            await gotoLoadedRoute(page, liveForm.route)
+            const form = locateForm(page)
 
-    test('a successful form submission thanks the visitor and resets the form', async ({
-        page,
-    }) => {
-        const endpoint = await fakeDetectionFormEndpoint(page)
-        await gotoLoadedRoute(page, '/programs/dhh-committee')
-        const form = dhhCommitteeForm(page)
-        const statusRegion = form.getByRole('status')
-        const alertRegion = form.getByRole('alert')
-        // Live regions announce reliably only when mounted before they change.
-        await expect(statusRegion).toBeEmpty()
-        await expect(alertRegion).toBeEmpty()
+            await fillAnswers(form, liveForm.requiredAnswers)
+            await form.getByRole('button', { name: 'Submit' }).dblclick()
 
-        await fillRequiredFields(form)
-        await form.getByRole('button', { name: 'Submit' }).click()
-
-        await expect(statusRegion).toHaveText(successMessage)
-        await expect(alertRegion).toBeEmpty()
-        expect(endpoint.submissions).toHaveLength(1)
-        const [submission] = endpoint.submissions
-        expect(submission.get('form-name')).toBe('dhhrm')
-        expect(submission.get('childs-name')).toBe('Sam Example')
-        expect(submission.get('bot-field')).toBe('')
-        await expect(form.getByLabel("Child's Name:")).toHaveValue('')
-        await expect(form.getByLabel('Email:')).toHaveValue('')
-    })
-
-    test('a failed form submission keeps the answers and offers the contact email', async ({
-        page,
-    }) => {
-        const endpoint = await fakeDetectionFormEndpoint(page)
-        endpoint.responseStatus = 500
-        await gotoLoadedRoute(page, '/programs/dhh-committee')
-        const form = dhhCommitteeForm(page)
-        const alertRegion = form.getByRole('alert')
-        const submitButton = form.getByRole('button', { name: 'Submit' })
-
-        await fillRequiredFields(form)
-        await submitButton.click()
-
-        await expect(alertRegion).toHaveText(
-            `Sorry, your form didn't send. Please try again, or email us at ${CONTACT_EMAIL}.`
-        )
-        await expect(
-            alertRegion.getByRole('link', { name: CONTACT_EMAIL })
-        ).toHaveAttribute('href', `mailto:${CONTACT_EMAIL}`)
-        await expect(form.getByRole('status')).toBeEmpty()
-        await expect(form.getByLabel("Child's Name:")).toHaveValue(
-            'Sam Example'
-        )
-        await expect(form.getByLabel('Email:')).toHaveValue('pat@example.com')
-        await expect(submitButton).toBeEnabled()
-
-        endpoint.responseStatus = 200
-        await submitButton.click()
-
-        await expect(form.getByRole('status')).toHaveText(successMessage)
-        await expect(alertRegion).toBeEmpty()
-        expect(endpoint.submissions).toHaveLength(2)
-    })
-
-    test('a double-clicked submit sends one form submission', async ({
-        page,
-    }) => {
-        const endpoint = await fakeDetectionFormEndpoint(page)
-        let releaseResponses = () => {}
-        endpoint.responseGate = new Promise((resolve) => {
-            releaseResponses = resolve
+            await expect(
+                form.getByRole('button', { name: 'Sending…' })
+            ).toBeDisabled()
+            releaseResponses()
+            await expect(form.getByRole('status')).toHaveText(
+                liveForm.successMessage
+            )
+            await expect(
+                form.getByRole('button', { name: 'Submit' })
+            ).toBeEnabled()
+            expect(endpoint.submissions).toHaveLength(1)
         })
-        await gotoLoadedRoute(page, '/programs/dhh-committee')
-        const form = dhhCommitteeForm(page)
-
-        await fillRequiredFields(form)
-        await form.getByRole('button', { name: 'Submit' }).dblclick()
-
-        await expect(
-            form.getByRole('button', { name: 'Sending…' })
-        ).toBeDisabled()
-        releaseResponses()
-        await expect(form.getByRole('status')).toHaveText(successMessage)
-        await expect(form.getByRole('button', { name: 'Submit' })).toBeEnabled()
-        expect(endpoint.submissions).toHaveLength(1)
     })
-})
+}
