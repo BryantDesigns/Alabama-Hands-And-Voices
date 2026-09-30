@@ -42,14 +42,104 @@ interface Answer {
     value: string
 }
 
-interface LiveForm {
+// A live form is found by its accessible name. A live form on a tab has none:
+// it is found through the tab that shows it.
+type LiveFormLocation = { accessibleName: string } | { tabName: string }
+
+type LiveForm = LiveFormLocation & {
     title: string
     route: string
-    accessibleName: string
     formName: string
     successMessage: string
+    submitButtonName: string
     requiredAnswers: Answer[]
 }
+
+// GBYS labels read "<label>* (required)" on required fields: a visible
+// asterisk and a screen-reader hint.
+const gbysPersonalLiveForm = {
+    title: 'GBYS personal live form',
+    route: '/programs/gbys',
+    tabName: 'Personal',
+    formName: 'gbys',
+    successMessage:
+        'Thank you! Your request was sent. A Parent Guide will be in touch.',
+    submitButtonName: 'Connect with a Parent Guide',
+    requiredAnswers: [
+        {
+            label: 'Parent / guardian name* (required)',
+            fieldName: 'name',
+            value: 'Pat Example',
+        },
+        {
+            label: "Child's name* (required)",
+            fieldName: 'childs-name',
+            value: 'Sam Example',
+        },
+        {
+            label: "Child's date of birth* (required)",
+            fieldName: 'child-dob',
+            value: '2020-05-01',
+        },
+        {
+            label: 'Email address* (required)',
+            fieldName: 'email',
+            value: 'pat@example.com',
+        },
+        {
+            label: 'Phone number* (required)',
+            fieldName: 'phone',
+            value: '205-555-0100',
+        },
+    ],
+} satisfies LiveForm
+
+const gbysReferralLiveForm = {
+    title: 'GBYS referral live form',
+    route: '/programs/gbys',
+    tabName: 'Professional Referral',
+    formName: 'gbysref',
+    successMessage:
+        'Thank you! Your referral was sent. Our Guide By Your Side team will follow up.',
+    submitButtonName: 'Submit referral',
+    requiredAnswers: [
+        {
+            label: "Professional's full name* (required)",
+            fieldName: 'pr-ref-name',
+            value: 'Lee Example',
+        },
+        {
+            label: 'Referral role* (required)',
+            fieldName: 'pr-ref-role',
+            value: 'Audiologist',
+        },
+        {
+            label: 'Parent / guardian name* (required)',
+            fieldName: 'pr-name',
+            value: 'Pat Example',
+        },
+        {
+            label: 'Phone number* (required)',
+            fieldName: 'pr-phone',
+            value: '205-555-0100',
+        },
+        {
+            label: "Child's name* (required)",
+            fieldName: 'pr-childs-name',
+            value: 'Sam Example',
+        },
+        {
+            label: 'Email address* (required)',
+            fieldName: 'pr-email',
+            value: 'pat@example.com',
+        },
+        {
+            label: 'Language spoken in the home* (required)',
+            fieldName: 'pr-language',
+            value: 'English',
+        },
+    ],
+} satisfies LiveForm
 
 const liveForms: LiveForm[] = [
     {
@@ -59,6 +149,7 @@ const liveForms: LiveForm[] = [
         formName: 'astra',
         successMessage:
             "Thank you! Your ASTra support request was sent. We'll be in touch.",
+        submitButtonName: 'Submit',
         requiredAnswers: [
             {
                 label: 'Parent/Guardian Name:',
@@ -85,6 +176,7 @@ const liveForms: LiveForm[] = [
         formName: 'dhhrm',
         successMessage:
             'Thank you! Your request was sent. A D/HH Committee member will be in touch.',
+        submitButtonName: 'Submit',
         requiredAnswers: [
             { label: 'Name:', fieldName: 'name', value: 'Pat Example' },
             {
@@ -105,10 +197,32 @@ const liveForms: LiveForm[] = [
             },
         ],
     },
+    gbysPersonalLiveForm,
+    gbysReferralLiveForm,
 ]
+
+// Selects the tab and returns the tab panel it shows.
+async function selectTab(page: Page, tabName: string) {
+    await page.getByRole('tab', { name: tabName, exact: true }).click()
+    return page.getByRole('tabpanel', { name: tabName, exact: true })
+}
+
+// Loads the live form's page and returns the live form. A live form on a tab
+// is returned as its tab panel, which holds that form and nothing else.
+async function openLiveForm(page: Page, liveForm: LiveForm) {
+    await gotoLoadedRoute(page, liveForm.route)
+    if ('tabName' in liveForm) {
+        return selectTab(page, liveForm.tabName)
+    }
+    return page.getByRole('form', { name: liveForm.accessibleName })
+}
 
 function answerField(form: Locator, answer: Answer) {
     return form.getByLabel(answer.label, { exact: true })
+}
+
+function locateSubmitButton(form: Locator, liveForm: LiveForm) {
+    return form.getByRole('button', { name: liveForm.submitButtonName })
 }
 
 async function fillAnswers(form: Locator, answers: Answer[]) {
@@ -119,16 +233,11 @@ async function fillAnswers(form: Locator, answers: Answer[]) {
 
 for (const liveForm of liveForms) {
     test.describe(liveForm.title, () => {
-        function locateForm(page: Page) {
-            return page.getByRole('form', { name: liveForm.accessibleName })
-        }
-
         test('a successful form submission thanks the visitor and resets the form', async ({
             page,
         }) => {
             const endpoint = await fakeDetectionFormEndpoint(page)
-            await gotoLoadedRoute(page, liveForm.route)
-            const form = locateForm(page)
+            const form = await openLiveForm(page, liveForm)
             const statusRegion = form.getByRole('status')
             const alertRegion = form.getByRole('alert')
             // Live regions announce reliably only when mounted before they change.
@@ -136,7 +245,7 @@ for (const liveForm of liveForms) {
             await expect(alertRegion).toBeEmpty()
 
             await fillAnswers(form, liveForm.requiredAnswers)
-            await form.getByRole('button', { name: 'Submit' }).click()
+            await locateSubmitButton(form, liveForm).click()
 
             await expect(statusRegion).toHaveText(liveForm.successMessage)
             await expect(alertRegion).toBeEmpty()
@@ -155,10 +264,9 @@ for (const liveForm of liveForms) {
         }) => {
             const endpoint = await fakeDetectionFormEndpoint(page)
             endpoint.responseStatus = 500
-            await gotoLoadedRoute(page, liveForm.route)
-            const form = locateForm(page)
+            const form = await openLiveForm(page, liveForm)
             const alertRegion = form.getByRole('alert')
-            const submitButton = form.getByRole('button', { name: 'Submit' })
+            const submitButton = locateSubmitButton(form, liveForm)
 
             await fillAnswers(form, liveForm.requiredAnswers)
             await submitButton.click()
@@ -195,11 +303,10 @@ for (const liveForm of liveForms) {
             endpoint.responseGate = new Promise((resolve) => {
                 releaseResponses = resolve
             })
-            await gotoLoadedRoute(page, liveForm.route)
-            const form = locateForm(page)
+            const form = await openLiveForm(page, liveForm)
 
             await fillAnswers(form, liveForm.requiredAnswers)
-            await form.getByRole('button', { name: 'Submit' }).dblclick()
+            await locateSubmitButton(form, liveForm).dblclick()
 
             await expect(
                 form.getByRole('button', { name: 'Sending…' })
@@ -208,10 +315,33 @@ for (const liveForm of liveForms) {
             await expect(form.getByRole('status')).toHaveText(
                 liveForm.successMessage
             )
-            await expect(
-                form.getByRole('button', { name: 'Submit' })
-            ).toBeEnabled()
+            await expect(locateSubmitButton(form, liveForm)).toBeEnabled()
             expect(endpoint.submissions).toHaveLength(1)
         })
     })
 }
+
+test.describe('GBYS live forms', () => {
+    test('a successful form submission on the personal tab shows no status in the referral panel', async ({
+        page,
+    }) => {
+        await fakeDetectionFormEndpoint(page)
+        const personalPanel = await openLiveForm(page, gbysPersonalLiveForm)
+        await fillAnswers(personalPanel, gbysPersonalLiveForm.requiredAnswers)
+        await locateSubmitButton(personalPanel, gbysPersonalLiveForm).click()
+        await expect(personalPanel.getByRole('status')).toHaveText(
+            gbysPersonalLiveForm.successMessage
+        )
+
+        const referralPanel = await selectTab(
+            page,
+            gbysReferralLiveForm.tabName
+        )
+
+        await expect(referralPanel.getByRole('status')).toBeEmpty()
+        await expect(referralPanel.getByRole('alert')).toBeEmpty()
+        await expect(
+            page.getByText(gbysPersonalLiveForm.successMessage)
+        ).toBeHidden()
+    })
+})

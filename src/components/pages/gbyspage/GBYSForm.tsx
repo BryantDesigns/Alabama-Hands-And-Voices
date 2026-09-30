@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
-import { submitNetlifyForm } from '@/utils/submitNetlifyForm'
+import { NetlifyForm, SubmitButton } from '@/components/forms/NetlifyForm'
 
 const inputClass =
     'block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base font-medium text-hvblue placeholder:text-slate-500 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2'
@@ -94,12 +94,10 @@ const checkboxLabelClass =
 const checkboxClass =
     'h-4 w-4 shrink-0 rounded-sm border-2 border-slate-300 text-hvorange-700 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2'
 
-export default function GBYSForm() {
+export default function GBYSForm({ contactEmail }: { contactEmail: string }) {
     const [activeTab, setActiveTab] = useState<'personal' | 'professional'>(
         'personal'
     )
-    const [status, setStatus] = useState<string | null>(null)
-    const [error, setError] = useState<string | null>(null)
     const personalTabRef = useRef<HTMLButtonElement>(null)
     const professionalTabRef = useRef<HTMLButtonElement>(null)
 
@@ -197,28 +195,12 @@ export default function GBYSForm() {
                 aria-labelledby="gbys-personal-tab"
                 hidden={activeTab !== 'personal'}
             >
-                <form
-                    method="POST"
+                <NetlifyForm
                     name="gbys"
-                    data-netlify="true"
-                    netlify-honeypot="bot-field"
-                    onSubmit={(event) =>
-                        submitNetlifyForm(event, setStatus, setError)
-                    }
+                    successMessage="Thank you! Your request was sent. A Parent Guide will be in touch."
+                    contactEmail={contactEmail}
                     className="rounded-3xl bg-white p-6 ring-1 ring-slate-200 md:p-8"
                 >
-                    <input type="hidden" name="form-name" value="gbys" />
-                    <p className="hidden">
-                        <label>
-                            Don’t fill this out if you’re human:
-                            <input
-                                name="bot-field"
-                                tabIndex={-1}
-                                autoComplete="off"
-                            />
-                        </label>
-                    </p>
-
                     <div className="flex flex-col gap-8">
                         <fieldset className={fieldsetClass}>
                             <legend className={legendClass}>
@@ -548,14 +530,11 @@ export default function GBYSForm() {
                     </div>
 
                     <div className="mt-8 flex justify-end">
-                        <button
-                            type="submit"
-                            className="inline-flex min-h-[44px] cursor-pointer items-center rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 focus-visible:outline-hidden"
-                        >
+                        <SubmitButton className="inline-flex min-h-[44px] cursor-pointer items-center rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:cursor-wait disabled:opacity-70">
                             Connect with a Parent Guide
-                        </button>
+                        </SubmitButton>
                     </div>
-                </form>
+                </NetlifyForm>
             </div>
 
             <div
@@ -564,28 +543,12 @@ export default function GBYSForm() {
                 aria-labelledby="gbys-professional-tab"
                 hidden={activeTab !== 'professional'}
             >
-                <form
-                    method="post"
+                <NetlifyForm
                     name="gbysref"
-                    data-netlify="true"
-                    netlify-honeypot="bot-field"
-                    onSubmit={(event) =>
-                        submitNetlifyForm(event, setStatus, setError)
-                    }
+                    successMessage="Thank you! Your referral was sent. Our Guide By Your Side team will follow up."
+                    contactEmail={contactEmail}
                     className="rounded-3xl bg-white p-6 ring-1 ring-slate-200 md:p-8"
                 >
-                    <input type="hidden" name="form-name" value="gbysref" />
-                    <p className="hidden">
-                        <label>
-                            Don’t fill this out if you’re human:
-                            <input
-                                name="bot-field"
-                                tabIndex={-1}
-                                autoComplete="off"
-                            />
-                        </label>
-                    </p>
-
                     <div className="flex flex-col gap-8">
                         <fieldset className={fieldsetClass}>
                             <legend className={legendClass}>
@@ -920,34 +883,12 @@ export default function GBYSForm() {
                     </div>
 
                     <div className="mt-8 flex justify-end">
-                        <button
-                            type="submit"
-                            className="inline-flex min-h-[44px] cursor-pointer items-center rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 focus-visible:outline-hidden"
-                        >
+                        <SubmitButton className="inline-flex min-h-[44px] cursor-pointer items-center rounded-xl bg-hvorange-700 px-7 py-3.5 text-base font-bold text-white transition hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:cursor-wait disabled:opacity-70">
                             Submit referral
-                        </button>
+                        </SubmitButton>
                     </div>
-                </form>
+                </NetlifyForm>
             </div>
-
-            {status && (
-                <div
-                    className="mt-6 rounded-xl bg-green-50 p-4 text-sm font-medium text-green-800 ring-1 ring-green-200"
-                    role="status"
-                    aria-live="polite"
-                >
-                    {status}
-                </div>
-            )}
-            {error && (
-                <div
-                    className="mt-6 rounded-xl bg-red-50 p-4 text-sm font-medium text-red-800 ring-1 ring-red-200"
-                    role="alert"
-                    aria-live="assertive"
-                >
-                    {error}
-                </div>
-            )}
         </div>
     )
 }

@@ -6,6 +6,7 @@ import { documentLinkProps } from '@/utils/documentLinks'
 
 interface GbysProps {
     gbys: NonNullable<Awaited<ReturnType<typeof getGbysPageContent>>>
+    contactEmail: string
 }
 
 function ArrowIcon({ className = '' }: { className?: string }) {
@@ -82,7 +83,7 @@ function DownloadIcon({ className = '' }: { className?: string }) {
     )
 }
 
-export default function Gbys({ gbys }: GbysProps) {
+export default function Gbys({ gbys, contactEmail }: GbysProps) {
     const {
         heroTagline,
         programIntro,
@@ -293,7 +294,7 @@ export default function Gbys({ gbys }: GbysProps) {
                     </div>
 
                     <div className="mx-auto mt-10 max-w-4xl">
-                        <GBYSForm />
+                        <GBYSForm contactEmail={contactEmail} />
                     </div>
                 </div>
             </section>
