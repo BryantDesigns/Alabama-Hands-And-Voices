@@ -1,17 +1,13 @@
 'use client'
-import { useEffect, useState } from 'react'
-import { submitNetlifyForm } from '@/utils/submitNetlifyForm'
+import { NetlifyForm, SubmitButton } from '@/components/forms/NetlifyForm'
 
-const MembershipForm = () => {
-    const [status, setStatus] = useState<string | null>(null)
-    const [error, setError] = useState<string | null>(null)
+// After a successful form submission, the visitor's next step is choosing a
+// membership tier.
+function focusMembershipTiersHeading() {
+    document.getElementById('membership-tiers-heading')?.focus()
+}
 
-    useEffect(() => {
-        if (status === 'ok') {
-            document.getElementById('membership-tiers-heading')?.focus()
-        }
-    }, [status])
-
+const MembershipForm = ({ contactEmail }: { contactEmail: string }) => {
     return (
         <section>
             <p className="text-center text-lg font-medium text-slate-700">
@@ -20,29 +16,25 @@ const MembershipForm = () => {
             </p>
 
             <div className="mt-6">
-                <form
-                    method="POST"
+                <NetlifyForm
                     name="membership"
-                    data-netlify="true"
-                    netlify-honeypot="bot-field"
-                    onSubmit={(event) =>
-                        submitNetlifyForm(event, setStatus, setError)
+                    successMessage={
+                        <>
+                            <p className="text-base font-bold text-green-800">
+                                Your membership form was submitted successfully.
+                            </p>
+                            <a
+                                href="#membership-tiers"
+                                className="mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-hvorange-700 px-6 py-3 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 focus-visible:outline-hidden"
+                            >
+                                Thanks — now choose your membership tier below
+                            </a>
+                        </>
                     }
+                    contactEmail={contactEmail}
+                    onSuccess={focusMembershipTiersHeading}
                     className="rounded-3xl bg-white p-6 ring-1 ring-slate-200 md:p-8"
                 >
-                    {/* Netlify required fields */}
-                    <input type="hidden" name="form-name" value="membership" />
-                    <p className="hidden">
-                        <label>
-                            Don&apos;t fill this out if you&apos;re human:
-                            <input
-                                name="bot-field"
-                                tabIndex={-1}
-                                autoComplete="off"
-                            />
-                        </label>
-                    </p>
-
                     <div className="flex flex-col gap-4">
                         <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             {/* Parent/Guardian Name */}
@@ -353,47 +345,11 @@ const MembershipForm = () => {
 
                     {/* Footer (Submit Button) */}
                     <div className="mt-8 flex flex-col items-center gap-3">
-                        <button
-                            type="submit"
-                            className="inline-flex min-h-[48px] cursor-pointer items-center justify-center rounded-xl bg-hvorange-700 px-8 py-3 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:cursor-wait disabled:opacity-70"
-                            disabled={status === 'pending'}
-                        >
-                            {status === 'pending' ? 'Submitting…' : 'Submit'}
-                        </button>
+                        <SubmitButton className="inline-flex min-h-[48px] cursor-pointer items-center justify-center rounded-xl bg-hvorange-700 px-8 py-3 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:cursor-wait disabled:opacity-70">
+                            Submit
+                        </SubmitButton>
                     </div>
-
-                    {/* Status Messages */}
-                    {status === 'ok' && (
-                        <div className="mt-6" role="status" aria-live="polite">
-                            <div className="rounded-2xl bg-green-50 p-5 ring-1 ring-green-200">
-                                <p className="font-bold text-green-800">
-                                    Your membership form was submitted
-                                    successfully.
-                                </p>
-                                <a
-                                    href="#membership-tiers"
-                                    className="mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-hvorange-700 px-6 py-3 text-base font-bold text-white transition duration-150 hover:bg-hvorange-800 focus-visible:ring-2 focus-visible:ring-hvorange-700 focus-visible:ring-offset-2 focus-visible:outline-hidden"
-                                >
-                                    Thanks — now choose your membership tier
-                                    below
-                                </a>
-                            </div>
-                        </div>
-                    )}
-                    {error && (
-                        <div
-                            className="mt-6"
-                            role="alert"
-                            aria-live="assertive"
-                        >
-                            <div className="rounded-2xl bg-red-50 p-4 ring-1 ring-red-200">
-                                <div className="text-sm font-medium text-red-800">
-                                    {error}
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                </form>
+                </NetlifyForm>
             </div>
         </section>
     )

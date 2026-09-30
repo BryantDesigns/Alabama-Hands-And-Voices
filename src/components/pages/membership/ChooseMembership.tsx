@@ -7,6 +7,7 @@ interface ChooseMembershipProps {
     choose: NonNullable<
         Awaited<ReturnType<typeof getChooseMembershipPageContent>>
     >
+    contactEmail: string
 }
 
 // ── Fixed tier titles (must match MembershipV2's TIER_LABELS) ────────────────
@@ -61,7 +62,10 @@ function CheckIcon({ className = '' }: { className?: string }) {
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
-export default function ChooseMembership({ choose }: ChooseMembershipProps) {
+export default function ChooseMembership({
+    choose,
+    contactEmail,
+}: ChooseMembershipProps) {
     const { membershipOptions } = choose
 
     const tiers = membershipTiers.map((tier) => ({
@@ -290,7 +294,7 @@ export default function ChooseMembership({ choose }: ChooseMembershipProps) {
                     </div>
 
                     <div className="mx-auto mt-10 max-w-4xl">
-                        <MembershipForm />
+                        <MembershipForm contactEmail={contactEmail} />
                     </div>
                 </div>
             </section>

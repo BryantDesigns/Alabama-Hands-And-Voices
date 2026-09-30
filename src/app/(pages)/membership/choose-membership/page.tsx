@@ -1,11 +1,17 @@
 import ChooseMembership from '@/components/pages/membership/ChooseMembership'
-import { getChooseMembershipPageContent } from '@/lib/keystatic/pages'
+import {
+    getChooseMembershipPageContent,
+    getSiteSettings,
+} from '@/lib/keystatic/pages'
 import { createPageMetadata } from '@/lib/seo'
 
 export const metadata = createPageMetadata('/membership/choose-membership')
 
 export default async function ChooseMembershipPage() {
-    const data = await getChooseMembershipPageContent()
+    const [data, settings] = await Promise.all([
+        getChooseMembershipPageContent(),
+        getSiteSettings(),
+    ])
 
     if (!data) {
         throw new Error(
@@ -13,5 +19,7 @@ export default async function ChooseMembershipPage() {
         )
     }
 
-    return <ChooseMembership choose={data} />
+    return (
+        <ChooseMembership choose={data} contactEmail={settings.contactEmail} />
+    )
 }

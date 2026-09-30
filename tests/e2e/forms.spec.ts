@@ -43,16 +43,26 @@ interface Answer {
 }
 
 // A live form is found by its accessible name. A live form on a tab has none:
-// it is found through the tab that shows it.
-type LiveFormLocation = { accessibleName: string } | { tabName: string }
+// it is found through the tab that shows it. A live form with neither is found
+// by its form name.
+type LiveFormLocation =
+    { accessibleName: string } | { tabName: string } | { foundByFormName: true }
 
 type LiveForm = LiveFormLocation & {
     title: string
     route: string
     formName: string
     successMessage: string
+    // The link after the success message that hands the visitor on to their
+    // next step, when the live form has one.
+    successHandOffLinkName?: string
     submitButtonName: string
-    requiredAnswers: Answer[]
+    // Every required field, or at least one field when the live form has none,
+    // so the form submission carries answers to check.
+    answers: Answer[]
+    // Set when another spec owns this live form's success case, so the table
+    // skips it.
+    successCaseCoveredBy?: string
 }
 
 // GBYS labels read "<label>* (required)" on required fields: a visible
@@ -65,7 +75,7 @@ const gbysPersonalLiveForm = {
     successMessage:
         'Thank you! Your request was sent. A Parent Guide will be in touch.',
     submitButtonName: 'Connect with a Parent Guide',
-    requiredAnswers: [
+    answers: [
         {
             label: 'Parent / guardian name* (required)',
             fieldName: 'name',
@@ -102,7 +112,7 @@ const gbysReferralLiveForm = {
     successMessage:
         'Thank you! Your referral was sent. Our Guide By Your Side team will follow up.',
     submitButtonName: 'Submit referral',
-    requiredAnswers: [
+    answers: [
         {
             label: "Professional's full name* (required)",
             fieldName: 'pr-ref-name',
@@ -150,7 +160,7 @@ const liveForms: LiveForm[] = [
         successMessage:
             "Thank you! Your ASTra support request was sent. We'll be in touch.",
         submitButtonName: 'Submit',
-        requiredAnswers: [
+        answers: [
             {
                 label: 'Parent/Guardian Name:',
                 fieldName: 'name',
@@ -177,7 +187,7 @@ const liveForms: LiveForm[] = [
         successMessage:
             'Thank you! Your request was sent. A D/HH Committee member will be in touch.',
         submitButtonName: 'Submit',
-        requiredAnswers: [
+        answers: [
             { label: 'Name:', fieldName: 'name', value: 'Pat Example' },
             {
                 label: 'Phone Number:',
@@ -199,6 +209,26 @@ const liveForms: LiveForm[] = [
     },
     gbysPersonalLiveForm,
     gbysReferralLiveForm,
+    {
+        title: 'Membership live form',
+        route: '/membership/choose-membership',
+        foundByFormName: true,
+        formName: 'membership',
+        successMessage: 'Your membership form was submitted successfully.',
+        successHandOffLinkName:
+            'Thanks — now choose your membership tier below',
+        submitButtonName: 'Submit',
+        answers: [
+            {
+                label: 'Parent/Guardian Name:',
+                fieldName: 'name',
+                value: 'Pat Example',
+            },
+            { label: 'Email:', fieldName: 'email', value: 'pat@example.com' },
+        ],
+        successCaseCoveredBy:
+            'the membership success handoff test in public-cms.spec.ts',
+    },
 ]
 
 // Selects the tab and returns the tab panel it shows.
@@ -213,6 +243,9 @@ async function openLiveForm(page: Page, liveForm: LiveForm) {
     await gotoLoadedRoute(page, liveForm.route)
     if ('tabName' in liveForm) {
         return selectTab(page, liveForm.tabName)
+    }
+    if ('foundByFormName' in liveForm) {
+        return page.locator(`form[name="${liveForm.formName}"]`)
     }
     return page.getByRole('form', { name: liveForm.accessibleName })
 }
@@ -231,11 +264,44 @@ async function fillAnswers(form: Locator, answers: Answer[]) {
     }
 }
 
+// The status region shows exactly the success message, or the success message
+// and its hand-off link.
+async function expectSuccessMessage(form: Locator, liveForm: LiveForm) {
+    const statusRegion = form.getByRole('status')
+    if (liveForm.successHandOffLinkName === undefined) {
+        await expect(statusRegion).toHaveText(liveForm.successMessage)
+        return
+    }
+    await expect(statusRegion).toContainText(liveForm.successMessage)
+    await expect(
+        statusRegion.getByRole('link', {
+            name: liveForm.successHandOffLinkName,
+        })
+    ).toBeVisible()
+}
+
+// A form submission carries the live form's name, an empty honeypot and every
+// answer the visitor gave.
+function expectSubmissionCarriesAnswers(
+    submission: URLSearchParams,
+    liveForm: LiveForm
+) {
+    expect(submission.get('form-name')).toBe(liveForm.formName)
+    expect(submission.get('bot-field')).toBe('')
+    for (const answer of liveForm.answers) {
+        expect(submission.get(answer.fieldName)).toBe(answer.value)
+    }
+}
+
 for (const liveForm of liveForms) {
     test.describe(liveForm.title, () => {
         test('a successful form submission thanks the visitor and resets the form', async ({
             page,
         }) => {
+            test.skip(
+                liveForm.successCaseCoveredBy !== undefined,
+                `covered by ${liveForm.successCaseCoveredBy}`
+            )
             const endpoint = await fakeDetectionFormEndpoint(page)
             const form = await openLiveForm(page, liveForm)
             const statusRegion = form.getByRole('status')
@@ -244,17 +310,14 @@ for (const liveForm of liveForms) {
             await expect(statusRegion).toBeEmpty()
             await expect(alertRegion).toBeEmpty()
 
-            await fillAnswers(form, liveForm.requiredAnswers)
+            await fillAnswers(form, liveForm.answers)
             await locateSubmitButton(form, liveForm).click()
 
-            await expect(statusRegion).toHaveText(liveForm.successMessage)
+            await expectSuccessMessage(form, liveForm)
             await expect(alertRegion).toBeEmpty()
             expect(endpoint.submissions).toHaveLength(1)
-            const [submission] = endpoint.submissions
-            expect(submission.get('form-name')).toBe(liveForm.formName)
-            expect(submission.get('bot-field')).toBe('')
-            for (const answer of liveForm.requiredAnswers) {
-                expect(submission.get(answer.fieldName)).toBe(answer.value)
+            expectSubmissionCarriesAnswers(endpoint.submissions[0], liveForm)
+            for (const answer of liveForm.answers) {
                 await expect(answerField(form, answer)).toHaveValue('')
             }
         })
@@ -268,7 +331,7 @@ for (const liveForm of liveForms) {
             const alertRegion = form.getByRole('alert')
             const submitButton = locateSubmitButton(form, liveForm)
 
-            await fillAnswers(form, liveForm.requiredAnswers)
+            await fillAnswers(form, liveForm.answers)
             await submitButton.click()
 
             await expect(alertRegion).toHaveText(
@@ -278,7 +341,7 @@ for (const liveForm of liveForms) {
                 alertRegion.getByRole('link', { name: CONTACT_EMAIL })
             ).toHaveAttribute('href', `mailto:${CONTACT_EMAIL}`)
             await expect(form.getByRole('status')).toBeEmpty()
-            for (const answer of liveForm.requiredAnswers) {
+            for (const answer of liveForm.answers) {
                 await expect(answerField(form, answer)).toHaveValue(
                     answer.value
                 )
@@ -288,11 +351,11 @@ for (const liveForm of liveForms) {
             endpoint.responseStatus = 200
             await submitButton.click()
 
-            await expect(form.getByRole('status')).toHaveText(
-                liveForm.successMessage
-            )
+            await expectSuccessMessage(form, liveForm)
             await expect(alertRegion).toBeEmpty()
             expect(endpoint.submissions).toHaveLength(2)
+            // The retry sends the answers the failure kept.
+            expectSubmissionCarriesAnswers(endpoint.submissions[1], liveForm)
         })
 
         test('a double-clicked submit sends one form submission', async ({
@@ -305,16 +368,14 @@ for (const liveForm of liveForms) {
             })
             const form = await openLiveForm(page, liveForm)
 
-            await fillAnswers(form, liveForm.requiredAnswers)
+            await fillAnswers(form, liveForm.answers)
             await locateSubmitButton(form, liveForm).dblclick()
 
             await expect(
                 form.getByRole('button', { name: 'Sending…' })
             ).toBeDisabled()
             releaseResponses()
-            await expect(form.getByRole('status')).toHaveText(
-                liveForm.successMessage
-            )
+            await expectSuccessMessage(form, liveForm)
             await expect(locateSubmitButton(form, liveForm)).toBeEnabled()
             expect(endpoint.submissions).toHaveLength(1)
         })
@@ -327,7 +388,7 @@ test.describe('GBYS live forms', () => {
     }) => {
         await fakeDetectionFormEndpoint(page)
         const personalPanel = await openLiveForm(page, gbysPersonalLiveForm)
-        await fillAnswers(personalPanel, gbysPersonalLiveForm.requiredAnswers)
+        await fillAnswers(personalPanel, gbysPersonalLiveForm.answers)
         await locateSubmitButton(personalPanel, gbysPersonalLiveForm).click()
         await expect(personalPanel.getByRole('status')).toHaveText(
             gbysPersonalLiveForm.successMessage
