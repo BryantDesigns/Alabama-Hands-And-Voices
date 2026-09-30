@@ -93,7 +93,7 @@ src/
   lib/keystatic/    # Server-only content readers
   lib/seo.ts        # Fixed route metadata and canonical route list
   types/            # Shared TypeScript types
-  utils/            # Form helpers
+  utils/            # Document link helpers
 tests/e2e/           # Playwright, Axe, CMS, and SEO checks
 ```
 
