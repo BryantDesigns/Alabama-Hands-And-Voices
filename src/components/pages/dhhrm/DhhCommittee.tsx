@@ -7,6 +7,7 @@ import type { getDhhCommitteePageContent } from '@/lib/keystatic/pages'
 interface DhhCommitteeProps {
     dhh: NonNullable<Awaited<ReturnType<typeof getDhhCommitteePageContent>>>
     videos: VideoContent[]
+    contactEmail: string
 }
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
@@ -49,7 +50,11 @@ function CheckIcon({ className = '' }: { className?: string }) {
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
-export default function DhhCommittee({ dhh, videos }: DhhCommitteeProps) {
+export default function DhhCommittee({
+    dhh,
+    videos,
+    contactEmail,
+}: DhhCommitteeProps) {
     const {
         heroTagline,
         committeeCardBody,
@@ -235,7 +240,7 @@ export default function DhhCommittee({ dhh, videos }: DhhCommitteeProps) {
                     </div>
 
                     <div className="mx-auto mt-10 max-w-4xl">
-                        <DHHRMForm />
+                        <DHHRMForm contactEmail={contactEmail} />
                     </div>
                 </div>
             </section>
