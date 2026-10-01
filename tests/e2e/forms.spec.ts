@@ -60,9 +60,6 @@ type LiveForm = LiveFormLocation & {
     // Every required field, or at least one field when the live form has none,
     // so the form submission carries answers to check.
     answers: Answer[]
-    // Set when another spec owns this live form's success case, so the table
-    // skips it.
-    successCaseCoveredBy?: string
 }
 
 // GBYS labels read "<label>* (required)" on required fields: a visible
@@ -226,8 +223,6 @@ const liveForms: LiveForm[] = [
             },
             { label: 'Email:', fieldName: 'email', value: 'pat@example.com' },
         ],
-        successCaseCoveredBy:
-            'the membership success handoff test in public-cms.spec.ts',
     },
 ]
 
@@ -298,10 +293,6 @@ for (const liveForm of liveForms) {
         test('a successful form submission thanks the visitor and resets the form', async ({
             page,
         }) => {
-            test.skip(
-                liveForm.successCaseCoveredBy !== undefined,
-                `covered by ${liveForm.successCaseCoveredBy}`
-            )
             const endpoint = await fakeDetectionFormEndpoint(page)
             const form = await openLiveForm(page, liveForm)
             const statusRegion = form.getByRole('status')
