@@ -6,27 +6,34 @@ import About from '@/components/pages/aboutpage/About'
 export const metadata = createPageMetadata('/about')
 
 export default async function Page() {
-    const [aboutPage, boardRaw, staffRaw] = await Promise.all([
-        getSingleton('aboutPage'),
-        getBoardMembers(),
-        getStaffMembers(),
-    ])
-    const board = boardRaw
-        .map((m) => ({
-            name: m.entry.name,
-            role: m.entry.role,
-            imageUrl: m.entry.imageUrl,
-            sortOrder: m.entry.sortOrder,
+    const [aboutPage, boardMemberEntries, staffMemberEntries] =
+        await Promise.all([
+            getSingleton('aboutPage'),
+            getBoardMembers(),
+            getStaffMembers(),
+        ])
+    const board = boardMemberEntries
+        .map((boardMemberEntry) => ({
+            name: boardMemberEntry.entry.name,
+            role: boardMemberEntry.entry.role,
+            imageUrl: boardMemberEntry.entry.imageUrl,
+            sortOrder: boardMemberEntry.entry.sortOrder,
         }))
-        .sort((a, b) => (a.sortOrder ?? 99) - (b.sortOrder ?? 99))
-    const staff = staffRaw
-        .map((m) => ({
-            name: m.entry.name,
-            role: m.entry.role,
-            category: m.entry.category,
-            imageUrl: m.entry.imageUrl,
-            sortOrder: m.entry.sortOrder,
+        .sort(
+            (firstMember, secondMember) =>
+                (firstMember.sortOrder ?? 99) - (secondMember.sortOrder ?? 99)
+        )
+    const staff = staffMemberEntries
+        .map((staffMemberEntry) => ({
+            name: staffMemberEntry.entry.name,
+            role: staffMemberEntry.entry.role,
+            category: staffMemberEntry.entry.category,
+            imageUrl: staffMemberEntry.entry.imageUrl,
+            sortOrder: staffMemberEntry.entry.sortOrder,
         }))
-        .sort((a, b) => (a.sortOrder ?? 99) - (b.sortOrder ?? 99))
+        .sort(
+            (firstMember, secondMember) =>
+                (firstMember.sortOrder ?? 99) - (secondMember.sortOrder ?? 99)
+        )
     return <About about={aboutPage} board={board} staff={staff} />
 }
