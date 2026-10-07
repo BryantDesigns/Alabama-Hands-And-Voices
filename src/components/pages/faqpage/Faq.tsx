@@ -1,5 +1,5 @@
 import FaqAccordion from './FaqAccordion'
-import type { SingletonContent } from '@/lib/keystatic/singletons'
+import type { FaqEntries } from './FaqAccordion'
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
 
@@ -27,7 +27,7 @@ function QuestionBubbleIcon({ className = '' }: { className?: string }) {
 interface FaqProps {
     heading: string
     introCopy: string
-    faqs: SingletonContent<'faqPage'>['faqEntries']
+    faqs: FaqEntries
 }
 
 // ── Component ─────────────────────────────────────────────────────────────────

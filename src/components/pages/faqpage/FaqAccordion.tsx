@@ -5,7 +5,7 @@ import RichText from '@/components/RichText'
 import type { SingletonContent } from '@/lib/keystatic/singletons'
 import { documentLinkProps } from '@/utils/documentLinks'
 
-type FaqEntries = SingletonContent<'faqPage'>['faqEntries']
+export type FaqEntries = SingletonContent<'faqPage'>['faqEntries']
 
 function ChevronDownIcon({ className = '' }: { className?: string }) {
     return (
