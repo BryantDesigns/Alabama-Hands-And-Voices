@@ -1,0 +1,26 @@
+about:
+  whoWeAre:
+    title: "  Fixture Who We Are  "
+    description: "  Fixture who we are description.  "
+  boardMembers:
+    title: "  Fixture Board  "
+    description: "  Fixture board description.  "
+  staff:
+    title: "  Fixture Staff  "
+    description: "  Fixture staff description.  "
+  contact:
+    title: "  Fixture Contact  "
+    description: "  Fixture contact description.  "
+programs:
+  gbys:
+    title: "  Fixture GBYS  "
+    description: "  Fixture GBYS description.  "
+  astra:
+    title: "  Fixture ASTra  "
+    description: "  Fixture ASTra description.  "
+  safety:
+    title: "  Fixture Safety  "
+    description: "  Fixture safety description.  "
+  dhhCommittee:
+    title: "  Fixture DHH Committee  "
+    description: "  Fixture DHH Committee description.  "

@@ -70,3 +70,95 @@ describe('getSingleton', () => {
         )
     })
 })
+
+describe('getSingleton for Site Settings and Navigation', () => {
+    it('returns Site Settings values trimmed', async () => {
+        const { getSingleton } = singletonsFromFixture('padded-text')
+
+        const siteSettings = await getSingleton('siteSettings')
+
+        expect(siteSettings).toEqual({
+            siteName: 'Fixture Hands & Voices',
+            contactEmail: 'fixture@example.org',
+            phone: '205-555-0100',
+            address: 'P.O. Box 1, Fixture City, AL 35000',
+            facebookUrl: 'https://www.facebook.com/fixture/',
+            donationButtonLabel: 'Give',
+            footerCopyright: 'Fixture copyright.',
+            footerTagline: 'Fixture tagline.',
+        })
+    })
+
+    it('throws naming the field when a Site Settings value is only whitespace', async () => {
+        const { getSingleton } = singletonsFromFixture(
+            'whitespace-only-setting'
+        )
+
+        await expect(getSingleton('siteSettings')).rejects.toThrow(
+            '[Keystatic] Required field "Site Settings > Phone" is empty.'
+        )
+    })
+
+    it('throws when the Site Settings Facebook URL is relative', async () => {
+        const { getSingleton } = singletonsFromFixture('relative-facebook-url')
+
+        await expect(getSingleton('siteSettings')).rejects.toThrow(
+            '[Keystatic] Site Settings > Facebook URL must be a valid URL.'
+        )
+    })
+
+    it('returns Navigation titles and descriptions trimmed', async () => {
+        const { getSingleton } = singletonsFromFixture('padded-text')
+
+        const navigation = await getSingleton('navigation')
+
+        expect(navigation).toEqual({
+            about: {
+                whoWeAre: {
+                    title: 'Fixture Who We Are',
+                    description: 'Fixture who we are description.',
+                },
+                boardMembers: {
+                    title: 'Fixture Board',
+                    description: 'Fixture board description.',
+                },
+                staff: {
+                    title: 'Fixture Staff',
+                    description: 'Fixture staff description.',
+                },
+                contact: {
+                    title: 'Fixture Contact',
+                    description: 'Fixture contact description.',
+                },
+            },
+            programs: {
+                gbys: {
+                    title: 'Fixture GBYS',
+                    description: 'Fixture GBYS description.',
+                },
+                astra: {
+                    title: 'Fixture ASTra',
+                    description: 'Fixture ASTra description.',
+                },
+                safety: {
+                    title: 'Fixture Safety',
+                    description: 'Fixture safety description.',
+                },
+                dhhCommittee: {
+                    title: 'Fixture DHH Committee',
+                    description: 'Fixture DHH Committee description.',
+                },
+            },
+        })
+    })
+
+    it('throws naming the item when a Navigation title is only whitespace', async () => {
+        const { getSingleton } = singletonsFromFixture(
+            'whitespace-only-navigation-title'
+        )
+
+        await expect(getSingleton('navigation')).rejects.toThrow(
+            '[Keystatic] Required field "Navigation > Program Menu Items > Educational Advocacy (ASTra) > Title" is empty.'
+        )
+    })
+})
