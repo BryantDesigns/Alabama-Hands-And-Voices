@@ -1,0 +1,8 @@
+heroTagline: Fixture ASTra tagline
+questions:
+  - question: Fixture question one?
+resourceLinks:
+  - name: Fixture checklist
+    url: /assets/documents/fixture.pdf
+trainingCtaLabel: Fixture training
+trainingCtaHref: https://example.org/training

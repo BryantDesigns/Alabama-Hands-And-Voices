@@ -1,0 +1,9 @@
+heading: Fixture FAQ
+introCopy: Fixture intro.
+faqEntries:
+  - question: Fixture first question?
+    resourceLinks:
+      - label: Fixture resource
+        url: https://example.org/resource
+  - question: Fixture second question?
+    resourceLinks: []
