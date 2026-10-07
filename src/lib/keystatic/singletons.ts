@@ -15,7 +15,7 @@ import { reader } from './reader'
 
 type KeystaticConfig = typeof keystaticConfig
 
-export type SingletonName = keyof KeystaticConfig['singletons']
+type SingletonName = keyof KeystaticConfig['singletons']
 
 export type SingletonContent<Name extends SingletonName> =
     EntryWithResolvedLinkedFiles<KeystaticConfig['singletons'][Name]>
