@@ -71,8 +71,10 @@ export function createSingletons(contentReader: ContentReader) {
 }
 
 // Trims every text value in the entry and throws on one that is only
-// whitespace. `editorPath` names each field the way editors see it, from the
-// schema's labels, e.g. "Site Settings > Site Name".
+// whitespace. Empty text is left to Keystatic: it rejects a required field
+// that is empty, and an optional field left empty is allowed. `editorPath`
+// names each field the way editors see it, from the schema's labels, e.g.
+// "Site Settings > Site Name".
 function requireTrimmedText(
     values: FieldValues,
     schema: Record<string, ComponentSchema>,
@@ -106,8 +108,9 @@ function requireTrimmedText(
 // Keystatic's own required-field check lets whitespace-only text through.
 function requireText(value: string, fieldPath: string) {
     const trimmedValue = value.trim()
+    const isWhitespaceOnly = value !== '' && trimmedValue === ''
 
-    if (!trimmedValue) {
+    if (isWhitespaceOnly) {
         throw new Error(`[Keystatic] Required field "${fieldPath}" is empty.`)
     }
 

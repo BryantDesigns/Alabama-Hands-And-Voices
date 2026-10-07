@@ -99,6 +99,14 @@ describe('getSingleton for Site Settings and Navigation', () => {
         )
     })
 
+    it('fails with Keystatic validation when a required Site Settings value is empty', async () => {
+        const { getSingleton } = singletonsFromFixture('empty-required-setting')
+
+        await expect(getSingleton('siteSettings')).rejects.toThrow(
+            /^Invalid data for singleton "siteSettings":\nphone: /
+        )
+    })
+
     it('throws when the Site Settings Facebook URL is relative', async () => {
         const { getSingleton } = singletonsFromFixture('relative-facebook-url')
 
