@@ -27,13 +27,47 @@ type ContentReader = Reader<
 
 type FieldValues = Record<string, unknown>
 
+type SingletonConfig = {
+    label: string
+    schema: Record<string, ComponentSchema>
+}
+
+// Holds a singleton's content to more than Keystatic's validation: returns
+// the content cleaned up, or throws naming the field by its editor path.
+type SingletonCheck = (
+    content: FieldValues,
+    singletonConfig: SingletonConfig
+) => FieldValues
+
 // Site Settings and Navigation fill the header, footer and contact details on
-// every page, so their text is held to more than Keystatic's validation: it
-// must not be whitespace-only, and it comes back trimmed.
-const textCheckedSingletons: ReadonlySet<SingletonName> = new Set([
-    'siteSettings',
-    'navigation',
-])
+// every page, so their text must not be whitespace-only and comes back
+// trimmed. The Site Settings Facebook URL must also be absolute.
+const singletonChecks: Partial<Record<SingletonName, SingletonCheck>> = {
+    siteSettings: (content, singletonConfig) => {
+        const checkedContent = requireTrimmedText(
+            content,
+            singletonConfig.schema,
+            singletonConfig.label
+        )
+
+        requireAbsoluteUrl(
+            checkedContent.facebookUrl as string,
+            fieldEditorPath(
+                singletonConfig.label,
+                singletonConfig.schema.facebookUrl,
+                'facebookUrl'
+            )
+        )
+
+        return checkedContent
+    },
+    navigation: (content, singletonConfig) =>
+        requireTrimmedText(
+            content,
+            singletonConfig.schema,
+            singletonConfig.label
+        ),
+}
 
 export function createSingletons(contentReader: ContentReader) {
     // Returns the named singleton with every rich-text field resolved to a
@@ -45,26 +79,16 @@ export function createSingletons(contentReader: ContentReader) {
         const content = (await contentReader.singletons[
             singletonName
         ].readOrThrow({ resolveLinkedFiles: true })) as FieldValues
+        const checkSingleton = singletonChecks[singletonName]
 
-        if (!textCheckedSingletons.has(singletonName)) {
+        if (!checkSingleton) {
             return content as SingletonContent<Name>
         }
 
-        const singletonConfig = contentReader.config.singletons[singletonName]
-        const checkedContent = requireTrimmedText(
+        return checkSingleton(
             content,
-            singletonConfig.schema,
-            singletonConfig.label
-        )
-
-        if (singletonName === 'siteSettings') {
-            requireAbsoluteUrl(
-                checkedContent.facebookUrl as string,
-                'Site Settings > Facebook URL'
-            )
-        }
-
-        return checkedContent as SingletonContent<Name>
+            contentReader.config.singletons[singletonName]
+        ) as SingletonContent<Name>
     }
 
     return { getSingleton }
@@ -83,7 +107,7 @@ function requireTrimmedText(
     return Object.fromEntries(
         Object.entries(schema).map(([fieldName, field]) => {
             const value = values[fieldName]
-            const fieldPath = `${editorPath} > ${fieldLabel(field, fieldName)}`
+            const fieldPath = fieldEditorPath(editorPath, field, fieldName)
 
             if (field.kind === 'object') {
                 return [
@@ -126,8 +150,16 @@ function requireAbsoluteUrl(value: string, fieldPath: string) {
     }
 }
 
-function fieldLabel(field: ComponentSchema, fieldName: string) {
-    return ('label' in field && field.label) || fieldName
+// Names a field the way editors see it: its parent's editor path, then the
+// field's schema label, e.g. "Site Settings > Facebook URL".
+function fieldEditorPath(
+    parentEditorPath: string,
+    field: ComponentSchema,
+    fieldName: string
+) {
+    const fieldLabel = ('label' in field && field.label) || fieldName
+
+    return `${parentEditorPath} > ${fieldLabel}`
 }
 
 export const { getSingleton } = createSingletons(reader)
