@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import AstraForm from '@/components/pages/astrapage/AstraForm'
 import RichText from '@/components/RichText'
-import type { getAstraPageContent } from '@/lib/keystatic/pages'
+import type { SingletonContent } from '@/lib/keystatic/singletons'
 import { documentLinkProps } from '@/utils/documentLinks'
 
 interface AstraProps {
-    astra: NonNullable<Awaited<ReturnType<typeof getAstraPageContent>>>
+    astra: SingletonContent<'astraPage'>
     contactEmail: string
 }
 

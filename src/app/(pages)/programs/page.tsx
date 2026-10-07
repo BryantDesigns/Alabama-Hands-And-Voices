@@ -1,10 +1,10 @@
 import {
     getNavigation,
     getGbysPageContent,
-    getAstraPageContent,
     getSafetyPageContent,
     getDhhCommitteePageContent,
 } from '@/lib/keystatic/pages'
+import { getSingleton } from '@/lib/keystatic/singletons'
 import { createPageMetadata } from '@/lib/seo'
 import { buildProgramSummaries } from '@/components/pages/programspage/programsData'
 import Programs from '@/components/pages/programspage/Programs'
@@ -15,7 +15,7 @@ export default async function Page() {
     const [nav, gbys, astra, safety, dhh] = await Promise.all([
         getNavigation(),
         getGbysPageContent(),
-        getAstraPageContent(),
+        getSingleton('astraPage'),
         getSafetyPageContent(),
         getDhhCommitteePageContent(),
     ])

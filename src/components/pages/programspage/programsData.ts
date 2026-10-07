@@ -1,10 +1,10 @@
 import type {
     getNavigation,
     getGbysPageContent,
-    getAstraPageContent,
     getSafetyPageContent,
     getDhhCommitteePageContent,
 } from '@/lib/keystatic/pages'
+import type { SingletonContent } from '@/lib/keystatic/singletons'
 import type { DocumentElement, DocumentNode } from '@keystatic/core'
 
 export interface ProgramSummary {
@@ -19,7 +19,7 @@ export interface ProgramSummary {
 
 type Nav = NonNullable<Awaited<ReturnType<typeof getNavigation>>>
 type Gbys = Awaited<ReturnType<typeof getGbysPageContent>>
-type Astra = Awaited<ReturnType<typeof getAstraPageContent>>
+type Astra = SingletonContent<'astraPage'>
 type Safety = Awaited<ReturnType<typeof getSafetyPageContent>>
 type Dhh = Awaited<ReturnType<typeof getDhhCommitteePageContent>>
 

@@ -149,14 +149,6 @@ export async function getChooseMembershipPageContent() {
     return reader.singletons.chooseMembershipPage.read()
 }
 
-export async function getAstraPageContent() {
-    const page = await reader.singletons.astraPage.read()
-
-    if (!page) return null
-
-    return { ...page, programDescription: await page.programDescription() }
-}
-
 export async function getGbysPageContent() {
     const page = await reader.singletons.gbysPage.read()
 
