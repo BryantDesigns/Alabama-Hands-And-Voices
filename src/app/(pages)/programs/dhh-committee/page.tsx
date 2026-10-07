@@ -1,8 +1,6 @@
 import DhhCommittee from '@/components/pages/dhhrm/DhhCommittee'
-import {
-    getDhhCommitteePageContent,
-    getSiteSettings,
-} from '@/lib/keystatic/pages'
+import { getDhhCommitteePageContent } from '@/lib/keystatic/pages'
+import { getSingleton } from '@/lib/keystatic/singletons'
 import { getVideosByPlacement } from '@/lib/keystatic/collections'
 import { createPageMetadata } from '@/lib/seo'
 
@@ -12,7 +10,7 @@ export default async function DHHCommitteePage() {
     const [data, videos, settings] = await Promise.all([
         getDhhCommitteePageContent(),
         getVideosByPlacement('dhh-committee'),
-        getSiteSettings(),
+        getSingleton('siteSettings'),
     ])
 
     if (!data) {

@@ -23,7 +23,7 @@ import {
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import Logo from '@/components/ui/Logo'
 import Link from 'next/link'
-import type { NavigationContent } from '@/types/cms'
+import type { SingletonContent } from '@/lib/keystatic/singletons'
 
 const aboutRoutes = [
     {
@@ -68,7 +68,7 @@ const programRoutes = [
 ] as const
 
 interface OverlappingLogoHeaderProps {
-    navigation: NavigationContent
+    navigation: SingletonContent<'navigation'>
     facebookUrl: string
 }
 

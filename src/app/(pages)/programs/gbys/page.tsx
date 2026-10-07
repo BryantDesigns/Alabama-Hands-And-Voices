@@ -1,5 +1,6 @@
 import Gbys from '@/components/pages/gbyspage/Gbys'
-import { getGbysPageContent, getSiteSettings } from '@/lib/keystatic/pages'
+import { getGbysPageContent } from '@/lib/keystatic/pages'
+import { getSingleton } from '@/lib/keystatic/singletons'
 import { createPageMetadata } from '@/lib/seo'
 
 export const metadata = createPageMetadata('/programs/gbys')
@@ -7,7 +8,7 @@ export const metadata = createPageMetadata('/programs/gbys')
 export default async function GBYSPage() {
     const [data, settings] = await Promise.all([
         getGbysPageContent(),
-        getSiteSettings(),
+        getSingleton('siteSettings'),
     ])
 
     if (!data) {

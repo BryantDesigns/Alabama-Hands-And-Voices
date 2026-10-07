@@ -1,5 +1,4 @@
 import type {
-    getNavigation,
     getGbysPageContent,
     getSafetyPageContent,
     getDhhCommitteePageContent,
@@ -17,7 +16,7 @@ export interface ProgramSummary {
     logo?: string // optional logo image path
 }
 
-type Nav = NonNullable<Awaited<ReturnType<typeof getNavigation>>>
+type Nav = SingletonContent<'navigation'>
 type Gbys = Awaited<ReturnType<typeof getGbysPageContent>>
 type Astra = SingletonContent<'astraPage'>
 type Safety = Awaited<ReturnType<typeof getSafetyPageContent>>

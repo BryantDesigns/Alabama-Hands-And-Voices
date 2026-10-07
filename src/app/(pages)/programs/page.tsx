@@ -1,5 +1,4 @@
 import {
-    getNavigation,
     getGbysPageContent,
     getSafetyPageContent,
     getDhhCommitteePageContent,
@@ -13,7 +12,7 @@ export const metadata = createPageMetadata('/programs')
 
 export default async function Page() {
     const [nav, gbys, astra, safety, dhh] = await Promise.all([
-        getNavigation(),
+        getSingleton('navigation'),
         getGbysPageContent(),
         getSingleton('astraPage'),
         getSafetyPageContent(),

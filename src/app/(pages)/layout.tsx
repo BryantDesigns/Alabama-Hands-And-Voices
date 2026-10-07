@@ -1,6 +1,6 @@
 import Footer from '@/components/layout/Footer'
 import Header from '@/components/layout/Header'
-import { getNavigation, getSiteSettings } from '@/lib/keystatic/pages'
+import { getSingleton } from '@/lib/keystatic/singletons'
 import { SITE_URL } from '@/lib/seo'
 
 export default async function PagesLayout({
@@ -9,8 +9,8 @@ export default async function PagesLayout({
     children: React.ReactNode
 }) {
     const [navigation, settings] = await Promise.all([
-        getNavigation(),
-        getSiteSettings(),
+        getSingleton('navigation'),
+        getSingleton('siteSettings'),
     ])
     const organizationData = {
         '@context': 'https://schema.org',

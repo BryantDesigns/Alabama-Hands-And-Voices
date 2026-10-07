@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { PAYPAL_CGI_URL, donateButtonId } from '@/lib/membership'
-import type { SiteSettings } from '@/types/cms'
+import type { SingletonContent } from '@/lib/keystatic/singletons'
 
 const exploreLinks = [
     { title: 'Home', href: '/' },
@@ -30,7 +30,11 @@ function FooterLink({ href, title }: { href: string; title: string }) {
     )
 }
 
-export default function Footer({ settings }: { settings: SiteSettings }) {
+export default function Footer({
+    settings,
+}: {
+    settings: SingletonContent<'siteSettings'>
+}) {
     const currentYear = new Date().getFullYear()
 
     return (

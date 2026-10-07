@@ -14,16 +14,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
-import type { NavigationContent } from '@/types/cms'
+import type { SingletonContent } from '@/lib/keystatic/singletons'
 
-const aboutLinks = (nav: NavigationContent) => [
+const aboutLinks = (nav: SingletonContent<'navigation'>) => [
     { ...nav.about.whoWeAre, href: '/about' },
     { ...nav.about.boardMembers, href: '/about/board' },
     { ...nav.about.staff, href: '/about/staff' },
     { ...nav.about.contact, href: '/about/contact' },
 ]
 
-const programLinks = (nav: NavigationContent) => [
+const programLinks = (nav: SingletonContent<'navigation'>) => [
     { ...nav.programs.gbys, href: '/programs/gbys' },
     { ...nav.programs.astra, href: '/programs/astra' },
     { ...nav.programs.safety, href: '/programs/safety' },
@@ -53,7 +53,7 @@ export default function Header({
     navigation,
     facebookUrl,
 }: {
-    navigation: NavigationContent
+    navigation: SingletonContent<'navigation'>
     facebookUrl: string
 }) {
     const [menuOpen, setMenuOpen] = useState(false)
