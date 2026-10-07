@@ -16,18 +16,18 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import type { SingletonContent } from '@/lib/keystatic/singletons'
 
-const aboutLinks = (nav: SingletonContent<'navigation'>) => [
-    { ...nav.about.whoWeAre, href: '/about' },
-    { ...nav.about.boardMembers, href: '/about/board' },
-    { ...nav.about.staff, href: '/about/staff' },
-    { ...nav.about.contact, href: '/about/contact' },
+const aboutLinks = (navigation: SingletonContent<'navigation'>) => [
+    { ...navigation.about.whoWeAre, href: '/about' },
+    { ...navigation.about.boardMembers, href: '/about/board' },
+    { ...navigation.about.staff, href: '/about/staff' },
+    { ...navigation.about.contact, href: '/about/contact' },
 ]
 
-const programLinks = (nav: SingletonContent<'navigation'>) => [
-    { ...nav.programs.gbys, href: '/programs/gbys' },
-    { ...nav.programs.astra, href: '/programs/astra' },
-    { ...nav.programs.safety, href: '/programs/safety' },
-    { ...nav.programs.dhhCommittee, href: '/programs/dhh-committee' },
+const programLinks = (navigation: SingletonContent<'navigation'>) => [
+    { ...navigation.programs.gbys, href: '/programs/gbys' },
+    { ...navigation.programs.astra, href: '/programs/astra' },
+    { ...navigation.programs.safety, href: '/programs/safety' },
+    { ...navigation.programs.dhhCommittee, href: '/programs/dhh-committee' },
 ]
 
 const plainLinks = [
