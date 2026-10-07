@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import RichText from '@/components/RichText'
-import type { getAboutPageContent } from '@/lib/keystatic/pages'
+import type { SingletonContent } from '@/lib/keystatic/singletons'
 import { documentLinkProps } from '@/utils/documentLinks'
 
-type AboutData = NonNullable<Awaited<ReturnType<typeof getAboutPageContent>>>
+type AboutData = SingletonContent<'aboutPage'>
 
 interface BoardMember {
     name: string

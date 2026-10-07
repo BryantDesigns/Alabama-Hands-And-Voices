@@ -1,15 +1,11 @@
 import Safety from '@/components/pages/safetypage/Safety'
-import { getSafetyPageContent } from '@/lib/keystatic/pages'
+import { getSingleton } from '@/lib/keystatic/singletons'
 import { createPageMetadata } from '@/lib/seo'
 
 export const metadata = createPageMetadata('/programs/safety')
 
 export default async function SafetyProjectPage() {
-    const data = await getSafetyPageContent()
+    const safetyPage = await getSingleton('safetyPage')
 
-    if (!data) {
-        throw new Error('[Keystatic] Required Safety Page content is missing.')
-    }
-
-    return <Safety safety={data} />
+    return <Safety safety={safetyPage} />
 }

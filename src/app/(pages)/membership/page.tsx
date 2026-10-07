@@ -1,18 +1,15 @@
-import {
-    getMembershipPageContent,
-    getChooseMembershipPageContent,
-} from '@/lib/keystatic/pages'
+import { getSingleton } from '@/lib/keystatic/singletons'
 import { createPageMetadata } from '@/lib/seo'
 import Membership from '@/components/pages/membership/Membership'
 
 export const metadata = createPageMetadata('/membership')
 
 export default async function Page() {
-    const [membership, choose] = await Promise.all([
-        getMembershipPageContent(),
-        getChooseMembershipPageContent(),
+    const [membershipPage, chooseMembershipPage] = await Promise.all([
+        getSingleton('membershipPage'),
+        getSingleton('chooseMembershipPage'),
     ])
-    if (!membership || !choose)
-        return <main className="p-8">Membership content not found.</main>
-    return <Membership membership={membership} choose={choose} />
+    return (
+        <Membership membership={membershipPage} choose={chooseMembershipPage} />
+    )
 }

@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import type { getContactPageContent } from '@/lib/keystatic/pages'
+import type { SingletonContent } from '@/lib/keystatic/singletons'
 
 interface ContactProps {
-    contact: NonNullable<Awaited<ReturnType<typeof getContactPageContent>>>
+    contact: SingletonContent<'contactPage'>
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────

@@ -2,14 +2,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import RichText from '@/components/RichText'
 import type { EventContent } from '@/lib/events'
-import type { getHomePageContent } from '@/lib/keystatic/pages'
+import type { SingletonContent } from '@/lib/keystatic/singletons'
 import { PAYPAL_CGI_URL, donateButtonId } from '@/lib/membership'
 import { documentLinkProps } from '@/utils/documentLinks'
 
-type HomeData = NonNullable<Awaited<ReturnType<typeof getHomePageContent>>>
-
 interface HomeProps {
-    data: HomeData
+    data: SingletonContent<'homePage'>
     donationLabel: string
     events: EventContent[]
 }

@@ -1,21 +1,11 @@
 import Image from 'next/image'
-import type {
-    getMembershipPageContent,
-    getChooseMembershipPageContent,
-} from '@/lib/keystatic/pages'
+import type { SingletonContent } from '@/lib/keystatic/singletons'
 import RichText from '@/components/RichText'
 import { documentLinkProps } from '@/utils/documentLinks'
 
-type MembershipData = NonNullable<
-    Awaited<ReturnType<typeof getMembershipPageContent>>
->
-type ChooseData = NonNullable<
-    Awaited<ReturnType<typeof getChooseMembershipPageContent>>
->
-
 interface MembershipProps {
-    membership: MembershipData
-    choose: ChooseData
+    membership: SingletonContent<'membershipPage'>
+    choose: SingletonContent<'chooseMembershipPage'>
 }
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────

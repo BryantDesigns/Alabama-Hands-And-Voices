@@ -1,8 +1,3 @@
-import type {
-    getGbysPageContent,
-    getSafetyPageContent,
-    getDhhCommitteePageContent,
-} from '@/lib/keystatic/pages'
 import type { SingletonContent } from '@/lib/keystatic/singletons'
 import type { DocumentElement, DocumentNode } from '@keystatic/core'
 
@@ -15,12 +10,6 @@ export interface ProgramSummary {
     href: string // live detail route
     logo?: string // optional logo image path
 }
-
-type Nav = SingletonContent<'navigation'>
-type Gbys = Awaited<ReturnType<typeof getGbysPageContent>>
-type Astra = SingletonContent<'astraPage'>
-type Safety = Awaited<ReturnType<typeof getSafetyPageContent>>
-type Dhh = Awaited<ReturnType<typeof getDhhCommitteePageContent>>
 
 export function documentToPlainText(doc: DocumentElement[]): string {
     function flattenNode(node: DocumentNode): string {
@@ -50,76 +39,68 @@ export function documentToPlainText(doc: DocumentElement[]): string {
 }
 
 export function buildProgramSummaries(
-    nav: Nav,
-    gbys: Gbys,
-    astra: Astra,
-    safety: Safety,
-    dhh: Dhh
+    navigation: SingletonContent<'navigation'>,
+    gbysPage: SingletonContent<'gbysPage'>,
+    astraPage: SingletonContent<'astraPage'>,
+    safetyPage: SingletonContent<'safetyPage'>,
+    dhhCommitteePage: SingletonContent<'dhhCommitteePage'>
 ): ProgramSummary[] {
-    const gbysPoints =
-        gbys?.services
-            ?.slice(0, 3)
-            .map((s) => s.service)
-            .filter(Boolean) ?? []
+    const gbysPoints = gbysPage.services
+        .slice(0, 3)
+        .map((serviceItem) => serviceItem.service)
 
-    const astraPoints =
-        astra?.questions
-            ?.slice(0, 3)
-            .map((q) => q.question)
-            .filter(Boolean) ?? []
+    const astraPoints = astraPage.questions
+        .slice(0, 3)
+        .map((questionItem) => questionItem.question)
 
-    const safetyPoints =
-        safety?.actionCards
-            ?.slice(0, 3)
-            .map((c) => c.title)
-            .filter(Boolean) ?? []
+    const safetyPoints = safetyPage.actionCards
+        .slice(0, 3)
+        .map((actionCard) => actionCard.title)
 
-    const dhhPoints =
-        dhh?.benefits
-            ?.slice(0, 3)
-            .map((b) => b.benefit)
-            .filter(Boolean) ?? []
+    const dhhPoints = dhhCommitteePage.benefits
+        .slice(0, 3)
+        .map((benefitItem) => benefitItem.benefit)
 
     return [
         {
             key: 'gbys',
-            title: nav.programs.gbys.title,
-            description: nav.programs.gbys.description,
+            title: navigation.programs.gbys.title,
+            description: navigation.programs.gbys.description,
             detail:
-                documentToPlainText(gbys?.programIntro ?? []) ||
-                nav.programs.gbys.description,
+                documentToPlainText(gbysPage.programIntro) ||
+                navigation.programs.gbys.description,
             points: gbysPoints,
             href: '/programs/gbys',
             logo: '/images/gbys-logo.png',
         },
         {
             key: 'astra',
-            title: nav.programs.astra.title,
-            description: nav.programs.astra.description,
+            title: navigation.programs.astra.title,
+            description: navigation.programs.astra.description,
             detail:
-                documentToPlainText(astra?.programDescription ?? []) ||
-                nav.programs.astra.description,
+                documentToPlainText(astraPage.programDescription) ||
+                navigation.programs.astra.description,
             points: astraPoints,
             href: '/programs/astra',
             logo: '/images/AstraLogo.png',
         },
         {
             key: 'safety',
-            title: nav.programs.safety.title,
-            description: nav.programs.safety.description,
+            title: navigation.programs.safety.title,
+            description: navigation.programs.safety.description,
             detail:
-                documentToPlainText(safety?.introCopy ?? []) ||
-                nav.programs.safety.description,
+                documentToPlainText(safetyPage.introCopy) ||
+                navigation.programs.safety.description,
             points: safetyPoints,
             href: '/programs/safety',
         },
         {
             key: 'dhh',
-            title: nav.programs.dhhCommittee.title,
-            description: nav.programs.dhhCommittee.description,
+            title: navigation.programs.dhhCommittee.title,
+            description: navigation.programs.dhhCommittee.description,
             detail:
-                documentToPlainText(dhh?.description ?? []) ||
-                nav.programs.dhhCommittee.description,
+                documentToPlainText(dhhCommitteePage.description) ||
+                navigation.programs.dhhCommittee.description,
             points: dhhPoints,
             href: '/programs/dhh-committee',
         },

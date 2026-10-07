@@ -1,5 +1,4 @@
 import DhhCommittee from '@/components/pages/dhhrm/DhhCommittee'
-import { getDhhCommitteePageContent } from '@/lib/keystatic/pages'
 import { getSingleton } from '@/lib/keystatic/singletons'
 import { getVideosByPlacement } from '@/lib/keystatic/collections'
 import { createPageMetadata } from '@/lib/seo'
@@ -7,21 +6,15 @@ import { createPageMetadata } from '@/lib/seo'
 export const metadata = createPageMetadata('/programs/dhh-committee')
 
 export default async function DHHCommitteePage() {
-    const [data, videos, settings] = await Promise.all([
-        getDhhCommitteePageContent(),
+    const [dhhCommitteePage, videos, settings] = await Promise.all([
+        getSingleton('dhhCommitteePage'),
         getVideosByPlacement('dhh-committee'),
         getSingleton('siteSettings'),
     ])
 
-    if (!data) {
-        throw new Error(
-            '[Keystatic] Required DHH Committee Page content is missing.'
-        )
-    }
-
     return (
         <DhhCommittee
-            dhh={data}
+            dhh={dhhCommitteePage}
             videos={videos}
             contactEmail={settings.contactEmail}
         />

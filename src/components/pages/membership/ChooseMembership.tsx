@@ -1,12 +1,10 @@
 import Image from 'next/image'
 import MembershipForm from '@/components/pages/membership/MembershipForm'
-import type { getChooseMembershipPageContent } from '@/lib/keystatic/pages'
+import type { SingletonContent } from '@/lib/keystatic/singletons'
 import { membershipTiers, PAYPAL_CGI_URL } from '@/lib/membership'
 
 interface ChooseMembershipProps {
-    choose: NonNullable<
-        Awaited<ReturnType<typeof getChooseMembershipPageContent>>
-    >
+    choose: SingletonContent<'chooseMembershipPage'>
     contactEmail: string
 }
 

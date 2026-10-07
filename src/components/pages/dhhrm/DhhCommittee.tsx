@@ -2,10 +2,10 @@ import DHHRMForm from '@/components/pages/dhhrm/DHHRMForm'
 import VideoPlayer from '@/components/pages/dhhrm/VideoPlayer'
 import RichText from '@/components/RichText'
 import type { VideoContent } from '@/types/cms'
-import type { getDhhCommitteePageContent } from '@/lib/keystatic/pages'
+import type { SingletonContent } from '@/lib/keystatic/singletons'
 
 interface DhhCommitteeProps {
-    dhh: NonNullable<Awaited<ReturnType<typeof getDhhCommitteePageContent>>>
+    dhh: SingletonContent<'dhhCommitteePage'>
     videos: VideoContent[]
     contactEmail: string
 }

@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import GBYSForm from '@/components/pages/gbyspage/GBYSForm'
 import RichText from '@/components/RichText'
-import type { getGbysPageContent } from '@/lib/keystatic/pages'
+import type { SingletonContent } from '@/lib/keystatic/singletons'
 import { documentLinkProps } from '@/utils/documentLinks'
 
 interface GbysProps {
-    gbys: NonNullable<Awaited<ReturnType<typeof getGbysPageContent>>>
+    gbys: SingletonContent<'gbysPage'>
     contactEmail: string
 }
 

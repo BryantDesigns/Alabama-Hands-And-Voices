@@ -1,8 +1,3 @@
-import {
-    getGbysPageContent,
-    getSafetyPageContent,
-    getDhhCommitteePageContent,
-} from '@/lib/keystatic/pages'
 import { getSingleton } from '@/lib/keystatic/singletons'
 import { createPageMetadata } from '@/lib/seo'
 import { buildProgramSummaries } from '@/components/pages/programspage/programsData'
@@ -11,14 +6,20 @@ import Programs from '@/components/pages/programspage/Programs'
 export const metadata = createPageMetadata('/programs')
 
 export default async function Page() {
-    const [nav, gbys, astra, safety, dhh] = await Promise.all([
-        getSingleton('navigation'),
-        getGbysPageContent(),
-        getSingleton('astraPage'),
-        getSafetyPageContent(),
-        getDhhCommitteePageContent(),
-    ])
-    if (!nav) return <main className="p-8">Programs content not found.</main>
-    const programs = buildProgramSummaries(nav, gbys, astra, safety, dhh)
+    const [navigation, gbysPage, astraPage, safetyPage, dhhCommitteePage] =
+        await Promise.all([
+            getSingleton('navigation'),
+            getSingleton('gbysPage'),
+            getSingleton('astraPage'),
+            getSingleton('safetyPage'),
+            getSingleton('dhhCommitteePage'),
+        ])
+    const programs = buildProgramSummaries(
+        navigation,
+        gbysPage,
+        astraPage,
+        safetyPage,
+        dhhCommitteePage
+    )
     return <Programs programs={programs} />
 }

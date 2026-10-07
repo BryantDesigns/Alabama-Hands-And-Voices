@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import RichText from '@/components/RichText'
-import type { getSafetyPageContent } from '@/lib/keystatic/pages'
+import type { SingletonContent } from '@/lib/keystatic/singletons'
 
 function ArrowIcon({ className = '' }: { className?: string }) {
     return (
@@ -43,7 +43,7 @@ function ShieldIcon({ className = '' }: { className?: string }) {
 export default function Safety({
     safety,
 }: {
-    safety: NonNullable<Awaited<ReturnType<typeof getSafetyPageContent>>>
+    safety: SingletonContent<'safetyPage'>
 }) {
     const {
         heroTagline,

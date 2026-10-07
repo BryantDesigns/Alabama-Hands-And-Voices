@@ -1,4 +1,4 @@
-import { getAboutPageContent } from '@/lib/keystatic/pages'
+import { getSingleton } from '@/lib/keystatic/singletons'
 import { getBoardMembers, getStaffMembers } from '@/lib/keystatic/collections'
 import { createPageMetadata } from '@/lib/seo'
 import About from '@/components/pages/aboutpage/About'
@@ -6,12 +6,11 @@ import About from '@/components/pages/aboutpage/About'
 export const metadata = createPageMetadata('/about')
 
 export default async function Page() {
-    const [about, boardRaw, staffRaw] = await Promise.all([
-        getAboutPageContent(),
+    const [aboutPage, boardRaw, staffRaw] = await Promise.all([
+        getSingleton('aboutPage'),
         getBoardMembers(),
         getStaffMembers(),
     ])
-    if (!about) return <main className="p-8">About content not found.</main>
     const board = boardRaw
         .map((m) => ({
             name: m.entry.name,
@@ -29,5 +28,5 @@ export default async function Page() {
             sortOrder: m.entry.sortOrder,
         }))
         .sort((a, b) => (a.sortOrder ?? 99) - (b.sortOrder ?? 99))
-    return <About about={about} board={board} staff={staff} />
+    return <About about={aboutPage} board={board} staff={staff} />
 }

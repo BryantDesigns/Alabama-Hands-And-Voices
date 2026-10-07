@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import type { getResourcesPageContent } from '@/lib/keystatic/pages'
+import type { SingletonContent } from '@/lib/keystatic/singletons'
 import type { VideoContent } from '@/types/cms'
 import VideoPlayer from '@/components/pages/dhhrm/VideoPlayer'
 import {
@@ -8,9 +8,7 @@ import {
     isViewableDocument,
 } from '@/utils/documentLinks'
 
-type ResourcesData = NonNullable<
-    Awaited<ReturnType<typeof getResourcesPageContent>>
->
+type ResourcesData = SingletonContent<'resourcesPage'>
 
 interface ResourcesProps {
     data: ResourcesData

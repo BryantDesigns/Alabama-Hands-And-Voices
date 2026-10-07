@@ -1,18 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import type { DocumentElement } from '@keystatic/core'
 import RichText from '@/components/RichText'
+import type { SingletonContent } from '@/lib/keystatic/singletons'
 import { documentLinkProps } from '@/utils/documentLinks'
 
-interface Faq {
-    question: string
-    answer: DocumentElement[]
-    resourceLinks: readonly {
-        label: string
-        url: string
-    }[]
-}
+type FaqEntries = SingletonContent<'faqPage'>['faqEntries']
 
 function ChevronDownIcon({ className = '' }: { className?: string }) {
     return (
@@ -31,7 +24,7 @@ function ChevronDownIcon({ className = '' }: { className?: string }) {
     )
 }
 
-export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
+export default function FaqAccordion({ faqs }: { faqs: FaqEntries }) {
     const [openIndex, setOpenIndex] = useState<number | null>(null)
 
     function handleToggle(index: number) {
