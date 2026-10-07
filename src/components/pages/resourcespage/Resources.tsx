@@ -8,10 +8,8 @@ import {
     isViewableDocument,
 } from '@/utils/documentLinks'
 
-type ResourcesData = SingletonContent<'resourcesPage'>
-
 interface ResourcesProps {
-    data: ResourcesData
+    data: SingletonContent<'resourcesPage'>
     videos: VideoContent[]
 }
 

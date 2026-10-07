@@ -4,8 +4,6 @@ import RichText from '@/components/RichText'
 import type { SingletonContent } from '@/lib/keystatic/singletons'
 import { documentLinkProps } from '@/utils/documentLinks'
 
-type AboutData = SingletonContent<'aboutPage'>
-
 interface BoardMember {
     name: string
     role: string
@@ -20,7 +18,7 @@ interface StaffMember {
 }
 
 interface AboutProps {
-    about: AboutData
+    about: SingletonContent<'aboutPage'>
     board: BoardMember[]
     staff: StaffMember[]
 }
