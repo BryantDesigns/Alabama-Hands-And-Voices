@@ -169,4 +169,14 @@ describe('getSingleton for Site Settings and Navigation', () => {
             '[Keystatic] Required field "Navigation > Program Menu Items > Educational Advocacy (ASTra) > Title" is empty.'
         )
     })
+
+    it('throws naming the item when a Navigation description is only whitespace', async () => {
+        const { getSingleton } = singletonsFromFixture(
+            'whitespace-only-navigation-description'
+        )
+
+        await expect(getSingleton('navigation')).rejects.toThrow(
+            '[Keystatic] Required field "Navigation > About Menu Items > Staff > Description" is empty.'
+        )
+    })
 })
