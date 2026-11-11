@@ -1,36 +1,35 @@
 heroQuote: '"What works for your child is what makes the choice right." ™'
 heroLogoImage: /images/hvlogo.svg
 intro:
-  heading: What is Alabama Hands & Voices?
+  heading: What Is Alabama Hands & Voices?
   image: /images/aboutUsWhoWeAre1.jpg
   imageAlt: Hands & Voices family gathering
 mission:
   heading: Our Mission
 whereToStart:
-  heading: Where to start
+  heading: Where To Start
   subheading: First, take a deep breath
-  body: >-
-    We know this may feel overwhelming. You have just learned that your child
-    has a hearing loss, and you are not sure what to do next. That is okay.
+  body: |-
+    Whether your child was just identified with a hearing loss, or you are just going through the testing, or you are a seasoned parent just looking for support & information to help your child thrive, welcome!
 
+    This is a place where we focus on what we can do as parents to help our kids succeed. We want that child of yours to change the world, our world. Alabama Hands & Voices is a nonprofit made up of parents just like you. We collaborate with deaf and hard of hearing adults and like-minded professionals who share our belief that "what works for your child is what makes the choice right".
 
-    We have walked this path. Our organization is made up of parents just like
-    you — parents who have navigated newborn hearing screening follow-up, early
-    intervention, IEPs, technology choices, and communication decisions.
+    We hope to build this chapter into a place where you will find practical and sometimes inspiring information to guide you in parenting your own child. If you are going through the hearing screening process, you might want to start with the Parent Road Map and especially the Loss & Found video.
 
+    More questions? Visit the Virtual Waiting Room at our parent organization, Hands & Voices. It's always open!
 
-    There is no single right answer for every child or every family. What works
-    for your child is what makes the choice right. We will help you find your
-    way.
+    You can find us through this page, through phone calls and emails, and our Facebook Page.
+
+    You can do this and there's a whole community here to help!
+
+    Standing with you,
+
+    Your fellow parents at Alabama Hands & Voices
   quoteText: >-
-    Our lives and our children's lives have been enriched by those who have
-    walked this path with us and ahead of us, and we want all parents of deaf or
-    hard of hearing children to have the support they need!
-  quoteAuthors: Susan Fingerle, Jessica Havard, Maria Katz
+    Our lives and our children's lives have been enriched by those who have walked this path with us and ahead of us, and we want all parents of deaf/hard of hearing children to have the support they need!
+  quoteAuthors: Alabama Hands & Voices Founders Susan Fingerle, Jessica Havard, Maria Katz
   backgroundImage: /images/family.jpg
   stats:
-    - number: 10+
-      label: Years Serving Families
     - number: 40+
       label: Chapters Nationwide
     - number: '2017'
@@ -49,25 +48,18 @@ learnMore:
   featureBlocks:
     - heading: Guide By Your Side
       body: >-
-        Connect with a trained Parent Guide who has a child who is deaf or hard
-        of hearing. Our GBYS program provides one-on-one support tailored to
-        your family's unique journey — completely free of charge.
+        The Alabama Hands & Voices Guide By Your Side program is dedicated to directly supporting families and their children who have been diagnosed with a hearing loss, by offering families the opportunity to talk or meet, face-to-face, with a trained Parent Guide.
       image: /images/aboutUsWhoWeAreFamily.jpg
       imageAlt: GBYS family support
     - heading: Educational Advocacy
       body: >-
-        ASTra (Advocacy Support and Training) helps families navigate the
-        special education system. We can help you prepare for IEP meetings,
-        understand your rights, and build an effective educational team for your
-        child.
+        ASTra is an educational advocacy program that embodies the mission and vision of Hands & Voices. ASTra stands for the Advocacy Support and Training Program.
       image: /images/aboutUsWhoWeAreTrail.jpeg
       imageAlt: Educational advocacy support
 membership:
   heading: Membership
   body: >-
-    Thank you for your interest in Alabama Hands & Voices. Membership fees help
-    fund chapter activities and operations and provide members with newsletters
-    from Hands & Voices headquarters.
+    Thank you for your interest in Alabama Hands & Voices. Please consider joining our chapter. Membership fees help fund our chapter activities and operations and provide members with newsletters from Hands & Voices headquarters. Yearly membership fees are $25 for families, students, and deaf or hard of hearing adults, $40 for professionals, and $50 for organizations.
   fees:
     - label: Families, students, and DHH adults
       price: $25
@@ -80,13 +72,9 @@ membership:
 support:
   heading: Support Our Mission
   body: >-
-    Alabama Hands & Voices relies on the generosity of donors and members to
-    provide free services to families across the state. Your donation helps us
-    connect more families, fund family retreats, and train parent guides.
+    If you would like to donate to provide operational funds for Alabama Hands & Voices, Inc, we are an Alabama non-profit corporation with 501(c)(3) status.
 events:
   heading: Events
   intro: >-
-    We host monthly virtual gatherings for parents and caregivers to connect,
-    learn, and share with other families on similar journeys. More dates are
-    coming soon. Stay tuned.
+    We are hosting monthly virtual gatherings for parents/caregivers to connect, learn, and share with other families on similar journeys. More dates coming soon. Stay tuned.
   backgroundImage: /images/family.jpg

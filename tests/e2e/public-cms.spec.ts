@@ -284,8 +284,8 @@ test('preserves every migrated rich-text value', async ({ page }) => {
         {
             route: '/',
             phrases: [
-                'We provide unbiased information, resources, and support',
-                'Our outreach, parent-professional collaboration, and advocacy',
+                'We embrace parent and professional collaboration',
+                'Our outreach activities, parent/professional collaboration, and advocacy efforts',
             ],
         },
         {
@@ -343,6 +343,19 @@ test('preserves every migrated rich-text value', async ({ page }) => {
         await expect(page.locator(`#faq-v3-panel-${index}`)).toContainText(
             faqPhrases[index]
         )
+    }
+})
+
+test('keeps paragraph breaks in restored plain-text copy', async ({ page }) => {
+    const standaloneParagraphs = [
+        { route: '/', paragraph: /^Standing with you,$/ },
+    ]
+
+    for (const { route, paragraph } of standaloneParagraphs) {
+        await page.goto(route, { waitUntil: 'domcontentloaded' })
+        await expect(
+            page.locator('#main-content p').filter({ hasText: paragraph })
+        ).toHaveCount(1)
     }
 })
 
