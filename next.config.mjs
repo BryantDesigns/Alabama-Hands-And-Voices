@@ -1,7 +1,12 @@
+import { legacyRedirects } from './src/lib/legacyRedirects.mjs'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     outputFileTracingIncludes: {
         '/': ['./src/content/**/*'],
+    },
+    redirects() {
+        return legacyRedirects
     },
     images: {
         remotePatterns: [
