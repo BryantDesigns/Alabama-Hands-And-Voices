@@ -1,10 +1,10 @@
-heroTagline: Advocate Support Training & Resources
+heroTagline: Advocacy Support and Training Program
 questions:
-  - question: Are you confused by your child's IEP or educational plan?
-  - question: Do you need help preparing for meetings with your child's school?
-  - question: Are you unsure of your rights as a parent in the special education process?
-  - question: Do you need support communicating with your child's educational team?
-  - question: Are you looking for resources to help your child succeed in school?
+  - question: What laws support my child's education?
+  - question: I don't understand what my child might be eligible for.
+  - question: What is a Communication Plan? Safety Plan? Health Plans?
+  - question: I need to learn the difference between an IEP and a 504 Plan.
+  - question: What rights do I have as a parent?
 resourceLinks:
   - name: IEP Meeting Planner
     url: https://handsandvoices.org/IEPmeetingplanner/
@@ -18,5 +18,5 @@ resourceLinks:
     url: /assets/documents/SAIInventory.pdf
   - name: Functional Listening Evaluation
     url: https://handsandvoices.org/pdf/func_eval.pdf
-trainingCtaLabel: Register for Level 1 Training
+trainingCtaLabel: Join the wait list
 trainingCtaHref: https://forms.office.com/r/5AjZw87bMV

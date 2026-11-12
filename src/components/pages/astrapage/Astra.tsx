@@ -4,6 +4,8 @@ import RichText from '@/components/RichText'
 import type { SingletonContent } from '@/lib/keystatic/singletons'
 import { documentLinkProps } from '@/utils/documentLinks'
 
+const headquartersAstraUrl = 'https://www.handsandvoices.org/astra/index.html'
+
 interface AstraProps {
     astra: SingletonContent<'astraPage'>
     contactEmail: string
@@ -174,7 +176,7 @@ export default function Astra({ astra, contactEmail }: AstraProps) {
                             <div className="overflow-hidden rounded-3xl bg-white p-6 shadow-2xl ring-1 ring-white/20">
                                 <Image
                                     src="/images/AstraLogo.png"
-                                    alt="ASTra — Advocate Support Training and Resources"
+                                    alt="ASTra — Advocacy Support & Training"
                                     width={220}
                                     height={110}
                                     priority
@@ -217,7 +219,7 @@ export default function Astra({ astra, contactEmail }: AstraProps) {
                                         Could this help your family?
                                     </p>
                                     <h3 className="mt-2 text-xl font-extrabold tracking-tight text-white md:text-2xl">
-                                        Families come to ASTra when…
+                                        Do you have questions like this?
                                     </h3>
                                     <span
                                         aria-hidden="true"
@@ -260,9 +262,24 @@ export default function Astra({ astra, contactEmail }: AstraProps) {
                                         className="mt-4 block h-1.5 w-16 rounded-full bg-hvorange-600"
                                     />
 
+                                    <p className="mt-6 text-sm leading-relaxed font-medium text-slate-700">
+                                        Take a look at our favorite resources
+                                        available on{' '}
+                                        <a
+                                            href={headquartersAstraUrl}
+                                            {...documentLinkProps(
+                                                headquartersAstraUrl,
+                                                { externalNewTab: true }
+                                            )}
+                                            className="font-bold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
+                                        >
+                                            Hands &amp; Voices HQ website
+                                        </a>
+                                    </p>
+
                                     <ul
                                         role="list"
-                                        className="mt-6 space-y-3"
+                                        className="mt-4 space-y-3"
                                         aria-label="ASTra resources"
                                     >
                                         {resourceLinks.map((link, i) => (
@@ -313,21 +330,18 @@ export default function Astra({ astra, contactEmail }: AstraProps) {
                         <div className="grid items-center gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:gap-12">
                             <div>
                                 <p className="text-sm font-bold tracking-widest text-hvblue uppercase">
-                                    Advocate Training
+                                    Training
                                 </p>
                                 <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-hvblue md:text-5xl">
-                                    Become an ASTra advocate.
+                                    Level 1 Educational Advocacy training.
                                 </h2>
                                 <span
                                     aria-hidden="true"
                                     className="mt-5 block h-1.5 w-20 rounded-full bg-hvblue"
                                 />
                                 <p className="mt-6 max-w-xl text-base leading-relaxed font-medium text-hvblue/90 md:text-lg">
-                                    Trained advocates make the ASTra program
-                                    possible. If you have experience navigating
-                                    the school system with a deaf or
-                                    hard-of-hearing child, consider joining our
-                                    advocate network.
+                                    Join the wait list for Level 1 Educational
+                                    Advocacy training class.
                                 </p>
                             </div>
 
@@ -367,9 +381,8 @@ export default function Astra({ astra, contactEmail }: AstraProps) {
                             className="mx-auto mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                         />
                         <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed font-medium text-slate-700 md:text-lg">
-                            Fill out the form below and an ASTra advocate will
-                            reach out to connect with your family. All
-                            information is kept confidential.
+                            Help is Here! Ask for an ASTra advocate by
+                            completing an advocacy request form below.
                         </p>
                     </div>
 

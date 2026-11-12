@@ -240,7 +240,7 @@ test('renders the seeded v3 marketing copy from CMS', async ({ page }) => {
         },
         {
             route: '/programs/astra',
-            values: ['Advocate Support Training & Resources'],
+            values: ['Advocacy Support and Training Program'],
         },
         {
             route: '/programs/dhh-committee',
@@ -303,7 +303,9 @@ test('preserves every migrated rich-text value', async ({ page }) => {
         },
         {
             route: '/programs/astra',
-            phrases: ['help families navigate the educational system'],
+            phrases: [
+                'ASTra stands for the Advocacy Support and Training Program',
+            ],
         },
         {
             route: '/programs/dhh-committee',
