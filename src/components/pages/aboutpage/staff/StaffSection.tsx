@@ -1,5 +1,9 @@
+import Link from 'next/link'
 import StaffCard from './StaffCard'
 import { Staff } from '@/types/Staff'
+
+const referralLinkClassName =
+    'font-bold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden'
 
 interface StaffSectionProps {
     members: Staff[]
@@ -69,6 +73,26 @@ export default function StaffSection({ members }: StaffSectionProps) {
                             aria-hidden="true"
                             className="mt-5 block h-1.5 w-20 rounded-full bg-hvorange-600"
                         />
+                        <p className="mt-6 text-base leading-relaxed font-medium text-slate-700">
+                            Parent Guides are assigned by region or by specialty
+                            depending on the needs of the family.{' '}
+                            <Link
+                                href="/programs/gbys"
+                                className={referralLinkClassName}
+                            >
+                                GBYS Referral
+                            </Link>
+                        </p>
+                        <p className="mt-4 text-base leading-relaxed font-medium text-slate-700">
+                            ASTra advocates are assigned depending on the needs
+                            of the family by the ASTra coordinator.{' '}
+                            <Link
+                                href="/programs/astra"
+                                className={referralLinkClassName}
+                            >
+                                ASTra Referral
+                            </Link>
+                        </p>
                     </div>
 
                     <div className="mt-12 flex flex-col gap-14">

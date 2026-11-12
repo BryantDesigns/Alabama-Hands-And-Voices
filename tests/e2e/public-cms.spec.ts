@@ -351,7 +351,8 @@ test('keeps paragraph breaks in restored plain-text copy', async ({ page }) => {
         { route: '/', paragraph: /^Standing with you,$/ },
         {
             route: '/about',
-            paragraph: /^Scholarships are available for parents upon request\.$/,
+            paragraph:
+                /^Scholarships are available for parents upon request\.$/,
         },
     ]
 
@@ -361,6 +362,39 @@ test('keeps paragraph breaks in restored plain-text copy', async ({ page }) => {
             page.locator('#main-content p').filter({ hasText: paragraph })
         ).toHaveCount(1)
     }
+})
+
+test('renders restored board roles and staff regions', async ({ page }) => {
+    await page.goto('/about/board', { waitUntil: 'domcontentloaded' })
+    const boardCards = page.locator('#main-content article')
+    await expect(
+        boardCards.filter({ hasText: 'Julibeth Jones' })
+    ).toContainText('Audiologist')
+    await expect(boardCards.filter({ hasText: 'Ryan Hickman' })).toContainText(
+        'Deaf adult'
+    )
+    await expect(boardCards.filter({ hasText: 'Sandra Ware' })).toContainText(
+        'Educational Administrator'
+    )
+    await expect(
+        page.locator('#main-content').getByText('Parent', { exact: true })
+    ).toHaveCount(0)
+
+    await page.goto('/about/staff', { waitUntil: 'domcontentloaded' })
+    const staffCards = page.locator('#main-content article')
+    await expect(staffCards.filter({ hasText: 'Marcie Coker' })).toContainText(
+        'ASTra Coordinator'
+    )
+    await expect(staffCards.filter({ hasText: 'Joy Liveoak' })).toContainText(
+        'Montgomery, South Alabama'
+    )
+    const mainContent = page.locator('#main-content')
+    await expect(
+        mainContent.getByRole('link', { name: 'GBYS Referral', exact: true })
+    ).toHaveAttribute('href', '/programs/gbys')
+    await expect(
+        mainContent.getByRole('link', { name: 'ASTra Referral', exact: true })
+    ).toHaveAttribute('href', '/programs/astra')
 })
 
 test('filters inactive videos and sorts active videos by placement', () => {
