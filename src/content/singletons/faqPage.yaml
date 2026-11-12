@@ -1,55 +1,39 @@
 heading: Frequently Asked Questions
 introCopy: Find answers to common questions about hearing loss, resources, and support for your family.
 faqEntries:
-    - question: My child was referred for additional hearing tests after the newborn screening. What does this mean?
+    - question: My child was referred for additional hearing tests or I suspect that my child is not hearing/hearing well?
       resourceLinks:
-          - label: Find a pediatric audiologist with EHDI-PALS
+          - label: EHDIPALS.ORG (Find an audiologist)
             url: http://www.ehdi-pals.org/
-          - label: Alabama Newborn Hearing Screening
+          - label: Alabama Early Hearing Detection & Intervention/Alabama Department of Public Health (EHDI)
             url: https://www.alabamapublichealth.gov/newbornscreening/newborn-hearing-screening.html
-          - label: NCHAM state resources
+          - label: www.infanthearing.org/states
             url: http://www.infanthearing.org/states/
-    - question: My child is deaf or hard of hearing. Now what?
-      resourceLinks:
-          - label: Alabama Early Intervention System
-            url: https://www.rehab.alabama.gov/services/ei
-          - label: Download ADRS Pathways for Families
-            url: /assets/documents/Pathways.pdf
-          - label: Alabama Special Education Services
-            url: https://www.alabamaachieves.org/special-education/
-          - label: Parent's Guide to D/HH Early Intervention
-            url: https://www.handsandvoices.org/resources/pubs/Final_8-30-2017.pdf
+    - question: My child is deaf or hard of hearing, now what?
+      resourceLinks: []
     - question: Will we seek technology to enhance our child's hearing?
       resourceLinks:
-          - label: Hearing aids
-            url: https://www.nidcd.nih.gov/health/hearing-aids
-          - label: Cochlear implants
-            url: http://www.acialliance.org/page/CochlearImplant
-          - label: American Sign Language
-            url: https://www.nad.org/resources/american-sign-language/
-          - label: Alabama Association of the Deaf
+          - label: Alabama Association of the Deaf (AAD)
             url: https://deafalabama.org/home/
-          - label: Auburn Speech and Hearing Clinic
+          - label: Auburn Speech & Hearing Clinic
             url: https://cla.auburn.edu/speechandhearingclinic/
-          - label: Children's Rehabilitation Services
+          - label: Children's Rehabilitation Service (CRS) (Hearing Aids and Audiology)
             url: https://www.rehab.alabama.gov/services/crs
           - label: All for Children
             url: https://all-forchildren.com/
-          - label: East Alabama ENT
+          - label: East Alabama Ear Nose & Throat
             url: https://www.eaent.com/
-          - label: Children's of Alabama HEAR Center
+          - label: Cochlear Implant Providers (Pediatric)
+            url: http://www.acialliance.org/page/CochlearImplant
+          - label: The HEAR Center of Children’s Hospital– Birmingham (hearing aids, cochlear implants, audiology)
             url: https://www.childrensal.org/hear-center
-          - label: Huntsville Hospital pediatric audiology
+          - label: Huntsville Cochlear Implant Center
             url: http://www.hhwomenandchildren.org/pediatric-audiology
-          - label: University of South Alabama Speech and Hearing Center
+          - label: University of South Alabama Speech & Hearing Center
             url: https://www.southalabama.edu/colleges/alliedhealth/speechandhearing/clinic.html
     - question: How will we communicate with our child?
       resourceLinks:
           - label: Hands & Voices Communication Considerations A-Z
             url: http://www.handsandvoices.org/comcon/index.html
     - question: How do I start building my child's team?
-      resourceLinks:
-          - label: Email Alabama Hands & Voices
-            url: mailto:alabamahinfo@gmail.com
-          - label: Request a Guide By Your Side
-            url: /programs/gbys
+      resourceLinks: []

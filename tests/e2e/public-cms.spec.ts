@@ -334,11 +334,11 @@ test('preserves every migrated rich-text value', async ({ page }) => {
 
     await page.goto('/faq', { waitUntil: 'domcontentloaded' })
     const faqPhrases = [
-        'Follow-up testing is routine',
-        'Download our Pathways guide',
-        'Technology decisions are personal',
-        'There is no single right answer',
-        "Your child's team may include audiologists",
+        'Follow up and have your child’s hearing tested by an audiologist',
+        'receive “early intervention” services from ages 0-3',
+        'Professionals can evaluate whether your child is a candidate',
+        'here’s where the controversy is',
+        'would love to be a part of your team',
     ]
     const faqButtons = page.locator('button[aria-controls^="faq-v3-panel-"]')
 
