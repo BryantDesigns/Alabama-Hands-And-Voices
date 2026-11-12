@@ -150,9 +150,8 @@ export default function About({ about, board, staff }: AboutProps) {
                         </h1>
 
                         <p className="mt-7 max-w-xl text-lg leading-relaxed font-medium text-white/90 md:text-xl">
-                            A parent-driven, non-profit community walking beside
-                            every Alabama family with a deaf or hard-of-hearing
-                            child — from first diagnosis to full potential.
+                            Our goal is to work together to benefit children who
+                            are deaf or hard of hearing and their families.
                         </p>
 
                         <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">

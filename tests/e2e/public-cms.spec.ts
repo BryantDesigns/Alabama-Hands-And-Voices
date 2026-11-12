@@ -291,7 +291,7 @@ test('preserves every migrated rich-text value', async ({ page }) => {
         {
             route: '/about',
             phrases: [
-                'including ASL and other visual-language signers',
+                'We are parents of ASL and other visual language signers',
                 'Hands & Voices does not promote specific communication choices',
             ],
         },
@@ -349,6 +349,10 @@ test('preserves every migrated rich-text value', async ({ page }) => {
 test('keeps paragraph breaks in restored plain-text copy', async ({ page }) => {
     const standaloneParagraphs = [
         { route: '/', paragraph: /^Standing with you,$/ },
+        {
+            route: '/about',
+            paragraph: /^Scholarships are available for parents upon request\.$/,
+        },
     ]
 
     for (const { route, paragraph } of standaloneParagraphs) {
