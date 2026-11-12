@@ -234,8 +234,7 @@ export default function DhhCommittee({
                         />
                         <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed font-medium text-slate-700 md:text-lg">
                             Fill out the form below and a D/HH Committee member
-                            will reach out to connect with your family. All
-                            information is kept confidential.
+                            will reach out to connect with your family.
                         </p>
                     </div>
 

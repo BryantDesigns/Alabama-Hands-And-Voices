@@ -246,7 +246,7 @@ test('renders the seeded v3 marketing copy from CMS', async ({ page }) => {
             route: '/programs/dhh-committee',
             values: [
                 'Deaf & Hard of Hearing Role Models & Mentors',
-                'D/HH Committee Members are deaf and hard of hearing adults who give back by serving as role models and mentors to the next generation of children and families.',
+                'Deaf or Hard of Hearing Committee Members can…',
             ],
         },
         {
@@ -309,7 +309,9 @@ test('preserves every migrated rich-text value', async ({ page }) => {
         },
         {
             route: '/programs/dhh-committee',
-            phrases: ['serve as role models and mentors'],
+            phrases: [
+                'uniquely qualified to provide the child, parents, professionals',
+            ],
         },
         {
             route: '/programs/safety',
