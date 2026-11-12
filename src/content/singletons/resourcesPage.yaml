@@ -4,29 +4,27 @@ introCopy: >-
 resourceCategories:
     - title: Confirmed Hearing Loss
       resources:
-          - name: "Testing Baby's Hearing (Parent Road Map)"
-            url: /assets/documents/Road_map.pdf
-          - name: Alabama Newborn Screening Program
-            url: https://www.alabamapublichealth.gov/newbornscreening/newborn-hearing-screening.html
-          - name: Alabama Hearing Loss Options
-            url: https://www.alhearinglossoptions.org/
-          - name: Guide By Your Side
+          - name: Guide by Your Side
             url: /programs/gbys
-          - name: Educational Advocacy (ASTra)
+          - name: Educational Advocacy
             url: /programs/astra
     - title: Children Ages 0-3
       resources:
-          - name: "Parent's Guide to D/HH Early Intervention (English)"
+          - name: Testing Baby’s Hearing
+            url: /assets/documents/Road_map.pdf
+          - name: Alabama Newborn Screening Program
+            url: https://www.alabamapublichealth.gov/newbornscreening/newborn-hearing-screening.html
+          - name: Parent’s Guide to D/HH Early Intervention (English)
             url: https://www.handsandvoices.org/resources/pubs/Final_8-30-2017.pdf
-          - name: "Parent's Guide to D/HH Early Intervention (Spanish)"
+          - name: Parent’s Guide to D/HH Early Intervention (Spanish)
             url: https://www.handsandvoices.org/resources/pubs/jci-parentsguide-spanish.pdf
-          - name: Alabama Early Intervention System
+          - name: Alabama Early Intervention’s System
             url: https://rehab.alabama.gov/nevertooearlyal/
+          - name: Alabama Hearing Loss Options
+            url: https://www.alhearinglossoptions.org/
           - name: List of Resources and Providers (Ages 0-3)
             url: /assets/documents/providers-0-3.pdf
-          - name: EHDI-PALS Audiology Finder
-            url: http://www.ehdi-pals.org/
-    - title: Children Ages 3+
+    - title: Children 3+
       resources:
           - name: Alabama Parent Education Center
             url: http://alabamaparentcenter.com/web/
@@ -36,17 +34,14 @@ resourceCategories:
             url: https://www.rehab.alabama.gov/services/vr/vr
           - name: Deaf Education Guidelines
             url: https://deafedguidelines.org/
-          - name: Alabama Hands & Voices Communication Plan
+          - name: Alabama Communication Plan for Deaf Hard of Hearing
             url: /assets/documents/communicationPlan.pdf
-          - name: Alabama Hands & Voices Spanish Communication Plan
+          - name: Alabama Communication Plan for Deaf Hard of Hearing (Spanish)
             url: /assets/documents/communicationPlan-es.docx
           - name: List of Resources and Providers (Ages 3+)
             url: /assets/documents/providers-3-plus.pdf
-          - name: Cheryl Johnson discussion of Educational Service Guidelines
+          - name: Cheryl Johnson discussion of Educational Service Guidelines - National Association of State Directors of Special Education
             url: https://www.youtube.com/watch?v=toZKXzZ20UA
 ehdiSidebarBody: >-
-    The EHDI-PALS directory has information about audiology services for children
-    from birth to age five. Facilities report pediatric equipment and expertise,
-    licensed audiologists, available languages, payment options, and appointment
-    availability.
+    The EHDI-PALS directory has information about hearing (audiology) services for children from birth to age five. All of the facilities in this directory report that they have the equipment and expertise to serve children and have licensed audiologists. The directory contains clinic information, including: audiology (hearing) services, languages available, payment options, appointment availability. To learn more about childhood hearing loss and to find a pediatric audiologist, visit:
 ehdiSidebarUrl: http://www.ehdi-pals.org/
