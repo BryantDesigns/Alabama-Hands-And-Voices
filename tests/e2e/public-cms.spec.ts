@@ -354,6 +354,10 @@ test('keeps paragraph breaks in restored plain-text copy', async ({ page }) => {
             paragraph:
                 /^Scholarships are available for parents upon request\.$/,
         },
+        {
+            route: '/about/contact',
+            paragraph: /^We look forward to connecting with you\.$/,
+        },
     ]
 
     for (const { route, paragraph } of standaloneParagraphs) {

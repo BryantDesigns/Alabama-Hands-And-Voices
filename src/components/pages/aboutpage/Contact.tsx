@@ -256,14 +256,15 @@ export default function Contact({ contact }: ContactProps) {
                             </div>
 
                             <p className="mt-8 text-base leading-relaxed font-medium text-slate-700">
-                                Looking for family support?{' '}
+                                Visit our{' '}
                                 <Link
                                     href="/programs/gbys"
                                     className="font-bold text-hvorange-700 underline-offset-4 transition hover:underline focus-visible:ring-2 focus-visible:ring-hvorange-600 focus-visible:ring-offset-2 focus-visible:outline-hidden"
                                 >
-                                    Learn about our GBYS program
+                                    Guide By Your Side page
                                 </Link>{' '}
-                                and connect with a parent guide who understands.
+                                for more information or to refer a family or
+                                yourself.
                             </p>
                         </div>
                     </div>
