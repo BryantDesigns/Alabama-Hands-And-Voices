@@ -114,7 +114,7 @@ export default function GBYSForm({ contactEmail }: { contactEmail: string }) {
         <div>
             <p className="mb-6 text-base leading-relaxed font-medium text-slate-700 md:text-lg">
                 {activeTab === 'personal'
-                    ? 'To be connected with a Parent Guide, please fill out the form below. To become an Alabama Hands & Voices member, visit the '
+                    ? 'To be connected with a Parent Guide, please fill out the form below. To become an Alabama Hands & Voices member, please go to the '
                     : 'Professionals may use this form to refer a family to the GBYS program. Please provide your contact details and the family’s information below. Visit the '}
                 <a
                     href="/membership"

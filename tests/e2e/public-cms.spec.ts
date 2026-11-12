@@ -299,6 +299,7 @@ test('preserves every migrated rich-text value', async ({ page }) => {
             route: '/programs/gbys',
             phrases: [
                 'talk or meet, face-to-face, with a trained Parent Guide',
+                'To become an Alabama Hands & Voices member, please go to the membership page',
             ],
         },
         {
