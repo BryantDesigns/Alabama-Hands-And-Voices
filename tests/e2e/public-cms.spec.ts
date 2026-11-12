@@ -313,7 +313,7 @@ test('preserves every migrated rich-text value', async ({ page }) => {
         },
         {
             route: '/programs/safety',
-            phrases: ['protect children who are deaf or hard of hearing'],
+            phrases: ['at a higher risk for both abuse and neglect'],
         },
         {
             route: '/membership',
