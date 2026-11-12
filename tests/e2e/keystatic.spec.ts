@@ -231,7 +231,7 @@ test('shows the scoped rich-text toolbar for FAQ answers', async ({ page }) => {
     })
     await faqEntries
         .getByRole('row', {
-            name: 'My child was referred for additional hearing tests after the newborn screening. What does this mean?',
+            name: 'My child was referred for additional hearing tests or I suspect that my child is not hearing/hearing well?',
             exact: true,
         })
         .click()
