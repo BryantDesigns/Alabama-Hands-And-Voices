@@ -279,15 +279,7 @@ export default function ChooseMembership({
                         />
                         <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed font-medium text-slate-700 md:text-lg">
                             Fill out the form below to join Alabama Hands &amp;
-                            Voices. All fields marked with{' '}
-                            <span
-                                aria-hidden="true"
-                                className="font-bold text-red-700"
-                            >
-                                *
-                            </span>{' '}
-                            <span className="sr-only">an asterisk</span> are
-                            required.
+                            Voices.
                         </p>
                     </div>
 
@@ -314,7 +306,7 @@ export default function ChooseMembership({
                             Give today
                         </p>
                         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white md:text-5xl">
-                            Support Our Mission
+                            Please Consider A Donation
                         </h2>
                         <span
                             aria-hidden="true"

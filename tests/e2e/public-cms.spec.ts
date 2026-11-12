@@ -319,7 +319,7 @@ test('preserves every migrated rich-text value', async ({ page }) => {
         },
         {
             route: '/membership',
-            phrases: ['families who need financial assistance'],
+            phrases: ['Scholarships are available for parents upon request'],
         },
     ]
 
