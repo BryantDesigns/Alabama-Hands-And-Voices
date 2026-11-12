@@ -516,7 +516,7 @@ export default function GBYSForm({ contactEmail }: { contactEmail: string }) {
                             </legend>
                             <LabeledField
                                 id="inputParentQuestions"
-                                label="Questions, concerns, or special needs"
+                                label="Please provide initial parent questions/support requested, special needs or important information"
                                 hint="I authorize Alabama Hands & Voices to disclose to our Parent Guide(s) my name, contact information, name and age of my child so that a Parent Guide(s) may reach out to me regarding Alabama Hands & Voices activities and resources and parent-to-parent support."
                             >
                                 <textarea
@@ -869,7 +869,7 @@ export default function GBYSForm({ contactEmail }: { contactEmail: string }) {
                             </legend>
                             <LabeledField
                                 id="pr-parent-questions"
-                                label="Questions, concerns, or special needs"
+                                label="Please provide initial parent questions/support requested, special needs or important information"
                                 hint="I authorize Alabama Hands & Voices to disclose to our Parent Guide(s) my name, contact information, name and age of my child so that a Parent Guide(s) may reach out to me regarding Alabama Hands & Voices activities and resources and parent-to-parent support."
                             >
                                 <textarea

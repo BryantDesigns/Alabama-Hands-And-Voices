@@ -297,7 +297,9 @@ test('preserves every migrated rich-text value', async ({ page }) => {
         },
         {
             route: '/programs/gbys',
-            phrases: ['trained Parent Guides who have walked a similar path'],
+            phrases: [
+                'talk or meet, face-to-face, with a trained Parent Guide',
+            ],
         },
         {
             route: '/programs/astra',
